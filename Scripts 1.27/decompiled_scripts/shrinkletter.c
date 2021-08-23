@@ -845,7 +845,7 @@ int func_22(int iParam0)//Position - 0xB5C
 	{
 		return 0;
 	}
-	return Global_97353.f_7341.f_99.f_58[iParam0];
+	return Global_SAVE_DATA.FLOW_STRUCT.MF_CONTROLS_STRUCT.f_58[iParam0];
 }
 
 struct<4> func_23(var uParam0)//Position - 0xB89
@@ -1095,7 +1095,7 @@ struct<4> func_28(var uParam0)//Position - 0xF5C
 
 int func_29(int iParam0, int iParam1)//Position - 0xFB9
 {
-	if (Global_97353.f_8448[iParam0 /*12*/].f_5 == 1)
+	if (Global_SAVE_DATA.COMP_PERCENT_SAVED_ARRAY[iParam0 /*12*/].f_5 == 1)
 	{
 		if (iParam1 == 1)
 		{
@@ -1251,7 +1251,7 @@ int func_34(int iParam0)//Position - 0x133F
 {
 	if (iParam0 < 9)
 	{
-		return MISC::IS_BIT_SET(Global_97353.f_16357.f_175[iParam0 /*19*/].f_18, 0);
+		return MISC::IS_BIT_SET(Global_SAVE_DATA.FRIENDS_SAVED_ARRAY.f_175[iParam0 /*19*/].f_18, 0);
 	}
 	return 0;
 }
@@ -1283,15 +1283,15 @@ int func_36(int iParam0)//Position - 0x13DF
 	switch (iParam0)
 	{
 		case 0:
-			return Global_97353.f_8303.f_90[0];
+			return Global_SAVE_DATA.STUNT_JUMPS_SAVED_STRUCT.PROSTITUTE_SERVICES_ARRAY[0];
 			break;
 		
 		case 1:
-			return Global_97353.f_8303.f_90[1];
+			return Global_SAVE_DATA.STUNT_JUMPS_SAVED_STRUCT.PROSTITUTE_SERVICES_ARRAY[1];
 			break;
 		
 		case 2:
-			return Global_97353.f_8303.f_90[2];
+			return Global_SAVE_DATA.STUNT_JUMPS_SAVED_STRUCT.PROSTITUTE_SERVICES_ARRAY[2];
 			break;
 	}
 	return 0;

@@ -2055,14 +2055,14 @@ void func_40(bool bParam0, int iParam1)//Position - 0x4295
 			Global_54750 = 1;
 		}
 	}
-	if (Global_97353.f_7341 || func_43(0))
+	if (Global_SAVE_DATA.isGameflowActive || func_43(0))
 	{
 		iVar0 = func_41();
 		iVar1 = Global_81119[iVar0 /*5*/];
 		uVar2 = Global_68514.f_109[iVar1 /*4*/];
 		if (iVar0 == -1)
 		{
-			if (Global_97353.f_7341)
+			if (Global_SAVE_DATA.isGameflowActive)
 			{
 			}
 			return;

@@ -1649,7 +1649,7 @@ bool func_40(bool bParam0)//Position - 0x1B28
 
 int func_41()//Position - 0x1B53
 {
-	if (Global_97353.f_7341.f_328[0 /*6*/])
+	if (Global_SAVE_DATA.FLOW_STRUCT.MF_MISSION_ARRAY[0 /*6*/])
 	{
 		return 1;
 	}
@@ -2353,7 +2353,7 @@ int func_88(bool bParam0, bool bParam1)//Position - 0x24F0
 {
 	if (bParam0)
 	{
-		if (MISC::IS_BIT_SET(Global_97353.f_668.f_683, 2))
+		if (MISC::IS_BIT_SET(Global_SAVE_DATA.SHOP_SAVED_DATA_STRUCT.f_683, 2))
 		{
 			return 1;
 		}

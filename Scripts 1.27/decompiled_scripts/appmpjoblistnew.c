@@ -14373,7 +14373,7 @@ void func_166(char* sParam0)//Position - 0x18C22
 
 var func_167(int iParam0)//Position - 0x18C34
 {
-	return func_174(&(Global_97353.f_29774[iParam0 /*29*/].f_7));
+	return func_174(&(Global_SAVE_DATA.CHARSHEET_SAVED_ARRAY[iParam0 /*29*/].f_7));
 }
 
 int func_168(int iParam0)//Position - 0x18C4D
@@ -14521,7 +14521,7 @@ var func_174(char[4] cParam0)//Position - 0x18E83
 
 struct<4> func_175(int iParam0)//Position - 0x18E8D
 {
-	return Global_97353.f_29774[iParam0 /*29*/].f_3;
+	return Global_SAVE_DATA.CHARSHEET_SAVED_ARRAY[iParam0 /*29*/].f_3;
 }
 
 char* func_176(int iParam0, int iParam1)//Position - 0x18EA4
@@ -18165,7 +18165,7 @@ void func_293()//Position - 0x1CC83
 	func_181(Global_14374, "SET_DATA_SLOT_EMPTY", SYSTEM::TO_FLOAT(7), -1082130432, -1082130432, -1082130432, -1082130432);
 	iVar0 = 72;
 	iVar1 = Global_2391084[iLocal_267 /*70*/].f_2;
-	func_163(Global_14374, "SET_DATA_SLOT", SYSTEM::TO_FLOAT(7), SYSTEM::TO_FLOAT(0), -1f, -1f, -1f, &(Global_97353.f_29774[iVar0 /*29*/].f_3), func_294(iVar1, PLAYER::GET_PLAYER_TEAM(PLAYER::PLAYER_ID())), &(Global_97353.f_29774[iVar0 /*29*/].f_7), 0, 0);
+	func_163(Global_14374, "SET_DATA_SLOT", SYSTEM::TO_FLOAT(7), SYSTEM::TO_FLOAT(0), -1f, -1f, -1f, &(Global_SAVE_DATA.CHARSHEET_SAVED_ARRAY[iVar0 /*29*/].f_3), func_294(iVar1, PLAYER::GET_PLAYER_TEAM(PLAYER::PLAYER_ID())), &(Global_SAVE_DATA.CHARSHEET_SAVED_ARRAY[iVar0 /*29*/].f_7), 0, 0);
 	func_181(Global_14374, "DISPLAY_VIEW", SYSTEM::TO_FLOAT(7), -1082130432, -1082130432, -1082130432, -1082130432);
 }
 
@@ -20244,8 +20244,8 @@ void func_370()//Position - 0x1F2EF
 	func_181(Global_14374, "SET_DATA_SLOT_EMPTY", SYSTEM::TO_FLOAT(7), -1082130432, -1082130432, -1082130432, -1082130432);
 	StringCopy(&cVar0, "", 16);
 	iVar4 = 0;
-	MemCopy(&uVar5, {Global_97353.f_29774[Global_1335221.f_2 /*29*/].f_3}, 16);
-	sVar21 = HUD::_GET_LABEL_TEXT(&(Global_97353.f_29774[Global_1335221.f_2 /*29*/].f_7));
+	MemCopy(&uVar5, {Global_SAVE_DATA.CHARSHEET_SAVED_ARRAY[Global_1335221.f_2 /*29*/].f_3}, 16);
+	sVar21 = HUD::_GET_LABEL_TEXT(&(Global_SAVE_DATA.CHARSHEET_SAVED_ARRAY[Global_1335221.f_2 /*29*/].f_7));
 	GRAPHICS::BEGIN_SCALEFORM_MOVIE_METHOD(Global_14374, "SET_DATA_SLOT");
 	GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(7);
 	GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(iVar4);
@@ -21523,7 +21523,7 @@ void func_394()//Position - 0x20948
 	}
 	StringCopy(&cVar0, "", 16);
 	iVar4 = 0;
-	MemCopy(&uVar5, {Global_97353.f_29774[Global_1335221.f_2 /*29*/].f_3}, 16);
+	MemCopy(&uVar5, {Global_SAVE_DATA.CHARSHEET_SAVED_ARRAY[Global_1335221.f_2 /*29*/].f_3}, 16);
 	GRAPHICS::BEGIN_SCALEFORM_MOVIE_METHOD(Global_14374, "SET_DATA_SLOT");
 	GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(20);
 	GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(iVar4);

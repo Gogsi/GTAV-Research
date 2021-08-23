@@ -168,7 +168,7 @@ void func_6()//Position - 0x274
 	fLocal_29 = fLocal_27;
 	func_10(255, 255, 255, 205);
 	func_9();
-	func_8(fLocal_28, fLocal_29, &(Global_97353.f_29774[Global_16980[iLocal_24 /*9*/] /*29*/].f_3), 0);
+	func_8(fLocal_28, fLocal_29, &(Global_SAVE_DATA.CHARSHEET_SAVED_ARRAY[Global_16980[iLocal_24 /*9*/] /*29*/].f_3), 0);
 	fLocal_28 = (fLocal_28 + 0.07f);
 	func_10(255, 255, 255, 205);
 	if (Global_16980[iLocal_24 /*9*/].f_2.f_1 < 10)
@@ -369,7 +369,7 @@ void func_15()//Position - 0x6DD
 		{
 			func_9();
 		}
-		func_8(fLocal_28, fLocal_29, &(Global_97353.f_29774[Global_16980[iLocal_17[iVar0] /*9*/] /*29*/].f_3), 0);
+		func_8(fLocal_28, fLocal_29, &(Global_SAVE_DATA.CHARSHEET_SAVED_ARRAY[Global_16980[iLocal_17[iVar0] /*9*/] /*29*/].f_3), 0);
 		fLocal_28 = (fLocal_28 + 0.07f);
 		func_10(255, 255, 255, 205);
 		if (Global_16980[iLocal_17[iVar0] /*9*/].f_2.f_1 < 10)

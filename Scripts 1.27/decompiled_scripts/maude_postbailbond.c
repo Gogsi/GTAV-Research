@@ -501,19 +501,19 @@ void func_20()//Position - 0x733
 
 char* func_21()//Position - 0x757
 {
-	if (MISC::IS_BIT_SET(Global_97353.f_28183, 3))
+	if (MISC::IS_BIT_SET(Global_SAVE_DATA.Launcher_Bit_Flags, 3))
 	{
 		return "BB4_loiter";
 	}
-	else if (MISC::IS_BIT_SET(Global_97353.f_28183, 2))
+	else if (MISC::IS_BIT_SET(Global_SAVE_DATA.Launcher_Bit_Flags, 2))
 	{
 		return "BB3_loiter";
 	}
-	else if (MISC::IS_BIT_SET(Global_97353.f_28183, 1))
+	else if (MISC::IS_BIT_SET(Global_SAVE_DATA.Launcher_Bit_Flags, 1))
 	{
 		return "BB2_loiter";
 	}
-	else if (MISC::IS_BIT_SET(Global_97353.f_28183, 0))
+	else if (MISC::IS_BIT_SET(Global_SAVE_DATA.Launcher_Bit_Flags, 0))
 	{
 		return "BB1_loiter";
 	}
@@ -1168,19 +1168,19 @@ void func_45(var uParam0, int iParam1, char* sParam2, int iParam3, int iParam4, 
 
 char* func_46()//Position - 0x130E
 {
-	if (MISC::IS_BIT_SET(Global_97353.f_28183, 3))
+	if (MISC::IS_BIT_SET(Global_SAVE_DATA.Launcher_Bit_Flags, 3))
 	{
 		return "BB4AUD";
 	}
-	else if (MISC::IS_BIT_SET(Global_97353.f_28183, 2))
+	else if (MISC::IS_BIT_SET(Global_SAVE_DATA.Launcher_Bit_Flags, 2))
 	{
 		return "BB3AUD";
 	}
-	else if (MISC::IS_BIT_SET(Global_97353.f_28183, 1))
+	else if (MISC::IS_BIT_SET(Global_SAVE_DATA.Launcher_Bit_Flags, 1))
 	{
 		return "BB2AUD";
 	}
-	else if (MISC::IS_BIT_SET(Global_97353.f_28183, 0))
+	else if (MISC::IS_BIT_SET(Global_SAVE_DATA.Launcher_Bit_Flags, 0))
 	{
 		return "BB1AUD";
 	}
@@ -1251,19 +1251,19 @@ void func_48(bool bParam0, var uParam1)//Position - 0x1416
 
 int func_49()//Position - 0x1502
 {
-	if (MISC::IS_BIT_SET(Global_97353.f_28183, 3))
+	if (MISC::IS_BIT_SET(Global_SAVE_DATA.Launcher_Bit_Flags, 3))
 	{
 		return 4;
 	}
-	else if (MISC::IS_BIT_SET(Global_97353.f_28183, 2))
+	else if (MISC::IS_BIT_SET(Global_SAVE_DATA.Launcher_Bit_Flags, 2))
 	{
 		return 4;
 	}
-	else if (MISC::IS_BIT_SET(Global_97353.f_28183, 1))
+	else if (MISC::IS_BIT_SET(Global_SAVE_DATA.Launcher_Bit_Flags, 1))
 	{
 		return 4;
 	}
-	else if (MISC::IS_BIT_SET(Global_97353.f_28183, 0))
+	else if (MISC::IS_BIT_SET(Global_SAVE_DATA.Launcher_Bit_Flags, 0))
 	{
 		return 3;
 	}
@@ -1370,7 +1370,7 @@ int func_53(int iParam0)//Position - 0x1794
 {
 	if (!func_54(iParam0))
 	{
-		return Global_97353.f_29774[iParam0 /*29*/];
+		return Global_SAVE_DATA.CHARSHEET_SAVED_ARRAY[iParam0 /*29*/];
 	}
 	else if (iParam0 != 145)
 	{

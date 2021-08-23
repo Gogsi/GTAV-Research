@@ -741,7 +741,7 @@ void func_20()//Position - 0xCDC
 	iVar0 = 0;
 	while (iVar0 < 63)
 	{
-		if ((MISC::IS_BIT_SET(Global_97353.f_16828[iVar0 /*6*/], 0) && MISC::IS_BIT_SET(Global_97353.f_16828[iVar0 /*6*/], 1)) && !MISC::IS_BIT_SET(Global_97353.f_16828[iVar0 /*6*/], 3))
+		if ((MISC::IS_BIT_SET(Global_SAVE_DATA.SAVED_RANDOM_CHARACTERS[iVar0 /*6*/], 0) && MISC::IS_BIT_SET(Global_SAVE_DATA.SAVED_RANDOM_CHARACTERS[iVar0 /*6*/], 1)) && !MISC::IS_BIT_SET(Global_SAVE_DATA.SAVED_RANDOM_CHARACTERS[iVar0 /*6*/], 3))
 		{
 			if (Global_85368 < 52)
 			{
@@ -758,7 +758,7 @@ void func_20()//Position - 0xCDC
 	iVar0 = 0;
 	while (iVar0 < 20)
 	{
-		if (MISC::IS_BIT_SET(Global_97353.f_7341.f_99.f_217[0], iVar0))
+		if (MISC::IS_BIT_SET(Global_SAVE_DATA.FLOW_STRUCT.MF_CONTROLS_STRUCT.f_217[0], iVar0))
 		{
 			if (Global_85368 < 52)
 			{
@@ -1152,7 +1152,7 @@ struct<2> func_24(int iParam0)//Position - 0x13E8
 	StringConCat(&Var0, &(Global_81155[iParam0 /*34*/].f_8), 8);
 	if (iParam0 == 90)
 	{
-		switch (Global_97353.f_7341.f_99.f_203[7])
+		switch (Global_SAVE_DATA.FLOW_STRUCT.MF_CONTROLS_STRUCT.f_203[7])
 		{
 			case 1:
 				StringConCat(&Var0, "A", 8);

@@ -189,9 +189,9 @@ void __EntryFunction__()//Position - 0x0
 				GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
 				func_12(1);
 				func_9(&uLocal_46);
-				if (!func_8(Global_97353.f_17351, 4096))
+				if (!func_8(Global_SAVE_DATA.TAXI_iGenData, 4096))
 				{
-					func_6(&(Global_97353.f_17351), 4096);
+					func_6(&(Global_SAVE_DATA.TAXI_iGenData), 4096);
 				}
 				iLocal_44 = 3;
 				break;
