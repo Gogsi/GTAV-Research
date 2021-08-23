@@ -155,8 +155,8 @@ void __EntryFunction__()//Position - 0x0
 				}
 				SYSTEM::WAIT(0);
 			}
-			MISC::START_SAVE_DATA(&Global_97353, 1, 1);
-			MISC::REGISTER_FLOAT_TO_SAVE(&Global_97353, "fSaveVersion");
+			MISC::START_SAVE_DATA(&Global_SAVE_DATA, 1, 1);
+			MISC::REGISTER_FLOAT_TO_SAVE(&Global_SAVE_DATA, "fSaveVersion");
 			MISC::STOP_SAVE_DATA();
 			break;
 	}

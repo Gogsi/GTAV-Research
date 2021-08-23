@@ -184,7 +184,7 @@ int func_2(int iParam0)//Position - 0x246
 	{
 		return 0;
 	}
-	return Global_97353.f_7341.f_328[iParam0 /*6*/];
+	return Global_SAVE_DATA.FLOW_STRUCT.MF_MISSION_ARRAY[iParam0 /*6*/];
 }
 
 bool func_3(bool bParam0)//Position - 0x272

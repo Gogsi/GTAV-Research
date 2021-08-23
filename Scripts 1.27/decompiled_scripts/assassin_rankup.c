@@ -78,7 +78,7 @@ void __EntryFunction__()//Position - 0x0
 	{
 		if (!PED::IS_PED_INJURED(PLAYER::PLAYER_PED_ID()))
 		{
-			Global_97353.f_18217++;
+			Global_SAVE_DATA.ASSASSIN_iCurRank++;
 			func_1();
 			SCRIPT::TERMINATE_THIS_THREAD();
 		}
@@ -88,7 +88,7 @@ void __EntryFunction__()//Position - 0x0
 
 void func_1()//Position - 0xAA
 {
-	func_2(&(Global_97353.f_18217.f_1), 2048);
+	func_2(&(Global_SAVE_DATA.ASSASSIN_SAVED_STRUCT.ASSASSIN_iGenData), 2048);
 }
 
 void func_2(var uParam0, int iParam1)//Position - 0xC2

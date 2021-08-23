@@ -55,7 +55,7 @@ void __EntryFunction__()//Position - 0x0
 	iLocal_10 = 12;
 	iLocal_11 = 12;
 	fLocal_14 = 0.001f;
-	if (Global_97353.f_8448.f_3854 == 0)
+	if (Global_SAVE_DATA.COMP_PERCENT_SAVED_ARRAY.f_3854 == 0)
 	{
 		func_10();
 	}
@@ -108,7 +108,7 @@ void func_1(int iParam0, int iParam1, int iParam2, bool bParam3, int iParam4)//P
 		}
 		else
 		{
-			Global_97353.f_5518.f_226[iParam0] = iParam1;
+			Global_SAVE_DATA.BUILDING_SAVED_DATA_STRUCT.f_226[iParam0] = iParam1;
 		}
 		Global_31962[iParam0] = iParam2;
 		Global_32161[iParam0] = 1;
@@ -216,7 +216,7 @@ bool func_4(int iParam0, bool bParam1, int iParam2, bool bParam3)//Position - 0x
 	func_8(&Var3, iParam0);
 	if (func_5())
 	{
-		iVar1 = Global_97353.f_5518.f_226[iParam0];
+		iVar1 = Global_SAVE_DATA.BUILDING_SAVED_DATA_STRUCT.f_226[iParam0];
 	}
 	else
 	{

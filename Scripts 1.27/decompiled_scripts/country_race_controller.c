@@ -194,7 +194,7 @@ void __EntryFunction__()//Position - 0x0
 			{
 				if (PLAYER::IS_PLAYER_CONTROL_ON(PLAYER::PLAYER_ID()))
 				{
-					Global_97353.f_28270.f_8 = 1;
+					Global_SAVE_DATA.COUNTRY_RACE_SAVED_STRUCT.COUNTRY_RACE_bRaceJustCompleted = 1;
 				}
 			}
 		}
@@ -234,9 +234,9 @@ void func_1()//Position - 0x162
 	if (func_10())
 	{
 		func_8();
-		func_6(Global_97353.f_28270);
+		func_6(Global_SAVE_DATA.COUNTRY_RACE_iCurrentRace);
 	}
-	Global_97353.f_28270.f_8 = 1;
+	Global_SAVE_DATA.COUNTRY_RACE_SAVED_STRUCT.COUNTRY_RACE_bRaceJustCompleted = 1;
 	func_5(64, 0, 0);
 	func_4();
 	func_2();
@@ -333,28 +333,28 @@ void func_6(int iParam0)//Position - 0x32A
 	switch (iParam0)
 	{
 		case 0:
-			Global_97353.f_28270 = 1;
-			Global_97353.f_28270.f_3 = 1;
+			Global_SAVE_DATA.COUNTRY_RACE_iCurrentRace = 1;
+			Global_SAVE_DATA.COUNTRY_RACE_SAVED_STRUCT.COUNTRY_RACE_bStallionUnlocked = 1;
 			break;
 		
 		case 1:
-			Global_97353.f_28270 = 2;
-			Global_97353.f_28270.f_4 = 1;
+			Global_SAVE_DATA.COUNTRY_RACE_iCurrentRace = 2;
+			Global_SAVE_DATA.COUNTRY_RACE_SAVED_STRUCT.COUNTRY_RACE_bGauntletUnlocked = 1;
 			break;
 		
 		case 2:
-			Global_97353.f_28270 = 3;
-			Global_97353.f_28270.f_5 = 1;
+			Global_SAVE_DATA.COUNTRY_RACE_iCurrentRace = 3;
+			Global_SAVE_DATA.COUNTRY_RACE_SAVED_STRUCT.COUNTRY_RACE_bDominatorUnlocked = 1;
 			break;
 		
 		case 3:
-			Global_97353.f_28270 = 4;
-			Global_97353.f_28270.f_6 = 1;
+			Global_SAVE_DATA.COUNTRY_RACE_iCurrentRace = 4;
+			Global_SAVE_DATA.COUNTRY_RACE_SAVED_STRUCT.COUNTRY_RACE_bBuffaloUnlocked = 1;
 			break;
 		
 		case 4:
-			Global_97353.f_28270 = 0;
-			Global_97353.f_28270.f_7 = 1;
+			Global_SAVE_DATA.COUNTRY_RACE_iCurrentRace = 0;
+			Global_SAVE_DATA.COUNTRY_RACE_SAVED_STRUCT.COUNTRY_RACE_bMarshallUnlocked = 1;
 			break;
 	}
 }
@@ -377,7 +377,7 @@ void func_8()//Position - 0x3F6
 	
 	HUD::CLEAR_HELP(1);
 	StringCopy(&cVar0, "CRACEWIN", 16);
-	StringIntConCat(&cVar0, Global_97353.f_28270 + 1, 16);
+	StringIntConCat(&cVar0, Global_SAVE_DATA.COUNTRY_RACE_iCurrentRace + 1, 16);
 	func_9(&cVar0, -1);
 }
 
@@ -872,7 +872,7 @@ struct<4> func_26()//Position - 0xB59
 	struct<4> Var0;
 	
 	StringCopy(&Var0, "CRACEHELP", 16);
-	StringIntConCat(&Var0, Global_97353.f_28270 + 1, 16);
+	StringIntConCat(&Var0, Global_SAVE_DATA.COUNTRY_RACE_iCurrentRace + 1, 16);
 	return Var0;
 }
 
@@ -1342,11 +1342,11 @@ int func_42()//Position - 0x1539
 
 int func_43()//Position - 0x1570
 {
-	if ((!Global_97353.f_28270.f_9 && !Global_97353.f_28270.f_8) && SYSTEM::VDIST2(ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), 1), func_60()) < 84100f)
+	if ((!Global_SAVE_DATA.COUNTRY_RACE_SAVED_STRUCT.COUNTRY_RACE_bDisrupted && !Global_SAVE_DATA.COUNTRY_RACE_SAVED_STRUCT.COUNTRY_RACE_bRaceJustCompleted) && SYSTEM::VDIST2(ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), 1), func_60()) < 84100f)
 	{
-		Global_97353.f_28270.f_9 = func_54();
+		Global_SAVE_DATA.COUNTRY_RACE_SAVED_STRUCT.COUNTRY_RACE_bDisrupted = func_54();
 		func_51();
-		if (!Global_97353.f_28270.f_9)
+		if (!Global_SAVE_DATA.COUNTRY_RACE_SAVED_STRUCT.COUNTRY_RACE_bDisrupted)
 		{
 			if (func_61(uLocal_152) && func_61(uLocal_151))
 			{
@@ -1368,16 +1368,16 @@ int func_43()//Position - 0x1570
 		{
 			func_15(&uLocal_152, 1);
 			func_14(&uLocal_151, 1);
-			if (Global_97353.f_28270.f_9)
+			if (Global_SAVE_DATA.COUNTRY_RACE_SAVED_STRUCT.COUNTRY_RACE_bDisrupted)
 			{
-				Global_97353.f_28270.f_9 = 0;
+				Global_SAVE_DATA.COUNTRY_RACE_SAVED_STRUCT.COUNTRY_RACE_bDisrupted = 0;
 			}
-			if (Global_97353.f_28270.f_8)
+			if (Global_SAVE_DATA.COUNTRY_RACE_SAVED_STRUCT.COUNTRY_RACE_bRaceJustCompleted)
 			{
-				Global_97353.f_28270.f_8 = 0;
+				Global_SAVE_DATA.COUNTRY_RACE_SAVED_STRUCT.COUNTRY_RACE_bRaceJustCompleted = 0;
 			}
 		}
-		if (Global_97353.f_28270.f_9)
+		if (Global_SAVE_DATA.COUNTRY_RACE_SAVED_STRUCT.COUNTRY_RACE_bDisrupted)
 		{
 			func_15(&uLocal_152, 0);
 			func_14(&uLocal_151, 0);
@@ -1426,7 +1426,7 @@ void func_44(bool bParam0)//Position - 0x1710
 		{
 			uLocal_151 = VEHICLE::CREATE_VEHICLE(func_50(), func_49(), func_48(), 1, 1);
 			VEHICLE::SET_VEHICLE_ON_GROUND_PROPERLY(uLocal_151);
-			if (Global_97353.f_28270 == 4)
+			if (Global_SAVE_DATA.COUNTRY_RACE_iCurrentRace == 4)
 			{
 				VEHICLE::SET_VEHICLE_LIVERY(uLocal_151, 0);
 				VEHICLE::SET_VEHICLE_COLOURS(uLocal_151, 44, 83);
@@ -1447,7 +1447,7 @@ void func_44(bool bParam0)//Position - 0x1710
 
 void func_45(var uParam0)//Position - 0x1820
 {
-	switch (Global_97353.f_28270)
+	switch (Global_SAVE_DATA.COUNTRY_RACE_iCurrentRace)
 	{
 		case 0:
 			PED::SET_PED_COMPONENT_VARIATION(uParam0, 0, 0, 0, 0);
@@ -1513,7 +1513,7 @@ Vector3 func_49()//Position - 0x1991
 
 int func_50()//Position - 0x19A8
 {
-	switch (Global_97353.f_28270)
+	switch (Global_SAVE_DATA.COUNTRY_RACE_iCurrentRace)
 	{
 		case 0:
 			return joaat("stalion2");
@@ -1548,7 +1548,7 @@ void func_51()//Position - 0x1A16
 			{
 				TASK::TASK_START_SCENARIO_IN_PLACE(uLocal_152, "WORLD_HUMAN_STAND_IMPATIENT", -1, 1);
 			}
-			if (func_52(uLocal_151) || Global_97353.f_28270.f_9)
+			if (func_52(uLocal_151) || Global_SAVE_DATA.COUNTRY_RACE_SAVED_STRUCT.COUNTRY_RACE_bDisrupted)
 			{
 				PED::SET_PED_SHOULD_PLAY_IMMEDIATE_SCENARIO_EXIT(uLocal_152);
 				TASK::TASK_COMBAT_PED(uLocal_152, PLAYER::PLAYER_PED_ID(), 0, 16);
@@ -1674,22 +1674,22 @@ void func_56()//Position - 0x1C5E
 {
 	if (!func_59(0, 19))
 	{
-		Global_97353.f_28270.f_8 = 1;
+		Global_SAVE_DATA.COUNTRY_RACE_SAVED_STRUCT.COUNTRY_RACE_bRaceJustCompleted = 1;
 		func_62(0);
 	}
 	if (func_21(9) && iLocal_149 == 0)
 	{
-		Global_97353.f_28270.f_8 = 1;
+		Global_SAVE_DATA.COUNTRY_RACE_SAVED_STRUCT.COUNTRY_RACE_bRaceJustCompleted = 1;
 		func_62(0);
 	}
 	if (func_58(13))
 	{
-		Global_97353.f_28270.f_8 = 1;
+		Global_SAVE_DATA.COUNTRY_RACE_SAVED_STRUCT.COUNTRY_RACE_bRaceJustCompleted = 1;
 		func_62(0);
 	}
 	if (!func_57())
 	{
-		Global_97353.f_28270.f_8 = 1;
+		Global_SAVE_DATA.COUNTRY_RACE_SAVED_STRUCT.COUNTRY_RACE_bRaceJustCompleted = 1;
 		func_62(0);
 	}
 	if (SCRIPT::_GET_NUMBER_OF_REFERENCES_OF_SCRIPT_WITH_NAME_HASH(joaat("country_race")) == 0)
@@ -1714,7 +1714,7 @@ int func_57()//Position - 0x1CFC
 	}
 	if (!NETWORK::NETWORK_IS_GAME_IN_PROGRESS())
 	{
-		if (MISC::IS_BIT_SET(Global_97353.f_668.f_683, 7))
+		if (MISC::IS_BIT_SET(Global_SAVE_DATA.SHOP_SAVED_DATA_STRUCT.f_683, 7))
 		{
 			return 1;
 		}
@@ -1781,7 +1781,7 @@ int func_59(int iParam0, int iParam1)//Position - 0x1DE7
 	{
 		return 0;
 	}
-	uVar0 = MISC::IS_BIT_SET(Global_97353.f_7341.f_99.f_217[iParam0], iParam1);
+	uVar0 = MISC::IS_BIT_SET(Global_SAVE_DATA.FLOW_STRUCT.MF_CONTROLS_STRUCT.f_217[iParam0], iParam1);
 	return uVar0;
 }
 

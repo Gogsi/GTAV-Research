@@ -908,7 +908,7 @@ void func_24()//Position - 0x17EE
 
 void func_25(int iParam0, int iParam1, int iParam2, int iParam3, int iParam4, int iParam5)//Position - 0x19AF
 {
-	Global_97353.f_1.f_73[iParam0 /*3*/] = iParam1;
+	Global_SAVE_DATA.HEIST_DATA_STRUCT.HEIST_CREW_ACTIVE_DATA_ARRAY[iParam0 /*3*/] = iParam1;
 	func_26(iParam0, 0, iParam2);
 	func_26(iParam0, 1, iParam3);
 	func_26(iParam0, 2, iParam4);
@@ -917,7 +917,7 @@ void func_25(int iParam0, int iParam1, int iParam2, int iParam3, int iParam4, in
 
 void func_26(int iParam0, int iParam1, var uParam2)//Position - 0x19E9
 {
-	func_27(iParam1, uParam2, &(Global_97353.f_1.f_73[iParam0 /*3*/].f_1), &(Global_97353.f_1.f_73[iParam0 /*3*/].f_2));
+	func_27(iParam1, uParam2, &(Global_SAVE_DATA.HEIST_DATA_STRUCT.HEIST_CREW_ACTIVE_DATA_ARRAY[iParam0 /*3*/].f_1), &(Global_SAVE_DATA.HEIST_DATA_STRUCT.HEIST_CREW_ACTIVE_DATA_ARRAY[iParam0 /*3*/].f_2));
 }
 
 void func_27(int iParam0, var uParam1, var uParam2, var uParam3)//Position - 0x1A15
@@ -963,13 +963,13 @@ void func_29(int iParam0, int iParam1, int iParam2, bool bParam3)//Position - 0x
 	Global_86242[iParam0 /*5*/].f_1 = iParam2;
 	if (bParam3)
 	{
-		MISC::SET_BIT(&(Global_97353.f_1.f_116), iParam0);
+		MISC::SET_BIT(&(Global_SAVE_DATA.HEIST_DATA_STRUCT.Crew_Unlocked_Bitset), iParam0);
 	}
 	else
 	{
-		MISC::CLEAR_BIT(&(Global_97353.f_1.f_116), iParam0);
+		MISC::CLEAR_BIT(&(Global_SAVE_DATA.HEIST_DATA_STRUCT.Crew_Unlocked_Bitset), iParam0);
 	}
-	MISC::CLEAR_BIT(&(Global_97353.f_1.f_118), iParam0);
+	MISC::CLEAR_BIT(&(Global_SAVE_DATA.HEIST_DATA_STRUCT.Crew_Dead_Bitset), iParam0);
 }
 
 void func_30()//Position - 0x1B3C
@@ -2240,7 +2240,7 @@ void func_80(int iParam0, struct<3> Param1, char* sParam4, int iParam5, bool bPa
 	{
 	}
 	func_84(iParam0, Param1, sParam4, iParam5, bParam6, iParam7, 1);
-	if (((Global_97353.f_1718[iVar2 /*2*/] >= 1 || func_83(108) == 1) || func_82((iVar0 + iVar2), 0)) || MISC::IS_BIT_SET(Global_97353.f_16828[(iVar1 + iVar2) /*6*/], 3))
+	if (((Global_SAVE_DATA.RAMPAGE_SAVED_ARRAY[iVar2 /*2*/] >= 1 || func_83(108) == 1) || func_82((iVar0 + iVar2), 0)) || MISC::IS_BIT_SET(Global_SAVE_DATA.SAVED_RANDOM_CHARACTERS[(iVar1 + iVar2) /*6*/], 3))
 	{
 		func_81(iParam0, 1);
 	}
@@ -2277,7 +2277,7 @@ void func_81(int iParam0, bool bParam1)//Position - 0x50F8
 
 int func_82(int iParam0, int iParam1)//Position - 0x5181
 {
-	if (Global_97353.f_8448[iParam0 /*12*/].f_5 == 1)
+	if (Global_SAVE_DATA.COMP_PERCENT_SAVED_ARRAY[iParam0 /*12*/].f_5 == 1)
 	{
 		if (iParam1 == 1)
 		{
@@ -2293,7 +2293,7 @@ int func_83(int iParam0)//Position - 0x51A8
 	{
 		return 0;
 	}
-	return Global_97353.f_7341.f_99.f_58[iParam0];
+	return Global_SAVE_DATA.FLOW_STRUCT.MF_CONTROLS_STRUCT.f_58[iParam0];
 }
 
 void func_84(int iParam0, struct<3> Param1, char* sParam4, int iParam5, bool bParam6, int iParam7, int iParam8)//Position - 0x51D5

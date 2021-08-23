@@ -6959,8 +6959,8 @@ int func_202()//Position - 0x8244
 		Var14[iVar0 /*4*/] = { Var14[iVar48 /*4*/] };
 		Var14[iVar48 /*4*/] = { Var50 };
 		iVar1 = func_219(Var14[iVar0 /*4*/]);
-		Var2 = { Global_97353.f_29774[iVar1 /*29*/].f_3 };
-		StringCopy(&cVar6, HUD::_GET_LABEL_TEXT(&(Global_97353.f_29774[iVar1 /*29*/].f_7)), 16);
+		Var2 = { Global_SAVE_DATA.CHARSHEET_SAVED_ARRAY[iVar1 /*29*/].f_3 };
+		StringCopy(&cVar6, HUD::_GET_LABEL_TEXT(&(Global_SAVE_DATA.CHARSHEET_SAVED_ARRAY[iVar1 /*29*/].f_7)), 16);
 		if (Var14[iVar0 /*4*/].f_2 > Var14[iVar0 /*4*/].f_3)
 		{
 			Var14[iVar0 /*4*/].f_2 = Var14[iVar0 /*4*/].f_3;
@@ -17532,7 +17532,7 @@ char* func_488(var uParam0)//Position - 0x14BC6
 				break;
 		}
 	}
-	else if (Global_97353.f_7341.f_328[53 /*6*/] == 0)
+	else if (Global_SAVE_DATA.FLOW_STRUCT.MF_MISSION_ARRAY[53 /*6*/] == 0)
 	{
 		sVar1 = "PM_DOPROB";
 	}
@@ -21603,7 +21603,7 @@ int func_643()//Position - 0x19060
 	}
 	if (!NETWORK::NETWORK_IS_GAME_IN_PROGRESS())
 	{
-		if (MISC::IS_BIT_SET(Global_97353.f_668.f_683, 7))
+		if (MISC::IS_BIT_SET(Global_SAVE_DATA.SHOP_SAVED_DATA_STRUCT.f_683, 7))
 		{
 			return 1;
 		}
