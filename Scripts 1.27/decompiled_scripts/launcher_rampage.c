@@ -8642,7 +8642,7 @@ int func_204(float fParam0)//Position - 0xB830
 	iVar0 = 0;
 	while (iVar0 < 5)
 	{
-		Var1 = { Global_24748[(iLocal_281 + iVar0) /*23*/][0 /*3*/] };
+		Var1 = { Global_Mission_Blips[(iLocal_281 + iVar0) /*23*/][0 /*3*/] };
 		if (MISC::GET_DISTANCE_BETWEEN_COORDS(Var4, Var1, 1) <= fParam0 && MISC::ABSF((Var4.f_2 - Var1.f_2)) < 1.5f)
 		{
 			return iVar0;

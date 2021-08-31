@@ -39561,7 +39561,7 @@ int func_422(struct<3> Param0, var uParam3, struct<13> Param4, var uParam17, var
 			{
 				return 0;
 			}
-			if (MISC::IS_BIT_SET(Global_24748[iVar5 /*23*/].f_11, 19))
+			if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar5 /*23*/].f_11, 19))
 			{
 				Var1 = { func_423(iVar5, func_110()) };
 			}
@@ -39603,7 +39603,7 @@ Vector3 func_423(int iParam0, int iParam1)//Position - 0x2DA8A
 	{
 		return 0f, 0f, 0f;
 	}
-	return Global_24748[iVar0 /*23*/][iParam1 /*3*/];
+	return Global_Mission_Blips[iVar0 /*23*/][iParam1 /*3*/];
 }
 
 int func_424(struct<7> Param0, var uParam7, var uParam8, var uParam9, var uParam10, var uParam11, var uParam12, var uParam13, var uParam14, var uParam15, var uParam16, var uParam17, var uParam18, var uParam19, var uParam20, var uParam21, var uParam22, var uParam23, var uParam24, var uParam25, var uParam26, var uParam27, var uParam28, var uParam29, var uParam30, var uParam31, var uParam32, var uParam33, var uParam34, var uParam35, var uParam36, var uParam37, var uParam38, var uParam39, var uParam40, var uParam41, var uParam42, var uParam43, var uParam44, var uParam45, var uParam46, var uParam47, var uParam48, var uParam49, var uParam50, var uParam51, var uParam52, var uParam53, var uParam54, var uParam55, var uParam56, var uParam57, var uParam58, var uParam59, var uParam60, var uParam61, var uParam62, var uParam63, var uParam64, var uParam65, int iParam66)//Position - 0x2DAC8
@@ -39631,7 +39631,7 @@ int func_424(struct<7> Param0, var uParam7, var uParam8, var uParam9, var uParam
 			{
 				return 0;
 			}
-			if (MISC::IS_BIT_SET(Global_24748[iVar5 /*23*/].f_11, 19))
+			if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar5 /*23*/].f_11, 19))
 			{
 				Var1 = { func_423(iVar5, func_110()) };
 			}
@@ -87370,13 +87370,13 @@ int func_703()//Position - 0x6541B
 			break;
 	}
 	iVar10 = Global_81155[iVar9 /*34*/].f_10;
-	if (MISC::IS_BIT_SET(Global_24748[iVar10 /*23*/].f_11, 19))
+	if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar10 /*23*/].f_11, 19))
 	{
-		Var11 = { Global_24748[iVar10 /*23*/][func_110() /*3*/] };
+		Var11 = { Global_Mission_Blips[iVar10 /*23*/][func_110() /*3*/] };
 	}
 	else
 	{
-		Var11 = { Global_24748[iVar10 /*23*/][0 /*3*/] };
+		Var11 = { Global_Mission_Blips[iVar10 /*23*/][0 /*3*/] };
 	}
 	fVar14 = Global_84352[iVar9 /*2*/].f_1;
 	fVar15 = (fVar14 * fVar14);

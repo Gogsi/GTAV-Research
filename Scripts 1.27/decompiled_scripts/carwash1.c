@@ -36328,7 +36328,7 @@ Vector3 func_363(int iParam0)//Position - 0x2A0F1
 	int iVar0;
 	
 	iVar0 = iParam0;
-	return Global_24748[iVar0 /*23*/][0 /*3*/];
+	return Global_Mission_Blips[iVar0 /*23*/][0 /*3*/];
 }
 
 var func_364()//Position - 0x2A109

@@ -34440,7 +34440,7 @@ void func_283(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4)//
 
 void func_284(int iParam0)//Position - 0x2741B
 {
-	Global_35464 = (MISC::GET_GAME_TIMER() + iParam0);
+	Global_Next_Notification_Time = (MISC::GET_GAME_TIMER() + iParam0);
 }
 
 void func_285()//Position - 0x2742D

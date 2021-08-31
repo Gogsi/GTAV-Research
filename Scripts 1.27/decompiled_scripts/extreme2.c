@@ -70469,7 +70469,7 @@ int func_347(int iParam0)//Position - 0x4C9FF
 
 void func_348(int iParam0)//Position - 0x4CD45
 {
-	Global_35464 = (MISC::GET_GAME_TIMER() + iParam0);
+	Global_Next_Notification_Time = (MISC::GET_GAME_TIMER() + iParam0);
 }
 
 void func_349()//Position - 0x4CD57

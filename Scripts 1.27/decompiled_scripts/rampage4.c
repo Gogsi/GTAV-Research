@@ -42987,7 +42987,7 @@ Vector3 func_480()//Position - 0x33796
 	int iVar0;
 	
 	iVar0 = Local_358;
-	return Global_24748[iVar0 /*23*/][0 /*3*/];
+	return Global_Mission_Blips[iVar0 /*23*/][0 /*3*/];
 }
 
 int func_481()//Position - 0x337AF

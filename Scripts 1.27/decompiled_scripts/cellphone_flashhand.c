@@ -5132,7 +5132,7 @@ int func_77()//Position - 0x5D5E
 			iVar4 = 0;
 			while (iVar4 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Calls)
 			{
-				if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar4 /*15*/].f_2, iVar0))
+				if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar4 /*15*/].Player_Char_Bitset, iVar0))
 				{
 					if (func_80(Var1, func_81(iVar4)))
 					{
@@ -5144,7 +5144,7 @@ int func_77()//Position - 0x5D5E
 			iVar4 = 0;
 			while (iVar4 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Texts)
 			{
-				if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar4 /*14*/].f_2, iVar0))
+				if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar4 /*14*/].Player_Char_Bitset, iVar0))
 				{
 					if (func_80(Var1, func_79(iVar4)))
 					{
@@ -5156,7 +5156,7 @@ int func_77()//Position - 0x5D5E
 			iVar4 = 0;
 			while (iVar4 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Emails)
 			{
-				if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar4 /*10*/].f_2, iVar0))
+				if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar4 /*10*/].Player_Char_Bitset, iVar0))
 				{
 					if (func_80(Var1, func_78(iVar4)))
 					{
@@ -5172,29 +5172,29 @@ int func_77()//Position - 0x5D5E
 
 int func_78(int iParam0)//Position - 0x5E66
 {
-	return Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iParam0 /*10*/].f_7;
+	return Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iParam0 /*10*/].Restricted_Area_ID;
 }
 
 int func_79(int iParam0)//Position - 0x5E7E
 {
-	return Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iParam0 /*14*/].f_7;
+	return Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iParam0 /*14*/].Restricted_Area_ID;
 }
 
 int func_80(struct<3> Param0, int iParam3)//Position - 0x5E96
 {
 	if (iParam3 != -1)
 	{
-		if (iParam3 >= Global_34914)
+		if (iParam3 >= Global_Restricted_Areas)
 		{
 			return 0;
 		}
-		if (SYSTEM::VDIST2(Param0, Global_34914[iParam3 /*5*/]) <= (Global_34914[iParam3 /*5*/].f_3 * Global_34914[iParam3 /*5*/].f_3))
+		if (SYSTEM::VDIST2(Param0, Global_Restricted_Areas[iParam3 /*5*/]) <= (Global_Restricted_Areas[iParam3 /*5*/].f_3 * Global_Restricted_Areas[iParam3 /*5*/].f_3))
 		{
 			return 1;
 		}
-		else if (Global_34914[iParam3 /*5*/].f_4 != -1)
+		else if (Global_Restricted_Areas[iParam3 /*5*/].f_4 != -1)
 		{
-			return func_80(Param0, Global_34914[iParam3 /*5*/].f_4);
+			return func_80(Param0, Global_Restricted_Areas[iParam3 /*5*/].f_4);
 		}
 	}
 	return 0;
@@ -5202,7 +5202,7 @@ int func_80(struct<3> Param0, int iParam3)//Position - 0x5E96
 
 int func_81(int iParam0)//Position - 0x5F01
 {
-	return Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iParam0 /*15*/].f_7;
+	return Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iParam0 /*15*/].Restricted_Area_ID;
 }
 
 bool func_82(int iParam0)//Position - 0x5F16

@@ -3636,7 +3636,7 @@ void func_33(int iParam0)//Position - 0x2F33
 		iVar0 = 0;
 		while (iVar0 < 262)
 		{
-			MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 18);
+			MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 18);
 			iVar0++;
 		}
 		if (Global_24745 == 1)

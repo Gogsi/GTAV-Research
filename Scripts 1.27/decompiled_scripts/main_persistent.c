@@ -1015,7 +1015,7 @@ void func_8(int iParam0)//Position - 0x1158
 		iVar0 = 0;
 		while (iVar0 < 262)
 		{
-			MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 18);
+			MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 18);
 			iVar0++;
 		}
 		if (Global_24745 == 1)
@@ -7384,7 +7384,7 @@ int func_151(int iParam0, int iParam1, float fParam2)//Position - 0x7999
 	
 	if (!ENTITY::IS_ENTITY_DEAD(iParam0))
 	{
-		Var0 = { Global_34914[iParam1 /*5*/] };
+		Var0 = { Global_Restricted_Areas[iParam1 /*5*/] };
 		fVar5 = Var0.f_3;
 		if (fParam2 > 0f)
 		{

@@ -3914,7 +3914,7 @@ Vector3 func_74(int iParam0, int iParam1)//Position - 0x3AED
 	{
 		return 0f, 0f, 0f;
 	}
-	return Global_24748[iVar0 /*23*/][iParam1 /*3*/];
+	return Global_Mission_Blips[iVar0 /*23*/][iParam1 /*3*/];
 }
 
 bool func_75()//Position - 0x3B2B
@@ -5061,7 +5061,7 @@ int func_97(int iParam0)//Position - 0x59A2
 		{
 			if (Global_87300[iVar0 /*17*/].f_9 != 262)
 			{
-				if (Global_24748[Global_87300[iVar0 /*17*/].f_9 /*23*/].f_19 == iParam0)
+				if (Global_Mission_Blips[Global_87300[iVar0 /*17*/].f_9 /*23*/].f_19 == iParam0)
 				{
 					return Global_87300[iVar0 /*17*/].f_5;
 				}
@@ -8435,7 +8435,7 @@ bool func_139(int iParam0)//Position - 0xB9CE
 	{
 		return 0;
 	}
-	return HUD::DOES_BLIP_EXIST(Global_24748[iVar0 /*23*/].f_19);
+	return HUD::DOES_BLIP_EXIST(Global_Mission_Blips[iVar0 /*23*/].f_19);
 }
 
 int func_140(var uParam0)//Position - 0xBA0A
@@ -8545,9 +8545,9 @@ int func_143(var uParam0, int iParam1, float fParam2)//Position - 0xBC65
 		{
 			if (Global_87300[iVar6 /*17*/].f_9 != 262)
 			{
-				if (HUD::DOES_BLIP_EXIST(Global_24748[Global_87300[iVar6 /*17*/].f_9 /*23*/].f_19))
+				if (HUD::DOES_BLIP_EXIST(Global_Mission_Blips[Global_87300[iVar6 /*17*/].f_9 /*23*/].f_19))
 				{
-					Var3 = { HUD::GET_BLIP_COORDS(Global_24748[Global_87300[iVar6 /*17*/].f_9 /*23*/].f_19) };
+					Var3 = { HUD::GET_BLIP_COORDS(Global_Mission_Blips[Global_87300[iVar6 /*17*/].f_9 /*23*/].f_19) };
 					if (uParam0->f_2 == 1f)
 					{
 						Var3.f_2 = 1f;
@@ -9921,7 +9921,7 @@ int func_175(int iParam0)//Position - 0xD482
 	{
 		iVar1 = iVar0;
 		iVar2 = func_176(iVar1);
-		if (Global_24748[iVar2 /*23*/].f_19 == iParam0)
+		if (Global_Mission_Blips[iVar2 /*23*/].f_19 == iParam0)
 		{
 			return iVar1;
 		}
@@ -10793,9 +10793,9 @@ int func_191(var uParam0)//Position - 0xE450
 		{
 			if (Global_87300[iVar0 /*17*/].f_9 != 262)
 			{
-				if (HUD::DOES_BLIP_EXIST(Global_24748[Global_87300[iVar0 /*17*/].f_9 /*23*/].f_19))
+				if (HUD::DOES_BLIP_EXIST(Global_Mission_Blips[Global_87300[iVar0 /*17*/].f_9 /*23*/].f_19))
 				{
-					if (Global_24748[Global_87300[iVar0 /*17*/].f_9 /*23*/].f_19 == *uParam0)
+					if (Global_Mission_Blips[Global_87300[iVar0 /*17*/].f_9 /*23*/].f_19 == *uParam0)
 					{
 						return Global_87300[iVar0 /*17*/].f_5;
 					}

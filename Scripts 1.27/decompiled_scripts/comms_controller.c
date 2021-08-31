@@ -290,7 +290,7 @@ void __EntryFunction__()//Position - 0x0
 	{
 		func_273();
 	}
-	Global_35464 = MISC::GET_GAME_TIMER() + 20000;
+	Global_Next_Notification_Time = MISC::GET_GAME_TIMER() + 20000;
 	iVar0 = 0;
 	iLocal_83 = MISC::GET_GAME_TIMER();
 	while (true)
@@ -371,11 +371,11 @@ void __EntryFunction__()//Position - 0x0
 					{
 						if (func_133())
 						{
-							if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_3 == 5)
+							if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Priority == 5)
 							{
 								func_132(0);
 							}
-							if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_1, 3))
+							if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Settings, 3))
 							{
 								if (func_128())
 								{
@@ -411,7 +411,7 @@ void __EntryFunction__()//Position - 0x0
 				{
 					func_118(&iVar1);
 					iLocal_77 = 0;
-					Global_35464 = iVar1 + 20000;
+					Global_Next_Notification_Time = iVar1 + 20000;
 					iLocal_87 = 0;
 					Global_35460 = -1;
 				}
@@ -677,11 +677,11 @@ void func_8(int iParam0)//Position - 0x840
 	iVar0 = 0;
 	while (iVar0 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Calls)
 	{
-		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_2, iParam0))
+		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Player_Char_Bitset, iParam0))
 		{
-			if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_3 > iVar1)
+			if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Priority > iVar1)
 			{
-				iVar1 = Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_3;
+				iVar1 = Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Priority;
 			}
 		}
 		iVar0++;
@@ -689,9 +689,9 @@ void func_8(int iParam0)//Position - 0x840
 	iVar2 = 0;
 	while (iVar2 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Texts)
 	{
-		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar2 /*14*/].f_2, iParam0))
+		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar2 /*14*/].Player_Char_Bitset, iParam0))
 		{
-			if (Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar2 /*14*/].f_3 == 5)
+			if (Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar2 /*14*/].Priority == 5)
 			{
 				iVar1 = 5;
 			}
@@ -806,7 +806,7 @@ void func_14(int iParam0)//Position - 0xB2D
 	{
 		return;
 	}
-	uVar1 = Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iParam0 /*15*/].f_2;
+	uVar1 = Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iParam0 /*15*/].Player_Char_Bitset;
 	if (Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Calls > 1)
 	{
 		iVar0 = iParam0;
@@ -1198,23 +1198,23 @@ void func_35()//Position - 0x1282
 	int iVar1;
 	
 	iVar1 = SYSTEM::CEIL((MISC::GET_FRAME_TIME() * 1000f));
-	Global_35464 = (Global_35464 + iVar1);
+	Global_Next_Notification_Time = (Global_Next_Notification_Time + iVar1);
 	iVar0 = 0;
 	while (iVar0 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Calls)
 	{
-		Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_4 = (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_4 + iVar1);
+		Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Queue_Time = (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Queue_Time + iVar1);
 		iVar0++;
 	}
 	iVar0 = 0;
 	while (iVar0 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Texts)
 	{
-		Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar0 /*14*/].f_4 = (Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar0 /*14*/].f_4 + iVar1);
+		Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar0 /*14*/].f_4 = (Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar0 /*14*/].Queue_Time + iVar1);
 		iVar0++;
 	}
 	iVar0 = 0;
 	while (iVar0 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Emails)
 	{
-		Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar0 /*10*/].f_4 = (Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar0 /*10*/].f_4 + iVar1);
+		Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar0 /*10*/].f_4 = (Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar0 /*10*/].Queue_Time + iVar1);
 		iVar0++;
 	}
 	iVar0 = 0;
@@ -1617,7 +1617,7 @@ void func_50(var uParam0, var uParam1)//Position - 0x1CAD
 {
 	func_53(uParam1);
 	Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.Last_Completed_Text = *uParam1;
-	Global_35464 = *uParam0 + 20000;
+	Global_Next_Notification_Time = *uParam0 + 20000;
 	Global_35465[uParam1->f_6] = *uParam0 + 20000;
 	func_51(*uParam1);
 }
@@ -2879,30 +2879,30 @@ void func_65(int iParam0)//Position - 0x3582
 {
 	int iVar0;
 	
-	if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_1, 3))
+	if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Settings, 3))
 	{
-		iVar0 = Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_7;
+		iVar0 = Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Restricted_Area_ID;
 		if (iVar0 != -1)
 		{
-			if (func_66(PLAYER::PLAYER_PED_ID(), iVar0, (Global_34914[iVar0 /*5*/].f_3 * 0.35f)))
+			if (check_restricted_area(PLAYER::PLAYER_PED_ID(), iVar0, (Global_Restricted_Areas[iVar0 /*5*/].f_3 * 0.35f)))
 			{
 				func_138(&iParam0, 0);
 				func_123(0);
 				iLocal_87 = 0;
-				Global_35464 = iParam0 + 20000;
+				Global_Next_Notification_Time = iParam0 + 20000;
 			}
 		}
 	}
 }
 
-int func_66(int iParam0, int iParam1, float fParam2)//Position - 0x35E9
+int check_restricted_area(int iParam0, int iParam1, float fParam2)//Position - 0x35E9
 {
 	struct<5> Var0;
 	float fVar5;
 	
 	if (!ENTITY::IS_ENTITY_DEAD(iParam0))
 	{
-		Var0 = { Global_34914[iParam1 /*5*/] };
+		Var0 = { Global_Restricted_Areas[iParam1 /*5*/] };
 		fVar5 = Var0.f_3;
 		if (fParam2 > 0f)
 		{
@@ -2914,7 +2914,7 @@ int func_66(int iParam0, int iParam1, float fParam2)//Position - 0x35E9
 		}
 		else if (Var0.f_4 != -1)
 		{
-			return func_66(iParam0, Var0.f_4, fParam2);
+			return check_restricted_area(iParam0, Var0.f_4, fParam2);
 		}
 	}
 	return 0;
@@ -2924,7 +2924,7 @@ void func_67()//Position - 0x364E
 {
 	int iVar0;
 	
-	if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_1, 1))
+	if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Settings, 1))
 	{
 		if (!func_48(26))
 		{
@@ -3092,10 +3092,10 @@ void func_76()//Position - 0x3923
 	
 	if (iLocal_77)
 	{
-		iVar0 = Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_9;
+		iVar0 = Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Send_Check;
 		if (iVar0 != -1)
 		{
-			if (func_79(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_9))
+			if (func_79(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Send_Check))
 			{
 				iVar1 = Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_10;
 			}
@@ -4821,7 +4821,7 @@ Vector3 func_98(int iParam0, int iParam1)//Position - 0x5901
 	{
 		return 0f, 0f, 0f;
 	}
-	return Global_24748[iVar0 /*23*/][iParam1 /*3*/];
+	return Global_Mission_Blips[iVar0 /*23*/][iParam1 /*3*/];
 }
 
 var func_99()//Position - 0x593F
@@ -5073,14 +5073,14 @@ int func_116()//Position - 0x5CE9
 	}
 	if (!PED::IS_PED_INJURED(PLAYER::PLAYER_PED_ID()))
 	{
-		if (!func_66(PLAYER::PLAYER_PED_ID(), 11, 0))
+		if (!check_restricted_area(PLAYER::PLAYER_PED_ID(), 11, 0))
 		{
 			Global_85369 = -1;
 			return 1;
 		}
 		if ((MISC::GET_GAME_TIMER() - Global_85369) > 240000)
 		{
-			if (!func_66(PLAYER::PLAYER_PED_ID(), 10, 0))
+			if (!check_restricted_area(PLAYER::PLAYER_PED_ID(), 10, 0))
 			{
 				Global_85369 = -1;
 				return 1;
@@ -5101,23 +5101,23 @@ void func_118(int iParam0)//Position - 0x5D57
 	
 	if (Global_35460 != -1)
 	{
-		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_1, 1) && !Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.Last_Call_Had_Response)
+		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Settings, 1) && !Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.Last_Call_Had_Response)
 		{
 			func_138(iParam0, 0);
 		}
 		else
 		{
 			Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.Last_Call_Answered = 1;
-			func_120(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_6, func_58());
+			func_120(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].NPC_Character, func_58());
 			func_119();
 			func_53(&(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/]));
 			Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.Last_Completed_Call = Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/];
-			Global_35464 = *iParam0 + 20000;
-			Global_35465[Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_6] = *iParam0 + 20000;
+			Global_Next_Notification_Time = *iParam0 + 20000;
+			Global_35465[Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].NPC_Character] = *iParam0 + 20000;
 			func_11(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/]);
 			func_10(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/]);
 			func_14(Global_35460);
-			if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_1, 15))
+			if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Settings, 15))
 			{
 				switch (func_58())
 				{
@@ -5133,8 +5133,8 @@ void func_118(int iParam0)//Position - 0x5D57
 						iVar0 = 2;
 						break;
 				}
-				func_13(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_6, iVar0);
-				MISC::CLEAR_BIT(&(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_1), 15);
+				func_13(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].NPC_Character, iVar0);
+				MISC::CLEAR_BIT(&(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Settings), 15);
 			}
 			if (func_48(3))
 			{
@@ -5511,7 +5511,7 @@ void func_138(int iParam0, int iParam1)//Position - 0x6379
 	{
 		HUD::CLEAR_HELP(0);
 	}
-	if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_1, 15))
+	if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Settings, 15))
 	{
 		switch (func_58())
 		{
@@ -5527,24 +5527,24 @@ void func_138(int iParam0, int iParam1)//Position - 0x6379
 				iVar0 = 2;
 				break;
 		}
-		func_13(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_6, iVar0);
-		MISC::CLEAR_BIT(&(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_1), 15);
+		func_13(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].NPC_Character, iVar0);
+		MISC::CLEAR_BIT(&(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Settings), 15);
 	}
-	if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_1, 1))
+	if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Settings, 1))
 	{
 		if (!Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.Last_Call_Had_Response)
 		{
-			MISC::SET_BIT(&(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_1), 10);
+			MISC::SET_BIT(&(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Settings), 10);
 			func_142(&(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/]));
-			if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_6 == 17)
+			if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].NPC_Character == 17)
 			{
 				func_54(125, 0);
 			}
-			else if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_6 == 14)
+			else if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].NPC_Character == 14)
 			{
 				func_54(126, 0);
 			}
-			else if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_6 == 15)
+			else if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].NPC_Character == 15)
 			{
 				func_54(127, 0);
 			}
@@ -5564,24 +5564,24 @@ void func_138(int iParam0, int iParam1)//Position - 0x6379
 			iVar1++;
 		}
 	}
-	if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_1, 10) || iParam1)
+	if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Settings, 10) || iParam1)
 	{
-		func_141(*iParam0, &(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/]), 0);
-		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_1, 3))
+		delay_comm(*iParam0, &(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/]), 0);
+		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Settings, 3))
 		{
-			if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_5 < 300000)
+			if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Requeue_Time < 300000)
 			{
-				Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_5 = (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_5 + 60000);
+				Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Requeue_Time = (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Requeue_Time + 60000);
 			}
 		}
-		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_1, 8))
+		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Settings, 8))
 		{
 			func_142(&(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/]));
 		}
 	}
-	else if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_1, 11))
+	else if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Settings, 11))
 	{
-		func_139(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_10, 1, Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_2, Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_6, Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_5, Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_5, Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_7, Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_8, Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_9, Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_1, 1);
+		func_139(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_10, 1, Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Player_Char_Bitset, Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].NPC_Character, Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Requeue_Time, Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Requeue_Time, Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Restricted_Area_ID, Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Execute_On_Complete_ID, Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Send_Check, Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Settings, 1);
 		Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.Last_Completed_Call = Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/];
 		Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.Last_Call_Answered = 0;
 		func_11(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/]);
@@ -5694,10 +5694,10 @@ int func_140(int iParam0)//Position - 0x67E7
 	return 7;
 }
 
-void func_141(int iParam0, var uParam1, bool bParam2)//Position - 0x6851
+void delay_comm(int iParam0, var uParam1, bool bParam2)//Position - 0x6851
 {
 	if (uParam1->f_3 == 5)
-	{
+	{  
 		uParam1->f_4 = iParam0 + 1000;
 	}
 	else if (bParam2)
@@ -6716,17 +6716,17 @@ void func_169(int iParam0)//Position - 0x78B2
 	while (iVar0 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Emails && !iLocal_75)
 	{
 		iVar1 = 0;
-		if (Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar0 /*10*/].f_3 >= 5)
+		if (Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar0 /*10*/].Priority >= 5)
 		{
 			iVar1 = 1;
 		}
-		if ((*iParam0 >= Global_35464 || MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar0 /*10*/].f_1, 21)) || iVar1)
+		if ((*iParam0 >= Global_Next_Notification_Time || MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar0 /*10*/].Settings, 21)) || iVar1)
 		{
-			if (*iParam0 >= Global_35465[Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar0 /*10*/].f_6] || iVar1)
+			if (*iParam0 >= Global_35465[Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar0 /*10*/].NPC_Character] || iVar1)
 			{
-				if (*iParam0 >= Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar0 /*10*/].f_4)
+				if (*iParam0 >= Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar0 /*10*/].Queue_Time)
 				{
-					if (func_171(&(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar0 /*10*/])))
+					if (can_receive_this_email(&(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar0 /*10*/])))
 					{
 						iLocal_79 = -1;
 						func_170(iParam0, &(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar0 /*10*/]));
@@ -6735,7 +6735,7 @@ void func_169(int iParam0)//Position - 0x78B2
 					}
 					else
 					{
-						func_141(*iParam0, &(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar0 /*10*/]), 0);
+						delay_comm(*iParam0, &(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar0 /*10*/]), 0);
 					}
 				}
 			}
@@ -6748,14 +6748,14 @@ void func_170(var uParam0, var uParam1)//Position - 0x79BD
 {
 	func_53(uParam1);
 	Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.Last_Completed_Email = *uParam1;
-	Global_35464 = *uParam0 + 20000;
+	Global_Next_Notification_Time = *uParam0 + 20000;
 	if (uParam1->f_6 != 144)
 	{
 		Global_35465[uParam1->f_6] = *uParam0 + 20000;
 	}
 }
 
-int func_171(var uParam0)//Position - 0x79F9
+int can_receive_this_email(var uParam0)//Position - 0x79F9
 {
 	int iVar0;
 	int iVar1;
@@ -6765,7 +6765,7 @@ int func_171(var uParam0)//Position - 0x79F9
 	{
 		return 0;
 	}
-	if (!func_187(uParam0->f_2, uParam0->f_6, uParam0->f_3, uParam0->f_7, uParam0->f_1))
+	if (!can_receive_comms(uParam0->f_2, uParam0->f_6, uParam0->f_3, uParam0->f_7, uParam0->f_1))
 	{
 		return 0;
 	}
@@ -6778,7 +6778,7 @@ int func_171(var uParam0)//Position - 0x79F9
 	}
 	if (uParam0->f_7 != -1)
 	{
-		if (func_66(PLAYER::PLAYER_PED_ID(), uParam0->f_7, 0))
+		if (check_restricted_area(PLAYER::PLAYER_PED_ID(), uParam0->f_7, 0))
 		{
 			return 0;
 		}
@@ -7995,7 +7995,7 @@ void func_186(int iParam0, var uParam1)//Position - 0x8B95
 	}
 }
 
-int func_187(int iParam0, int iParam1, int iParam2, int iParam3, int iParam4)//Position - 0x9086
+int can_receive_comms(int iParam0, int iParam1, int iParam2, int iParam3, int iParam4)//Position - 0x9086
 {
 	int iVar0;
 	int iVar1;
@@ -8154,7 +8154,7 @@ int func_187(int iParam0, int iParam1, int iParam2, int iParam3, int iParam4)//P
 	}
 	if (iParam3 != -1)
 	{
-		if (func_66(PLAYER::PLAYER_PED_ID(), iParam3, 0))
+		if (check_restricted_area(PLAYER::PLAYER_PED_ID(), iParam3, 0))
 		{
 			return 0;
 		}
@@ -9399,7 +9399,7 @@ void func_204(var uParam0)//Position - 0xB2F1
 			{
 				if (!func_227(48) && !func_134(1))
 				{
-					Global_35464 = *uParam0 + 20000;
+					Global_Next_Notification_Time = *uParam0 + 20000;
 					if (!func_133())
 					{
 						iLocal_80 = 3;
@@ -9413,7 +9413,7 @@ void func_204(var uParam0)//Position - 0xB2F1
 			break;
 		
 		case 2:
-			if (MISC::GET_GAME_TIMER() > Global_35464)
+			if (MISC::GET_GAME_TIMER() > Global_Next_Notification_Time)
 			{
 				iLocal_80++;
 			}
@@ -10901,7 +10901,7 @@ void func_228(var uParam0)//Position - 0xD738
 								iVar4 = 0;
 								while (iVar4 < 3)
 								{
-									if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar3 /*15*/].f_2, iVar4))
+									if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar3 /*15*/].Player_Char_Bitset, iVar4))
 									{
 										func_8(iVar4);
 									}
@@ -10913,7 +10913,7 @@ void func_228(var uParam0)//Position - 0xD738
 								return;
 							}
 						}
-						if (func_229(&(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar3 /*15*/])))
+						if (can_receive_this_call3(&(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar3 /*15*/])))
 						{
 							Global_35460 = iVar3;
 							iLocal_79 = -1;
@@ -10937,11 +10937,11 @@ void func_228(var uParam0)//Position - 0xD738
 	}
 }
 
-int func_229(var uParam0)//Position - 0xD8B2
+int can_receive_this_call3(var uParam0)//Position - 0xD8B2
 {
 	struct<5> Var0;
 	
-	if (!func_187(uParam0->f_2, uParam0->f_6, uParam0->f_3, uParam0->f_7, uParam0->f_1))
+	if (!can_receive_comms(uParam0->f_2, uParam0->f_6, uParam0->f_3, uParam0->f_7, uParam0->f_1))
 	{
 		return 0;
 	}
@@ -11370,7 +11370,7 @@ void func_237(var uParam0)//Position - 0xDFCE
 						iVar2++;
 					}
 				}
-				if (func_238(&(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar1 /*15*/]), &iLocal_77))
+				if (can_receive_this_call2(&(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar1 /*15*/]), &iLocal_77))
 				{
 					Global_35460 = iVar0;
 					iLocal_79 = -1;
@@ -11384,7 +11384,7 @@ void func_237(var uParam0)//Position - 0xDFCE
 				}
 				else
 				{
-					func_141(*uParam0, &(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar1 /*15*/]), 0);
+					delay_comm(*uParam0, &(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar1 /*15*/]), 0);
 				}
 			}
 		}
@@ -11392,7 +11392,7 @@ void func_237(var uParam0)//Position - 0xDFCE
 	}
 }
 
-int func_238(var uParam0, var uParam1)//Position - 0xE0F3
+int can_receive_this_call2(var uParam0, var uParam1)//Position - 0xE0F3
 {
 	struct<9> Var0;
 	char[] cVar12[8];
@@ -11404,7 +11404,7 @@ int func_238(var uParam0, var uParam1)//Position - 0xE0F3
 	{
 		return 0;
 	}
-	if (!func_187(uParam0->f_2, uParam0->f_6, uParam0->f_3, uParam0->f_7, uParam0->f_1))
+	if (!can_receive_comms(uParam0->f_2, uParam0->f_6, uParam0->f_3, uParam0->f_7, uParam0->f_1))
 	{
 		return 0;
 	}
@@ -11709,13 +11709,13 @@ void func_243(var uParam0)//Position - 0xE65C
 	iVar0 = 0;
 	while (iVar0 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Calls)
 	{
-		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_1, 7))
+		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Settings, 7))
 		{
-			if (func_227(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_6))
+			if (func_227(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].NPC_Character))
 			{
-				if (*uParam0 >= Global_35465[Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_6])
+				if (*uParam0 >= Global_35465[Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].NPC_Character])
 				{
-					if (func_238(&(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/]), &iLocal_77))
+					if (can_receive_this_call2(&(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/]), &iLocal_77))
 					{
 						Global_35460 = iVar0;
 						iLocal_79 = -1;
@@ -11729,7 +11729,7 @@ void func_243(var uParam0)//Position - 0xE65C
 					}
 					else
 					{
-						func_141(*uParam0, &(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/]), 0);
+						delay_comm(*uParam0, &(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/]), 0);
 					}
 				}
 			}
@@ -11751,17 +11751,17 @@ void func_244(int iParam0)//Position - 0xE70C
 	while (iVar0 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Texts && !iLocal_75)
 	{
 		iVar1 = 0;
-		if (Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar0 /*14*/].f_3 >= 5)
+		if (Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar0 /*14*/].Priority >= 5)
 		{
 			iVar1 = 1;
 		}
-		if ((*iParam0 >= Global_35464 || MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar0 /*14*/].f_1, 21)) || iVar1)
+		if ((*iParam0 >= Global_Next_Notification_Time || MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar0 /*14*/].Settings, 21)) || iVar1)
 		{
-			if (*iParam0 >= Global_35465[Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar0 /*14*/].f_6] || iVar1)
+			if (*iParam0 >= Global_35465[Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar0 /*14*/].NPC_Character] || iVar1)
 			{
-				if (*iParam0 >= Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar0 /*14*/].f_4)
+				if (*iParam0 >= Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar0 /*14*/].Queue_Time)
 				{
-					if (func_247(&(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar0 /*14*/])))
+					if (can_receive_this_text(&(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar0 /*14*/])))
 					{
 						func_245(&(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar0 /*14*/]));
 						Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.Last_Text_Had_Response = 0;
@@ -11770,7 +11770,7 @@ void func_244(int iParam0)//Position - 0xE70C
 					}
 					else
 					{
-						func_141(*iParam0, &(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar0 /*14*/]), 1);
+						delay_comm(*iParam0, &(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar0 /*14*/]), 1);
 					}
 				}
 			}
@@ -11807,7 +11807,7 @@ int func_246(int iParam0)//Position - 0xE878
 	return 0;
 }
 
-int func_247(var uParam0)//Position - 0xE8B3
+int can_receive_this_text(var uParam0)//Position - 0xE8B3
 {
 	int iVar0;
 	int iVar1;
@@ -11825,7 +11825,7 @@ int func_247(var uParam0)//Position - 0xE8B3
 	{
 		return 0;
 	}
-	if (!func_187(uParam0->f_2, uParam0->f_6, uParam0->f_3, uParam0->f_7, uParam0->f_1))
+	if (!can_receive_comms(uParam0->f_2, uParam0->f_6, uParam0->f_3, uParam0->f_7, uParam0->f_1))
 	{
 		return 0;
 	}
@@ -11838,7 +11838,7 @@ int func_247(var uParam0)//Position - 0xE8B3
 	}
 	if (uParam0->f_7 != -1)
 	{
-		if (func_66(PLAYER::PLAYER_PED_ID(), uParam0->f_7, 0))
+		if (check_restricted_area(PLAYER::PLAYER_PED_ID(), uParam0->f_7, 0))
 		{
 			return 0;
 		}
@@ -13160,20 +13160,20 @@ void func_264(int iParam0)//Position - 0x101A1
 	iVar0 = 0;
 	while (iVar0 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Calls && !iLocal_75)
 	{
-		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_1, 0))
+		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Settings, 0))
 		{
 			iVar1 = 0;
-			if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_3 >= 5)
+			if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Priority >= 5)
 			{
 				iVar1 = 1;
 			}
-			if ((*iParam0 >= Global_35464 || MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_1, 21)) || iVar1)
+			if ((*iParam0 >= Global_Next_Notification_Time || MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Settings, 21)) || iVar1)
 			{
-				if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_3 == Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_CHAR_PRIORITY_ARRAY[func_58()] || !MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_2, func_185()))
+				if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Priority == Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_CHAR_PRIORITY_ARRAY[func_58()] || !MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Player_Char_Bitset, func_185()))
 				{
-					if (*iParam0 >= Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_4)
+					if (*iParam0 >= Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Queue_Time)
 					{
-						if (func_265(&(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/]), &iLocal_77))
+						if (can_receive_this_call(&(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/]), &iLocal_77))
 						{
 							Global_35460 = iVar0;
 							iLocal_79 = -1;
@@ -13187,7 +13187,7 @@ void func_264(int iParam0)//Position - 0x101A1
 						}
 						else
 						{
-							func_141(*iParam0, &(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/]), 0);
+							delay_comm(*iParam0, &(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/]), 0);
 						}
 					}
 				}
@@ -13197,7 +13197,7 @@ void func_264(int iParam0)//Position - 0x101A1
 	}
 }
 
-int func_265(var uParam0, var uParam1)//Position - 0x102CF
+int can_receive_this_call(var uParam0, var uParam1)//Position - 0x102CF
 {
 	int iVar0;
 	int iVar1;
@@ -13210,7 +13210,7 @@ int func_265(var uParam0, var uParam1)//Position - 0x102CF
 	{
 		return 0;
 	}
-	if (!func_187(uParam0->f_2, uParam0->f_6, uParam0->f_3, uParam0->f_7, uParam0->f_1))
+	if (!can_receive_comms(uParam0->f_2, uParam0->f_6, uParam0->f_3, uParam0->f_7, uParam0->f_1))
 	{
 		return 0;
 	}
@@ -13453,22 +13453,22 @@ void func_270(int iParam0)//Position - 0x10761
 	iVar0 = 0;
 	while (iVar0 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Calls && !iLocal_75)
 	{
-		if (!MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_1, 0))
+		if (!MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Settings, 0))
 		{
 			iVar1 = 0;
-			if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_3 >= 5)
+			if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Priority >= 5)
 			{
 				iVar1 = 1;
 			}
-			if ((*iParam0 >= Global_35464 || iVar1) || MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_1, 21))
+			if ((*iParam0 >= Global_Next_Notification_Time || iVar1) || MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Settings, 21))
 			{
-				if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_3 == Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_CHAR_PRIORITY_ARRAY[func_58()] || !MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_2, func_185()))
+				if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Priority == Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_CHAR_PRIORITY_ARRAY[func_58()] || !MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Player_Char_Bitset, func_185()))
 				{
-					if (*iParam0 >= Global_35465[Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_6] || iVar1)
+					if (*iParam0 >= Global_35465[Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].NPC_Character] || iVar1)
 					{
-						if (*iParam0 >= Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_4)
+						if (*iParam0 >= Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Queue_Time)
 						{
-							if (func_265(&(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/]), &iLocal_77))
+							if (can_receive_this_call(&(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/]), &iLocal_77))
 							{
 								Global_35460 = iVar0;
 								iLocal_79 = -1;
@@ -13482,7 +13482,7 @@ void func_270(int iParam0)//Position - 0x10761
 							}
 							else
 							{
-								func_141(*iParam0, &(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/]), 0);
+								delay_comm(*iParam0, &(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/]), 0);
 							}
 						}
 					}

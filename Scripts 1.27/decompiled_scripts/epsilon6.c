@@ -29866,7 +29866,7 @@ int func_184(int iParam0)//Position - 0x2031A
 
 void func_185(int iParam0)//Position - 0x20660
 {
-	Global_35464 = (MISC::GET_GAME_TIMER() + iParam0);
+	Global_Next_Notification_Time = (MISC::GET_GAME_TIMER() + iParam0);
 }
 
 void func_186()//Position - 0x20672

@@ -73160,7 +73160,7 @@ void func_726(int iParam0, var uParam1, var uParam2, var uParam3, var uParam4, v
 	
 	if (func_727())
 	{
-		iVar0 = Global_2474853[iParam0 /*6*/][func_16(iParam8)];
+		iVar0 = Global_Mission_Blips53[iParam0 /*6*/][func_16(iParam8)];
 		if (iVar0 != 0)
 		{
 			STATS::STAT_SET_DATE(iVar0, &uParam1, 7, iParam9);
@@ -73179,7 +73179,7 @@ struct<7> func_728(int iParam0, int iParam1)//Position - 0x56E5F
 	var uVar0;
 	struct<7> Var1;
 	
-	uVar0 = Global_2474853[iParam0 /*6*/][func_16(iParam1)];
+	uVar0 = Global_Mission_Blips53[iParam0 /*6*/][func_16(iParam1)];
 	if (STATS::STAT_GET_DATE(uVar0, &Var1, 7, -1))
 	{
 		return Var1;

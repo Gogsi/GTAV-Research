@@ -69596,7 +69596,7 @@ Vector3 func_310(int iParam0, int iParam1)//Position - 0x4B55F
 	{
 		return 0f, 0f, 0f;
 	}
-	return Global_24748[iVar0 /*23*/][iParam1 /*3*/];
+	return Global_Mission_Blips[iVar0 /*23*/][iParam1 /*3*/];
 }
 
 int func_311(struct<3> Param0, int iParam3, int iParam4)//Position - 0x4B59D
@@ -75644,7 +75644,7 @@ bool func_410(int iParam0)//Position - 0x5432F
 	{
 		return 0;
 	}
-	return HUD::DOES_BLIP_EXIST(Global_24748[iVar0 /*23*/].f_19);
+	return HUD::DOES_BLIP_EXIST(Global_Mission_Blips[iVar0 /*23*/].f_19);
 }
 
 int func_411(var uParam0, int iParam1)//Position - 0x5436B

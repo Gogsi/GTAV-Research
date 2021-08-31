@@ -91259,7 +91259,7 @@ Vector3 func_654(int iParam0, int iParam1)//Position - 0x6E507
 	{
 		return 0f, 0f, 0f;
 	}
-	return Global_24748[iVar0 /*23*/][iParam1 /*3*/];
+	return Global_Mission_Blips[iVar0 /*23*/][iParam1 /*3*/];
 }
 
 void func_655()//Position - 0x6E545

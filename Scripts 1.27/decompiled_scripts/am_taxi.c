@@ -4030,7 +4030,7 @@ int func_92(int iParam0)//Position - 0x4049
 	{
 		iVar1 = iVar0;
 		iVar2 = func_93(iVar1);
-		if (Global_24748[iVar2 /*23*/].f_19 == iParam0)
+		if (Global_Mission_Blips[iVar2 /*23*/].f_19 == iParam0)
 		{
 			return iVar1;
 		}

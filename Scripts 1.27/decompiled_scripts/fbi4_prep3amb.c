@@ -3924,11 +3924,11 @@ void func_106(int iParam0)//Position - 0x4E67
 	iVar0 = 0;
 	while (iVar0 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Calls)
 	{
-		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_2, iParam0))
+		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Player_Char_Bitset, iParam0))
 		{
-			if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_3 > iVar1)
+			if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Priority > iVar1)
 			{
-				iVar1 = Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_3;
+				iVar1 = Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Priority;
 			}
 		}
 		iVar0++;
@@ -3936,9 +3936,9 @@ void func_106(int iParam0)//Position - 0x4E67
 	iVar2 = 0;
 	while (iVar2 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Texts)
 	{
-		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar2 /*14*/].f_2, iParam0))
+		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar2 /*14*/].Player_Char_Bitset, iParam0))
 		{
-			if (Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar2 /*14*/].f_3 == 5)
+			if (Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar2 /*14*/].Priority == 5)
 			{
 				iVar1 = 5;
 			}
@@ -4422,15 +4422,15 @@ void func_134(int iParam0, struct<3> Param1)//Position - 0x55B1
 {
 	int iVar0;
 	
-	if (HUD::DOES_BLIP_EXIST(Global_24748[iParam0 /*23*/].f_19))
+	if (HUD::DOES_BLIP_EXIST(Global_Mission_Blips[iParam0 /*23*/].f_19))
 	{
-		HUD::SET_BLIP_COORDS(Global_24748[iParam0 /*23*/].f_19, Param1);
+		HUD::SET_BLIP_COORDS(Global_Mission_Blips[iParam0 /*23*/].f_19, Param1);
 	}
 	iVar0 = 0;
 	iVar0 = 0;
 	while (iVar0 <= 2)
 	{
-		Global_24748[iParam0 /*23*/][iVar0 /*3*/] = { Param1 };
+		Global_Mission_Blips[iParam0 /*23*/][iVar0 /*3*/] = { Param1 };
 		iVar0++;
 	}
 }
@@ -8962,7 +8962,7 @@ int func_208(int iParam0)//Position - 0xA13D
 			iVar0 = 0;
 			while (iVar0 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Calls)
 			{
-				if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_3 == 5)
+				if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Priority == 5)
 				{
 					return 1;
 				}
@@ -8983,7 +8983,7 @@ int func_209(int iParam0)//Position - 0xA187
 	iVar0 = 0;
 	while (iVar0 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Calls)
 	{
-		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_2, iParam0))
+		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Player_Char_Bitset, iParam0))
 		{
 			return 1;
 		}
@@ -8992,7 +8992,7 @@ int func_209(int iParam0)//Position - 0xA187
 	iVar0 = 0;
 	while (iVar0 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Texts)
 	{
-		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar0 /*14*/].f_2, iParam0))
+		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar0 /*14*/].Player_Char_Bitset, iParam0))
 		{
 			return 1;
 		}
@@ -9001,7 +9001,7 @@ int func_209(int iParam0)//Position - 0xA187
 	iVar0 = 0;
 	while (iVar0 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Emails)
 	{
-		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar0 /*10*/].f_2, iParam0))
+		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar0 /*10*/].Player_Char_Bitset, iParam0))
 		{
 			return 1;
 		}
@@ -9356,21 +9356,21 @@ int func_223(float fParam0)//Position - 0xA7F4
 {
 	if (iLocal_41 == 1)
 	{
-		if (func_70(PLAYER::PLAYER_PED_ID(), Global_86313[1 /*15*/], fParam0))
+		if (func_70(PLAYER::PLAYER_PED_ID(), Global_Heist_Start_Locations[1 /*15*/], fParam0))
 		{
 			return 1;
 		}
 	}
 	else if (iLocal_41 == 2)
 	{
-		if (func_70(PLAYER::PLAYER_PED_ID(), Global_86313[0 /*15*/], fParam0))
+		if (func_70(PLAYER::PLAYER_PED_ID(), Global_Heist_Start_Locations[0 /*15*/], fParam0))
 		{
 			return 1;
 		}
 	}
 	else if (iLocal_41 == 0)
 	{
-		if (func_70(PLAYER::PLAYER_PED_ID(), Global_86313[3 /*15*/], fParam0))
+		if (func_70(PLAYER::PLAYER_PED_ID(), Global_Heist_Start_Locations[3 /*15*/], fParam0))
 		{
 			return 1;
 		}

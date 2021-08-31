@@ -75,7 +75,7 @@ void __EntryFunction__()//Position - 0x0
 				bVar124 = false;
 			}
 		}
-		if (!Global_35960 && MISC::GET_GAME_TIMER() > Global_35464)
+		if (!Global_35960 && MISC::GET_GAME_TIMER() > Global_Next_Notification_Time)
 		{
 			iVar125 = 0;
 			while (iVar125 < 120)
@@ -2104,7 +2104,7 @@ int func_35(int iParam0, int iParam1, float fParam2)//Position - 0x2AC9
 	
 	if (!ENTITY::IS_ENTITY_DEAD(iParam0))
 	{
-		Var0 = { Global_34914[iParam1 /*5*/] };
+		Var0 = { Global_Restricted_Areas[iParam1 /*5*/] };
 		fVar5 = Var0.f_3;
 		if (fParam2 > 0f)
 		{

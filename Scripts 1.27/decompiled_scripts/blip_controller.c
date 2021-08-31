@@ -132,12 +132,12 @@ void __EntryFunction__()//Position - 0x0
 		iLocal_54[iVar2] = -1;
 		iVar2++;
 	}
-	MISC::SET_BIT(&(Global_24748[iVar2 /*23*/].f_11), 18);
+	MISC::SET_BIT(&(Global_Mission_Blips[iVar2 /*23*/].f_11), 18);
 	iVar2 = 0;
 	iVar2 = 0;
 	while (iVar2 < 262)
 	{
-		MISC::SET_BIT(&(Global_24748[iVar2 /*23*/].f_11), 18);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar2 /*23*/].f_11), 18);
 		iVar2++;
 	}
 	iLocal_70 = Global_30776;
@@ -166,7 +166,7 @@ void __EntryFunction__()//Position - 0x0
 			iVar2 = 0;
 			while (iVar2 < 262)
 			{
-				bVar7 = MISC::IS_BIT_SET(Global_24748[iVar2 /*23*/].f_11, 18);
+				bVar7 = MISC::IS_BIT_SET(Global_Mission_Blips[iVar2 /*23*/].f_11, 18);
 				if (!bVar7)
 				{
 					if (func_33(iVar2))
@@ -187,7 +187,7 @@ void __EntryFunction__()//Position - 0x0
 					}
 					else
 					{
-						if (MISC::IS_BIT_SET(Global_24748[iVar2 /*23*/].f_11, 13))
+						if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar2 /*23*/].f_11, 13))
 						{
 							if (func_32())
 							{
@@ -195,7 +195,7 @@ void __EntryFunction__()//Position - 0x0
 							}
 							iVar9++;
 						}
-						if (MISC::IS_BIT_SET(Global_24748[iVar2 /*23*/].f_11, 1))
+						if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar2 /*23*/].f_11, 1))
 						{
 							if (!bLocal_49)
 							{
@@ -203,7 +203,7 @@ void __EntryFunction__()//Position - 0x0
 							}
 							iVar9++;
 						}
-						if (MISC::IS_BIT_SET(Global_24748[iVar2 /*23*/].f_11, 2))
+						if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar2 /*23*/].f_11, 2))
 						{
 							if (bLocal_49)
 							{
@@ -211,7 +211,7 @@ void __EntryFunction__()//Position - 0x0
 							}
 							iVar9++;
 						}
-						if (MISC::IS_BIT_SET(Global_24748[iVar2 /*23*/].f_11, 7))
+						if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar2 /*23*/].f_11, 7))
 						{
 							if (!func_31(15))
 							{
@@ -219,15 +219,15 @@ void __EntryFunction__()//Position - 0x0
 							}
 							iVar9++;
 						}
-						if (MISC::IS_BIT_SET(Global_24748[iVar2 /*23*/].f_11, 16))
+						if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar2 /*23*/].f_11, 16))
 						{
-							if (!func_29(Global_24748[iVar2 /*23*/].f_22))
+							if (!func_29(Global_Mission_Blips[iVar2 /*23*/].f_22))
 							{
 								iVar8++;
 							}
 							iVar9++;
 						}
-						if (MISC::IS_BIT_SET(Global_24748[iVar2 /*23*/].f_11, 14))
+						if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar2 /*23*/].f_11, 14))
 						{
 							if (func_31(5))
 							{
@@ -235,9 +235,9 @@ void __EntryFunction__()//Position - 0x0
 							}
 							iVar9++;
 						}
-						if (MISC::IS_BIT_SET(Global_24748[iVar2 /*23*/].f_11, 8))
+						if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar2 /*23*/].f_11, 8))
 						{
-							if (Global_24748[iVar2 /*23*/].f_16 != 4 && Global_24748[iVar2 /*23*/].f_16 != 8)
+							if (Global_Mission_Blips[iVar2 /*23*/].f_16 != 4 && Global_Mission_Blips[iVar2 /*23*/].f_16 != 8)
 							{
 								if (!func_28(iVar2))
 								{
@@ -246,7 +246,7 @@ void __EntryFunction__()//Position - 0x0
 								iVar9++;
 							}
 						}
-						if (MISC::IS_BIT_SET(Global_24748[iVar2 /*23*/].f_11, 19))
+						if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar2 /*23*/].f_11, 19))
 						{
 							switch (iLocal_63)
 							{
@@ -261,7 +261,7 @@ void __EntryFunction__()//Position - 0x0
 							}
 							iVar9++;
 						}
-						if (MISC::IS_BIT_SET(Global_24748[iVar2 /*23*/].f_11, 27))
+						if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar2 /*23*/].f_11, 27))
 						{
 							if (bLocal_44)
 							{
@@ -269,7 +269,7 @@ void __EntryFunction__()//Position - 0x0
 							}
 							iVar9++;
 						}
-						if (Global_24748[iVar2 /*23*/].f_16 == 1)
+						if (Global_Mission_Blips[iVar2 /*23*/].f_16 == 1)
 						{
 							func_22();
 						}
@@ -278,77 +278,77 @@ void __EntryFunction__()//Position - 0x0
 					{
 						if (iVar8 > 0)
 						{
-							MISC::CLEAR_BIT(&(Global_24748[iVar2 /*23*/].f_11), 0);
+							MISC::CLEAR_BIT(&(Global_Mission_Blips[iVar2 /*23*/].f_11), 0);
 						}
-						else if (MISC::IS_BIT_SET(Global_24748[iVar2 /*23*/].f_11, 15))
+						else if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar2 /*23*/].f_11, 15))
 						{
-							MISC::SET_BIT(&(Global_24748[iVar2 /*23*/].f_11), 0);
+							MISC::SET_BIT(&(Global_Mission_Blips[iVar2 /*23*/].f_11), 0);
 						}
 					}
-					else if (MISC::IS_BIT_SET(Global_24748[iVar2 /*23*/].f_11, 15))
+					else if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar2 /*23*/].f_11, 15))
 					{
-						MISC::SET_BIT(&(Global_24748[iVar2 /*23*/].f_11), 0);
+						MISC::SET_BIT(&(Global_Mission_Blips[iVar2 /*23*/].f_11), 0);
 					}
-					if (MISC::IS_BIT_SET(Global_24748[iVar2 /*23*/].f_11, 0) && MISC::IS_BIT_SET(Global_24748[iVar2 /*23*/].f_11, 3))
+					if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar2 /*23*/].f_11, 0) && MISC::IS_BIT_SET(Global_Mission_Blips[iVar2 /*23*/].f_11, 3))
 					{
 						bVar10 = false;
-						if (!HUD::DOES_BLIP_EXIST(Global_24748[iVar2 /*23*/].f_19))
+						if (!HUD::DOES_BLIP_EXIST(Global_Mission_Blips[iVar2 /*23*/].f_19))
 						{
 							while (!HUD::GET_NUMBER_OF_ACTIVE_BLIPS() < 150)
 							{
 								SYSTEM::WAIT(2000);
 							}
-							if (MISC::IS_BIT_SET(Global_24748[iVar2 /*23*/].f_11, 19))
+							if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar2 /*23*/].f_11, 19))
 							{
 								switch (iLocal_63)
 								{
 									case 1:
 									case 0:
 									case 2:
-										if (MISC::IS_BIT_SET(Global_24748[iVar2 /*23*/].f_11, 28))
+										if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar2 /*23*/].f_11, 28))
 										{
-											Global_24748[iVar2 /*23*/].f_19 = HUD::ADD_BLIP_FOR_RADIUS(Global_24748[iVar2 /*23*/][0 /*3*/], Global_24748[iVar2 /*23*/].f_10);
-											HUD::SET_BLIP_ALPHA(Global_24748[iVar2 /*23*/].f_19, 128);
-											HUD::SHOW_HEIGHT_ON_BLIP(Global_24748[iVar2 /*23*/].f_19, 0);
+											Global_Mission_Blips[iVar2 /*23*/].f_19 = HUD::ADD_BLIP_FOR_RADIUS(Global_Mission_Blips[iVar2 /*23*/][0 /*3*/], Global_Mission_Blips[iVar2 /*23*/].f_10);
+											HUD::SET_BLIP_ALPHA(Global_Mission_Blips[iVar2 /*23*/].f_19, 128);
+											HUD::SHOW_HEIGHT_ON_BLIP(Global_Mission_Blips[iVar2 /*23*/].f_19, 0);
 										}
 										else
 										{
-											Global_24748[iVar2 /*23*/].f_19 = HUD::ADD_BLIP_FOR_COORD(Global_24748[iVar2 /*23*/][iLocal_63 /*3*/]);
-											HUD::SET_BLIP_SPRITE(Global_24748[iVar2 /*23*/].f_19, Global_24748[iVar2 /*23*/].f_12[iLocal_63]);
+											Global_Mission_Blips[iVar2 /*23*/].f_19 = HUD::ADD_BLIP_FOR_COORD(Global_Mission_Blips[iVar2 /*23*/][iLocal_63 /*3*/]);
+											HUD::SET_BLIP_SPRITE(Global_Mission_Blips[iVar2 /*23*/].f_19, Global_Mission_Blips[iVar2 /*23*/].f_12[iLocal_63]);
 										}
 										break;
 									
 									default:
-										Global_24748[iVar2 /*23*/].f_19 = HUD::ADD_BLIP_FOR_COORD(1f, 2f, 3f);
+										Global_Mission_Blips[iVar2 /*23*/].f_19 = HUD::ADD_BLIP_FOR_COORD(1f, 2f, 3f);
 										break;
 								}
 							}
-							else if (MISC::IS_BIT_SET(Global_24748[iVar2 /*23*/].f_11, 28))
+							else if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar2 /*23*/].f_11, 28))
 							{
-								Global_24748[iVar2 /*23*/].f_19 = HUD::ADD_BLIP_FOR_RADIUS(Global_24748[iVar2 /*23*/][0 /*3*/], Global_24748[iVar2 /*23*/].f_10);
-								HUD::SET_BLIP_ALPHA(Global_24748[iVar2 /*23*/].f_19, 128);
-								HUD::SHOW_HEIGHT_ON_BLIP(Global_24748[iVar2 /*23*/].f_19, 0);
+								Global_Mission_Blips[iVar2 /*23*/].f_19 = HUD::ADD_BLIP_FOR_RADIUS(Global_Mission_Blips[iVar2 /*23*/][0 /*3*/], Global_Mission_Blips[iVar2 /*23*/].f_10);
+								HUD::SET_BLIP_ALPHA(Global_Mission_Blips[iVar2 /*23*/].f_19, 128);
+								HUD::SHOW_HEIGHT_ON_BLIP(Global_Mission_Blips[iVar2 /*23*/].f_19, 0);
 							}
 							else
 							{
-								Global_24748[iVar2 /*23*/].f_19 = HUD::ADD_BLIP_FOR_COORD(Global_24748[iVar2 /*23*/][0 /*3*/]);
-								HUD::SET_BLIP_SPRITE(Global_24748[iVar2 /*23*/].f_19, Global_24748[iVar2 /*23*/].f_12[0]);
+								Global_Mission_Blips[iVar2 /*23*/].f_19 = HUD::ADD_BLIP_FOR_COORD(Global_Mission_Blips[iVar2 /*23*/][0 /*3*/]);
+								HUD::SET_BLIP_SPRITE(Global_Mission_Blips[iVar2 /*23*/].f_19, Global_Mission_Blips[iVar2 /*23*/].f_12[0]);
 							}
-							if (Global_24748[iVar2 /*23*/].f_16 == 1)
+							if (Global_Mission_Blips[iVar2 /*23*/].f_16 == 1)
 							{
 								bVar10 = true;
 							}
 						}
 						else
 						{
-							if (MISC::IS_BIT_SET(Global_24748[iVar2 /*23*/].f_11, 19))
+							if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar2 /*23*/].f_11, 19))
 							{
 								switch (iLocal_63)
 								{
 									case 1:
 									case 0:
 									case 2:
-										HUD::SET_BLIP_COORDS(Global_24748[iVar2 /*23*/].f_19, Global_24748[iVar2 /*23*/][iLocal_63 /*3*/]);
+										HUD::SET_BLIP_COORDS(Global_Mission_Blips[iVar2 /*23*/].f_19, Global_Mission_Blips[iVar2 /*23*/][iLocal_63 /*3*/]);
 										break;
 									
 									default:
@@ -357,29 +357,29 @@ void __EntryFunction__()//Position - 0x0
 							}
 							else
 							{
-								HUD::SET_BLIP_COORDS(Global_24748[iVar2 /*23*/].f_19, Global_24748[iVar2 /*23*/][0 /*3*/]);
+								HUD::SET_BLIP_COORDS(Global_Mission_Blips[iVar2 /*23*/].f_19, Global_Mission_Blips[iVar2 /*23*/][0 /*3*/]);
 							}
-							if (MISC::IS_BIT_SET(Global_24748[iVar2 /*23*/].f_11, 9))
+							if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar2 /*23*/].f_11, 9))
 							{
 								if (iLocal_46)
 								{
-									HUD::SET_BLIP_FLASHES(Global_24748[iVar2 /*23*/].f_19, 1);
+									HUD::SET_BLIP_FLASHES(Global_Mission_Blips[iVar2 /*23*/].f_19, 1);
 									iLocal_46 = 0;
 								}
 								else
 								{
-									HUD::SET_BLIP_FLASHES_ALTERNATE(Global_24748[iVar2 /*23*/].f_19, 1);
+									HUD::SET_BLIP_FLASHES_ALTERNATE(Global_Mission_Blips[iVar2 /*23*/].f_19, 1);
 									iLocal_46 = 1;
 								}
-								HUD::SET_BLIP_FLASH_TIMER(Global_24748[iVar2 /*23*/].f_19, 10000);
-								MISC::CLEAR_BIT(&(Global_24748[iVar2 /*23*/].f_11), 9);
+								HUD::SET_BLIP_FLASH_TIMER(Global_Mission_Blips[iVar2 /*23*/].f_19, 10000);
+								MISC::CLEAR_BIT(&(Global_Mission_Blips[iVar2 /*23*/].f_11), 9);
 							}
 							else
 							{
-								HUD::SET_BLIP_FLASHES(Global_24748[iVar2 /*23*/].f_19, 0);
+								HUD::SET_BLIP_FLASHES(Global_Mission_Blips[iVar2 /*23*/].f_19, 0);
 							}
 						}
-						func_19(Global_24748[iVar2 /*23*/].f_19, iVar2);
+						func_19(Global_Mission_Blips[iVar2 /*23*/].f_19, iVar2);
 						if (bVar10)
 						{
 							func_18(iVar2);
@@ -388,19 +388,19 @@ void __EntryFunction__()//Position - 0x0
 					}
 					else
 					{
-						if (HUD::DOES_BLIP_EXIST(Global_24748[iVar2 /*23*/].f_19))
+						if (HUD::DOES_BLIP_EXIST(Global_Mission_Blips[iVar2 /*23*/].f_19))
 						{
-							HUD::REMOVE_BLIP(&(Global_24748[iVar2 /*23*/].f_19));
+							HUD::REMOVE_BLIP(&(Global_Mission_Blips[iVar2 /*23*/].f_19));
 							iVar5++;
-							if (Global_24748[iVar2 /*23*/].f_16 == 1)
+							if (Global_Mission_Blips[iVar2 /*23*/].f_16 == 1)
 							{
 								func_17(iVar2);
 							}
 						}
-						Global_24748[iVar2 /*23*/].f_19 = 0;
+						Global_Mission_Blips[iVar2 /*23*/].f_19 = 0;
 					}
 				}
-				MISC::CLEAR_BIT(&(Global_24748[iVar2 /*23*/].f_11), 18);
+				MISC::CLEAR_BIT(&(Global_Mission_Blips[iVar2 /*23*/].f_11), 18);
 				iVar11 = 30;
 				if (CAM::IS_SCREEN_FADED_OUT())
 				{
@@ -566,15 +566,15 @@ void func_7(int iParam0, bool bParam1, bool bParam2)//Position - 0x9A8
 	}
 	if (!bParam2)
 	{
-		iVar1 = MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 15);
+		iVar1 = MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 15);
 		if (iVar1 == bParam1)
 		{
 			return;
 		}
 	}
-	if (bParam1 != MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 0))
+	if (bParam1 != MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 0))
 	{
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 18);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 18);
 		if (Global_24745 == 1)
 		{
 			Global_24746 = 1;
@@ -583,21 +583,21 @@ void func_7(int iParam0, bool bParam1, bool bParam2)//Position - 0x9A8
 	}
 	if (bParam1)
 	{
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 0);
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 15);
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 3);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 0);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 15);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 3);
 	}
 	else
 	{
-		MISC::CLEAR_BIT(&(Global_24748[iVar0 /*23*/].f_11), 0);
-		MISC::CLEAR_BIT(&(Global_24748[iVar0 /*23*/].f_11), 15);
+		MISC::CLEAR_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 0);
+		MISC::CLEAR_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 15);
 	}
-	if (!MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 0))
+	if (!MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 0))
 	{
-		if (HUD::DOES_BLIP_EXIST(Global_24748[iVar0 /*23*/].f_19))
+		if (HUD::DOES_BLIP_EXIST(Global_Mission_Blips[iVar0 /*23*/].f_19))
 		{
 			MISC::SET_THIS_SCRIPT_CAN_REMOVE_BLIPS_CREATED_BY_ANY_SCRIPT(1);
-			HUD::REMOVE_BLIP(&(Global_24748[iVar0 /*23*/].f_19));
+			HUD::REMOVE_BLIP(&(Global_Mission_Blips[iVar0 /*23*/].f_19));
 			MISC::SET_THIS_SCRIPT_CAN_REMOVE_BLIPS_CREATED_BY_ANY_SCRIPT(0);
 		}
 	}
@@ -612,7 +612,7 @@ bool func_8(int iParam0)//Position - 0xAB1
 	{
 		return 0;
 	}
-	return HUD::DOES_BLIP_EXIST(Global_24748[iVar0 /*23*/].f_19);
+	return HUD::DOES_BLIP_EXIST(Global_Mission_Blips[iVar0 /*23*/].f_19);
 }
 
 int func_9(int iParam0)//Position - 0xAED
@@ -645,9 +645,9 @@ void func_10()//Position - 0xB1A
 	{
 		if (iLocal_54[iVar5] != -1)
 		{
-			if (HUD::DOES_BLIP_EXIST(Global_24748[iLocal_54[iVar5] /*23*/].f_19))
+			if (HUD::DOES_BLIP_EXIST(Global_Mission_Blips[iLocal_54[iVar5] /*23*/].f_19))
 			{
-				fVar6 = MISC::GET_DISTANCE_BETWEEN_COORDS(Var0, HUD::GET_BLIP_COORDS(Global_24748[iLocal_54[iVar5] /*23*/].f_19), 1);
+				fVar6 = MISC::GET_DISTANCE_BETWEEN_COORDS(Var0, HUD::GET_BLIP_COORDS(Global_Mission_Blips[iLocal_54[iVar5] /*23*/].f_19), 1);
 				if (fVar6 < fVar4)
 				{
 					fVar4 = fVar6;
@@ -673,12 +673,12 @@ void func_10()//Position - 0xB1A
 		{
 			if (iVar5 == iVar3)
 			{
-				if (HUD::DOES_BLIP_EXIST(Global_24748[iLocal_54[iVar5] /*23*/].f_19))
+				if (HUD::DOES_BLIP_EXIST(Global_Mission_Blips[iLocal_54[iVar5] /*23*/].f_19))
 				{
 					func_15(iLocal_54[iVar5]);
 				}
 			}
-			else if (HUD::DOES_BLIP_EXIST(Global_24748[iLocal_54[iVar5] /*23*/].f_19))
+			else if (HUD::DOES_BLIP_EXIST(Global_Mission_Blips[iLocal_54[iVar5] /*23*/].f_19))
 			{
 				func_11(iLocal_54[iVar5]);
 			}
@@ -703,24 +703,24 @@ void func_12(int iParam0, bool bParam1)//Position - 0xC3C
 	{
 		return;
 	}
-	if (bParam1 == MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 4))
+	if (bParam1 == MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 4))
 	{
 		return;
 	}
 	if (bParam1)
 	{
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 4);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 4);
 	}
 	else
 	{
-		MISC::CLEAR_BIT(&(Global_24748[iVar0 /*23*/].f_11), 4);
+		MISC::CLEAR_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 4);
 	}
 	if (Global_24745 == 1)
 	{
 		Global_24746 = 1;
 	}
 	Global_24745 = 1;
-	MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 18);
+	MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 18);
 }
 
 void func_13(int iParam0, bool bParam1)//Position - 0xCC2
@@ -732,24 +732,24 @@ void func_13(int iParam0, bool bParam1)//Position - 0xCC2
 	{
 		return;
 	}
-	if (bParam1 == MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 5))
+	if (bParam1 == MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 5))
 	{
 		return;
 	}
 	if (bParam1)
 	{
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 5);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 5);
 	}
 	else
 	{
-		MISC::CLEAR_BIT(&(Global_24748[iVar0 /*23*/].f_11), 5);
+		MISC::CLEAR_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 5);
 	}
 	if (Global_24745 == 1)
 	{
 		Global_24746 = 1;
 	}
 	Global_24745 = 1;
-	MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 18);
+	MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 18);
 }
 
 void func_14(int iParam0, bool bParam1, bool bParam2)//Position - 0xD48
@@ -761,32 +761,32 @@ void func_14(int iParam0, bool bParam1, bool bParam2)//Position - 0xD48
 	{
 		return;
 	}
-	if (bParam1 == MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 6))
+	if (bParam1 == MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 6))
 	{
 		return;
 	}
 	if (bParam1)
 	{
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 6);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 6);
 	}
 	else
 	{
-		MISC::CLEAR_BIT(&(Global_24748[iVar0 /*23*/].f_11), 6);
+		MISC::CLEAR_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 6);
 	}
 	if (bParam2)
 	{
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 11);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 11);
 	}
 	else
 	{
-		MISC::CLEAR_BIT(&(Global_24748[iVar0 /*23*/].f_11), 11);
+		MISC::CLEAR_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 11);
 	}
 	if (Global_24745 == 1)
 	{
 		Global_24746 = 1;
 	}
 	Global_24745 = 1;
-	MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 18);
+	MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 18);
 }
 
 void func_15(int iParam0)//Position - 0xDF4
@@ -873,7 +873,7 @@ void func_19(var uParam0, int iParam1)//Position - 0xED9
 	HUD::_SET_BLIP_DISPLAY_INDICATOR_ON_BLIP(uParam0, 1);
 	HUD::SET_BLIP_PRIORITY(uParam0, 2);
 	HUD::SET_BLIP_COLOUR(uParam0, func_21(iParam1));
-	if (Global_24748[iParam1 /*23*/].f_16 == 4 || Global_24748[iParam1 /*23*/].f_16 == 8)
+	if (Global_Mission_Blips[iParam1 /*23*/].f_16 == 4 || Global_Mission_Blips[iParam1 /*23*/].f_16 == 8)
 	{
 		switch (iVar0)
 		{
@@ -890,24 +890,24 @@ void func_19(var uParam0, int iParam1)//Position - 0xED9
 				break;
 			}
 	}
-	if (!MISC::IS_BIT_SET(Global_24748[iParam1 /*23*/].f_11, 28))
+	if (!MISC::IS_BIT_SET(Global_Mission_Blips[iParam1 /*23*/].f_11, 28))
 	{
 		HUD::SET_BLIP_SCALE(uParam0, 1f);
 	}
-	if (!MISC::IS_STRING_NULL_OR_EMPTY(&(Global_24748[iParam1 /*23*/].f_20)))
+	if (!MISC::IS_STRING_NULL_OR_EMPTY(&(Global_Mission_Blips[iParam1 /*23*/].f_20)))
 	{
-		if (HUD::DOES_TEXT_LABEL_EXIST(&(Global_24748[iParam1 /*23*/].f_20)))
+		if (HUD::DOES_TEXT_LABEL_EXIST(&(Global_Mission_Blips[iParam1 /*23*/].f_20)))
 		{
-			HUD::SET_BLIP_NAME_FROM_TEXT_FILE(uParam0, &(Global_24748[iParam1 /*23*/].f_20));
+			HUD::SET_BLIP_NAME_FROM_TEXT_FILE(uParam0, &(Global_Mission_Blips[iParam1 /*23*/].f_20));
 		}
 	}
-	bVar1 = MISC::IS_BIT_SET(Global_24748[iParam1 /*23*/].f_11, 4);
-	bVar2 = MISC::IS_BIT_SET(Global_24748[iParam1 /*23*/].f_11, 5);
-	bVar3 = MISC::IS_BIT_SET(Global_24748[iParam1 /*23*/].f_11, 6);
+	bVar1 = MISC::IS_BIT_SET(Global_Mission_Blips[iParam1 /*23*/].f_11, 4);
+	bVar2 = MISC::IS_BIT_SET(Global_Mission_Blips[iParam1 /*23*/].f_11, 5);
+	bVar3 = MISC::IS_BIT_SET(Global_Mission_Blips[iParam1 /*23*/].f_11, 6);
 	bVar4 = false;
 	if (func_20(0))
 	{
-		bVar4 = MISC::IS_BIT_SET(Global_24748[iParam1 /*23*/].f_11, 11);
+		bVar4 = MISC::IS_BIT_SET(Global_Mission_Blips[iParam1 /*23*/].f_11, 11);
 	}
 	if (bVar3 && !bVar4)
 	{
@@ -932,7 +932,7 @@ void func_19(var uParam0, int iParam1)//Position - 0xED9
 			HUD::SET_BLIP_DISPLAY(uParam0, 3);
 		}
 	}
-	switch (Global_24748[iParam1 /*23*/].f_16)
+	switch (Global_Mission_Blips[iParam1 /*23*/].f_16)
 	{
 		case 7:
 			HUD::SET_BLIP_PRIORITY(uParam0, 2);
@@ -959,7 +959,7 @@ void func_19(var uParam0, int iParam1)//Position - 0xED9
 		case 4:
 		case 8:
 			HUD::SET_BLIP_HIGH_DETAIL(uParam0, 1);
-			if (Global_24748[iParam1 /*23*/].f_16 == 4)
+			if (Global_Mission_Blips[iParam1 /*23*/].f_16 == 4)
 			{
 				HUD::SET_BLIP_PRIORITY(uParam0, 7);
 			}
@@ -967,31 +967,31 @@ void func_19(var uParam0, int iParam1)//Position - 0xED9
 			{
 				HUD::SET_BLIP_PRIORITY(uParam0, 5);
 			}
-			if (MISC::IS_BIT_SET(Global_24748[iParam1 /*23*/].f_11, 8))
+			if (MISC::IS_BIT_SET(Global_Mission_Blips[iParam1 /*23*/].f_11, 8))
 			{
 				if (!func_28(iParam1))
 				{
-					if (MISC::IS_BIT_SET(Global_24748[iParam1 /*23*/].f_11, 28))
+					if (MISC::IS_BIT_SET(Global_Mission_Blips[iParam1 /*23*/].f_11, 28))
 					{
 						HUD::SET_BLIP_ALPHA(uParam0, 0);
 					}
 					else
 					{
-						if (Global_24748[iParam1 /*23*/].f_17 == 0)
+						if (Global_Mission_Blips[iParam1 /*23*/].f_17 == 0)
 						{
 							HUD::SET_BLIP_COLOUR(uParam0, 42);
 						}
-						if (Global_24748[iParam1 /*23*/].f_17 == 1)
+						if (Global_Mission_Blips[iParam1 /*23*/].f_17 == 1)
 						{
 							HUD::SET_BLIP_COLOUR(uParam0, 43);
 						}
-						if (Global_24748[iParam1 /*23*/].f_17 == 2)
+						if (Global_Mission_Blips[iParam1 /*23*/].f_17 == 2)
 						{
 							HUD::SET_BLIP_COLOUR(uParam0, 44);
 						}
-						if (Global_24748[iParam1 /*23*/].f_16 == 8)
+						if (Global_Mission_Blips[iParam1 /*23*/].f_16 == 8)
 						{
-							HUD::SET_BLIP_AS_SHORT_RANGE(uParam0, MISC::IS_BIT_SET(Global_24748[iParam1 /*23*/].f_11, 5));
+							HUD::SET_BLIP_AS_SHORT_RANGE(uParam0, MISC::IS_BIT_SET(Global_Mission_Blips[iParam1 /*23*/].f_11, 5));
 							HUD::SET_BLIP_PRIORITY(uParam0, 3);
 							HUD::SET_BLIP_AS_SHORT_RANGE(uParam0, true);
 							HUD::SET_BLIP_HIDDEN_ON_LEGEND(uParam0, 1);
@@ -1005,11 +1005,11 @@ void func_19(var uParam0, int iParam1)//Position - 0xED9
 				}
 				else
 				{
-					if (MISC::IS_BIT_SET(Global_24748[iParam1 /*23*/].f_11, 28))
+					if (MISC::IS_BIT_SET(Global_Mission_Blips[iParam1 /*23*/].f_11, 28))
 					{
 						HUD::SET_BLIP_ALPHA(uParam0, 128);
 					}
-					if (Global_24748[iParam1 /*23*/].f_16 == 8)
+					if (Global_Mission_Blips[iParam1 /*23*/].f_16 == 8)
 					{
 						HUD::SET_BLIP_HIDDEN_ON_LEGEND(uParam0, 0);
 					}
@@ -1037,18 +1037,18 @@ void func_19(var uParam0, int iParam1)//Position - 0xED9
 			HUD::SET_BLIP_HIGH_DETAIL(uParam0, 1);
 			break;
 	}
-	if (MISC::IS_BIT_SET(Global_24748[iParam1 /*23*/].f_11, 19))
+	if (MISC::IS_BIT_SET(Global_Mission_Blips[iParam1 /*23*/].f_11, 19))
 	{
 		switch (iVar0)
 		{
 			case 1:
 			case 0:
 			case 2:
-				HUD::SET_BLIP_COORDS(Global_24748[iParam1 /*23*/].f_19, Global_24748[iParam1 /*23*/][iVar0 /*3*/]);
+				HUD::SET_BLIP_COORDS(Global_Mission_Blips[iParam1 /*23*/].f_19, Global_Mission_Blips[iParam1 /*23*/][iVar0 /*3*/]);
 				break;
 			}
 	}
-	if (MISC::IS_BIT_SET(Global_24748[iParam1 /*23*/].f_11, 17))
+	if (MISC::IS_BIT_SET(Global_Mission_Blips[iParam1 /*23*/].f_11, 17))
 	{
 		HUD::SET_BLIP_AS_MISSION_CREATOR_BLIP(uParam0, 1);
 	}
@@ -1056,7 +1056,7 @@ void func_19(var uParam0, int iParam1)//Position - 0xED9
 	{
 		HUD::SET_BLIP_AS_MISSION_CREATOR_BLIP(uParam0, 0);
 	}
-	if (MISC::IS_BIT_SET(Global_24748[iParam1 /*23*/].f_11, 20))
+	if (MISC::IS_BIT_SET(Global_Mission_Blips[iParam1 /*23*/].f_11, 20))
 	{
 		HUD::SHOW_TICK_ON_BLIP(uParam0, 1);
 	}
@@ -1064,7 +1064,7 @@ void func_19(var uParam0, int iParam1)//Position - 0xED9
 	{
 		HUD::SHOW_TICK_ON_BLIP(uParam0, 0);
 	}
-	if (MISC::IS_BIT_SET(Global_24748[iParam1 /*23*/].f_11, 29))
+	if (MISC::IS_BIT_SET(Global_Mission_Blips[iParam1 /*23*/].f_11, 29))
 	{
 		HUD::SET_BLIP_COLOUR(uParam0, 39);
 	}
@@ -1093,7 +1093,7 @@ int func_21(int iParam0)//Position - 0x1309
 	{
 		return 0;
 	}
-	uVar1 = MISC::GET_BITS_IN_RANGE(Global_24748[iVar0 /*23*/].f_11, 21, 26);
+	uVar1 = MISC::GET_BITS_IN_RANGE(Global_Mission_Blips[iVar0 /*23*/].f_11, 21, 26);
 	return uVar1;
 }
 
@@ -1251,19 +1251,19 @@ int func_28(int iParam0)//Position - 0x1583
 	{
 		return 0;
 	}
-	if (!MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 8))
+	if (!MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 8))
 	{
 		return 0;
 	}
-	if (Global_24748[iVar0 /*23*/].f_17 == func_1())
+	if (Global_Mission_Blips[iVar0 /*23*/].f_17 == func_1())
 	{
 		return 1;
 	}
-	if (!MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 10))
+	if (!MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 10))
 	{
 		return 0;
 	}
-	if (Global_24748[iVar0 /*23*/].f_18 == func_1())
+	if (Global_Mission_Blips[iVar0 /*23*/].f_18 == func_1())
 	{
 		return 1;
 	}
@@ -1434,39 +1434,39 @@ int func_32()//Position - 0x1809
 
 int func_33(int iParam0)//Position - 0x1822
 {
-	if (iLocal_67 && MISC::IS_BIT_SET(Global_24748[iParam0 /*23*/].f_11, 13))
+	if (iLocal_67 && MISC::IS_BIT_SET(Global_Mission_Blips[iParam0 /*23*/].f_11, 13))
 	{
-		MISC::SET_BIT(&(Global_24748[iParam0 /*23*/].f_11), 18);
+		MISC::SET_BIT(&(Global_Mission_Blips[iParam0 /*23*/].f_11), 18);
 		return 1;
 	}
-	if (iLocal_68 && ((MISC::IS_BIT_SET(Global_24748[iParam0 /*23*/].f_11, 7) || MISC::IS_BIT_SET(Global_24748[iParam0 /*23*/].f_11, 11)) || MISC::IS_BIT_SET(Global_24748[iParam0 /*23*/].f_11, 16)))
+	if (iLocal_68 && ((MISC::IS_BIT_SET(Global_Mission_Blips[iParam0 /*23*/].f_11, 7) || MISC::IS_BIT_SET(Global_Mission_Blips[iParam0 /*23*/].f_11, 11)) || MISC::IS_BIT_SET(Global_Mission_Blips[iParam0 /*23*/].f_11, 16)))
 	{
-		MISC::SET_BIT(&(Global_24748[iParam0 /*23*/].f_11), 18);
+		MISC::SET_BIT(&(Global_Mission_Blips[iParam0 /*23*/].f_11), 18);
 		return 1;
 	}
-	if (iLocal_69 && MISC::IS_BIT_SET(Global_24748[iParam0 /*23*/].f_11, 14))
+	if (iLocal_69 && MISC::IS_BIT_SET(Global_Mission_Blips[iParam0 /*23*/].f_11, 14))
 	{
-		MISC::SET_BIT(&(Global_24748[iParam0 /*23*/].f_11), 18);
+		MISC::SET_BIT(&(Global_Mission_Blips[iParam0 /*23*/].f_11), 18);
 		return 1;
 	}
-	if (iLocal_64 && ((MISC::IS_BIT_SET(Global_24748[iParam0 /*23*/].f_11, 10) || MISC::IS_BIT_SET(Global_24748[iParam0 /*23*/].f_11, 8)) || MISC::IS_BIT_SET(Global_24748[iParam0 /*23*/].f_11, 19)))
+	if (iLocal_64 && ((MISC::IS_BIT_SET(Global_Mission_Blips[iParam0 /*23*/].f_11, 10) || MISC::IS_BIT_SET(Global_Mission_Blips[iParam0 /*23*/].f_11, 8)) || MISC::IS_BIT_SET(Global_Mission_Blips[iParam0 /*23*/].f_11, 19)))
 	{
-		MISC::SET_BIT(&(Global_24748[iParam0 /*23*/].f_11), 18);
+		MISC::SET_BIT(&(Global_Mission_Blips[iParam0 /*23*/].f_11), 18);
 		return 1;
 	}
 	if (bLocal_65)
 	{
-		MISC::SET_BIT(&(Global_24748[iParam0 /*23*/].f_11), 18);
+		MISC::SET_BIT(&(Global_Mission_Blips[iParam0 /*23*/].f_11), 18);
 		return 1;
 	}
-	if (iLocal_71 && MISC::IS_BIT_SET(Global_24748[iParam0 /*23*/].f_11, 27))
+	if (iLocal_71 && MISC::IS_BIT_SET(Global_Mission_Blips[iParam0 /*23*/].f_11, 27))
 	{
-		MISC::SET_BIT(&(Global_24748[iParam0 /*23*/].f_11), 18);
+		MISC::SET_BIT(&(Global_Mission_Blips[iParam0 /*23*/].f_11), 18);
 		return 1;
 	}
-	if ((iLocal_72 && (MISC::IS_BIT_SET(Global_24748[iParam0 /*23*/].f_11, 1) || MISC::IS_BIT_SET(Global_24748[iParam0 /*23*/].f_11, 2))) || Global_24748[iParam0 /*23*/].f_16 == 1)
+	if ((iLocal_72 && (MISC::IS_BIT_SET(Global_Mission_Blips[iParam0 /*23*/].f_11, 1) || MISC::IS_BIT_SET(Global_Mission_Blips[iParam0 /*23*/].f_11, 2))) || Global_Mission_Blips[iParam0 /*23*/].f_16 == 1)
 	{
-		MISC::SET_BIT(&(Global_24748[iParam0 /*23*/].f_11), 18);
+		MISC::SET_BIT(&(Global_Mission_Blips[iParam0 /*23*/].f_11), 18);
 		return 1;
 	}
 	return 0;
@@ -1698,24 +1698,24 @@ void func_45(int iParam0, bool bParam1)//Position - 0x1C73
 	{
 		return;
 	}
-	if (bParam1 == MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 2))
+	if (bParam1 == MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 2))
 	{
 		return;
 	}
 	if (bParam1)
 	{
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 2);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 2);
 	}
 	else
 	{
-		MISC::CLEAR_BIT(&(Global_24748[iVar0 /*23*/].f_11), 2);
+		MISC::CLEAR_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 2);
 	}
 	if (Global_24745 == 1)
 	{
 		Global_24746 = 1;
 	}
 	Global_24745 = 1;
-	MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 18);
+	MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 18);
 }
 
 void func_46(int iParam0, char* sParam1)//Position - 0x1CF9
@@ -1727,10 +1727,10 @@ void func_46(int iParam0, char* sParam1)//Position - 0x1CF9
 	{
 		return;
 	}
-	StringCopy(&(Global_24748[iVar0 /*23*/].f_20), sParam1, 8);
-	if (HUD::DOES_BLIP_EXIST(Global_24748[iVar0 /*23*/].f_19))
+	StringCopy(&(Global_Mission_Blips[iVar0 /*23*/].f_20), sParam1, 8);
+	if (HUD::DOES_BLIP_EXIST(Global_Mission_Blips[iVar0 /*23*/].f_19))
 	{
-		HUD::SET_BLIP_NAME_FROM_TEXT_FILE(Global_24748[iVar0 /*23*/].f_19, sParam1);
+		HUD::SET_BLIP_NAME_FROM_TEXT_FILE(Global_Mission_Blips[iVar0 /*23*/].f_19, sParam1);
 	}
 }
 

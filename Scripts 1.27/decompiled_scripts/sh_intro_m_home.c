@@ -30259,7 +30259,7 @@ int func_208()//Position - 0x21081
 	}
 	if (Global_35460 != -1)
 	{
-		if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].f_3 >= 2)
+		if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[Global_35460 /*15*/].Priority >= 2)
 		{
 			return 0;
 		}
