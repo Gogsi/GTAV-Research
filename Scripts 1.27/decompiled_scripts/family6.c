@@ -4503,7 +4503,7 @@ int func_44(var uParam0, int iParam1, int iParam2, var uParam3)//Position - 0x5C
 		PAD::DISABLE_CONTROL_ACTION(0, 75, 1);
 	}
 	iVar0 = MISC::GET_GAME_TIMER();
-	if (iVar0 >= (Global_35464 - 1000))
+	if (iVar0 >= (Global_Next_Notification_Time - 1000))
 	{
 		func_527(2666);
 	}
@@ -96223,7 +96223,7 @@ void func_526(var uParam0, int iParam1)//Position - 0x711FA
 
 void func_527(int iParam0)//Position - 0x71249
 {
-	Global_35464 = (MISC::GET_GAME_TIMER() + iParam0);
+	Global_Next_Notification_Time = (MISC::GET_GAME_TIMER() + iParam0);
 }
 
 int func_528(var uParam0, var uParam1, var uParam2)//Position - 0x7125B

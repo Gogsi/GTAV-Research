@@ -670,7 +670,7 @@ void func_9(char* sParam0, var uParam1, char* sParam2)//Position - 0x684
 			HUD::CLEAR_REMINDER_MESSAGE();
 			func_32();
 			iVar179 = MISC::GET_GAME_TIMER();
-			if (iVar179 >= (Global_35464 - 500))
+			if (iVar179 >= (Global_Next_Notification_Time - 500))
 			{
 				func_31(4000);
 			}
@@ -1550,7 +1550,7 @@ void func_30(var uParam0, int iParam1, char* sParam2, int iParam3, int iParam4, 
 
 void func_31(int iParam0)//Position - 0x1BF3
 {
-	Global_35464 = (MISC::GET_GAME_TIMER() + iParam0);
+	Global_Next_Notification_Time = (MISC::GET_GAME_TIMER() + iParam0);
 }
 
 void func_32()//Position - 0x1C05

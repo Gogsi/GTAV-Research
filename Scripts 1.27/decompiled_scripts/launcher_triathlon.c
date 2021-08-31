@@ -866,17 +866,17 @@ void func_8(int iParam0, bool bParam1)//Position - 0xD34
 	{
 		return;
 	}
-	if (bParam1 != MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 13))
+	if (bParam1 != MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 13))
 	{
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 18);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 18);
 	}
 	if (bParam1)
 	{
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 13);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 13);
 	}
 	else
 	{
-		MISC::CLEAR_BIT(&(Global_24748[iVar0 /*23*/].f_11), 13);
+		MISC::CLEAR_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 13);
 	}
 }
 
@@ -889,24 +889,24 @@ void func_9(int iParam0, bool bParam1)//Position - 0xDAB
 	{
 		return;
 	}
-	if (bParam1 == MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 20))
+	if (bParam1 == MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 20))
 	{
 		return;
 	}
 	if (bParam1)
 	{
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 20);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 20);
 	}
 	else
 	{
-		MISC::CLEAR_BIT(&(Global_24748[iVar0 /*23*/].f_11), 20);
+		MISC::CLEAR_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 20);
 	}
 	if (Global_24745 == 1)
 	{
 		Global_24746 = 1;
 	}
 	Global_24745 = 1;
-	MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 20);
+	MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 20);
 }
 
 void func_10(int iParam0)//Position - 0xE34
@@ -925,24 +925,24 @@ void func_11(int iParam0, bool bParam1)//Position - 0xE52
 	{
 		return;
 	}
-	if (bParam1 == MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 4))
+	if (bParam1 == MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 4))
 	{
 		return;
 	}
 	if (bParam1)
 	{
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 4);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 4);
 	}
 	else
 	{
-		MISC::CLEAR_BIT(&(Global_24748[iVar0 /*23*/].f_11), 4);
+		MISC::CLEAR_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 4);
 	}
 	if (Global_24745 == 1)
 	{
 		Global_24746 = 1;
 	}
 	Global_24745 = 1;
-	MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 18);
+	MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 18);
 }
 
 void func_12(int iParam0, bool bParam1)//Position - 0xED8
@@ -954,24 +954,24 @@ void func_12(int iParam0, bool bParam1)//Position - 0xED8
 	{
 		return;
 	}
-	if (bParam1 == MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 5))
+	if (bParam1 == MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 5))
 	{
 		return;
 	}
 	if (bParam1)
 	{
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 5);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 5);
 	}
 	else
 	{
-		MISC::CLEAR_BIT(&(Global_24748[iVar0 /*23*/].f_11), 5);
+		MISC::CLEAR_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 5);
 	}
 	if (Global_24745 == 1)
 	{
 		Global_24746 = 1;
 	}
 	Global_24745 = 1;
-	MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 18);
+	MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 18);
 }
 
 void func_13(int iParam0, bool bParam1, bool bParam2)//Position - 0xF5E
@@ -983,32 +983,32 @@ void func_13(int iParam0, bool bParam1, bool bParam2)//Position - 0xF5E
 	{
 		return;
 	}
-	if (bParam1 == MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 6))
+	if (bParam1 == MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 6))
 	{
 		return;
 	}
 	if (bParam1)
 	{
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 6);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 6);
 	}
 	else
 	{
-		MISC::CLEAR_BIT(&(Global_24748[iVar0 /*23*/].f_11), 6);
+		MISC::CLEAR_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 6);
 	}
 	if (bParam2)
 	{
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 11);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 11);
 	}
 	else
 	{
-		MISC::CLEAR_BIT(&(Global_24748[iVar0 /*23*/].f_11), 11);
+		MISC::CLEAR_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 11);
 	}
 	if (Global_24745 == 1)
 	{
 		Global_24746 = 1;
 	}
 	Global_24745 = 1;
-	MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 18);
+	MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 18);
 }
 
 void func_14(int iParam0)//Position - 0x100A
@@ -4688,7 +4688,7 @@ bool func_100(int iParam0)//Position - 0x727A
 	{
 		return 0;
 	}
-	return HUD::DOES_BLIP_EXIST(Global_24748[iVar0 /*23*/].f_19);
+	return HUD::DOES_BLIP_EXIST(Global_Mission_Blips[iVar0 /*23*/].f_19);
 }
 
 bool func_101(int iParam0)//Position - 0x72B6
@@ -5044,15 +5044,15 @@ void func_111(int iParam0, bool bParam1, bool bParam2)//Position - 0x7B77
 	}
 	if (!bParam2)
 	{
-		iVar1 = MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 15);
+		iVar1 = MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 15);
 		if (iVar1 == bParam1)
 		{
 			return;
 		}
 	}
-	if (bParam1 != MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 0))
+	if (bParam1 != MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 0))
 	{
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 18);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 18);
 		if (Global_24745 == 1)
 		{
 			Global_24746 = 1;
@@ -5061,21 +5061,21 @@ void func_111(int iParam0, bool bParam1, bool bParam2)//Position - 0x7B77
 	}
 	if (bParam1)
 	{
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 0);
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 15);
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 3);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 0);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 15);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 3);
 	}
 	else
 	{
-		MISC::CLEAR_BIT(&(Global_24748[iVar0 /*23*/].f_11), 0);
-		MISC::CLEAR_BIT(&(Global_24748[iVar0 /*23*/].f_11), 15);
+		MISC::CLEAR_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 0);
+		MISC::CLEAR_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 15);
 	}
-	if (!MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 0))
+	if (!MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 0))
 	{
-		if (HUD::DOES_BLIP_EXIST(Global_24748[iVar0 /*23*/].f_19))
+		if (HUD::DOES_BLIP_EXIST(Global_Mission_Blips[iVar0 /*23*/].f_19))
 		{
 			MISC::SET_THIS_SCRIPT_CAN_REMOVE_BLIPS_CREATED_BY_ANY_SCRIPT(1);
-			HUD::REMOVE_BLIP(&(Global_24748[iVar0 /*23*/].f_19));
+			HUD::REMOVE_BLIP(&(Global_Mission_Blips[iVar0 /*23*/].f_19));
 			MISC::SET_THIS_SCRIPT_CAN_REMOVE_BLIPS_CREATED_BY_ANY_SCRIPT(0);
 		}
 	}

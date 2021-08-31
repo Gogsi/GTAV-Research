@@ -180,7 +180,7 @@ Vector3 func_1(int iParam0)//Position - 0x1D1
 	int iVar0;
 	
 	iVar0 = iParam0;
-	return Global_24748[iVar0 /*23*/][0 /*3*/];
+	return Global_Mission_Blips[iVar0 /*23*/][0 /*3*/];
 }
 
 var func_2()//Position - 0x1E9

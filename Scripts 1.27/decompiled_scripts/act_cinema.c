@@ -68499,7 +68499,7 @@ int func_719(int iParam0)//Position - 0x511FD
 	{
 		return 0;
 	}
-	return HUD::DOES_BLIP_EXIST(Global_24748[iVar0 /*23*/].f_19);
+	return HUD::DOES_BLIP_EXIST(Global_Mission_Blips[iVar0 /*23*/].f_19);
 }
 
 int func_720()//Position - 0x51239

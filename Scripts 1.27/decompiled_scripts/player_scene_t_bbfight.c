@@ -1423,9 +1423,9 @@ int func_23(var uParam0, float fParam1)//Position - 0x155F
 	iVar0 = 0;
 	while (iVar0 < 262)
 	{
-		if (MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 0))
+		if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 0))
 		{
-			if (Global_24748[iVar0 /*23*/].f_16 == 9)
+			if (Global_Mission_Blips[iVar0 /*23*/].f_16 == 9)
 			{
 			}
 			else
@@ -1435,7 +1435,7 @@ int func_23(var uParam0, float fParam1)//Position - 0x155F
 				{
 					return 1;
 				}
-				if (MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 19))
+				if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 19))
 				{
 					iVar5 = 3;
 					iVar4 = 0;
@@ -1477,7 +1477,7 @@ Vector3 func_25(int iParam0, int iParam1)//Position - 0x164B
 	{
 		return 0f, 0f, 0f;
 	}
-	return Global_24748[iVar0 /*23*/][iParam1 /*3*/];
+	return Global_Mission_Blips[iVar0 /*23*/][iParam1 /*3*/];
 }
 
 int func_26(int iParam0)//Position - 0x1689

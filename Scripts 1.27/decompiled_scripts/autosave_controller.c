@@ -3329,15 +3329,15 @@ void func_43(int iParam0, bool bParam1, bool bParam2)//Position - 0x5130
 	}
 	if (!bParam2)
 	{
-		bVar1 = MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 15);
+		bVar1 = MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 15);
 		if (bVar1 == bParam1)
 		{
 			return;
 		}
 	}
-	if (bParam1 != MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 0))
+	if (bParam1 != MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 0))
 	{
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 18);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 18);
 		if (Global_24745 == 1)
 		{
 			Global_24746 = 1;
@@ -3346,21 +3346,21 @@ void func_43(int iParam0, bool bParam1, bool bParam2)//Position - 0x5130
 	}
 	if (bParam1)
 	{
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 0);
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 15);
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 3);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 0);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 15);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 3);
 	}
 	else
 	{
-		MISC::CLEAR_BIT(&(Global_24748[iVar0 /*23*/].f_11), 0);
-		MISC::CLEAR_BIT(&(Global_24748[iVar0 /*23*/].f_11), 15);
+		MISC::CLEAR_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 0);
+		MISC::CLEAR_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 15);
 	}
-	if (!MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 0))
+	if (!MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 0))
 	{
-		if (HUD::DOES_BLIP_EXIST(Global_24748[iVar0 /*23*/].f_19))
+		if (HUD::DOES_BLIP_EXIST(Global_Mission_Blips[iVar0 /*23*/].f_19))
 		{
 			MISC::SET_THIS_SCRIPT_CAN_REMOVE_BLIPS_CREATED_BY_ANY_SCRIPT(1);
-			HUD::REMOVE_BLIP(&(Global_24748[iVar0 /*23*/].f_19));
+			HUD::REMOVE_BLIP(&(Global_Mission_Blips[iVar0 /*23*/].f_19));
 			MISC::SET_THIS_SCRIPT_CAN_REMOVE_BLIPS_CREATED_BY_ANY_SCRIPT(0);
 		}
 	}
@@ -72022,20 +72022,20 @@ int func_336()//Position - 0x4F608
 						iVar6 = Global_81155[Global_87300[iVar5 /*17*/].f_5 /*34*/].f_10;
 						if (iVar6 != 262)
 						{
-							if (MISC::IS_BIT_SET(Global_24748[iVar6 /*23*/].f_11, 19))
+							if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar6 /*23*/].f_11, 19))
 							{
 								if (func_344(func_345()))
 								{
-									Var7 = { Global_24748[iVar6 /*23*/][func_49() /*3*/] };
+									Var7 = { Global_Mission_Blips[iVar6 /*23*/][func_49() /*3*/] };
 								}
 								else
 								{
-									Var7 = { Global_24748[iVar6 /*23*/][0 /*3*/] };
+									Var7 = { Global_Mission_Blips[iVar6 /*23*/][0 /*3*/] };
 								}
 							}
 							else
 							{
-								Var7 = { Global_24748[iVar6 /*23*/][0 /*3*/] };
+								Var7 = { Global_Mission_Blips[iVar6 /*23*/][0 /*3*/] };
 							}
 							fVar10 = SYSTEM::VDIST2(Var1, Var7);
 							if (fVar10 < (50f * 50f))
@@ -72053,20 +72053,20 @@ int func_336()//Position - 0x4F608
 			iVar11 = Global_81155[Global_68507 /*34*/].f_10;
 			if (iVar11 != 262)
 			{
-				if (MISC::IS_BIT_SET(Global_24748[iVar11 /*23*/].f_11, 19))
+				if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar11 /*23*/].f_11, 19))
 				{
 					if (func_344(func_345()))
 					{
-						Var12 = { Global_24748[iVar11 /*23*/][func_49() /*3*/] };
+						Var12 = { Global_Mission_Blips[iVar11 /*23*/][func_49() /*3*/] };
 					}
 					else
 					{
-						Var12 = { Global_24748[iVar11 /*23*/][0 /*3*/] };
+						Var12 = { Global_Mission_Blips[iVar11 /*23*/][0 /*3*/] };
 					}
 				}
 				else
 				{
-					Var12 = { Global_24748[iVar11 /*23*/][0 /*3*/] };
+					Var12 = { Global_Mission_Blips[iVar11 /*23*/][0 /*3*/] };
 				}
 				fVar15 = SYSTEM::VDIST2(Var1, Var12);
 				if (fVar15 < (50f * 50f))
@@ -72079,12 +72079,12 @@ int func_336()//Position - 0x4F608
 		iVar17 = 0;
 		while (iVar17 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Calls)
 		{
-			iVar18 = Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar17 /*15*/].f_7;
+			iVar18 = Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar17 /*15*/].Restricted_Area_ID;
 			if (iVar18 != -1)
 			{
 				if ((((((((((((((((((((((((iVar18 != -1 && iVar18 != 51) && iVar18 != 62) && iVar18 != 52) && iVar18 != 62) && iVar18 != 53) && iVar18 != 62) && iVar18 != 54) && iVar18 != 62) && iVar18 != 55) && iVar18 != 62) && iVar18 != 56) && iVar18 != 62) && iVar18 != 57) && iVar18 != 62) && iVar18 != 58) && iVar18 != 62) && iVar18 != 59) && iVar18 != 62) && iVar18 != 60) && iVar18 != 62) && iVar18 != 61) && iVar18 != 62) && iVar18 != 62) && iVar18 != 63)
 				{
-					iVar19 = (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar17 /*15*/].f_4 - iVar16);
+					iVar19 = (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar17 /*15*/].Queue_Time - iVar16);
 					if (iVar19 < 180000)
 					{
 						if (func_337(Var1, iVar18))
@@ -72099,12 +72099,12 @@ int func_336()//Position - 0x4F608
 		iVar17 = 0;
 		while (iVar17 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Texts)
 		{
-			iVar20 = Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar17 /*14*/].f_7;
+			iVar20 = Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar17 /*14*/].Restricted_Area_ID;
 			if (iVar20 != -1)
 			{
 				if ((((((((((((((((((((((((iVar20 != -1 && iVar20 != 51) && iVar20 != 62) && iVar20 != 52) && iVar20 != 62) && iVar20 != 53) && iVar20 != 62) && iVar20 != 54) && iVar20 != 62) && iVar20 != 55) && iVar20 != 62) && iVar20 != 56) && iVar20 != 62) && iVar20 != 57) && iVar20 != 62) && iVar20 != 58) && iVar20 != 62) && iVar20 != 59) && iVar20 != 62) && iVar20 != 60) && iVar20 != 62) && iVar20 != 61) && iVar20 != 62) && iVar20 != 62) && iVar20 != 63)
 				{
-					iVar21 = (Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar17 /*14*/].f_4 - iVar16);
+					iVar21 = (Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar17 /*14*/].Queue_Time - iVar16);
 					if (iVar21 < 180000)
 					{
 						if (func_337(Var1, iVar20))
@@ -72119,12 +72119,12 @@ int func_336()//Position - 0x4F608
 		iVar17 = 0;
 		while (iVar17 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Emails)
 		{
-			iVar22 = Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar17 /*10*/].f_7;
+			iVar22 = Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar17 /*10*/].Restricted_Area_ID;
 			if (iVar22 != -1)
 			{
 				if ((((((((((((((((((((((((iVar22 != -1 && iVar22 != 51) && iVar22 != 62) && iVar22 != 52) && iVar22 != 62) && iVar22 != 53) && iVar22 != 62) && iVar22 != 54) && iVar22 != 62) && iVar22 != 55) && iVar22 != 62) && iVar22 != 56) && iVar22 != 62) && iVar22 != 57) && iVar22 != 62) && iVar22 != 58) && iVar22 != 62) && iVar22 != 59) && iVar22 != 62) && iVar22 != 60) && iVar22 != 62) && iVar22 != 61) && iVar22 != 62) && iVar22 != 62) && iVar22 != 63)
 				{
-					iVar23 = (Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar17 /*10*/].f_4 - iVar16);
+					iVar23 = (Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar17 /*10*/].Queue_Time - iVar16);
 					if (iVar23 < 180000)
 					{
 						if (func_337(Var1, iVar22))
@@ -72186,13 +72186,13 @@ int func_337(struct<3> Param0, int iParam3)//Position - 0x4FCA3
 {
 	if (iParam3 != -1)
 	{
-		if (SYSTEM::VDIST2(Param0, Global_34914[iParam3 /*5*/]) <= (Global_34914[iParam3 /*5*/].f_3 * Global_34914[iParam3 /*5*/].f_3))
+		if (SYSTEM::VDIST2(Param0, Global_Restricted_Areas[iParam3 /*5*/]) <= (Global_Restricted_Areas[iParam3 /*5*/].f_3 * Global_Restricted_Areas[iParam3 /*5*/].f_3))
 		{
 			return 1;
 		}
-		else if (Global_34914[iParam3 /*5*/].f_4 != -1)
+		else if (Global_Restricted_Areas[iParam3 /*5*/].f_4 != -1)
 		{
-			return func_337(Param0, Global_34914[iParam3 /*5*/].f_4);
+			return func_337(Param0, Global_Restricted_Areas[iParam3 /*5*/].f_4);
 		}
 	}
 	return 0;

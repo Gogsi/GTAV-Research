@@ -3008,7 +3008,7 @@ void func_26(int iParam0, var uParam1)//Position - 0x12D0
 	
 	iVar0 = Global_87300[iParam0 /*17*/].f_5;
 	iVar1 = 0;
-	if (MISC::IS_BIT_SET(Global_24748[Global_87300[iParam0 /*17*/].f_9 /*23*/].f_11, 19))
+	if (MISC::IS_BIT_SET(Global_Mission_Blips[Global_87300[iParam0 /*17*/].f_9 /*23*/].f_11, 19))
 	{
 		iVar1 = func_20();
 		if (iVar1 > 2 || iVar1 < 0)
@@ -3016,7 +3016,7 @@ void func_26(int iParam0, var uParam1)//Position - 0x12D0
 			iVar1 = 0;
 		}
 	}
-	Var2 = { Global_24748[Global_87300[iParam0 /*17*/].f_9 /*23*/][iVar1 /*3*/] };
+	Var2 = { Global_Mission_Blips[Global_87300[iParam0 /*17*/].f_9 /*23*/][iVar1 /*3*/] };
 	if (func_153(iVar0))
 	{
 		if (!MISC::IS_BIT_SET(Global_87300[iParam0 /*17*/].f_10.f_1, 0))
@@ -3277,9 +3277,9 @@ int func_27(int iParam0, var uParam1)//Position - 0x13A0
 													}
 													uParam1->f_114 = func_95(Var17, 0);
 													HUD::SET_BLIP_SPRITE(uParam1->f_114, func_94(iVar2));
-													if (!MISC::IS_STRING_NULL_OR_EMPTY(&(Global_24748[iVar2 /*23*/].f_20)))
+													if (!MISC::IS_STRING_NULL_OR_EMPTY(&(Global_Mission_Blips[iVar2 /*23*/].f_20)))
 													{
-														HUD::SET_BLIP_NAME_FROM_TEXT_FILE(uParam1->f_114, &(Global_24748[iVar2 /*23*/].f_20));
+														HUD::SET_BLIP_NAME_FROM_TEXT_FILE(uParam1->f_114, &(Global_Mission_Blips[iVar2 /*23*/].f_20));
 													}
 													HUD::SET_BLIP_HIGH_DETAIL(uParam1->f_114, 1);
 													HUD::SET_BLIP_AS_SHORT_RANGE(uParam1->f_114, 0);
@@ -5836,14 +5836,14 @@ int func_94(int iParam0)//Position - 0x5555
 	{
 		return -1;
 	}
-	if (MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 19))
+	if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 19))
 	{
 		if (func_23(func_146()))
 		{
-			return Global_24748[iVar0 /*23*/].f_12[func_20()];
+			return Global_Mission_Blips[iVar0 /*23*/].f_12[func_20()];
 		}
 	}
-	return Global_24748[iVar0 /*23*/].f_12[0];
+	return Global_Mission_Blips[iVar0 /*23*/].f_12[0];
 }
 
 var func_95(struct<3> Param0, int iParam3)//Position - 0x55BF
@@ -6981,17 +6981,17 @@ void func_133(int iParam0)//Position - 0x6EFE
 	{
 		return;
 	}
-	if (MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 9))
+	if (MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 9))
 	{
 		return;
 	}
-	MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 9);
+	MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 9);
 	if (Global_24745 == 1)
 	{
 		Global_24746 = 1;
 	}
 	Global_24745 = 1;
-	MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 18);
+	MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 18);
 }
 
 int func_134(int iParam0)//Position - 0x6F79
@@ -7005,8 +7005,8 @@ int func_134(int iParam0)//Position - 0x6F79
 	{
 		return 0;
 	}
-	bVar1 = MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 0);
-	bVar2 = MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 15);
+	bVar1 = MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 0);
+	bVar2 = MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 15);
 	if (bVar1 && bVar2)
 	{
 		return 1;
@@ -7023,7 +7023,7 @@ bool func_135(int iParam0)//Position - 0x6FDA
 	{
 		return 0;
 	}
-	return HUD::DOES_BLIP_EXIST(Global_24748[iVar0 /*23*/].f_19);
+	return HUD::DOES_BLIP_EXIST(Global_Mission_Blips[iVar0 /*23*/].f_19);
 }
 
 bool func_136(int iParam0)//Position - 0x7016
@@ -7053,15 +7053,15 @@ void func_137(int iParam0, bool bParam1, bool bParam2)//Position - 0x704F
 	}
 	if (!bParam2)
 	{
-		bVar1 = MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 15);
+		bVar1 = MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 15);
 		if (bVar1 == bParam1)
 		{
 			return;
 		}
 	}
-	if (bParam1 != MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 0))
+	if (bParam1 != MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 0))
 	{
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 18);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 18);
 		if (Global_24745 == 1)
 		{
 			Global_24746 = 1;
@@ -7070,21 +7070,21 @@ void func_137(int iParam0, bool bParam1, bool bParam2)//Position - 0x704F
 	}
 	if (bParam1)
 	{
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 0);
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 15);
-		MISC::SET_BIT(&(Global_24748[iVar0 /*23*/].f_11), 3);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 0);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 15);
+		MISC::SET_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 3);
 	}
 	else
 	{
-		MISC::CLEAR_BIT(&(Global_24748[iVar0 /*23*/].f_11), 0);
-		MISC::CLEAR_BIT(&(Global_24748[iVar0 /*23*/].f_11), 15);
+		MISC::CLEAR_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 0);
+		MISC::CLEAR_BIT(&(Global_Mission_Blips[iVar0 /*23*/].f_11), 15);
 	}
-	if (!MISC::IS_BIT_SET(Global_24748[iVar0 /*23*/].f_11, 0))
+	if (!MISC::IS_BIT_SET(Global_Mission_Blips[iVar0 /*23*/].f_11, 0))
 	{
-		if (HUD::DOES_BLIP_EXIST(Global_24748[iVar0 /*23*/].f_19))
+		if (HUD::DOES_BLIP_EXIST(Global_Mission_Blips[iVar0 /*23*/].f_19))
 		{
 			MISC::SET_THIS_SCRIPT_CAN_REMOVE_BLIPS_CREATED_BY_ANY_SCRIPT(1);
-			HUD::REMOVE_BLIP(&(Global_24748[iVar0 /*23*/].f_19));
+			HUD::REMOVE_BLIP(&(Global_Mission_Blips[iVar0 /*23*/].f_19));
 			MISC::SET_THIS_SCRIPT_CAN_REMOVE_BLIPS_CREATED_BY_ANY_SCRIPT(0);
 		}
 	}
@@ -7206,7 +7206,7 @@ float func_143(struct<3> Param0)//Position - 0x7321
 
 Vector3 func_144(int iParam0)//Position - 0x733A
 {
-	if (MISC::IS_BIT_SET(Global_24748[iParam0 /*23*/].f_11, 19))
+	if (MISC::IS_BIT_SET(Global_Mission_Blips[iParam0 /*23*/].f_11, 19))
 	{
 		return func_145(iParam0, func_20());
 	}
@@ -7222,7 +7222,7 @@ Vector3 func_145(int iParam0, int iParam1)//Position - 0x736B
 	{
 		return 0f, 0f, 0f;
 	}
-	return Global_24748[iVar0 /*23*/][iParam1 /*3*/];
+	return Global_Mission_Blips[iVar0 /*23*/][iParam1 /*3*/];
 }
 
 int func_146()//Position - 0x73A9
@@ -91606,15 +91606,15 @@ void func_772(int iParam0, struct<3> Param1)//Position - 0x6BB20
 {
 	int iVar0;
 	
-	if (HUD::DOES_BLIP_EXIST(Global_24748[iParam0 /*23*/].f_19))
+	if (HUD::DOES_BLIP_EXIST(Global_Mission_Blips[iParam0 /*23*/].f_19))
 	{
-		HUD::SET_BLIP_COORDS(Global_24748[iParam0 /*23*/].f_19, Param1);
+		HUD::SET_BLIP_COORDS(Global_Mission_Blips[iParam0 /*23*/].f_19, Param1);
 	}
 	iVar0 = 0;
 	iVar0 = 0;
 	while (iVar0 <= 2)
 	{
-		Global_24748[iParam0 /*23*/][iVar0 /*3*/] = { Param1 };
+		Global_Mission_Blips[iParam0 /*23*/][iVar0 /*3*/] = { Param1 };
 		iVar0++;
 	}
 }
@@ -93214,7 +93214,7 @@ void func_833()//Position - 0x6D7E7
 {
 	struct<3> Var0;
 	
-	Var0 = { Global_24748[190 /*23*/][0 /*3*/] };
+	Var0 = { Global_Mission_Blips[190 /*23*/][0 /*3*/] };
 	MISC::CLEAR_AREA(Var0, 30f, 1, 1, 0, 0);
 	Global_86864[0] = VEHICLE::CREATE_VEHICLE(joaat("towtruck"), Var0, 83.9445f, 1, 1);
 	Global_86864[1] = VEHICLE::CREATE_VEHICLE(joaat("peyote"), -412.3477f, -2176.262f, 9.3184f, 281.0786f, 1, 1);
@@ -93319,10 +93319,10 @@ int func_840(int iParam0, char* sParam1, var uParam2, float fParam3)//Position -
 	
 	if (TASK::WAYPOINT_RECORDING_GET_COORD(uParam1, *uParam2, &Var0))
 	{
-		if (!func_37(Global_24748[iParam0 /*23*/][0 /*3*/], Var0, 0.1f))
+		if (!func_37(Global_Mission_Blips[iParam0 /*23*/][0 /*3*/], Var0, 0.1f))
 		{
-			fVar6 = func_65(((func_842(0.2f, (TASK::WAYPOINT_RECORDING_GET_SPEED_AT_POINT(sParam1, *uParam2) * fParam3)) * SYSTEM::TIMESTEP()) / MISC::GET_DISTANCE_BETWEEN_COORDS(Global_24748[iParam0 /*23*/][0 /*3*/], Var0, 1)), 0f, 1f);
-			Var3 = { func_841(Global_24748[iParam0 /*23*/][0 /*3*/], Var0, fVar6) };
+			fVar6 = func_65(((func_842(0.2f, (TASK::WAYPOINT_RECORDING_GET_SPEED_AT_POINT(sParam1, *uParam2) * fParam3)) * SYSTEM::TIMESTEP()) / MISC::GET_DISTANCE_BETWEEN_COORDS(Global_Mission_Blips[iParam0 /*23*/][0 /*3*/], Var0, 1)), 0f, 1f);
+			Var3 = { func_841(Global_Mission_Blips[iParam0 /*23*/][0 /*3*/], Var0, fVar6) };
 		}
 		else
 		{
@@ -93374,7 +93374,7 @@ struct<5> func_843(int iParam0, char* sParam1, float fParam2, int iParam3)//Posi
 		func_772(Var0, Var5);
 		Var0.f_3 = iParam3 + 1;
 	}
-	else if (TASK::WAYPOINT_RECORDING_GET_CLOSEST_WAYPOINT(Var0.f_1, Global_24748[Var0 /*23*/][0 /*3*/], &iParam3))
+	else if (TASK::WAYPOINT_RECORDING_GET_CLOSEST_WAYPOINT(Var0.f_1, Global_Mission_Blips[Var0 /*23*/][0 /*3*/], &iParam3))
 	{
 		Var0.f_3 = iParam3;
 	}
@@ -93629,9 +93629,9 @@ void func_855()//Position - 0x6E1FB
 {
 	struct<3> Var0;
 	
-	MISC::CLEAR_AREA(Global_24748[189 /*23*/][0 /*3*/], 33.4375f, 1, 0, 0, 0);
+	MISC::CLEAR_AREA(Global_Mission_Blips[189 /*23*/][0 /*3*/], 33.4375f, 1, 0, 0, 0);
 	TASK::WAYPOINT_RECORDING_GET_COORD("FBI4_P1_BlipRoute1", Local_1102.f_3 + 1, &Var0);
-	Global_86864[0] = VEHICLE::CREATE_VEHICLE(joaat("trash"), Global_24748[189 /*23*/][0 /*3*/], func_856(Global_24748[189 /*23*/][0 /*3*/], Var0), 1, 1);
+	Global_86864[0] = VEHICLE::CREATE_VEHICLE(joaat("trash"), Global_Mission_Blips[189 /*23*/][0 /*3*/], func_856(Global_Mission_Blips[189 /*23*/][0 /*3*/], Var0), 1, 1);
 	Global_86864.f_9[0] = PED::CREATE_PED_INSIDE_VEHICLE(Global_86864[0], 26, joaat("s_m_y_garbage"), -1, 1, 1);
 	Global_86864.f_9[1] = PED::CREATE_PED_INSIDE_VEHICLE(Global_86864[0], 26, joaat("s_m_y_garbage"), 0, 1, 1);
 	TASK::TASK_VEHICLE_FOLLOW_WAYPOINT_RECORDING(Global_86864.f_9[0], Global_86864[0], "FBI4_P1_BlipRoute1", 786599, Local_1102.f_3 + 1, 0, -1, -1082130432, 0, 1073741824);

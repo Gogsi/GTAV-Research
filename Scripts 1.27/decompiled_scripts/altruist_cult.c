@@ -2329,7 +2329,7 @@ char* func_64(int iParam0, bool bParam1)//Position - 0x1E3A
 
 void func_65(int iParam0)//Position - 0x2083
 {
-	Global_35464 = (MISC::GET_GAME_TIMER() + iParam0);
+	Global_Next_Notification_Time = (MISC::GET_GAME_TIMER() + iParam0);
 }
 
 void func_66(int iParam0)//Position - 0x2095

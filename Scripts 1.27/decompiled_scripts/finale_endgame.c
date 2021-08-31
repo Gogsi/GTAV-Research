@@ -76301,7 +76301,7 @@ int func_374(var uParam0, int iParam1, int iParam2, var uParam3)//Position - 0x5
 		PAD::DISABLE_CONTROL_ACTION(0, 75, 1);
 	}
 	iVar0 = MISC::GET_GAME_TIMER();
-	if (iVar0 >= (Global_35464 - 1000))
+	if (iVar0 >= (Global_Next_Notification_Time - 1000))
 	{
 		func_530(2666);
 	}
@@ -95474,7 +95474,7 @@ void func_529(var uParam0, int iParam1)//Position - 0x70C2F
 
 void func_530(int iParam0)//Position - 0x70C7E
 {
-	Global_35464 = (MISC::GET_GAME_TIMER() + iParam0);
+	Global_Next_Notification_Time = (MISC::GET_GAME_TIMER() + iParam0);
 }
 
 int func_531(var uParam0, var uParam1, var uParam2)//Position - 0x70C90
@@ -96044,7 +96044,7 @@ void func_541(int iParam0)//Position - 0x718C5
 	iVar1 = 0;
 	while (iVar1 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Calls)
 	{
-		if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar1 /*15*/].f_2 == iVar0)
+		if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar1 /*15*/].Player_Char_Bitset == iVar0)
 		{
 			func_542(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar1 /*15*/]);
 			iVar1 = 0;
@@ -96070,7 +96070,7 @@ void func_541(int iParam0)//Position - 0x718C5
 	iVar1 = 0;
 	while (iVar1 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Texts)
 	{
-		if (Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar1 /*14*/].f_2 == iVar0)
+		if (Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar1 /*14*/].Player_Char_Bitset == iVar0)
 		{
 			func_542(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar1 /*14*/]);
 			iVar1 = 0;
@@ -96083,7 +96083,7 @@ void func_541(int iParam0)//Position - 0x718C5
 	iVar1 = 0;
 	while (iVar1 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Emails)
 	{
-		if (Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar1 /*10*/].f_2 == iVar0)
+		if (Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar1 /*10*/].Player_Char_Bitset == iVar0)
 		{
 			func_542(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_EMAILS_ARRAY[iVar1 /*10*/]);
 			iVar1 = 0;
@@ -96225,11 +96225,11 @@ void func_545(int iParam0)//Position - 0x71C9B
 	iVar0 = 0;
 	while (iVar0 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Calls)
 	{
-		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_2, iParam0))
+		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Player_Char_Bitset, iParam0))
 		{
-			if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_3 > iVar1)
+			if (Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Priority > iVar1)
 			{
-				iVar1 = Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].f_3;
+				iVar1 = Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iVar0 /*15*/].Priority;
 			}
 		}
 		iVar0++;
@@ -96237,9 +96237,9 @@ void func_545(int iParam0)//Position - 0x71C9B
 	iVar2 = 0;
 	while (iVar2 < Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Texts)
 	{
-		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar2 /*14*/].f_2, iParam0))
+		if (MISC::IS_BIT_SET(Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar2 /*14*/].Player_Char_Bitset, iParam0))
 		{
-			if (Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar2 /*14*/].f_3 == 5)
+			if (Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.COMM_CONTROL_QUEUED_TEXTS_ARRAY[iVar2 /*14*/].Priority == 5)
 			{
 				iVar1 = 5;
 			}
@@ -96349,7 +96349,7 @@ void func_550(int iParam0)//Position - 0x71F7C
 	{
 		return;
 	}
-	uVar1 = Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iParam0 /*15*/].f_2;
+	uVar1 = Global_SAVE_DATA.COMM_CONTROL_QUEUED_CALLS_ARRAY[iParam0 /*15*/].Player_Char_Bitset;
 	if (Global_SAVE_DATA.COMM_CONTROL_DATA_STRUCT.No_Queued_Calls > 1)
 	{
 		iVar0 = iParam0;

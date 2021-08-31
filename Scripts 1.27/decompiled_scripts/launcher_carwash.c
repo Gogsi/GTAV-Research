@@ -1739,7 +1739,7 @@ Vector3 func_63(int iParam0)//Position - 0x1FA5
 	int iVar0;
 	
 	iVar0 = iParam0;
-	return Global_24748[iVar0 /*23*/][0 /*3*/];
+	return Global_Mission_Blips[iVar0 /*23*/][0 /*3*/];
 }
 
 bool func_64(int iParam0)//Position - 0x1FBD
