@@ -19,7 +19,7 @@ void __EntryFunction__()//Position - 0x0
 			{
 				func_2(1, 0, -1705870862, 25, 1, "PM_PANE_AUD", 0, 0);
 				func_2(1, 1, -1705870862, 50, 1, "PM_PANE_DIS", 0, 0);
-				func_1(1);
+				GlobalFunc_3250(1);
 			}
 			if (ScriptParam_0.f_1 == -1705871862)
 			{
@@ -48,14 +48,6 @@ void __EntryFunction__()//Position - 0x0
 	SCRIPT::TERMINATE_THIS_THREAD();
 }
 
-void func_1(int iParam0)//Position - 0xBA
-{
-	if (GRAPHICS::BEGIN_SCALEFORM_MOVIE_METHOD_ON_FRONTEND("DISPLAY_DATA_SLOT"))
-	{
-		GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(iParam0);
-		GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
-	}
-}
 
 void func_2(int iParam0, int iParam1, int iParam2, int iParam3, bool bParam4, char* sParam5, int iParam6, int iParam7)//Position - 0xD6
 {
@@ -77,7 +69,7 @@ void func_2(int iParam0, int iParam1, int iParam2, int iParam3, bool bParam4, ch
 		}
 		if (iParam6 == 0)
 		{
-			func_3(sParam5);
+			GlobalFunc_256(sParam5);
 		}
 		else
 		{
@@ -87,9 +79,4 @@ void func_2(int iParam0, int iParam1, int iParam2, int iParam3, bool bParam4, ch
 	}
 }
 
-void func_3(var uParam0)//Position - 0x136
-{
-	GRAPHICS::BEGIN_TEXT_COMMAND_SCALEFORM_STRING(uParam0);
-	GRAPHICS::END_TEXT_COMMAND_SCALEFORM_STRING();
-}
 

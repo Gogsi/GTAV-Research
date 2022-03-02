@@ -132,13 +132,13 @@ void __EntryFunction__()//Position - 0x0
 		}
 		SCRIPT::TERMINATE_THIS_THREAD();
 	}
-	if (func_8(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_852(PLAYER::PLAYER_PED_ID()))
 	{
 	}
 	iVar6 = 0;
 	while (iVar6 == 0)
 	{
-		if (((func_5(PLAYER::PLAYER_ID(), 1) || func_4()) || !func_3(PLAYER::PLAYER_ID())) || func_2())
+		if (((GlobalFunc_6722(PLAYER::PLAYER_ID(), 1) || GlobalFunc_1427()) || !GlobalFunc_1375(PLAYER::PLAYER_ID())) || GlobalFunc_895())
 		{
 			iVar6 = 0;
 		}
@@ -148,7 +148,7 @@ void __EntryFunction__()//Position - 0x0
 		}
 		SYSTEM::WAIT(0);
 	}
-	if (SYSTEM::VDIST2(Var3, func_1(156)) < SYSTEM::VDIST2(Var3, func_1(155)))
+	if (SYSTEM::VDIST2(Var3, GlobalFunc_1567(156)) < SYSTEM::VDIST2(Var3, GlobalFunc_1567(155)))
 	{
 		sVar2 = "carwash2";
 	}
@@ -175,68 +175,11 @@ void __EntryFunction__()//Position - 0x0
 	SCRIPT::TERMINATE_THIS_THREAD();
 }
 
-Vector3 func_1(int iParam0)//Position - 0x1D1
-{
-	int iVar0;
-	
-	iVar0 = iParam0;
-	return Global_Mission_Blips[iVar0 /*23*/][0 /*3*/];
-}
 
-var func_2()//Position - 0x1E9
-{
-	return MISC::IS_BIT_SET(Global_1582596[PLAYER::PLAYER_ID() /*324*/].f_31.f_18, 0);
-}
 
-bool func_3(int iParam0)//Position - 0x205
-{
-	return MISC::IS_BIT_SET(Global_1582596[iParam0 /*324*/].f_116, 6);
-}
 
-int func_4()//Position - 0x21D
-{
-	int iVar0;
-	
-	iVar0 = Global_2422140;
-	if (MISC::IS_BIT_SET(Global_1600133[iVar0 /*32*/], 0) && Global_1600133[iVar0 /*32*/].f_9 == 2)
-	{
-		return 1;
-	}
-	return 0;
-}
 
-int func_5(int iParam0, bool bParam1)//Position - 0x251
-{
-	if (bParam1)
-	{
-		if (func_6(iParam0))
-		{
-			return 1;
-		}
-	}
-	if (Global_1582596[iParam0 /*324*/] == -1)
-	{
-		return 0;
-	}
-	return 1;
-}
 
-bool func_6(int iParam0)//Position - 0x27D
-{
-	return func_7(iParam0);
-}
 
-var func_7(int iParam0)//Position - 0x28B
-{
-	return MISC::IS_BIT_SET(Global_1582596[iParam0 /*324*/].f_13.f_1, 0);
-}
 
-bool func_8(var uParam0)//Position - 0x2A5
-{
-	if (!ENTITY::DOES_ENTITY_EXIST(uParam0))
-	{
-		return 0;
-	}
-	return !ENTITY::IS_ENTITY_DEAD(uParam0);
-}
 

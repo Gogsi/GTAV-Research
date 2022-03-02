@@ -98,7 +98,7 @@ void __EntryFunction__()//Position - 0x0
 		func_16();
 		SCRIPT::TERMINATE_THIS_THREAD();
 	}
-	if (func_15(13) || func_15(14))
+	if (GlobalFunc_39(13) || GlobalFunc_39(14))
 	{
 		func_16();
 		SCRIPT::TERMINATE_THIS_THREAD();
@@ -169,31 +169,31 @@ void __EntryFunction__()//Position - 0x0
 				{
 					bVar37 = true;
 				}
-				if (((((((((!bVar37 && !func_14(0)) && !PED::IS_PED_IN_COVER(PLAYER::PLAYER_PED_ID(), 0)) && !func_13()) && ENTITY::IS_ENTITY_AT_COORD(PLAYER::PLAYER_PED_ID(), Var30, 0.6f, 0.6f, 0.8f, 0, 1, 1)) && INTERIOR::GET_ROOM_KEY_FROM_ENTITY(PLAYER::PLAYER_PED_ID()) == INTERIOR::GET_ROOM_KEY_FROM_ENTITY(iVar0)) && !MISC::IS_BIT_SET(Global_2359301, 15)) && !func_12()) && !(Global_68245 && func_11())) && !(!Global_68245 && func_10()))
+				if (((((((((!bVar37 && !GlobalFunc_116(0)) && !PED::IS_PED_IN_COVER(PLAYER::PLAYER_PED_ID(), 0)) && !GlobalFunc_488()) && ENTITY::IS_ENTITY_AT_COORD(PLAYER::PLAYER_PED_ID(), Var30, 0.6f, 0.6f, 0.8f, 0, 1, 1)) && INTERIOR::GET_ROOM_KEY_FROM_ENTITY(PLAYER::PLAYER_PED_ID()) == INTERIOR::GET_ROOM_KEY_FROM_ENTITY(iVar0)) && !MISC::IS_BIT_SET(Global_2359301, 15)) && !GlobalFunc_2289()) && !(Global_68245 && GlobalFunc_1591())) && !(!Global_68245 && GlobalFunc_2025()))
 				{
 					if (iLocal_45 == -1)
 					{
 						if (bVar1)
 						{
-							func_9(&iLocal_45, 1, "MPLA_BILL", 0, 0);
+							GlobalFunc_6774(&iLocal_45, 1, "MPLA_BILL", 0, 0);
 						}
 						else
 						{
-							func_9(&iLocal_45, 1, "BROWSEINPUTTRIG", 0, 0);
+							GlobalFunc_6774(&iLocal_45, 1, "BROWSEINPUTTRIG", 0, 0);
 						}
 					}
-					if (func_8(iLocal_45, 1))
+					if (GlobalFunc_5079(iLocal_45, 1))
 					{
 						if (iLocal_45 != -1)
 						{
-							func_6(&iLocal_45);
+							GlobalFunc_5084(&iLocal_45);
 						}
 						if (!bVar1)
 						{
-							func_5(0);
+							GlobalFunc_5590(0);
 							if (!iLocal_46)
 							{
-								func_1();
+								GlobalFunc_5076();
 								iLocal_46 = 1;
 							}
 							bVar40 = true;
@@ -222,7 +222,7 @@ void __EntryFunction__()//Position - 0x0
 				{
 					if (iLocal_45 != -1)
 					{
-						func_6(&iLocal_45);
+						GlobalFunc_5084(&iLocal_45);
 					}
 					if (ENTITY::DOES_ENTITY_EXIST(uScriptParam_0))
 					{
@@ -235,14 +235,14 @@ void __EntryFunction__()//Position - 0x0
 			}
 			else if (iLocal_45 != -1)
 			{
-				func_6(&iLocal_45);
+				GlobalFunc_5084(&iLocal_45);
 			}
 		}
 		else
 		{
 			if (iLocal_45 != -1)
 			{
-				func_6(&iLocal_45);
+				GlobalFunc_5084(&iLocal_45);
 			}
 			bVar29 = false;
 		}
@@ -257,286 +257,26 @@ void __EntryFunction__()//Position - 0x0
 	}
 }
 
-void func_1()//Position - 0x3E8
-{
-	if (func_4() || func_3())
-	{
-		func_2();
-	}
-}
 
-void func_2()//Position - 0x405
-{
-	Global_2428131.f_629 = 1;
-}
 
-var func_3()//Position - 0x415
-{
-	return Global_2428131.f_608;
-}
 
-bool func_4()//Position - 0x424
-{
-	return MISC::IS_BIT_SET(Global_2428131.f_2, 11);
-}
 
-void func_5(int iParam0)//Position - 0x438
-{
-	Global_67067 = iParam0;
-	switch (Global_67067)
-	{
-		case 3:
-			Global_67065 = 0;
-			break;
-		
-		case 4:
-			Global_67065 = 3;
-			break;
-	}
-	if (SCRIPT::_GET_NUMBER_OF_REFERENCES_OF_SCRIPT_WITH_NAME_HASH(joaat("appinternet")) > 0)
-	{
-		return;
-	}
-	if (Global_68245 && func_11())
-	{
-		return;
-	}
-	if (!Global_68245 && func_10())
-	{
-		return;
-	}
-	if (!SCRIPT::HAS_SCRIPT_LOADED("appInternet"))
-	{
-		SCRIPT::REQUEST_SCRIPT("appInternet");
-	}
-	while (!SCRIPT::HAS_SCRIPT_LOADED("appInternet"))
-	{
-		SYSTEM::WAIT(0);
-	}
-	SYSTEM::START_NEW_SCRIPT("appInternet", 3584);
-	SCRIPT::SET_SCRIPT_AS_NO_LONGER_NEEDED("appInternet");
-}
 
-void func_6(int iParam0)//Position - 0x4D9
-{
-	int iVar0;
-	
-	if (*iParam0 == -1)
-	{
-		return;
-	}
-	iVar0 = func_7(*iParam0);
-	if (iVar0 == -1)
-	{
-		*iParam0 = -1;
-		return;
-	}
-	if (iVar0 > -1 && iVar0 < 6)
-	{
-		if (Global_35613[iVar0 /*18*/])
-		{
-			Global_35613[iVar0 /*18*/].f_6 = 1;
-			*iParam0 = -1;
-			return;
-		}
-	}
-	*iParam0 = -1;
-}
 
-int func_7(int iParam0)//Position - 0x530
-{
-	int iVar0;
-	
-	if (iParam0 < 0)
-	{
-		return -1;
-	}
-	iVar0 = 0;
-	iVar0 = 0;
-	while (iVar0 < 6)
-	{
-		if (Global_35613[iVar0 /*18*/].f_1 == iParam0)
-		{
-			return iVar0;
-		}
-		iVar0++;
-	}
-	return -1;
-}
 
-int func_8(int iParam0, bool bParam1)//Position - 0x56B
-{
-	int iVar0;
-	
-	iVar0 = func_7(iParam0);
-	if (iVar0 == -1)
-	{
-		return 0;
-	}
-	if (!PLAYER::IS_PLAYER_PLAYING(PLAYER::GET_PLAYER_INDEX()))
-	{
-		return 0;
-	}
-	if (func_14(0))
-	{
-		return 0;
-	}
-	if (CUTSCENE::IS_CUTSCENE_PLAYING())
-	{
-		return 0;
-	}
-	if (iVar0 > -1 && iVar0 < 6)
-	{
-		if (Global_35613[iVar0 /*18*/] == 1 && Global_35613[iVar0 /*18*/].f_3 == 1)
-		{
-			if (bParam1)
-			{
-				if (Global_35613[iVar0 /*18*/].f_16)
-				{
-					return 0;
-				}
-			}
-			Global_35613[iVar0 /*18*/].f_4 = 1;
-			Global_35613[iVar0 /*18*/].f_16 = 1;
-			return 1;
-		}
-		else
-		{
-			if (Global_35613[iVar0 /*18*/] == 0)
-			{
-			}
-			if (Global_35613[iVar0 /*18*/].f_6)
-			{
-			}
-		}
-	}
-	return 0;
-}
 
-void func_9(int iParam0, int iParam1, char* sParam2, int iParam3, char* sParam4)//Position - 0x623
-{
-	int iVar0;
-	
-	if (SCRIPT::_GET_NUMBER_OF_REFERENCES_OF_SCRIPT_WITH_NAME_HASH(joaat("context_controller")) < 1)
-	{
-	}
-	if (STREAMING::IS_PLAYER_SWITCH_IN_PROGRESS())
-	{
-		if (!*iParam0 == -1)
-		{
-			func_6(iParam0);
-		}
-		return;
-	}
-	if (!*iParam0 == -1)
-	{
-		return;
-	}
-	iVar0 = 0;
-	iVar0 = 0;
-	while (iVar0 < 6)
-	{
-		if (!Global_35613[iVar0 /*18*/])
-		{
-			Global_35613[iVar0 /*18*/] = 1;
-			Global_35613[iVar0 /*18*/].f_1 = Global_35730;
-			Global_35730++;
-			Global_35613[iVar0 /*18*/].f_3 = 0;
-			Global_35613[iVar0 /*18*/].f_16 = 0;
-			Global_35613[iVar0 /*18*/].f_4 = 0;
-			Global_35613[iVar0 /*18*/].f_2 = iParam1;
-			StringCopy(&(Global_35613[iVar0 /*18*/].f_7), sParam2, 16);
-			Global_35613[iVar0 /*18*/].f_5 = iParam3;
-			Global_35613[iVar0 /*18*/].f_17 = SCRIPT::GET_ID_OF_THIS_THREAD();
-			Global_35613[iVar0 /*18*/].f_6 = 0;
-			if (!MISC::IS_STRING_NULL_OR_EMPTY(sParam4))
-			{
-				Global_35613[iVar0 /*18*/].f_11 = 1;
-				StringCopy(&(Global_35613[iVar0 /*18*/].f_12), sParam4, 16);
-			}
-			else
-			{
-				Global_35613[iVar0 /*18*/].f_11 = 0;
-			}
-			*iParam0 = Global_35613[iVar0 /*18*/].f_1;
-			return;
-		}
-		iVar0++;
-	}
-}
 
-var func_10()//Position - 0x72E
-{
-	return Global_67059;
-}
 
-var func_11()//Position - 0x73A
-{
-	return Global_1684040;
-}
 
-int func_12()//Position - 0x746
-{
-	if (PED::IS_PED_IN_ANY_VEHICLE(PLAYER::PLAYER_PED_ID(), 0))
-	{
-		if (VEHICLE::GET_PED_IN_VEHICLE_SEAT(PED::GET_VEHICLE_PED_IS_USING(PLAYER::PLAYER_PED_ID()), -1) == PLAYER::PLAYER_PED_ID())
-		{
-			return 1;
-		}
-	}
-	return 0;
-}
 
-int func_13()//Position - 0x773
-{
-	if (SCRIPT::_GET_NUMBER_OF_REFERENCES_OF_SCRIPT_WITH_NAME_HASH(joaat("player_timetable_scene")) > 0)
-	{
-		return 1;
-	}
-	return 0;
-}
 
-int func_14(int iParam0)//Position - 0x78D
-{
-	if (iParam0 == 1)
-	{
-		if (Global_14393.f_1 > 3)
-		{
-			if (MISC::IS_BIT_SET(Global_2263, 14))
-			{
-				return 1;
-			}
-			else
-			{
-				return 0;
-			}
-		}
-		else
-		{
-			return 0;
-		}
-	}
-	if (SCRIPT::_GET_NUMBER_OF_REFERENCES_OF_SCRIPT_WITH_NAME_HASH(joaat("cellphone_flashhand")) > 0)
-	{
-		return 1;
-	}
-	if (Global_14393.f_1 > 3)
-	{
-		return 1;
-	}
-	return 0;
-}
 
-bool func_15(int iParam0)//Position - 0x7E7
-{
-	return Global_34913 == iParam0;
-}
 
 void func_16()//Position - 0x7F5
 {
 	if (iLocal_45 != -1)
 	{
-		func_6(&iLocal_45);
+		GlobalFunc_5084(&iLocal_45);
 	}
 }
 

@@ -44,7 +44,7 @@ void __EntryFunction__()//Position - 0x0
 	{
 		if (!bVar1)
 		{
-			switch (func_1(PLAYER::PLAYER_PED_ID()))
+			switch (GlobalFunc_6782(PLAYER::PLAYER_PED_ID()))
 			{
 				case 1:
 					if (AUDIO::LOAD_STREAM("MISSION_COMPLETE_FRANKLIN_SMALL", 0))
@@ -83,43 +83,8 @@ void __EntryFunction__()//Position - 0x0
 	}
 }
 
-int func_1(var uParam0)//Position - 0xCF
-{
-	int iVar0;
-	int iVar1;
-	
-	if (ENTITY::DOES_ENTITY_EXIST(uParam0))
-	{
-		iVar1 = ENTITY::GET_ENTITY_MODEL(uParam0);
-		iVar0 = 0;
-		while (iVar0 <= 2)
-		{
-			if (func_2(iVar0) == iVar1)
-			{
-				return iVar0;
-			}
-			iVar0++;
-		}
-	}
-	return 145;
-}
 
-int func_2(int iParam0)//Position - 0x10C
-{
-	if (func_3(iParam0))
-	{
-		return Global_SAVE_DATA.CHARSHEET_SAVED_ARRAY[iParam0 /*29*/];
-	}
-	else if (iParam0 != 145)
-	{
-	}
-	return 0;
-}
 
-bool func_3(int iParam0)//Position - 0x136
-{
-	return iParam0 < 3;
-}
 
 void func_4()//Position - 0x142
 {

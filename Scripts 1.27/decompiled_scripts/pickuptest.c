@@ -6,7 +6,7 @@ void __EntryFunction__()//Position - 0x0
 	}
 	if (PLAYER::HAS_FORCE_CLEANUP_OCCURRED(18))
 	{
-		func_1();
+		GlobalFunc_491();
 	}
 	while (true)
 	{
@@ -14,8 +14,4 @@ void __EntryFunction__()//Position - 0x0
 	}
 }
 
-void func_1()//Position - 0x2F
-{
-	SCRIPT::TERMINATE_THIS_THREAD();
-}
 

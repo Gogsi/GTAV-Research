@@ -62,9 +62,9 @@ void __EntryFunction__()//Position - 0x0
 		{
 			SCRIPT::TERMINATE_THIS_THREAD();
 		}
-		if (func_15(PLAYER::PLAYER_ID()) && ENTITY::DOES_ENTITY_EXIST(func_14()))
+		if (GlobalFunc_7624(PLAYER::PLAYER_ID()) && ENTITY::DOES_ENTITY_EXIST(GlobalFunc_248()))
 		{
-			uLocal_32 = func_14();
+			uLocal_32 = GlobalFunc_248();
 		}
 		else
 		{
@@ -691,87 +691,9 @@ void func_13()//Position - 0xB07
 	}
 }
 
-var func_14()//Position - 0xB61
-{
-	return Global_2359301.f_2;
-}
 
-int func_15(int iParam0)//Position - 0xB6F
-{
-	if (func_17(iParam0, 0))
-	{
-		return 1;
-	}
-	if (func_16())
-	{
-		if (iParam0 == PLAYER::PLAYER_ID())
-		{
-			return 1;
-		}
-	}
-	if (MISC::IS_BIT_SET(Global_2414009[iParam0 /*254*/].f_194, 2))
-	{
-		return 1;
-	}
-	return 0;
-}
 
-bool func_16()//Position - 0xBB0
-{
-	return MISC::IS_BIT_SET(Global_2359301, 3);
-}
 
-bool func_17(int iParam0, int iParam1)//Position - 0xBC1
-{
-	bool bVar0;
-	
-	if (iParam0 == PLAYER::PLAYER_ID())
-	{
-		bVar0 = func_18(-1, 0) == 8;
-	}
-	else
-	{
-		bVar0 = Global_1582596[iParam0 /*324*/].f_180 == 8;
-	}
-	if (iParam1 == 1)
-	{
-		if (NETWORK::NETWORK_IS_PLAYER_ACTIVE(iParam0))
-		{
-			bVar0 = PLAYER::GET_PLAYER_TEAM(iParam0) == 8;
-		}
-	}
-	return bVar0;
-}
 
-int func_18(int iParam0, bool bParam1)//Position - 0xC0C
-{
-	int iVar0;
-	int iVar1;
-	
-	iVar1 = iParam0;
-	if (iVar1 == -1)
-	{
-		iVar1 = func_19();
-	}
-	if (Global_1315877[iVar1] == 1)
-	{
-		if (bParam1)
-		{
-		}
-		iVar0 = 8;
-	}
-	else
-	{
-		iVar0 = Global_1312731[iVar1];
-		if (bParam1)
-		{
-		}
-	}
-	return iVar0;
-}
 
-int func_19()//Position - 0xC4D
-{
-	return Global_1312737;
-}
 

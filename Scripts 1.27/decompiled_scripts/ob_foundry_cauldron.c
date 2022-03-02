@@ -98,19 +98,9 @@ void func_1()//Position - 0x135
 	{
 		ENTITY::SET_OBJECT_AS_NO_LONGER_NEEDED(&uLocal_4);
 	}
-	func_2("ob_foundry_cauldron Terminated >>>>>>>>>>>>>>>>>\n");
+	GlobalFunc_6524("ob_foundry_cauldron Terminated >>>>>>>>>>>>>>>>>\n");
 	SCRIPT::TERMINATE_THIS_THREAD();
 }
 
-void func_2(char* sParam0)//Position - 0x167
-{
-	func_3(sParam0);
-}
 
-void func_3(var uParam0)//Position - 0x175
-{
-	if (MISC::ARE_STRINGS_EQUAL(uParam0, uParam0))
-	{
-	}
-}
 

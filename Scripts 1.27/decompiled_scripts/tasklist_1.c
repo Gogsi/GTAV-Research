@@ -38,7 +38,7 @@ void __EntryFunction__()//Position - 0x0
 	fLocal_14 = 0.001f;
 	if (PLAYER::HAS_FORCE_CLEANUP_OCCURRED(2))
 	{
-		func_11();
+		GlobalFunc_491();
 	}
 	while (true)
 	{
@@ -95,7 +95,7 @@ void __EntryFunction__()//Position - 0x0
 									{
 										if (!Global_24498[iLocal_21])
 										{
-											if (MOBILE::CELL_CAM_IS_CHAR_VISIBLE_NO_FACE_CHECK(uLocal_22[iLocal_21]) && func_1())
+											if (MOBILE::CELL_CAM_IS_CHAR_VISIBLE_NO_FACE_CHECK(uLocal_22[iLocal_21]) && GlobalFunc_2796())
 											{
 												Global_16811[1 /*42*/].f_27[2]++;
 												func_2("CL_C1A_J2", Global_16811[1 /*42*/].f_27[2], Global_16811[1 /*42*/].f_32[2], 2000, 1);
@@ -172,14 +172,6 @@ void __EntryFunction__()//Position - 0x0
 	}
 }
 
-int func_1()//Position - 0x434
-{
-	if (Global_16728)
-	{
-		return 1;
-	}
-	return 0;
-}
 
 void func_2(char* sParam0, var uParam1, var uParam2, int iParam3, int iParam4)//Position - 0x44A
 {
@@ -200,7 +192,7 @@ void func_3(char* sParam0, char* sParam1, int iParam2, int iParam3)//Position - 
 
 int func_4(int iParam0, int iParam1, bool bParam2, int iParam3)//Position - 0x48E
 {
-	if (func_10())
+	if (GlobalFunc_72())
 	{
 		return 0;
 	}
@@ -219,7 +211,7 @@ int func_5(var uParam0, var uParam1, bool bParam2, int iParam3)//Position - 0x4B
 	}
 	if (func_8() == 0)
 	{
-		func_7();
+		GlobalFunc_587();
 		return 0;
 	}
 	func_6(Global_16810);
@@ -261,9 +253,6 @@ void func_6(int iParam0)//Position - 0x51D
 	Global_16980[iParam0 /*9*/].f_2.f_5 = uVar5;
 }
 
-void func_7()//Position - 0x597
-{
-}
 
 int func_8()//Position - 0x59F
 {
@@ -290,7 +279,7 @@ int func_8()//Position - 0x59F
 	{
 		if (Global_16980[iVar0 /*9*/].f_8 == 0 || Global_16980[iVar0 /*9*/].f_8 == 1)
 		{
-			if (!func_9(Global_16980[iVar0 /*9*/].f_2, Global_16980[Global_16810 /*9*/].f_2))
+			if (!GlobalFunc_1496(Global_16980[iVar0 /*9*/].f_2, Global_16980[Global_16810 /*9*/].f_2))
 			{
 				Global_16810 = iVar0;
 			}
@@ -304,67 +293,6 @@ int func_8()//Position - 0x59F
 	return 1;
 }
 
-int func_9(struct<6> Param0, struct<6> Param6)//Position - 0x679
-{
-	struct<4> Var0;
-	struct<4> Var6;
-	int iVar12;
-	int iVar13;
-	
-	if (Param0.f_5 < Param6.f_5)
-	{
-		return 0;
-	}
-	if (Param0.f_5 > Param6.f_5)
-	{
-		return 1;
-	}
-	if (Param0.f_5 == Param6.f_5)
-	{
-		if (Param0.f_4 < Param6.f_4)
-		{
-			return 0;
-		}
-		if (Param0.f_4 > Param6.f_4)
-		{
-			return 1;
-		}
-		if (Param0.f_4 == Param6.f_4)
-		{
-			Var0 = Param0;
-			Var0.f_1 = Param0.f_1 * 60;
-			Var0.f_2 = Param0.f_2 * 3600;
-			Var0.f_3 = (Param0.f_3 * 86400);
-			iVar12 = (((Var0 + Var0.f_1) + Var0.f_2) + Var0.f_3);
-			Var6 = Param6;
-			Var6.f_1 = Param6.f_1 * 60;
-			Var6.f_2 = Param6.f_2 * 3600;
-			Var6.f_3 = (Param6.f_3 * 86400);
-			iVar13 = (((Var6 + Var6.f_1) + Var6.f_2) + Var6.f_3);
-			if (iVar12 > iVar13 || iVar12 == iVar13)
-			{
-				return 1;
-			}
-			else
-			{
-				return 0;
-			}
-		}
-	}
-	return 0;
-}
 
-int func_10()//Position - 0x764
-{
-	if (Global_14393.f_1 == 1 || Global_14393.f_1 == 0)
-	{
-		return 1;
-	}
-	return 0;
-}
 
-void func_11()//Position - 0x78B
-{
-	SCRIPT::TERMINATE_THIS_THREAD();
-}
 

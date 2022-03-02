@@ -155,25 +155,25 @@ void __EntryFunction__()//Position - 0x0
 	Local_73[1 /*3*/] = { Local_66 };
 	while (true)
 	{
-		func_11(PLAYER::PLAYER_PED_ID());
+		GlobalFunc_852(PLAYER::PLAYER_PED_ID());
 		if (Global_24448 == 1)
 		{
 			func_12();
 		}
 		if (bLocal_80)
 		{
-			if (!func_10(PLAYER::PLAYER_PED_ID(), Local_73[0 /*3*/], (290f + 50f)))
+			if (!GlobalFunc_882(PLAYER::PLAYER_PED_ID(), Local_73[0 /*3*/], (290f + 50f)))
 			{
-				if (!func_10(PLAYER::PLAYER_PED_ID(), Local_73[1 /*3*/], (290f + 50f)))
+				if (!GlobalFunc_882(PLAYER::PLAYER_PED_ID(), Local_73[1 /*3*/], (290f + 50f)))
 				{
 					func_12();
 				}
 			}
 			if (iLocal_72 != 0)
 			{
-				if (!func_10(PLAYER::PLAYER_PED_ID(), Local_73[0 /*3*/], (fLocal_85 + 50f)))
+				if (!GlobalFunc_882(PLAYER::PLAYER_PED_ID(), Local_73[0 /*3*/], (fLocal_85 + 50f)))
 				{
-					if (!func_10(PLAYER::PLAYER_PED_ID(), Local_73[1 /*3*/], (fLocal_85 + 50f)))
+					if (!GlobalFunc_882(PLAYER::PLAYER_PED_ID(), Local_73[1 /*3*/], (fLocal_85 + 50f)))
 					{
 						AUDIO::SET_AMBIENT_ZONE_STATE_PERSISTENT("AZ_SPECIAL_UFO_01", 0, 1);
 						AUDIO::SET_AMBIENT_ZONE_STATE_PERSISTENT("AZ_SPECIAL_UFO_02", 0, 1);
@@ -191,7 +191,7 @@ void __EntryFunction__()//Position - 0x0
 				iVar0 = 0;
 				while (iVar0 < Local_73.x)
 				{
-					if (func_10(PLAYER::PLAYER_PED_ID(), Local_73[iVar0 /*3*/], fLocal_85))
+					if (GlobalFunc_882(PLAYER::PLAYER_PED_ID(), Local_73[iVar0 /*3*/], fLocal_85))
 					{
 						iLocal_71 = iVar0;
 						iLocal_72 = 1;
@@ -207,7 +207,7 @@ void __EntryFunction__()//Position - 0x0
 				iVar0 = 0;
 				while (iVar0 < Local_73.x)
 				{
-					if (func_10(PLAYER::PLAYER_PED_ID(), Local_73[iVar0 /*3*/], fLocal_82))
+					if (GlobalFunc_882(PLAYER::PLAYER_PED_ID(), Local_73[iVar0 /*3*/], fLocal_82))
 					{
 						iLocal_71 = iVar0;
 						iLocal_72 = 2;
@@ -230,7 +230,7 @@ void __EntryFunction__()//Position - 0x0
 				break;
 			
 			case 3:
-				if (func_10(PLAYER::PLAYER_PED_ID(), Local_73[iLocal_71 /*3*/], fLocal_82))
+				if (GlobalFunc_882(PLAYER::PLAYER_PED_ID(), Local_73[iLocal_71 /*3*/], fLocal_82))
 				{
 					iLocal_70 = (MISC::GET_GAME_TIMER() - iLocal_69);
 					if (iLocal_70 >= iLocal_86)
@@ -262,15 +262,15 @@ void __EntryFunction__()//Position - 0x0
 				func_6();
 				if (MISC::GET_GAME_TIMER() > (iLocal_88 + iLocal_89))
 				{
-					func_4(&iLocal_87);
+					GlobalFunc_894(&iLocal_87);
 				}
-				if (!func_10(PLAYER::PLAYER_PED_ID(), Local_73[iLocal_71 /*3*/], fLocal_85))
+				if (!GlobalFunc_882(PLAYER::PLAYER_PED_ID(), Local_73[iLocal_71 /*3*/], fLocal_85))
 				{
 					func_1();
 					iLocal_71 = -1;
 					iLocal_72 = 0;
-					func_4(&iLocal_97);
-					func_4(&iLocal_96);
+					GlobalFunc_894(&iLocal_97);
+					GlobalFunc_894(&iLocal_96);
 					AUDIO::SET_AMBIENT_ZONE_STATE_PERSISTENT("AZ_SPECIAL_UFO_01", 0, 1);
 					AUDIO::SET_AMBIENT_ZONE_STATE_PERSISTENT("AZ_SPECIAL_UFO_02", 0, 1);
 				}
@@ -284,12 +284,12 @@ void func_1()//Position - 0x398
 {
 	var uVar0;
 	
-	if (func_11(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_852(PLAYER::PLAYER_PED_ID()))
 	{
 		if (PED::IS_PED_IN_ANY_VEHICLE(PLAYER::PLAYER_PED_ID(), 0))
 		{
 			uVar0 = PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), 0);
-			if (func_2(uVar0))
+			if (GlobalFunc_5230(uVar0))
 			{
 				VEHICLE::SET_VEHICLE_ENGINE_ON(uVar0, 1, 0);
 			}
@@ -297,42 +297,8 @@ void func_1()//Position - 0x398
 	}
 }
 
-int func_2(var uParam0)//Position - 0x3D3
-{
-	if (func_3(uParam0))
-	{
-		if (VEHICLE::IS_VEHICLE_DRIVEABLE(uParam0, 0))
-		{
-			if (!FIRE::IS_ENTITY_ON_FIRE(uParam0))
-			{
-				return 1;
-			}
-		}
-	}
-	return 0;
-}
 
-int func_3(var uParam0)//Position - 0x3FD
-{
-	if (ENTITY::DOES_ENTITY_EXIST(uParam0))
-	{
-		if (!ENTITY::IS_ENTITY_DEAD(uParam0))
-		{
-			return 1;
-		}
-	}
-	return 0;
-}
 
-void func_4(int iParam0)//Position - 0x41D
-{
-	if (*iParam0 != -1)
-	{
-		AUDIO::STOP_SOUND(*iParam0);
-		AUDIO::RELEASE_SOUND_ID(*iParam0);
-		*iParam0 = -1;
-	}
-}
 
 void func_5()//Position - 0x43E
 {
@@ -341,7 +307,7 @@ void func_5()//Position - 0x43E
 	if (PED::IS_PED_IN_ANY_VEHICLE(PLAYER::PLAYER_PED_ID(), 0))
 	{
 		uVar0 = PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), 0);
-		if (func_2(uVar0))
+		if (GlobalFunc_5230(uVar0))
 		{
 			VEHICLE::SET_VEHICLE_ENGINE_ON(uVar0, 0, 0);
 			ENTITY::APPLY_FORCE_TO_ENTITY(uVar0, 2, 0f, 0f, -fLocal_81, 0f, 1f, 0f, 0, 0, 1, 1, 0, 1);
@@ -357,7 +323,7 @@ void func_6()//Position - 0x483
 		{
 			if (iLocal_96 != -1)
 			{
-				func_4(&iLocal_96);
+				GlobalFunc_894(&iLocal_96);
 				iLocal_94 = (MISC::GET_GAME_TIMER() + iLocal_93);
 			}
 			else
@@ -378,7 +344,7 @@ void func_7()//Position - 0x4CD
 		{
 			if (iLocal_97 != -1)
 			{
-				func_4(&iLocal_97);
+				GlobalFunc_894(&iLocal_97);
 				iLocal_95 = (MISC::GET_GAME_TIMER() + iLocal_92);
 			}
 			else
@@ -403,47 +369,16 @@ void func_8()//Position - 0x517
 	{
 		return;
 	}
-	if (!func_10(PLAYER::PLAYER_PED_ID(), Local_73[iLocal_71 /*3*/], fLocal_83))
+	if (!GlobalFunc_882(PLAYER::PLAYER_PED_ID(), Local_73[iLocal_71 /*3*/], fLocal_83))
 	{
 		return;
 	}
-	Var0 = { func_9(ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), 1) - Local_73[iLocal_71 /*3*/]) * Vector(fLocal_84, fLocal_84, fLocal_84) };
+	Var0 = { GlobalFunc_107(ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), 1) - Local_73[iLocal_71 /*3*/]) * Vector(fLocal_84, fLocal_84, fLocal_84) };
 	ENTITY::APPLY_FORCE_TO_ENTITY(PLAYER::PLAYER_PED_ID(), 2, Var0, 0f, 0f, 0f, 0, 0, 1, 1, 0, 1);
 }
 
-Vector3 func_9(struct<3> Param0)//Position - 0x584
-{
-	float fVar0;
-	float fVar1;
-	
-	fVar0 = SYSTEM::VMAG(Param0);
-	if (fVar0 != 0f)
-	{
-		fVar1 = (1f / fVar0);
-		Param0 = { Param0 * Vector(fVar1, fVar1, fVar1) };
-	}
-	else
-	{
-		Param0.x = 0f;
-		Param0.f_1 = 0f;
-		Param0.f_2 = 0f;
-	}
-	return Param0;
-}
 
-bool func_10(var uParam0, struct<3> Param1, float fParam4)//Position - 0x5C3
-{
-	return SYSTEM::VDIST2(ENTITY::GET_ENTITY_COORDS(uParam0, 1), Param1) <= (fParam4 * fParam4);
-}
 
-bool func_11(var uParam0)//Position - 0x5E0
-{
-	if (!ENTITY::DOES_ENTITY_EXIST(uParam0))
-	{
-		return 0;
-	}
-	return !ENTITY::IS_ENTITY_DEAD(uParam0);
-}
 
 void func_12()//Position - 0x5FD
 {
@@ -451,9 +386,9 @@ void func_12()//Position - 0x5FD
 	{
 		STREAMING::REMOVE_IPL("ufo");
 	}
-	func_4(&iLocal_97);
-	func_4(&iLocal_96);
-	func_4(&iLocal_87);
+	GlobalFunc_894(&iLocal_97);
+	GlobalFunc_894(&iLocal_96);
+	GlobalFunc_894(&iLocal_87);
 	AUDIO::SET_AMBIENT_ZONE_STATE_PERSISTENT("AZ_SPECIAL_UFO_01", 0, 1);
 	AUDIO::SET_AMBIENT_ZONE_STATE_PERSISTENT("AZ_SPECIAL_UFO_02", 0, 1);
 	func_1();

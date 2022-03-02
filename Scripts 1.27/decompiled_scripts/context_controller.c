@@ -142,7 +142,7 @@ void __EntryFunction__()//Position - 0x0
 			{
 				if (!Global_35613[Global_35731 /*18*/].f_5)
 				{
-					if (!func_15(Global_35731, 1))
+					if (!GlobalFunc_5456(Global_35731, 1))
 					{
 						Global_35731 = -1;
 					}
@@ -524,7 +524,7 @@ int func_10(int iParam0)//Position - 0x6AA
 	}
 	if (iParam0 > 0)
 	{
-		if (func_15(iParam0, 1) || bLocal_55)
+		if (GlobalFunc_5456(iParam0, 1) || bLocal_55)
 		{
 			return 1;
 		}
@@ -546,7 +546,7 @@ int func_11()//Position - 0x6F8
 	{
 		return 1;
 	}
-	if (func_14(0))
+	if (GlobalFunc_116(0))
 	{
 		return 1;
 	}
@@ -562,7 +562,7 @@ int func_11()//Position - 0x6F8
 	{
 		return 1;
 	}
-	if (func_13(1))
+	if (GlobalFunc_126(1))
 	{
 		return 1;
 	}
@@ -570,129 +570,17 @@ int func_11()//Position - 0x6F8
 	{
 		return 1;
 	}
-	if (func_12(8, -1))
+	if (GlobalFunc_153(8, -1))
 	{
 		return 1;
 	}
 	return 0;
 }
 
-bool func_12(int iParam0, int iParam1)//Position - 0x76F
-{
-	switch (iParam0)
-	{
-		case 5:
-			if (iParam1 > -1)
-			{
-				return Global_1327593.f_203[iParam1];
-			}
-			break;
-	}
-	return MISC::IS_BIT_SET(Global_1327593.f_949, iParam0);
-}
 
-bool func_13(bool bParam0)//Position - 0x7AA
-{
-	if (bParam0)
-	{
-		return (Global_17098.f_4 && Global_17098.f_104 == 4);
-	}
-	return Global_17098.f_4;
-}
 
-int func_14(int iParam0)//Position - 0x7D3
-{
-	if (iParam0 == 1)
-	{
-		if (Global_14393.f_1 > 3)
-		{
-			if (MISC::IS_BIT_SET(Global_2263, 14))
-			{
-				return 1;
-			}
-			else
-			{
-				return 0;
-			}
-		}
-		else
-		{
-			return 0;
-		}
-	}
-	if (SCRIPT::_GET_NUMBER_OF_REFERENCES_OF_SCRIPT_WITH_NAME_HASH(joaat("cellphone_flashhand")) > 0)
-	{
-		return 1;
-	}
-	if (Global_14393.f_1 > 3)
-	{
-		return 1;
-	}
-	return 0;
-}
 
-int func_15(int iParam0, int iParam1)//Position - 0x82D
-{
-	int iVar0;
-	int iVar1;
-	
-	iVar0 = func_16(iParam0);
-	if (iParam1 == 0)
-	{
-		if (iVar0 == -1)
-		{
-			return 0;
-		}
-	}
-	else
-	{
-		iVar0 = iParam0;
-	}
-	if (iVar0 < 0)
-	{
-		return 0;
-	}
-	if (Global_35613[iVar0 /*18*/].f_5)
-	{
-		return 0;
-	}
-	iVar1 = 0;
-	if (!Global_35613[iVar0 /*18*/].f_11)
-	{
-		HUD::BEGIN_TEXT_COMMAND_IS_THIS_HELP_MESSAGE_BEING_DISPLAYED(&(Global_35613[iVar0 /*18*/].f_7));
-		HUD::ADD_TEXT_COMPONENT_SUBSTRING_TEXT_LABEL(&Global_35724);
-		iVar1 = HUD::END_TEXT_COMMAND_IS_THIS_HELP_MESSAGE_BEING_DISPLAYED(0);
-	}
-	else
-	{
-		HUD::BEGIN_TEXT_COMMAND_IS_THIS_HELP_MESSAGE_BEING_DISPLAYED(&(Global_35613[iVar0 /*18*/].f_7));
-		HUD::ADD_TEXT_COMPONENT_SUBSTRING_TEXT_LABEL(&Global_35724);
-		HUD::ADD_TEXT_COMPONENT_SUBSTRING_TEXT_LABEL(&(Global_35613[iVar0 /*18*/].f_12));
-		iVar1 = HUD::END_TEXT_COMMAND_IS_THIS_HELP_MESSAGE_BEING_DISPLAYED(0);
-	}
-	return iVar1;
-}
 
-int func_16(int iParam0)//Position - 0x8C6
-{
-	int iVar0;
-	
-	if (iParam0 < 0)
-	{
-		return -1;
-	}
-	iVar0 = 0;
-	iVar0 = 0;
-	while (iVar0 < 6)
-	{
-		if (Global_35613[iVar0 /*18*/].f_1 == iParam0)
-		{
-			return iVar0;
-		}
-		iVar0++;
-	}
-	return -1;
-}
 
 void func_17()//Position - 0x901
 {
@@ -704,77 +592,21 @@ void func_18()//Position - 0x911
 {
 	if (!STREAMING::IS_PLAYER_SWITCH_IN_PROGRESS() && !Global_67058)
 	{
-		if (func_23(0))
+		if (GlobalFunc_1549(0))
 		{
 			if (!MISC::IS_STRING_NULL_OR_EMPTY(&(Global_2428131.f_656.f_12)))
 			{
-				func_22();
-				func_19(6);
+				GlobalFunc_1547();
+				GlobalFunc_5590(6);
 			}
 		}
 	}
 }
 
-void func_19(int iParam0)//Position - 0x94D
-{
-	Global_67067 = iParam0;
-	switch (Global_67067)
-	{
-		case 3:
-			Global_67065 = 0;
-			break;
-		
-		case 4:
-			Global_67065 = 3;
-			break;
-	}
-	if (SCRIPT::_GET_NUMBER_OF_REFERENCES_OF_SCRIPT_WITH_NAME_HASH(joaat("appinternet")) > 0)
-	{
-		return;
-	}
-	if (Global_68245 && func_21())
-	{
-		return;
-	}
-	if (!Global_68245 && func_20())
-	{
-		return;
-	}
-	if (!SCRIPT::HAS_SCRIPT_LOADED("appInternet"))
-	{
-		SCRIPT::REQUEST_SCRIPT("appInternet");
-	}
-	while (!SCRIPT::HAS_SCRIPT_LOADED("appInternet"))
-	{
-		SYSTEM::WAIT(0);
-	}
-	SYSTEM::START_NEW_SCRIPT("appInternet", 3584);
-	SCRIPT::SET_SCRIPT_AS_NO_LONGER_NEEDED("appInternet");
-}
 
-var func_20()//Position - 0x9EE
-{
-	return Global_67059;
-}
 
-var func_21()//Position - 0x9FA
-{
-	return Global_1684040;
-}
 
-void func_22()//Position - 0xA06
-{
-	Global_2428131.f_656.f_28 = 0;
-}
 
-bool func_23(bool bParam0)//Position - 0xA18
-{
-	if (bParam0)
-	{
-		return (Global_2428131.f_656.f_28 && MISC::GET_HASH_KEY(SCRIPT::GET_THIS_SCRIPT_NAME()) == Global_2428131.f_656.f_31);
-	}
-	return Global_2428131.f_656.f_28;
-}
 
 void func_24()//Position - 0xA54
 {
@@ -859,7 +691,7 @@ void func_26()//Position - 0xAF8
 				{
 					if (NETWORK::NETWORK_GAMERTAG_FROM_HANDLE_SUCCEEDED())
 					{
-						StringCopy(&(Global_2097152[func_28() /*8053*/].f_7876.f_18[Global_1572889 /*6*/]), NETWORK::NETWORK_GET_GAMERTAG_FROM_HANDLE(&Var0), 24);
+						StringCopy(&(Global_2097152[GlobalFunc_177() /*8053*/].f_7876.f_18[Global_1572889 /*6*/]), NETWORK::NETWORK_GET_GAMERTAG_FROM_HANDLE(&Var0), 24);
 					}
 					Global_1572889 = -1;
 					iLocal_65 = 0;
@@ -868,18 +700,18 @@ void func_26()//Position - 0xAF8
 		}
 		else if (MISC::IS_PS3_VERSION() || MISC::IS_ORBIS_VERSION())
 		{
-			if (func_27(Var0))
+			if (GlobalFunc_319(Var0))
 			{
-				StringCopy(&(Global_2097152[func_28() /*8053*/].f_7876.f_18[Global_1572889 /*6*/]), NETWORK::NETWORK_GET_GAMERTAG_FROM_HANDLE(&Var0), 24);
+				StringCopy(&(Global_2097152[GlobalFunc_177() /*8053*/].f_7876.f_18[Global_1572889 /*6*/]), NETWORK::NETWORK_GET_GAMERTAG_FROM_HANDLE(&Var0), 24);
 			}
 			Global_1572889 = -1;
 			iLocal_65 = 0;
 		}
 		else
 		{
-			if (func_27(Var0))
+			if (GlobalFunc_319(Var0))
 			{
-				StringCopy(&(Global_2097152[func_28() /*8053*/].f_7876.f_18[Global_1572889 /*6*/]), NETWORK::NETWORK_MEMBER_ID_FROM_GAMER_HANDLE(&Var0), 24);
+				StringCopy(&(Global_2097152[GlobalFunc_177() /*8053*/].f_7876.f_18[Global_1572889 /*6*/]), NETWORK::NETWORK_MEMBER_ID_FROM_GAMER_HANDLE(&Var0), 24);
 			}
 			Global_1572889 = -1;
 			iLocal_65 = 0;
@@ -887,18 +719,7 @@ void func_26()//Position - 0xAF8
 	}
 }
 
-bool func_27(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, var uParam5, var uParam6, var uParam7, var uParam8, var uParam9, var uParam10, var uParam11, var uParam12)//Position - 0xC74
-{
-	return NETWORK::NETWORK_IS_HANDLE_VALID(&uParam0, 13);
-}
 
-int func_28()//Position - 0xC84
-{
-	int iVar0;
-	
-	iVar0 = 0;
-	return iVar0;
-}
 
 void func_29()//Position - 0xC91
 {

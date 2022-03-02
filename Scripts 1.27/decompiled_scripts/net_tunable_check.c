@@ -42,13 +42,13 @@ void __EntryFunction__()//Position - 0x0
 	sLocal_19 = "NULL";
 	while (true)
 	{
-		if (func_6())
+		if (GlobalFunc_7814())
 		{
-			func_5();
+			GlobalFunc_491();
 		}
 		if (func_1(&uLocal_20, &Global_270488))
 		{
-			func_5();
+			GlobalFunc_491();
 		}
 		SYSTEM::WAIT(0);
 	}
@@ -87,7 +87,7 @@ int func_1(var uParam0, var uParam1)//Position - 0x5E
 				{
 					if (iVar2 >= Var3.f_4 && iVar2 != 25)
 					{
-						iVar10 = func_2(iVar2);
+						iVar10 = GlobalFunc_1073(iVar2);
 						if (iVar10 != 0 && Var3.f_5 != 0)
 						{
 							if (NETWORK::NETWORK_ACCESS_TUNABLE_FLOAT_HASH(iVar10, Var3.f_5, &fVar0))
@@ -130,128 +130,6 @@ int func_1(var uParam0, var uParam1)//Position - 0x5E
 	return 0;
 }
 
-int func_2(int iParam0)//Position - 0x1B6
-{
-	char cVar0[64];
-	
-	if (iParam0 >= 26)
-	{
-		StringCopy(&cVar0, "CONTENT_MODIFIER_", 64);
-		StringIntConCat(&cVar0, (iParam0 - 26), 64);
-		return MISC::GET_HASH_KEY(&cVar0);
-	}
-	switch (iParam0)
-	{
-		case 0:
-			return 190769267;
-			break;
-		
-		case 1:
-			return 953070135;
-			break;
-		
-		case 2:
-			return 1398379561;
-			break;
-		
-		case 3:
-			return -295628664;
-			break;
-		
-		case 4:
-			return -1157311665;
-			break;
-		
-		case 5:
-			return 988790432;
-			break;
-		
-		case 6:
-			return 1140746429;
-			break;
-		
-		case 7:
-			return 1882254284;
-			break;
-		
-		case 8:
-			return -1021097824;
-			break;
-		
-		case 9:
-			return 1031194139;
-			break;
-		
-		case 10:
-			return -946481156;
-			break;
-		
-		case 11:
-			return -364624190;
-			break;
-		
-		case 12:
-			return -199795525;
-			break;
-		
-		case 13:
-			return -866645446;
-			break;
-		
-		case 14:
-			return -938189448;
-			break;
-		
-		case 15:
-			return 539878179;
-			break;
-		
-		case 16:
-			return 571975921;
-			break;
-		
-		case 17:
-			return 818280646;
-			break;
-		
-		case 18:
-			return -183978087;
-			break;
-		
-		case 19:
-			return -52527117;
-			break;
-		
-		case 24:
-			return -395434754;
-			break;
-		
-		case 20:
-			return -1110334219;
-			break;
-		
-		case 21:
-			return -1382306730;
-			break;
-		
-		case 22:
-			return 1453550531;
-			break;
-		
-		case 23:
-			return 1744317449;
-			break;
-		
-		case 25:
-			return 2;
-			break;
-		
-		case 27:
-			StringCopy(&cVar0, "ILLEGAL TUNABLE CONTEXT", 64);
-			break;
-	}
-	return 0;
-}
 
 void func_3(int iParam0, var uParam1)//Position - 0x3AB
 {
@@ -14109,221 +13987,15 @@ void func_4()//Position - 0x12F6E
 	func_4();
 }
 
-void func_5()//Position - 0x12FEB
-{
-	SCRIPT::TERMINATE_THIS_THREAD();
-}
 
-int func_6()//Position - 0x12FF7
-{
-	bool bVar0;
-	
-	func_13(&bVar0);
-	if (bVar0)
-	{
-		return 1;
-	}
-	if (Global_1315874 == 0)
-	{
-		if (!NETWORK::NETWORK_IS_GAME_IN_PROGRESS())
-		{
-			return 1;
-		}
-	}
-	if (func_12())
-	{
-		return 1;
-	}
-	if (Global_2437058)
-	{
-		return 1;
-	}
-	if (func_11())
-	{
-		return 1;
-	}
-	if (func_10(157))
-	{
-		if (!func_9())
-		{
-			return 1;
-		}
-	}
-	if (func_10(155))
-	{
-		return 1;
-	}
-	if (!NETWORK::NETWORK_IS_SIGNED_ONLINE())
-	{
-		return 1;
-	}
-	if (func_7() != 0)
-	{
-		if (SCRIPT::_GET_NUMBER_OF_REFERENCES_OF_SCRIPT_WITH_NAME_HASH(func_7()) == 0)
-		{
-			return 1;
-		}
-	}
-	return 0;
-}
 
-int func_7()//Position - 0x1308A
-{
-	switch (func_8())
-	{
-		case 0:
-			return joaat("freemode");
-			break;
-		
-		case 2:
-			return joaat("creator");
-			break;
-	}
-	return 0;
-}
 
-int func_8()//Position - 0x130BE
-{
-	return Global_24444;
-}
 
-bool func_9()//Position - 0x130C9
-{
-	return Global_2428131.f_572;
-}
 
-int func_10(int iParam0)//Position - 0x130D8
-{
-	if (SCRIPT::GET_EVENT_EXISTS(1, iParam0))
-	{
-		return 1;
-	}
-	return 0;
-}
 
-bool func_11()//Position - 0x130EF
-{
-	return Global_2435238;
-}
 
-bool func_12()//Position - 0x130FB
-{
-	return Global_2428131.f_567;
-}
 
-void func_13(var uParam0)//Position - 0x1310A
-{
-	int iVar0;
-	int iVar1;
-	int iVar2;
-	struct<3> Var4;
-	
-	iVar0 = 0;
-	while (iVar0 < SCRIPT::GET_NUMBER_OF_EVENTS(1))
-	{
-		iVar1 = SCRIPT::GET_EVENT_AT_INDEX(1, iVar0);
-		if (iVar1 == 168)
-		{
-			SCRIPT::GET_EVENT_DATA(1, iVar0, &iVar2, 2);
-			switch (iVar2)
-			{
-				case 306:
-					func_14(iVar0);
-					break;
-				
-				case 2:
-					SCRIPT::GET_EVENT_DATA(1, iVar0, &Var4, 3);
-					if (Var4.f_2 == 53)
-					{
-						*uParam0 = 1;
-					}
-					break;
-				}
-		}
-		iVar0++;
-	}
-}
 
-void func_14(int iParam0)//Position - 0x1317A
-{
-	struct<3> Var0;
-	var uVar3;
-	var uVar4;
-	bool bVar5;
-	
-	if (SCRIPT::GET_EVENT_DATA(1, iParam0, &Var0, 3))
-	{
-		if (func_16(Var0.f_1, 1, 1))
-		{
-			uVar3 = PLAYER::GET_PLAYER_PED(Var0.f_1);
-			if (ENTITY::DOES_ENTITY_EXIST(uVar3))
-			{
-				if (PED::IS_PED_IN_ANY_VEHICLE(uVar3, 0))
-				{
-					uVar4 = PED::GET_VEHICLE_PED_IS_IN(uVar3, 0);
-					if (VEHICLE::IS_VEHICLE_WINDOW_INTACT(uVar4, Var0.f_2) && NETWORK::NETWORK_GET_THIS_SCRIPT_IS_NETWORK_SCRIPT())
-					{
-						if (func_15(uVar4, &bVar5))
-						{
-							VEHICLE::REMOVE_VEHICLE_WINDOW(uVar4, Var0.f_2);
-						}
-						if (bVar5)
-						{
-							ENTITY::SET_VEHICLE_AS_NO_LONGER_NEEDED(&uVar4);
-						}
-					}
-				}
-			}
-		}
-	}
-}
 
-int func_15(var uParam0, var uParam1)//Position - 0x131FB
-{
-	if (ENTITY::DOES_ENTITY_EXIST(uParam0))
-	{
-		if (!ENTITY::IS_ENTITY_A_MISSION_ENTITY(uParam0))
-		{
-			if (NETWORK::NETWORK_GET_ENTITY_IS_LOCAL(uParam0))
-			{
-				ENTITY::SET_ENTITY_AS_MISSION_ENTITY(uParam0, 0, 1);
-				*uParam1 = 1;
-			}
-		}
-		if (ENTITY::DOES_ENTITY_BELONG_TO_THIS_SCRIPT(uParam0, 0))
-		{
-			if (NETWORK::NETWORK_HAS_CONTROL_OF_ENTITY(uParam0))
-			{
-				return 1;
-			}
-		}
-	}
-	return 0;
-}
 
-int func_16(var uParam0, bool bParam1, bool bParam2)//Position - 0x13249
-{
-	int iVar0;
-	
-	iVar0 = uParam0;
-	if (NETWORK::NETWORK_IS_PLAYER_ACTIVE(uParam0))
-	{
-		if (bParam1)
-		{
-			if (!PLAYER::IS_PLAYER_PLAYING(uParam0))
-			{
-				return 0;
-			}
-		}
-		if (bParam2)
-		{
-			if (!Global_2422140.f_3[iVar0])
-			{
-				return 0;
-			}
-		}
-		return 1;
-	}
-	return 0;
-}
 

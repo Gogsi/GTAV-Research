@@ -49,56 +49,26 @@ void __EntryFunction__()//Position - 0x0
 	{
 		if (PLAYER::GET_CAUSE_OF_MOST_RECENT_FORCE_CLEANUP() != 2)
 		{
-			func_4(19);
+			GlobalFunc_492(19);
 		}
 		func_3();
 	}
-	func_2(19);
+	GlobalFunc_501(19);
 	AUDIO::REGISTER_SCRIPT_WITH_AUDIO(1);
 	while (!AUDIO::LOAD_STREAM("CONSTRUCTION_SITE_STREAM", "FBI_HEIST_SOUNDSET"))
 	{
 		SYSTEM::WAIT(0);
 	}
 	AUDIO::PLAY_STREAM_FROM_POSITION(-147f, -1005f, 28f);
-	while (func_1(70))
+	while (GlobalFunc_485(70))
 	{
 		SYSTEM::WAIT(0);
 	}
-	func_4(19);
+	GlobalFunc_492(19);
 	func_3();
 }
 
-int func_1(int iParam0)//Position - 0xB3
-{
-	if (iParam0 == 144 || iParam0 == -1)
-	{
-		return 0;
-	}
-	return Global_SAVE_DATA.FLOW_STRUCT.MF_CONTROLS_STRUCT.f_58[iParam0];
-}
 
-int func_2(int iParam0)//Position - 0xE0
-{
-	int iVar0;
-	int iVar1;
-	
-	if (iParam0 <= 31)
-	{
-		iVar0 = 9;
-		iVar1 = iParam0;
-	}
-	else
-	{
-		iVar0 = 10;
-		iVar1 = (iParam0 - 32);
-	}
-	if (MISC::IS_BIT_SET(Global_SAVE_DATA.FLOW_STRUCT.MF_CONTROLS_STRUCT.f_217[iVar0], iVar1))
-	{
-		return 0;
-	}
-	MISC::SET_BIT(&(Global_SAVE_DATA.FLOW_STRUCT.MF_CONTROLS_STRUCT.f_217[iVar0]), iVar1);
-	return 1;
-}
 
 void func_3()//Position - 0x13A
 {
@@ -107,26 +77,4 @@ void func_3()//Position - 0x13A
 	SCRIPT::TERMINATE_THIS_THREAD();
 }
 
-int func_4(int iParam0)//Position - 0x14E
-{
-	int iVar0;
-	int iVar1;
-	
-	if (iParam0 <= 31)
-	{
-		iVar0 = 9;
-		iVar1 = iParam0;
-	}
-	else
-	{
-		iVar0 = 10;
-		iVar1 = (iParam0 - 32);
-	}
-	if (MISC::IS_BIT_SET(Global_SAVE_DATA.FLOW_STRUCT.MF_CONTROLS_STRUCT.f_217[iVar0], iVar1))
-	{
-		MISC::CLEAR_BIT(&(Global_SAVE_DATA.FLOW_STRUCT.MF_CONTROLS_STRUCT.f_217[iVar0]), iVar1);
-		return 1;
-	}
-	return 0;
-}
 

@@ -78,16 +78,7 @@ void __EntryFunction__()//Position - 0x0
 		ENTITY::SET_ENTITY_COORDS(uVar0, 2119.159f, 4813.522f, 40.2223f, 1, 0, 0, 1);
 		ENTITY::SET_ENTITY_HEADING(uVar0, 225.2837f);
 	}
-	func_1(19, 0);
+	GlobalFunc_66(19, 0);
 }
 
-void func_1(int iParam0, int iParam1)//Position - 0xAD
-{
-	if (iParam0 == 235 || iParam0 == 0)
-	{
-		return;
-	}
-	Global_SAVE_DATA.CODE_CONTROL_RUNFLAG_ARRAY[iParam0] = 1;
-	Global_SAVE_DATA.CODE_CONTROL_DATA_STRUCT.CODE_CONTROL_EXECUTE_TIMER_ARRAY[iParam0] = (MISC::GET_GAME_TIMER() + iParam1);
-}
 

@@ -110,9 +110,9 @@ void __EntryFunction__()//Position - 0x0
 
 int func_1(var uParam0, bool bParam1)//Position - 0xEC
 {
-	if (!func_8(&(uParam0->f_2)))
+	if (!GlobalFunc_226(&(uParam0->f_2)))
 	{
-		func_6(&(uParam0->f_2));
+		GlobalFunc_6877(&(uParam0->f_2));
 	}
 	HUD::HIDE_HUD_COMPONENT_THIS_FRAME(14);
 	GRAPHICS::SET_SCRIPT_GFX_DRAW_ORDER(1);
@@ -128,80 +128,25 @@ int func_1(var uParam0, bool bParam1)//Position - 0xEC
 	{
 		return 1;
 	}
-	if (func_3(&(uParam0->f_2)) * 1000f) > SYSTEM::TO_FLOAT(uParam0->f_1)
+	if (GlobalFunc_5182(&(uParam0->f_2)) * 1000f) > SYSTEM::TO_FLOAT(uParam0->f_1)
 	{
-		func_2(&(uParam0->f_2));
+		GlobalFunc_235(&(uParam0->f_2));
 		return 0;
 	}
 	return 1;
 }
 
-void func_2(var uParam0)//Position - 0x172
-{
-	uParam0->f_1 = 0f;
-	uParam0->f_2 = 0f;
-	*uParam0 = 0;
-}
 
-float func_3(var uParam0)//Position - 0x188
-{
-	if (func_8(uParam0))
-	{
-		if (func_5(uParam0))
-		{
-			return uParam0->f_2;
-		}
-		else
-		{
-			return (func_4(MISC::IS_BIT_SET(*uParam0, 4)) - uParam0->f_1);
-		}
-	}
-	return uParam0->f_1;
-}
 
-float func_4(bool bParam0)//Position - 0x1C7
-{
-	int iVar0;
-	
-	if (bParam0)
-	{
-		return (SYSTEM::TO_FLOAT(MISC::GET_GAME_TIMER()) / 1000f);
-	}
-	if (NETWORK::NETWORK_IS_GAME_IN_PROGRESS())
-	{
-		iVar0 = NETWORK::GET_NETWORK_TIME();
-		return (SYSTEM::TO_FLOAT(iVar0) / 1000f);
-	}
-	return (SYSTEM::TO_FLOAT(MISC::GET_GAME_TIMER()) / 1000f);
-}
 
-bool func_5(var uParam0)//Position - 0x20F
-{
-	return MISC::IS_BIT_SET(*uParam0, 2);
-}
 
-void func_6(var uParam0)//Position - 0x21F
-{
-	func_7(uParam0, 0f);
-}
 
-void func_7(var uParam0, float fParam1)//Position - 0x22E
-{
-	uParam0->f_1 = (func_4(MISC::IS_BIT_SET(*uParam0, 4)) - fParam1);
-	MISC::SET_BIT(uParam0, 1);
-	MISC::CLEAR_BIT(uParam0, 2);
-	uParam0->f_2 = 0f;
-}
 
-bool func_8(var uParam0)//Position - 0x25C
-{
-	return MISC::IS_BIT_SET(*uParam0, 1);
-}
 
 void func_9(var uParam0)//Position - 0x26C
 {
 	uParam0->f_1 = 300;
-	func_6(&(uParam0->f_2));
+	GlobalFunc_6877(&(uParam0->f_2));
 	GRAPHICS::BEGIN_SCALEFORM_MOVIE_METHOD(*uParam0, "SPLASH_TEXT_TRANSITION_OUT");
 	GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(300);
 	GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
@@ -217,7 +162,7 @@ void func_11(var uParam0, char* sParam1, int iParam2, int iParam3, int iParam4, 
 {
 	uParam0->f_1 = -1;
 	GRAPHICS::BEGIN_SCALEFORM_MOVIE_METHOD(*uParam0, "SPLASH_TEXT_LABEL");
-	func_12(sParam1);
+	GlobalFunc_256(sParam1);
 	GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(iParam2);
 	GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(iParam3);
 	GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(iParam4);
@@ -230,11 +175,6 @@ void func_11(var uParam0, char* sParam1, int iParam2, int iParam3, int iParam4, 
 	}
 }
 
-void func_12(var uParam0)//Position - 0x2FE
-{
-	GRAPHICS::BEGIN_TEXT_COMMAND_SCALEFORM_STRING(uParam0);
-	GRAPHICS::END_TEXT_COMMAND_SCALEFORM_STRING();
-}
 
 var func_13()//Position - 0x310
 {

@@ -94,7 +94,7 @@ void __EntryFunction__()//Position - 0x0
 	STREAMING::REMOVE_IPL("prologue_DistantLights");
 	STREAMING::REMOVE_IPL("prologue_LODLights");
 	iLocal_55 = 0;
-	bVar0 = func_30();
+	bVar0 = GlobalFunc_4731();
 	if (MISC::_IS_COMMAND_LINE_BENCHMARK_VALUE_SET() || MISC::_LANDING_MENU_IS_ACTIVE())
 	{
 		bVar0 = false;
@@ -1342,12 +1342,4 @@ void func_29(int iParam0, int iParam1)//Position - 0x2A9F
 	SYSTEM::START_NEW_SCRIPT_WITH_NAME_HASH(iParam0, iParam1);
 }
 
-int func_30()//Position - 0x2ACE
-{
-	if (((LOADINGSCREEN::_LOADINGSCREEN_GET_LOAD_FREEMODE() || LOADINGSCREEN::_0xF2CA003F167E21D2()) || NETWORK::_0x88B588B41FF7868E()) || NETWORK::_0x67FC09BC554A75E5())
-	{
-		return 1;
-	}
-	return 0;
-}
 

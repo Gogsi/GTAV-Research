@@ -123,7 +123,7 @@ void __EntryFunction__()//Position - 0x0
 						GRAPHICS::END_TEXT_COMMAND_SCALEFORM_STRING();
 						if (!MISC::IS_STRING_NULL(ScriptParam_0.f_9[iVar0 /*7*/].f_5))
 						{
-							func_16(ScriptParam_0.f_9[iVar0 /*7*/].f_5);
+							GlobalFunc_726(ScriptParam_0.f_9[iVar0 /*7*/].f_5);
 						}
 					}
 					else if (ScriptParam_0.f_9[iVar0 /*7*/].f_2 == 8)
@@ -160,11 +160,11 @@ void __EntryFunction__()//Position - 0x0
 						}
 						if (!MISC::IS_STRING_NULL(ScriptParam_0.f_9[iVar0 /*7*/].f_5))
 						{
-							func_16(ScriptParam_0.f_9[iVar0 /*7*/].f_5);
+							GlobalFunc_726(ScriptParam_0.f_9[iVar0 /*7*/].f_5);
 						}
 						if (!MISC::IS_STRING_NULL(ScriptParam_0.f_9[iVar0 /*7*/].f_6))
 						{
-							func_16(ScriptParam_0.f_9[iVar0 /*7*/].f_6);
+							GlobalFunc_726(ScriptParam_0.f_9[iVar0 /*7*/].f_6);
 						}
 					}
 					GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
@@ -176,34 +176,34 @@ void __EntryFunction__()//Position - 0x0
 					GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(ScriptParam_0.f_5);
 					if (!MISC::IS_STRING_NULL(ScriptParam_0.f_5.f_3))
 					{
-						func_16(ScriptParam_0.f_5.f_3);
+						GlobalFunc_726(ScriptParam_0.f_5.f_3);
 					}
 					else
 					{
 						GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_FLOAT(ScriptParam_0.f_5.f_1);
 					}
-					func_16(ScriptParam_0.f_5.f_2);
+					GlobalFunc_726(ScriptParam_0.f_5.f_2);
 					GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
 				}
 				GRAPHICS::BEGIN_SCALEFORM_MOVIE_METHOD(uLocal_45, "DRAW_MENU_LIST");
 				GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
-				func_12(1);
-				func_9(&uLocal_46);
-				if (!func_8(Global_SAVE_DATA.TAXI_iGenData, 4096))
+				GlobalFunc_6685(1);
+				GlobalFunc_7731(&uLocal_46);
+				if (!GlobalFunc_747(Global_SAVE_DATA.TAXI_iGenData, 4096))
 				{
-					func_6(&(Global_SAVE_DATA.TAXI_iGenData), 4096);
+					GlobalFunc_5211(&(Global_SAVE_DATA.TAXI_iGenData), 4096);
 				}
 				iLocal_44 = 3;
 				break;
 			
 			case 3:
-				if (((func_2(&uLocal_46) > ScriptParam_0.f_67 && ScriptParam_0.f_67 != -1f) || CAM::IS_SCREEN_FADED_OUT()) || Global_24588)
+				if (((GlobalFunc_4981(&uLocal_46) > ScriptParam_0.f_67 && ScriptParam_0.f_67 != -1f) || CAM::IS_SCREEN_FADED_OUT()) || Global_24588)
 				{
 					func_17();
 				}
 				else
 				{
-					func_1(1);
+					GlobalFunc_778(1);
 					GRAPHICS::DRAW_SCALEFORM_MOVIE(uLocal_45, 0.1495f, 0.3159f, 0.2021f, 0.5111f, 255, 255, 255, 0, 0);
 					if (HUD::IS_HUD_COMPONENT_ACTIVE(10))
 					{
@@ -217,200 +217,27 @@ void __EntryFunction__()//Position - 0x0
 	func_17();
 }
 
-void func_1(int iParam0)//Position - 0x444
-{
-	Global_68505 = iParam0;
-	Global_68506 = iParam0;
-}
 
-float func_2(var uParam0)//Position - 0x458
-{
-	if (func_5(uParam0))
-	{
-		if (func_4(uParam0))
-		{
-			return uParam0->f_2;
-		}
-		else
-		{
-			return (func_3(MISC::IS_BIT_SET(*uParam0, 4)) - uParam0->f_1);
-		}
-	}
-	return uParam0->f_1;
-}
 
-float func_3(bool bParam0)//Position - 0x497
-{
-	var uVar0;
-	
-	if (bParam0)
-	{
-		return (SYSTEM::TO_FLOAT(MISC::GET_GAME_TIMER()) / 1000f);
-	}
-	if (NETWORK::NETWORK_IS_GAME_IN_PROGRESS())
-	{
-		uVar0 = NETWORK::GET_NETWORK_TIME();
-		return (SYSTEM::TO_FLOAT(uVar0) / 1000f);
-	}
-	return (SYSTEM::TO_FLOAT(MISC::GET_GAME_TIMER()) / 1000f);
-}
 
-bool func_4(var uParam0)//Position - 0x4DF
-{
-	return MISC::IS_BIT_SET(*uParam0, 2);
-}
 
-bool func_5(var uParam0)//Position - 0x4EF
-{
-	return MISC::IS_BIT_SET(*uParam0, 1);
-}
 
-void func_6(var uParam0, int iParam1)//Position - 0x4FF
-{
-	func_7(uParam0, iParam1);
-}
 
-void func_7(var uParam0, var uParam1)//Position - 0x50F
-{
-	*uParam0 = (*uParam0 || uParam1);
-}
 
-bool func_8(var uParam0, int iParam1)//Position - 0x520
-{
-	return (uParam0 && iParam1) != 0;
-}
 
-void func_9(var uParam0)//Position - 0x52F
-{
-	if (!func_5(uParam0))
-	{
-		func_10(uParam0);
-	}
-}
 
-void func_10(var uParam0)//Position - 0x547
-{
-	func_11(uParam0, 0f);
-}
 
-void func_11(var uParam0, float fParam1)//Position - 0x556
-{
-	uParam0->f_1 = (func_3(MISC::IS_BIT_SET(*uParam0, 4)) - fParam1);
-	MISC::SET_BIT(uParam0, 1);
-	MISC::CLEAR_BIT(uParam0, 2);
-	uParam0->f_2 = 0f;
-}
 
-void func_12(int iParam0)//Position - 0x584
-{
-	if (Global_14551)
-	{
-		func_14(0, 0);
-	}
-	if (Global_14393.f_1 == 10 || Global_14393.f_1 == 9)
-	{
-		MISC::SET_BIT(&Global_2264, 16);
-	}
-	if (AUDIO::IS_MOBILE_PHONE_CALL_ONGOING())
-	{
-		AUDIO::STOP_SCRIPTED_CONVERSATION(0);
-	}
-	Global_15692 = 5;
-	if (iParam0 == 1)
-	{
-		MISC::SET_BIT(&Global_2263, 30);
-	}
-	else
-	{
-		MISC::CLEAR_BIT(&Global_2263, 30);
-	}
-	if (!func_13())
-	{
-		Global_14393.f_1 = 3;
-	}
-}
 
-int func_13()//Position - 0x5F4
-{
-	if (Global_14393.f_1 == 1 || Global_14393.f_1 == 0)
-	{
-		return 1;
-	}
-	return 0;
-}
 
-void func_14(bool bParam0, bool bParam1)//Position - 0x61B
-{
-	if (bParam0)
-	{
-		if (func_15(0))
-		{
-			Global_14551 = 1;
-			if (bParam1)
-			{
-				MOBILE::GET_MOBILE_PHONE_POSITION(&Global_14330);
-			}
-			Global_14321 = { Global_14339[Global_14338 /*3*/] };
-			MOBILE::SET_MOBILE_PHONE_POSITION(Global_14321);
-		}
-	}
-	else if (Global_14551 == 1)
-	{
-		Global_14551 = 0;
-		Global_14321 = { Global_14346[Global_14338 /*3*/] };
-		if (bParam1)
-		{
-			MOBILE::SET_MOBILE_PHONE_POSITION(Global_14330);
-		}
-		else
-		{
-			MOBILE::SET_MOBILE_PHONE_POSITION(Global_14321);
-		}
-	}
-}
 
-int func_15(int iParam0)//Position - 0x68F
-{
-	if (iParam0 == 1)
-	{
-		if (Global_14393.f_1 > 3)
-		{
-			if (MISC::IS_BIT_SET(Global_2263, 14))
-			{
-				return 1;
-			}
-			else
-			{
-				return 0;
-			}
-		}
-		else
-		{
-			return 0;
-		}
-	}
-	if (SCRIPT::_GET_NUMBER_OF_REFERENCES_OF_SCRIPT_WITH_NAME_HASH(joaat("cellphone_flashhand")) > 0)
-	{
-		return 1;
-	}
-	if (Global_14393.f_1 > 3)
-	{
-		return 1;
-	}
-	return 0;
-}
 
-void func_16(char* sParam0)//Position - 0x6E9
-{
-	GRAPHICS::BEGIN_TEXT_COMMAND_SCALEFORM_STRING(sParam0);
-	GRAPHICS::END_TEXT_COMMAND_SCALEFORM_STRING();
-}
 
 void func_17()//Position - 0x6FB
 {
 	GRAPHICS::SET_SCALEFORM_MOVIE_AS_NO_LONGER_NEEDED(&uLocal_45);
 	Global_24588 = 0;
-	func_1(0);
+	GlobalFunc_778(0);
 	SCRIPT::TERMINATE_THIS_THREAD();
 }
 

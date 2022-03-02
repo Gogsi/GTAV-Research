@@ -67,23 +67,23 @@ void func_1(int iParam0, var uParam1)//Position - 0x8A
 			GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
 			GRAPHICS::BEGIN_SCALEFORM_MOVIE_METHOD(uParam1, "SET_DATA_SLOT");
 			GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(0);
-			func_3(PAD::GET_CONTROL_INSTRUCTIONAL_BUTTON(2, 191, 1));
-			func_2("PRESS A");
+			GlobalFunc_257(PAD::GET_CONTROL_INSTRUCTIONAL_BUTTON(2, 191, 1));
+			GlobalFunc_726("PRESS A");
 			GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
 			GRAPHICS::BEGIN_SCALEFORM_MOVIE_METHOD(uParam1, "SET_DATA_SLOT");
 			GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(1);
-			func_3(PAD::GET_CONTROL_INSTRUCTIONAL_BUTTON(2, 194, 1));
-			func_2("PRESS B");
+			GlobalFunc_257(PAD::GET_CONTROL_INSTRUCTIONAL_BUTTON(2, 194, 1));
+			GlobalFunc_726("PRESS B");
 			GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
 			GRAPHICS::BEGIN_SCALEFORM_MOVIE_METHOD(uParam1, "SET_DATA_SLOT");
 			GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(2);
-			func_3(PAD::GET_CONTROL_INSTRUCTIONAL_BUTTON(2, 193, 1));
-			func_2("PRESS X");
+			GlobalFunc_257(PAD::GET_CONTROL_INSTRUCTIONAL_BUTTON(2, 193, 1));
+			GlobalFunc_726("PRESS X");
 			GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
 			GRAPHICS::BEGIN_SCALEFORM_MOVIE_METHOD(uParam1, "SET_DATA_SLOT");
 			GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(3);
-			func_3(PAD::GET_CONTROL_INSTRUCTIONAL_BUTTON(2, 192, 1));
-			func_2("PRESS Y");
+			GlobalFunc_257(PAD::GET_CONTROL_INSTRUCTIONAL_BUTTON(2, 192, 1));
+			GlobalFunc_726("PRESS Y");
 			GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
 			GRAPHICS::BEGIN_SCALEFORM_MOVIE_METHOD(uParam1, "DRAW_INSTRUCTIONAL_BUTTONS");
 			GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
@@ -104,23 +104,23 @@ void func_1(int iParam0, var uParam1)//Position - 0x8A
 			GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
 			GRAPHICS::BEGIN_SCALEFORM_MOVIE_METHOD(uParam1, "SET_DATA_SLOT");
 			GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(0);
-			func_3(PAD::GET_CONTROL_INSTRUCTIONAL_BUTTON(2, 187, 1));
-			func_2("DOWN");
+			GlobalFunc_257(PAD::GET_CONTROL_INSTRUCTIONAL_BUTTON(2, 187, 1));
+			GlobalFunc_726("DOWN");
 			GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
 			GRAPHICS::BEGIN_SCALEFORM_MOVIE_METHOD(uParam1, "SET_DATA_SLOT");
 			GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(1);
-			func_3(PAD::GET_CONTROL_INSTRUCTIONAL_BUTTON(2, 188, 1));
-			func_2("UP");
+			GlobalFunc_257(PAD::GET_CONTROL_INSTRUCTIONAL_BUTTON(2, 188, 1));
+			GlobalFunc_726("UP");
 			GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
 			GRAPHICS::BEGIN_SCALEFORM_MOVIE_METHOD(uParam1, "SET_DATA_SLOT");
 			GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(2);
-			func_3(PAD::GET_CONTROL_INSTRUCTIONAL_BUTTON(2, 190, 1));
-			func_2("LEFT");
+			GlobalFunc_257(PAD::GET_CONTROL_INSTRUCTIONAL_BUTTON(2, 190, 1));
+			GlobalFunc_726("LEFT");
 			GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
 			GRAPHICS::BEGIN_SCALEFORM_MOVIE_METHOD(uParam1, "SET_DATA_SLOT");
 			GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(3);
-			func_3(PAD::GET_CONTROL_INSTRUCTIONAL_BUTTON(2, 189, 1));
-			func_2("RIGHT");
+			GlobalFunc_257(PAD::GET_CONTROL_INSTRUCTIONAL_BUTTON(2, 189, 1));
+			GlobalFunc_726("RIGHT");
 			GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
 			GRAPHICS::BEGIN_SCALEFORM_MOVIE_METHOD(uParam1, "DRAW_INSTRUCTIONAL_BUTTONS");
 			GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
@@ -141,8 +141,8 @@ void func_1(int iParam0, var uParam1)//Position - 0x8A
 			GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
 			GRAPHICS::BEGIN_SCALEFORM_MOVIE_METHOD(uParam1, "SET_DATA_SLOT");
 			GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(0);
-			func_3(PAD::GET_CONTROL_INSTRUCTIONAL_BUTTON(2, 202, 1));
-			func_2("BACK");
+			GlobalFunc_257(PAD::GET_CONTROL_INSTRUCTIONAL_BUTTON(2, 202, 1));
+			GlobalFunc_726("BACK");
 			GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
 			GRAPHICS::BEGIN_SCALEFORM_MOVIE_METHOD(uParam1, "DRAW_INSTRUCTIONAL_BUTTONS");
 			GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
@@ -160,16 +160,7 @@ void func_1(int iParam0, var uParam1)//Position - 0x8A
 	}
 }
 
-void func_2(char* sParam0)//Position - 0x30F
-{
-	GRAPHICS::BEGIN_TEXT_COMMAND_SCALEFORM_STRING(sParam0);
-	GRAPHICS::END_TEXT_COMMAND_SCALEFORM_STRING();
-}
 
-void func_3(var uParam0)//Position - 0x321
-{
-	GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_PLAYER_NAME_STRING(uParam0);
-}
 
 void func_4()//Position - 0x32F
 {
@@ -240,141 +231,15 @@ void func_4()//Position - 0x32F
 
 void func_5()//Position - 0x47A
 {
-	func_6(0);
+	GlobalFunc_7632(0);
 	MISC::SET_GAME_PAUSED(0);
 	GRAPHICS::SET_SCALEFORM_MOVIE_AS_NO_LONGER_NEEDED(&uLocal_18);
 	SCRIPT::TERMINATE_THIS_THREAD();
 }
 
-void func_6(bool bParam0)//Position - 0x496
-{
-	if (bParam0)
-	{
-		func_11();
-		if (Global_14393.f_1 == 10 || Global_14393.f_1 == 9)
-		{
-			MISC::SET_BIT(&Global_2264, 16);
-		}
-		Global_14393.f_1 = 1;
-		if (func_10(0))
-		{
-			func_7(0);
-		}
-	}
-	else if (Global_14393.f_1 == 1)
-	{
-		if (!Global_14393.f_1 == 0)
-		{
-			Global_14393.f_1 = 3;
-		}
-	}
-}
 
-void func_7(int iParam0)//Position - 0x4F9
-{
-	if (Global_14551)
-	{
-		func_9(0, 0);
-	}
-	if (Global_14393.f_1 == 10 || Global_14393.f_1 == 9)
-	{
-		MISC::SET_BIT(&Global_2264, 16);
-	}
-	if (AUDIO::IS_MOBILE_PHONE_CALL_ONGOING())
-	{
-		AUDIO::STOP_SCRIPTED_CONVERSATION(0);
-	}
-	Global_15692 = 5;
-	if (iParam0 == 1)
-	{
-		MISC::SET_BIT(&Global_2263, 30);
-	}
-	else
-	{
-		MISC::CLEAR_BIT(&Global_2263, 30);
-	}
-	if (!func_8())
-	{
-		Global_14393.f_1 = 3;
-	}
-}
 
-int func_8()//Position - 0x569
-{
-	if (Global_14393.f_1 == 1 || Global_14393.f_1 == 0)
-	{
-		return 1;
-	}
-	return 0;
-}
 
-void func_9(bool bParam0, bool bParam1)//Position - 0x590
-{
-	if (bParam0)
-	{
-		if (func_10(0))
-		{
-			Global_14551 = 1;
-			if (bParam1)
-			{
-				MOBILE::GET_MOBILE_PHONE_POSITION(&Global_14330);
-			}
-			Global_14321 = { Global_14339[Global_14338 /*3*/] };
-			MOBILE::SET_MOBILE_PHONE_POSITION(Global_14321);
-		}
-	}
-	else if (Global_14551 == 1)
-	{
-		Global_14551 = 0;
-		Global_14321 = { Global_14346[Global_14338 /*3*/] };
-		if (bParam1)
-		{
-			MOBILE::SET_MOBILE_PHONE_POSITION(Global_14330);
-		}
-		else
-		{
-			MOBILE::SET_MOBILE_PHONE_POSITION(Global_14321);
-		}
-	}
-}
 
-int func_10(int iParam0)//Position - 0x604
-{
-	if (iParam0 == 1)
-	{
-		if (Global_14393.f_1 > 3)
-		{
-			if (MISC::IS_BIT_SET(Global_2263, 14))
-			{
-				return 1;
-			}
-			else
-			{
-				return 0;
-			}
-		}
-		else
-		{
-			return 0;
-		}
-	}
-	if (SCRIPT::_GET_NUMBER_OF_REFERENCES_OF_SCRIPT_WITH_NAME_HASH(joaat("cellphone_flashhand")) > 0)
-	{
-		return 1;
-	}
-	if (Global_14393.f_1 > 3)
-	{
-		return 1;
-	}
-	return 0;
-}
 
-void func_11()//Position - 0x65E
-{
-	if (Global_14393.f_1 == 9 || Global_14393.f_1 == 10)
-	{
-		Global_15745 = 0;
-		Global_15741 = 1;
-	}
-}
 

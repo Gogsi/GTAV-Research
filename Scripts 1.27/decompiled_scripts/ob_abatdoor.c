@@ -40,7 +40,7 @@ void __EntryFunction__()//Position - 0x0
 							STREAMING::REQUEST_MODEL(joaat("p_abat_roller_1_col"));
 							if (STREAMING::HAS_MODEL_LOADED(joaat("p_abat_roller_1_col")))
 							{
-								if (!func_3(Local_4, 0f, 0f, 0f))
+								if (!GlobalFunc_100(Local_4, 0f, 0f, 0f))
 								{
 									uLocal_3 = OBJECT::CREATE_OBJECT(joaat("p_abat_roller_1_col"), Local_4, 1, 1, 0);
 									ENTITY::SET_ENTITY_ROTATION(uLocal_3, Local_7, 2, 1);
@@ -87,10 +87,10 @@ void __EntryFunction__()//Position - 0x0
 						if (ENTITY::DOES_ENTITY_EXIST(uLocal_3))
 						{
 							Var3 = { ENTITY::GET_ENTITY_COORDS(uLocal_3, 1) };
-							if (!func_2(Var3, Var0, 0.1f))
+							if (!GlobalFunc_537(Var3, Var0, 0.1f))
 							{
 								Var6 = { Var0 - Var3 };
-								ENTITY::SET_ENTITY_COORDS(uLocal_3, Var3 + func_1(Var6) * FtoV(MISC::GET_FRAME_TIME()) * Vector(fVar9, fVar9, fVar9), 1, 0, 0, 1);
+								ENTITY::SET_ENTITY_COORDS(uLocal_3, Var3 + GlobalFunc_107(Var6) * FtoV(MISC::GET_FRAME_TIME()) * Vector(fVar9, fVar9, fVar9), 1, 0, 0, 1);
 							}
 							else
 							{
@@ -116,49 +116,8 @@ void __EntryFunction__()//Position - 0x0
 	}
 }
 
-Vector3 func_1(struct<3> Param0)//Position - 0x1C4
-{
-	float fVar0;
-	float fVar1;
-	
-	fVar0 = SYSTEM::VMAG(Param0);
-	if (fVar0 != 0f)
-	{
-		fVar1 = (1f / fVar0);
-		Param0 = { Param0 * Vector(fVar1, fVar1, fVar1) };
-	}
-	else
-	{
-		Param0.x = 0f;
-		Param0.f_1 = 0f;
-		Param0.f_2 = 0f;
-	}
-	return Param0;
-}
 
-int func_2(struct<3> Param0, struct<3> Param3, float fParam6)//Position - 0x203
-{
-	if (fParam6 < 0f)
-	{
-		fParam6 = 0f;
-	}
-	if (MISC::ABSF((Param0.x - Param3.x)) <= fParam6)
-	{
-		if (MISC::ABSF((Param0.f_1 - Param3.f_1)) <= fParam6)
-		{
-			if (MISC::ABSF((Param0.f_2 - Param3.f_2)) <= fParam6)
-			{
-				return 1;
-			}
-		}
-	}
-	return 0;
-}
 
-bool func_3(struct<3> Param0, struct<3> Param3)//Position - 0x24F
-{
-	return ((Param0.x == Param3.x && Param0.f_1 == Param3.f_1) && Param0.f_2 == Param3.f_2);
-}
 
 void func_4()//Position - 0x278
 {
@@ -167,19 +126,9 @@ void func_4()//Position - 0x278
 		OBJECT::DELETE_OBJECT(&uLocal_3);
 	}
 	STREAMING::SET_MODEL_AS_NO_LONGER_NEEDED(joaat("p_abat_roller_1_col"));
-	func_5("ob_abatdoor Terminated >>>>>>>>>>>>>>>>>\n");
+	GlobalFunc_6524("ob_abatdoor Terminated >>>>>>>>>>>>>>>>>\n");
 	SCRIPT::TERMINATE_THIS_THREAD();
 }
 
-void func_5(char* sParam0)//Position - 0x2A3
-{
-	func_6(sParam0);
-}
 
-void func_6(var uParam0)//Position - 0x2B1
-{
-	if (MISC::ARE_STRINGS_EQUAL(uParam0, uParam0))
-	{
-	}
-}
 

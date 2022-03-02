@@ -124,19 +124,19 @@ void __EntryFunction__()//Position - 0x0
 				break;
 			
 			case 1:
-				func_11();
+				GlobalFunc_587();
 				iLocal_97 = 2;
 				break;
 			
 			case 2:
-				if (func_10())
+				if (GlobalFunc_82())
 				{
 					iLocal_97 = 3;
 				}
 				break;
 			
 			case 3:
-				func_9();
+				GlobalFunc_587();
 				iLocal_97 = 4;
 				break;
 			
@@ -177,7 +177,7 @@ void func_1()//Position - 0x116
 				{
 					func_3(1);
 				}
-				func_2(&(uLocal_48[iVar0]), &(uLocal_54[iVar0]));
+				GlobalFunc_4711(&(uLocal_48[iVar0]), &(uLocal_54[iVar0]));
 				ENTITY::SET_VEHICLE_AS_NO_LONGER_NEEDED(&(uLocal_48[iVar0]));
 				ENTITY::SET_PED_AS_NO_LONGER_NEEDED(&(uLocal_54[iVar0]));
 			}
@@ -193,7 +193,7 @@ void func_1()//Position - 0x116
 		}
 		else
 		{
-			func_2(&uLocal_53, &uLocal_59);
+			GlobalFunc_4711(&uLocal_53, &uLocal_59);
 			ENTITY::SET_VEHICLE_AS_NO_LONGER_NEEDED(&uLocal_53);
 			ENTITY::SET_PED_AS_NO_LONGER_NEEDED(&uLocal_59);
 		}
@@ -210,22 +210,6 @@ void func_1()//Position - 0x116
 	}
 }
 
-void func_2(var uParam0, var uParam1)//Position - 0x22E
-{
-	if (((ENTITY::DOES_ENTITY_EXIST(*uParam0) && ENTITY::DOES_ENTITY_EXIST(*uParam1)) && !ENTITY::IS_ENTITY_DEAD(*uParam0)) && !ENTITY::IS_ENTITY_DEAD(*uParam1))
-	{
-		if (ENTITY::IS_ENTITY_IN_AIR(*uParam0))
-		{
-			if (VEHICLE::IS_PLAYBACK_GOING_ON_FOR_VEHICLE(*uParam0))
-			{
-				if (!ENTITY::IS_ENTITY_DEAD(PLAYER::PLAYER_PED_ID()))
-				{
-					TASK::TASK_PLANE_MISSION(*uParam1, *uParam0, 0, 0, ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), 1), 8, 50f, -1f, 30f, 100, 50);
-				}
-			}
-		}
-	}
-}
 
 void func_3(bool bParam0)//Position - 0x2AB
 {
@@ -648,18 +632,8 @@ void func_8(var uParam0, var uParam1)//Position - 0xD04
 	ENTITY::FREEZE_ENTITY_POSITION(*uParam0, 1);
 }
 
-void func_9()//Position - 0xD2D
-{
-}
 
-int func_10()//Position - 0xD35
-{
-	return 1;
-}
 
-void func_11()//Position - 0xD3E
-{
-}
 
 void func_12()//Position - 0xD46
 {

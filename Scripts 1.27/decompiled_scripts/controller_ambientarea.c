@@ -61,7 +61,7 @@ void __EntryFunction__()//Position - 0x0
 	fLocal_32 = 0.17f;
 	if (PLAYER::HAS_FORCE_CLEANUP_OCCURRED(98))
 	{
-		func_15();
+		GlobalFunc_491();
 	}
 	func_14();
 	iVar0 = 0;
@@ -80,7 +80,7 @@ void __EntryFunction__()//Position - 0x0
 			{
 				if (func_12(iVar0, Var2))
 				{
-					func_11(&(Global_24709[iVar0 /*7*/]), 2);
+					GlobalFunc_811(&(Global_24709[iVar0 /*7*/]), 2);
 					if (Global_24709[iVar0 /*7*/].f_5 != 0)
 					{
 						if (SCRIPT::IS_THREAD_ACTIVE(Global_24709[iVar0 /*7*/].f_5))
@@ -91,7 +91,7 @@ void __EntryFunction__()//Position - 0x0
 					}
 				}
 			}
-			else if (!func_10(Global_24709[iVar0 /*7*/], 4))
+			else if (!GlobalFunc_747(Global_24709[iVar0 /*7*/], 4))
 			{
 				if (func_5(&(Global_24709[iVar0 /*7*/]), Var2))
 				{
@@ -150,7 +150,7 @@ void func_1(int iParam0)//Position - 0x146
 			bVar3 = false;
 			break;
 	}
-	if (!bVar3 && func_3())
+	if (!bVar3 && GlobalFunc_5775())
 	{
 		return;
 	}
@@ -167,36 +167,20 @@ void func_1(int iParam0)//Position - 0x146
 			SCRIPT::SET_SCRIPT_AS_NO_LONGER_NEEDED(sVar0);
 			if (Global_24709[iParam0 /*7*/].f_5 != 0)
 			{
-				func_2(&(Global_24709[iParam0 /*7*/]), 2);
+				GlobalFunc_812(&(Global_24709[iParam0 /*7*/]), 2);
 			}
 		}
 	}
 }
 
-void func_2(var uParam0, int iParam1)//Position - 0x24B
-{
-	*uParam0 = (*uParam0 || iParam1);
-}
 
-int func_3()//Position - 0x25C
-{
-	if (func_4() == 0)
-	{
-		return 1;
-	}
-	return 0;
-}
 
-int func_4()//Position - 0x271
-{
-	return Global_24444;
-}
 
 int func_5(var uParam0, struct<3> Param1)//Position - 0x27C
 {
-	if (!func_10(*uParam0, 1))
+	if (!GlobalFunc_747(*uParam0, 1))
 	{
-		if (func_9() && !func_6(6))
+		if (GlobalFunc_756() && !GlobalFunc_6687(6))
 		{
 			return 0;
 		}
@@ -215,185 +199,11 @@ int func_5(var uParam0, struct<3> Param1)//Position - 0x27C
 	return 1;
 }
 
-int func_6(int iParam0)//Position - 0x302
-{
-	if (Global_34913 == 15)
-	{
-		return 0;
-	}
-	if (func_7(iParam0))
-	{
-		return 0;
-	}
-	return 1;
-}
 
-bool func_7(int iParam0)//Position - 0x324
-{
-	return func_8(iParam0, Global_34913);
-}
 
-int func_8(int iParam0, int iParam1)//Position - 0x335
-{
-	if (iParam1 == 15)
-	{
-		return 1;
-	}
-	if (iParam0 == 15)
-	{
-		return 0;
-	}
-	switch (iParam0)
-	{
-		case 16:
-			switch (iParam1)
-			{
-				case 9:
-				case 10:
-				case 7:
-				case 13:
-				case 14:
-					return 0;
-					break;
-			}
-			return 1;
-			break;
-		
-		case 0:
-			switch (iParam1)
-			{
-				case 5:
-				case 17:
-					return 1;
-					break;
-			}
-			break;
-		
-		case 2:
-		case 3:
-			switch (iParam1)
-			{
-				case 5:
-				case 6:
-				case 8:
-				case 17:
-					return 1;
-					break;
-			}
-			break;
-		
-		case 4:
-			if (iParam1 == 17)
-			{
-				return 1;
-			}
-			break;
-		
-		case 5:
-			break;
-		
-		case 6:
-		case 8:
-			if (iParam1 == 5)
-			{
-				return 1;
-			}
-			break;
-		
-		case 7:
-			if (iParam1 == 6)
-			{
-				return 1;
-			}
-			break;
-		
-		case 9:
-			if (iParam1 == 5)
-			{
-				return 1;
-			}
-			break;
-		
-		case 10:
-			switch (iParam1)
-			{
-				case 5:
-				case 6:
-				case 17:
-					return 1;
-					break;
-			}
-			break;
-		
-		case 11:
-			if (iParam1 == 5)
-			{
-				return 1;
-			}
-			break;
-		
-		case 17:
-			switch (iParam1)
-			{
-				case 17:
-				case 12:
-				case 5:
-					return 1;
-					break;
-			}
-			break;
-		
-		case 18:
-		case 12:
-			switch (iParam1)
-			{
-				case 5:
-				case 6:
-				case 8:
-					return 1;
-					break;
-			}
-			break;
-		
-		case 13:
-			switch (iParam1)
-			{
-				case 5:
-					return 1;
-					break;
-			}
-			break;
-		
-		case 14:
-			switch (iParam1)
-			{
-				case 5:
-					return 1;
-					break;
-			}
-			break;
-	}
-	return 0;
-}
 
-int func_9()//Position - 0x516
-{
-	if (Global_34913 == 15)
-	{
-		return 0;
-	}
-	return 1;
-}
 
-bool func_10(var uParam0, int iParam1)//Position - 0x52B
-{
-	return (uParam0 && iParam1) != 0;
-}
 
-void func_11(var uParam0, int iParam1)//Position - 0x53A
-{
-	*uParam0 = (*uParam0 - (*uParam0 && iParam1));
-}
 
 int func_12(int iParam0, struct<3> Param1)//Position - 0x54F
 {
@@ -402,13 +212,13 @@ int func_12(int iParam0, struct<3> Param1)//Position - 0x54F
 	{
 		return 1;
 	}
-	if (func_10(Global_24709[iParam0 /*7*/], 4))
+	if (GlobalFunc_747(Global_24709[iParam0 /*7*/], 4))
 	{
 		return 1;
 	}
-	if (func_9() && !func_6(6))
+	if (GlobalFunc_756() && !GlobalFunc_6687(6))
 	{
-		if (!func_10(Global_24709[iParam0 /*7*/], 1))
+		if (!GlobalFunc_747(Global_24709[iParam0 /*7*/], 1))
 		{
 			if (iParam0 == 1 || iParam0 == 2)
 			{
@@ -432,7 +242,7 @@ int func_12(int iParam0, struct<3> Param1)//Position - 0x54F
 
 bool func_13(var uParam0)//Position - 0x5FA
 {
-	return func_10(*uParam0, 2);
+	return GlobalFunc_747(*uParam0, 2);
 }
 
 void func_14()//Position - 0x60A
@@ -467,8 +277,4 @@ void func_14()//Position - 0x60A
 	}
 }
 
-void func_15()//Position - 0x74A
-{
-	SCRIPT::TERMINATE_THIS_THREAD();
-}
 

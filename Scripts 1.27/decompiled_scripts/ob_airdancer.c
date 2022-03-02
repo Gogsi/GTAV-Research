@@ -57,19 +57,9 @@ void __EntryFunction__()//Position - 0x0
 
 void func_1()//Position - 0x9F
 {
-	func_2("ob_airdancer Terminated >>>>>>>>>>>>>>>>>\n");
+	GlobalFunc_6524("ob_airdancer Terminated >>>>>>>>>>>>>>>>>\n");
 	SCRIPT::TERMINATE_THIS_THREAD();
 }
 
-void func_2(char* sParam0)//Position - 0xB2
-{
-	func_3(sParam0);
-}
 
-void func_3(var uParam0)//Position - 0xC0
-{
-	if (MISC::ARE_STRINGS_EQUAL(uParam0, uParam0))
-	{
-	}
-}
 

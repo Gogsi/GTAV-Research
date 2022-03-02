@@ -22,13 +22,13 @@ void func_1()//Position - 0x1C
 			iVar1 = iVar0;
 			if (MISC::GET_GAME_TIMER() > Global_96008[iVar0 /*28*/].f_21 && Global_96008[iVar0 /*28*/].f_21 != -1)
 			{
-				if (func_3(iVar0))
+				if (GlobalFunc_5662(iVar0))
 				{
 					HUD::CLEAR_FLOATING_HELP(iVar1, 0);
 				}
-				func_2(iVar0);
+				GlobalFunc_1452(iVar0);
 			}
-			else if (func_3(iVar0))
+			else if (GlobalFunc_5662(iVar0))
 			{
 				if (Global_96008[iVar0 /*28*/].f_21 != -1)
 				{
@@ -69,80 +69,16 @@ void func_1()//Position - 0x1C
 			}
 			else if ((MISC::GET_GAME_TIMER() - Global_96008[iVar0 /*28*/].f_22) > 1000)
 			{
-				func_2(iVar0);
+				GlobalFunc_1452(iVar0);
 			}
 		}
 		iVar0++;
 	}
 }
 
-void func_2(int iParam0)//Position - 0x209
-{
-	Global_96008[iParam0 /*28*/].f_21 = 0;
-	StringCopy(&(Global_96008[iParam0 /*28*/]), "", 16);
-	StringCopy(&(Global_96008[iParam0 /*28*/].f_4), "", 64);
-	Global_96008[iParam0 /*28*/].f_23 = 0;
-	Global_96008[iParam0 /*28*/].f_24 = { 0f, 0f, 0f };
-	Global_96008[iParam0 /*28*/].f_27 = 0;
-	Global_96008[iParam0 /*28*/].f_20 = 0;
-	Global_96008[iParam0 /*28*/].f_22 = 0;
-}
 
-int func_3(int iParam0)//Position - 0x271
-{
-	int iVar0;
-	
-	iVar0 = iParam0;
-	if (!MISC::ARE_STRINGS_EQUAL(&(Global_96008[iParam0 /*28*/]), "") && !MISC::IS_STRING_NULL(&(Global_96008[iParam0 /*28*/])))
-	{
-		if (MISC::IS_BIT_SET(Global_96008[iParam0 /*28*/].f_27, 1))
-		{
-			if (MISC::IS_BIT_SET(Global_96008[iParam0 /*28*/].f_27, 2))
-			{
-				return func_7(iVar0, &(Global_96008[iParam0 /*28*/]), &(Global_96008[iParam0 /*28*/].f_4), Global_96008[iParam0 /*28*/].f_20);
-			}
-			else
-			{
-				return func_6(iVar0, &(Global_96008[iParam0 /*28*/]), &(Global_96008[iParam0 /*28*/].f_4));
-			}
-		}
-		else if (MISC::IS_BIT_SET(Global_96008[iParam0 /*28*/].f_27, 2))
-		{
-			return func_5(iVar0, &(Global_96008[iParam0 /*28*/]), Global_96008[iParam0 /*28*/].f_20);
-		}
-		else
-		{
-			return func_4(iVar0, &(Global_96008[iParam0 /*28*/]));
-		}
-	}
-	return 0;
-}
 
-var func_4(int iParam0, var uParam1)//Position - 0x34D
-{
-	HUD::BEGIN_TEXT_COMMAND_IS_THIS_HELP_MESSAGE_BEING_DISPLAYED(uParam1);
-	return HUD::END_TEXT_COMMAND_IS_THIS_HELP_MESSAGE_BEING_DISPLAYED((1 + iParam0));
-}
 
-var func_5(int iParam0, var uParam1, var uParam2)//Position - 0x363
-{
-	HUD::BEGIN_TEXT_COMMAND_IS_THIS_HELP_MESSAGE_BEING_DISPLAYED(uParam1);
-	HUD::ADD_TEXT_COMPONENT_INTEGER(uParam2);
-	return HUD::END_TEXT_COMMAND_IS_THIS_HELP_MESSAGE_BEING_DISPLAYED((1 + iParam0));
-}
 
-var func_6(int iParam0, var uParam1, var uParam2)//Position - 0x37F
-{
-	HUD::BEGIN_TEXT_COMMAND_IS_THIS_HELP_MESSAGE_BEING_DISPLAYED(uParam1);
-	HUD::ADD_TEXT_COMPONENT_SUBSTRING_TEXT_LABEL(uParam2);
-	return HUD::END_TEXT_COMMAND_IS_THIS_HELP_MESSAGE_BEING_DISPLAYED((1 + iParam0));
-}
 
-var func_7(int iParam0, var uParam1, var uParam2, var uParam3)//Position - 0x39B
-{
-	HUD::BEGIN_TEXT_COMMAND_IS_THIS_HELP_MESSAGE_BEING_DISPLAYED(uParam1);
-	HUD::ADD_TEXT_COMPONENT_SUBSTRING_TEXT_LABEL(uParam2);
-	HUD::ADD_TEXT_COMPONENT_INTEGER(uParam3);
-	return HUD::END_TEXT_COMMAND_IS_THIS_HELP_MESSAGE_BEING_DISPLAYED((1 + iParam0));
-}
 

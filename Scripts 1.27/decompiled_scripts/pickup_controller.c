@@ -51,7 +51,7 @@ void __EntryFunction__()//Position - 0x0
 	func_24();
 	while (true)
 	{
-		if (func_23(13) || func_23(14))
+		if (GlobalFunc_39(13) || GlobalFunc_39(14))
 		{
 			if (bLocal_276)
 			{
@@ -72,7 +72,7 @@ void func_1()//Position - 0x84
 {
 	if (!iLocal_275)
 	{
-		if (func_13(75))
+		if (GlobalFunc_485(75))
 		{
 			func_10();
 			iLocal_275 = 1;
@@ -80,9 +80,9 @@ void func_1()//Position - 0x84
 	}
 	if (!iLocal_279)
 	{
-		if (func_13(75))
+		if (GlobalFunc_485(75))
 		{
-			if (func_9())
+			if (GlobalFunc_84())
 			{
 				func_6();
 				iLocal_279 = 1;
@@ -91,9 +91,9 @@ void func_1()//Position - 0x84
 	}
 	if (!iLocal_282)
 	{
-		if (func_5(62))
+		if (GlobalFunc_230(62))
 		{
-			if (func_9())
+			if (GlobalFunc_84())
 			{
 				func_2();
 				iLocal_282 = 1;
@@ -104,7 +104,7 @@ void func_1()//Position - 0x84
 
 void func_2()//Position - 0xE2
 {
-	if (func_9())
+	if (GlobalFunc_84())
 	{
 		func_3(0, joaat("pickup_weapon_hatchet"), 156.24f, 0f, 71.2f, 1, 1);
 	}
@@ -140,18 +140,10 @@ Vector3 func_4(int iParam0)//Position - 0x165
 	return 0f, 0f, 0f;
 }
 
-int func_5(int iParam0)//Position - 0x192
-{
-	if (iParam0 == 94 || iParam0 == -1)
-	{
-		return 0;
-	}
-	return Global_SAVE_DATA.FLOW_STRUCT.MF_MISSION_ARRAY[iParam0 /*6*/];
-}
 
 void func_6()//Position - 0x1BE
 {
-	if (func_9())
+	if (GlobalFunc_84())
 	{
 		func_7(0, joaat("pickup_weapon_railgun"), 156.24f, 0f, 166.2f, 1, 1);
 	}
@@ -187,46 +179,6 @@ Vector3 func_8(int iParam0)//Position - 0x241
 	return 0f, 0f, 0f;
 }
 
-int func_9()//Position - 0x26E
-{
-	var uVar0;
-	
-	if (MISC::ARE_PROFILE_SETTINGS_VALID())
-	{
-		if (MISC::IS_BIT_SET(MISC::GET_PROFILE_SETTING(866), 0))
-		{
-			return 1;
-		}
-	}
-	if (!NETWORK::NETWORK_IS_GAME_IN_PROGRESS())
-	{
-		if (MISC::IS_BIT_SET(Global_SAVE_DATA.SHOP_SAVED_DATA_STRUCT.f_683, 7))
-		{
-			return 1;
-		}
-	}
-	if (Global_131672 == 2)
-	{
-		return 1;
-	}
-	if (NETWORK::NETWORK_IS_SIGNED_IN())
-	{
-		if (NETWORK::NETWORK_HAS_VALID_ROS_CREDENTIALS())
-		{
-			if (NETWORK::_NETWORK_GET_ROS_PRIVILEGE_24())
-			{
-				if (MISC::ARE_PROFILE_SETTINGS_VALID())
-				{
-					uVar0 = MISC::GET_PROFILE_SETTING(866);
-					MISC::SET_BIT(&uVar0, 0);
-					STATS::_SET_HAS_CONTENT_UNLOCKS_FLAGS(uVar0);
-				}
-				return 1;
-			}
-		}
-	}
-	return 0;
-}
 
 void func_10()//Position - 0x2F1
 {
@@ -316,14 +268,6 @@ Vector3 func_12(int iParam0)//Position - 0x44C
 	return 0f, 0f, 0f;
 }
 
-int func_13(int iParam0)//Position - 0x551
-{
-	if (iParam0 == 144 || iParam0 == -1)
-	{
-		return 0;
-	}
-	return Global_SAVE_DATA.FLOW_STRUCT.MF_CONTROLS_STRUCT.f_58[iParam0];
-}
 
 void func_14()//Position - 0x57E
 {
@@ -515,10 +459,6 @@ void func_22()//Position - 0x7E3
 	}
 }
 
-bool func_23(int iParam0)//Position - 0x815
-{
-	return Global_34913 == iParam0;
-}
 
 void func_24()//Position - 0x823
 {

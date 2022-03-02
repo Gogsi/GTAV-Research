@@ -79,25 +79,13 @@ void __EntryFunction__()//Position - 0x0
 		if (!PED::IS_PED_INJURED(PLAYER::PLAYER_PED_ID()))
 		{
 			Global_SAVE_DATA.ASSASSIN_iCurRank++;
-			func_1();
+			GlobalFunc_7069();
 			SCRIPT::TERMINATE_THIS_THREAD();
 		}
 		SYSTEM::WAIT(0);
 	}
 }
 
-void func_1()//Position - 0xAA
-{
-	func_2(&(Global_SAVE_DATA.ASSASSIN_SAVED_STRUCT.ASSASSIN_iGenData), 2048);
-}
 
-void func_2(var uParam0, int iParam1)//Position - 0xC2
-{
-	func_3(uParam0, iParam1);
-}
 
-void func_3(var uParam0, var uParam1)//Position - 0xD2
-{
-	*uParam0 = (*uParam0 || uParam1);
-}
 

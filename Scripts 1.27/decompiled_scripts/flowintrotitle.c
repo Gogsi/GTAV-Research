@@ -51,12 +51,12 @@ void __EntryFunction__()//Position - 0x0
 				MISC::SET_BIT(&(Global_SAVE_DATA.FLOW_CUSTOM_STRUCT.spInitBitset), 1);
 				if (MISC::_0x6FDDF453C0C756EC() || MISC::IS_PC_VERSION())
 				{
-					func_4(1, 1);
-					func_2();
+					GlobalFunc_842(1, 1);
+					GlobalFunc_4907();
 				}
 				else
 				{
-					func_1();
+					GlobalFunc_3027();
 				}
 			}
 		}
@@ -65,46 +65,9 @@ void __EntryFunction__()//Position - 0x0
 	func_10();
 }
 
-void func_1()//Position - 0x13E
-{
-	Global_90001 = 1;
-}
 
-int func_2()//Position - 0x14B
-{
-	if (func_3(0))
-	{
-		return 0;
-	}
-	if (Global_90001.f_8)
-	{
-		if (Global_90001.f_10 > 0)
-		{
-			return 0;
-		}
-	}
-	else if (Global_90001.f_10 > 1)
-	{
-		return 0;
-	}
-	Global_90001.f_10++;
-	return 1;
-}
 
-bool func_3(bool bParam0)//Position - 0x196
-{
-	if (!bParam0 && SCRIPT::_GET_NUMBER_OF_REFERENCES_OF_SCRIPT_WITH_NAME_HASH(joaat("benchmark")) > 0)
-	{
-		return 1;
-	}
-	return MISC::IS_BIT_SET(Global_68493, 0);
-}
 
-void func_4(int iParam0, int iParam1)//Position - 0x1C1
-{
-	Global_90001.f_7 = iParam0;
-	Global_90001.f_8 = iParam1;
-}
 
 void func_5(char* sParam0)//Position - 0x1D9
 {
@@ -136,19 +99,10 @@ void func_7()//Position - 0x251
 	HUD::HIDE_LOADING_ON_FADE_THIS_FRAME();
 	PAD::DISABLE_CONTROL_ACTION(2, 199, 1);
 	GRAPHICS::SET_SCRIPT_GFX_DRAW_ORDER(7);
-	func_8();
+	GlobalFunc_5077();
 }
 
-void func_8()//Position - 0x26E
-{
-	RECORDING::_STOP_RECORDING_THIS_FRAME();
-	func_9();
-}
 
-void func_9()//Position - 0x27E
-{
-	Global_17098.f_134 = 1;
-}
 
 void func_10()//Position - 0x28C
 {

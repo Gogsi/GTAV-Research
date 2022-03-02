@@ -88,23 +88,23 @@ void __EntryFunction__()//Position - 0x0
 			switch (iLocal_0)
 			{
 				case 0:
-					func_1(0.5f, 0.4f, "NG_INST_TT_1", 0);
+					GlobalFunc_2008(0.5f, 0.4f, "NG_INST_TT_1", 0);
 					break;
 				
 				case 1:
-					func_1(0.5f, 0.4f, "NG_INST_TT_2", 0);
+					GlobalFunc_2008(0.5f, 0.4f, "NG_INST_TT_2", 0);
 					break;
 				
 				case 2:
-					func_1(0.5f, 0.4f, "NG_INST_TT_3", 0);
+					GlobalFunc_2008(0.5f, 0.4f, "NG_INST_TT_3", 0);
 					break;
 				
 				case 3:
-					func_1(0.5f, 0.4f, "NG_INST_TT_4", 0);
+					GlobalFunc_2008(0.5f, 0.4f, "NG_INST_TT_4", 0);
 					break;
 				
 				case 4:
-					func_1(0.5f, 0.4f, "NG_INST_TT_5", 0);
+					GlobalFunc_2008(0.5f, 0.4f, "NG_INST_TT_5", 0);
 					break;
 				}
 		}
@@ -118,9 +118,4 @@ void __EntryFunction__()//Position - 0x0
 	}
 }
 
-void func_1(float fParam0, float fParam1, char* sParam2, int iParam3)//Position - 0x2F7
-{
-	HUD::BEGIN_TEXT_COMMAND_DISPLAY_TEXT(sParam2);
-	HUD::END_TEXT_COMMAND_DISPLAY_TEXT(fParam0, fParam1, iParam3);
-}
 

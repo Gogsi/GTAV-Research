@@ -137,11 +137,11 @@ void __EntryFunction__()//Position - 0x0
 					}
 					else if (MISC::CREATE_INCIDENT(3, Local_44, 4, 3f, &uLocal_48))
 					{
-						if (Global_86864.f_358 == MISC::GET_HASH_KEY("AGENCY_PREP_1") || (SCRIPT::_GET_NUMBER_OF_REFERENCES_OF_SCRIPT_WITH_NAME_HASH(MISC::GET_HASH_KEY("agency_prep1")) > 0 && func_3(0)))
+						if (Global_86864.f_358 == MISC::GET_HASH_KEY("AGENCY_PREP_1") || (SCRIPT::_GET_NUMBER_OF_REFERENCES_OF_SCRIPT_WITH_NAME_HASH(MISC::GET_HASH_KEY("agency_prep1")) > 0 && GlobalFunc_2(0)))
 						{
 							Global_86864.f_358 = MISC::GET_HASH_KEY("AHP1_TRUCKCALLED");
 						}
-						else if (func_2(67) && !func_2(68))
+						else if (GlobalFunc_230(67) && !GlobalFunc_230(68))
 						{
 							Global_86794 = 1;
 						}
@@ -178,23 +178,7 @@ void func_1()//Position - 0x234
 	SCRIPT::TERMINATE_THIS_THREAD();
 }
 
-int func_2(int iParam0)//Position - 0x246
-{
-	if (iParam0 == 94 || iParam0 == -1)
-	{
-		return 0;
-	}
-	return Global_SAVE_DATA.FLOW_STRUCT.MF_MISSION_ARRAY[iParam0 /*6*/];
-}
 
-bool func_3(bool bParam0)//Position - 0x272
-{
-	if (!bParam0 && SCRIPT::_GET_NUMBER_OF_REFERENCES_OF_SCRIPT_WITH_NAME_HASH(joaat("benchmark")) > 0)
-	{
-		return 1;
-	}
-	return MISC::IS_BIT_SET(Global_68493, 0);
-}
 
 void func_4()//Position - 0x29D
 {
@@ -216,25 +200,25 @@ void func_5()//Position - 0x2B4
 			break;
 		
 		case 1:
-			while (!func_13())
+			while (!GlobalFunc_1993())
 			{
 				SYSTEM::WAIT(0);
-				if (func_12() == 3)
+				if (GlobalFunc_2649() == 3)
 				{
 					iLocal_42 = 3;
 				}
-				if (func_12() == 4)
+				if (GlobalFunc_2649() == 4)
 				{
 					iLocal_42 = 4;
 				}
-				if (func_12() == 5)
+				if (GlobalFunc_2649() == 5)
 				{
 					iLocal_42 = 2;
 				}
 				if (MISC::GET_GAME_TIMER() > iLocal_47 + 30000)
 				{
 					iLocal_47 = MISC::GET_GAME_TIMER();
-					func_8(0);
+					GlobalFunc_6685(0);
 				}
 			}
 			if (iLocal_42 == 0)
@@ -293,7 +277,7 @@ void func_6(var uParam0, var uParam1, var uParam2)//Position - 0x34D
 				{
 					fVar15 = (fVar15 - 360f);
 				}
-				if (func_7(fVar14, fVar16, 90f))
+				if (GlobalFunc_1575(fVar14, fVar16, 90f))
 				{
 					*uParam2 = fVar16;
 				}
@@ -374,145 +358,10 @@ void func_6(var uParam0, var uParam1, var uParam2)//Position - 0x34D
 	}
 }
 
-int func_7(float fParam0, float fParam1, float fParam2)//Position - 0x5F3
-{
-	float fVar0;
-	float fVar1;
-	
-	fVar1 = (fParam1 - fParam2);
-	if (fVar1 < 0f)
-	{
-		fVar1 = (fVar1 + 360f);
-	}
-	fVar0 = (fParam1 + fParam2);
-	if (fVar0 >= 360f)
-	{
-		fVar0 = (fVar0 - 360f);
-	}
-	if (fVar0 > fVar1)
-	{
-		if (fParam0 < fVar0 && fParam0 > fVar1)
-		{
-			return 1;
-		}
-	}
-	else if (fParam0 < fVar0 || fParam0 > fVar1)
-	{
-		return 1;
-	}
-	return 0;
-}
 
-void func_8(int iParam0)//Position - 0x668
-{
-	if (Global_14551)
-	{
-		func_10(0, 0);
-	}
-	if (Global_14393.f_1 == 10 || Global_14393.f_1 == 9)
-	{
-		MISC::SET_BIT(&Global_2264, 16);
-	}
-	if (AUDIO::IS_MOBILE_PHONE_CALL_ONGOING())
-	{
-		AUDIO::STOP_SCRIPTED_CONVERSATION(0);
-	}
-	Global_15692 = 5;
-	if (iParam0 == 1)
-	{
-		MISC::SET_BIT(&Global_2263, 30);
-	}
-	else
-	{
-		MISC::CLEAR_BIT(&Global_2263, 30);
-	}
-	if (!func_9())
-	{
-		Global_14393.f_1 = 3;
-	}
-}
 
-int func_9()//Position - 0x6D8
-{
-	if (Global_14393.f_1 == 1 || Global_14393.f_1 == 0)
-	{
-		return 1;
-	}
-	return 0;
-}
 
-void func_10(bool bParam0, bool bParam1)//Position - 0x6FF
-{
-	if (bParam0)
-	{
-		if (func_11(0))
-		{
-			Global_14551 = 1;
-			if (bParam1)
-			{
-				MOBILE::GET_MOBILE_PHONE_POSITION(&Global_14330);
-			}
-			Global_14321 = { Global_14339[Global_14338 /*3*/] };
-			MOBILE::SET_MOBILE_PHONE_POSITION(Global_14321);
-		}
-	}
-	else if (Global_14551 == 1)
-	{
-		Global_14551 = 0;
-		Global_14321 = { Global_14346[Global_14338 /*3*/] };
-		if (bParam1)
-		{
-			MOBILE::SET_MOBILE_PHONE_POSITION(Global_14330);
-		}
-		else
-		{
-			MOBILE::SET_MOBILE_PHONE_POSITION(Global_14321);
-		}
-	}
-}
 
-int func_11(int iParam0)//Position - 0x773
-{
-	if (iParam0 == 1)
-	{
-		if (Global_14393.f_1 > 3)
-		{
-			if (MISC::IS_BIT_SET(Global_2263, 14))
-			{
-				return 1;
-			}
-			else
-			{
-				return 0;
-			}
-		}
-		else
-		{
-			return 0;
-		}
-	}
-	if (SCRIPT::_GET_NUMBER_OF_REFERENCES_OF_SCRIPT_WITH_NAME_HASH(joaat("cellphone_flashhand")) > 0)
-	{
-		return 1;
-	}
-	if (Global_14393.f_1 > 3)
-	{
-		return 1;
-	}
-	return 0;
-}
 
-int func_12()//Position - 0x7CD
-{
-	return Global_16709;
-}
 
-int func_13()//Position - 0x7D8
-{
-	if (Global_15692 == 0)
-	{
-		return 1;
-	}
-	return 0;
-}
 

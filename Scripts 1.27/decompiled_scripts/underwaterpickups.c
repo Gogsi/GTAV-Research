@@ -68,7 +68,7 @@ void func_1()//Position - 0x5C
 	{
 		if (func_3(iVar0, &iVar1, &Var2, &Var5, &uVar9))
 		{
-			if (func_2(Var5, 0f, 0f, 0f))
+			if (GlobalFunc_100(Var5, 0f, 0f, 0f))
 			{
 				iVar8 = 0;
 				MISC::SET_BIT(&iVar8, 1);
@@ -136,10 +136,6 @@ void func_1()//Position - 0x5C
 	}
 }
 
-bool func_2(struct<3> Param0, struct<3> Param3)//Position - 0x251
-{
-	return ((Param0.x == Param3.x && Param0.f_1 == Param3.f_1) && Param0.f_2 == Param3.f_2);
-}
 
 int func_3(int iParam0, var uParam1, var uParam2, var uParam3, var uParam4)//Position - 0x27A
 {
@@ -972,400 +968,37 @@ int func_4()//Position - 0x17B9
 {
 	if (Global_2436021 == -15)
 	{
-		Global_2436021 = func_23();
-		func_15(&Global_2436021, 0, 0, 0, 1, 0, 0);
+		Global_2436021 = GlobalFunc_7719();
+		GlobalFunc_8328(&Global_2436021, 0, 0, 0, 1, 0, 0);
 		return 1;
 	}
-	if (func_5(func_23(), Global_2436021))
+	if (GlobalFunc_7640(GlobalFunc_7719(), Global_2436021))
 	{
-		Global_2436021 = func_23();
-		func_15(&Global_2436021, 0, 0, 0, 1, 0, 0);
-		return 1;
-	}
-	return 0;
-}
-
-int func_5(int iParam0, int iParam1)//Position - 0x180F
-{
-	int iVar0;
-	int iVar1;
-	
-	if (!func_13(iParam1) || !func_13(iParam0))
-	{
-		return 1;
-	}
-	iVar0 = func_11(iParam0);
-	iVar1 = func_11(iParam1);
-	if (iVar0 > iVar1)
-	{
-		return 1;
-	}
-	else if (iVar0 < iVar1)
-	{
-		return 0;
-	}
-	iVar0 = func_10(iParam0);
-	iVar1 = func_10(iParam1);
-	if (iVar0 > iVar1)
-	{
-		return 1;
-	}
-	else if (iVar0 < iVar1)
-	{
-		return 0;
-	}
-	iVar0 = func_9(iParam0);
-	iVar1 = func_9(iParam1);
-	if (iVar0 > iVar1)
-	{
-		return 1;
-	}
-	else if (iVar0 < iVar1)
-	{
-		return 0;
-	}
-	iVar0 = func_8(iParam0);
-	iVar1 = func_8(iParam1);
-	if (iVar0 > iVar1)
-	{
-		return 1;
-	}
-	else if (iVar0 < iVar1)
-	{
-		return 0;
-	}
-	iVar0 = func_7(iParam0);
-	iVar1 = func_7(iParam1);
-	if (iVar0 > iVar1)
-	{
-		return 1;
-	}
-	else if (iVar0 < iVar1)
-	{
-		return 0;
-	}
-	iVar0 = func_6(iParam0);
-	iVar1 = func_6(iParam1);
-	if (iVar0 > iVar1)
-	{
+		Global_2436021 = GlobalFunc_7719();
+		GlobalFunc_8328(&Global_2436021, 0, 0, 0, 1, 0, 0);
 		return 1;
 	}
 	return 0;
 }
 
-int func_6(int iParam0)//Position - 0x191B
-{
-	return SYSTEM::SHIFT_RIGHT(iParam0, 20) & 63;
-}
 
-int func_7(int iParam0)//Position - 0x192E
-{
-	return SYSTEM::SHIFT_RIGHT(iParam0, 14) & 63;
-}
 
-int func_8(int iParam0)//Position - 0x1941
-{
-	return SYSTEM::SHIFT_RIGHT(iParam0, 9) & 31;
-}
 
-int func_9(int iParam0)//Position - 0x1954
-{
-	return SYSTEM::SHIFT_RIGHT(iParam0, 4) & 31;
-}
 
-int func_10(int iParam0)//Position - 0x1966
-{
-	return iParam0 & 15;
-}
 
-var func_11(int iParam0)//Position - 0x1973
-{
-	return (SYSTEM::SHIFT_RIGHT(iParam0, 26) & 31 * func_12(MISC::IS_BIT_SET(iParam0, 31), -1, 1)) + 2011;
-}
 
-int func_12(bool bParam0, int iParam1, int iParam2)//Position - 0x1998
-{
-	if (bParam0)
-	{
-		return iParam1;
-	}
-	return iParam2;
-}
 
-int func_13(int iParam0)//Position - 0x19AF
-{
-	int iVar0;
-	int iVar1;
-	int iVar2;
-	int iVar3;
-	int iVar4;
-	int iVar5;
-	
-	if (iParam0 == -15)
-	{
-		return 0;
-	}
-	iVar0 = func_6(iParam0);
-	if (iVar0 < 0 || iVar0 >= 60)
-	{
-		return 0;
-	}
-	iVar1 = func_7(iParam0);
-	if (iVar1 < 0 || iVar1 >= 60)
-	{
-		return 0;
-	}
-	iVar2 = func_8(iParam0);
-	if (iVar2 < 0 || iVar2 > 23)
-	{
-		return 0;
-	}
-	iVar3 = func_11(iParam0);
-	if ((iVar3 <= 0 || iVar3 > 2043) || iVar3 < 1979)
-	{
-		return 0;
-	}
-	iVar4 = func_10(iParam0);
-	if (iVar4 < 0 || iVar4 > 11)
-	{
-		return 0;
-	}
-	iVar5 = func_9(iParam0);
-	if (iVar5 < 1 || iVar5 > func_14(iVar4, iVar3))
-	{
-		return 0;
-	}
-	return 1;
-}
 
-int func_14(int iParam0, int iParam1)//Position - 0x1A8B
-{
-	if (iParam1 < 0)
-	{
-		iParam1 = 0;
-	}
-	switch (iParam0)
-	{
-		case 0:
-		case 2:
-		case 4:
-		case 6:
-		case 7:
-		case 9:
-		case 11:
-			return 31;
-			break;
-		
-		case 3:
-		case 5:
-		case 8:
-		case 10:
-			return 30;
-			break;
-		
-		case 1:
-			if ((iParam1 % 4) == 0)
-			{
-				if ((iParam1 % 100) != 0)
-				{
-					return 29;
-				}
-				else if ((iParam1 % 400) == 0)
-				{
-					return 29;
-				}
-			}
-			return 28;
-			break;
-	}
-	return 30;
-}
 
-void func_15(var uParam0, int iParam1, int iParam2, int iParam3, int iParam4, int iParam5, int iParam6)//Position - 0x1B2D
-{
-	int iVar0;
-	int iVar1;
-	int iVar2;
-	int iVar3;
-	int iVar4;
-	int iVar5;
-	int iVar6;
-	
-	iVar0 = func_11(*uParam0);
-	iVar1 = func_10(*uParam0);
-	iVar2 = func_9(*uParam0);
-	iVar3 = func_8(*uParam0);
-	iVar4 = func_7(*uParam0);
-	iVar5 = func_6(*uParam0);
-	if (((((iParam6 == 0 && iParam5 == 0) && iParam4 == 0) && iParam3 == 0) && iParam2 == 0) && iParam1 == 0)
-	{
-		return;
-	}
-	if (iParam1 < 0)
-	{
-		return;
-	}
-	if (iParam2 < 0)
-	{
-		return;
-	}
-	if (iParam3 < 0)
-	{
-		return;
-	}
-	if (iParam4 < 0)
-	{
-		return;
-	}
-	if (iParam5 < 0)
-	{
-		return;
-	}
-	if (iParam6 < 0)
-	{
-		return;
-	}
-	iVar5 = (iVar5 + iParam1);
-	while (iVar5 >= 60)
-	{
-		iParam2++;
-		iVar5 = (iVar5 - 60);
-	}
-	iVar4 = (iVar4 + iParam2);
-	while (iVar4 >= 60)
-	{
-		iParam3++;
-		iVar4 = (iVar4 - 60);
-	}
-	iVar3 = (iVar3 + iParam3);
-	while (iVar3 >= 24)
-	{
-		iParam4++;
-		iVar3 = (iVar3 - 24);
-	}
-	iVar2 = (iVar2 + iParam4);
-	iVar6 = func_14(iVar1, iVar0);
-	while (iVar2 > iVar6)
-	{
-		iVar1++;
-		iVar2 = (iVar2 - iVar6);
-		if (iVar1 > 11)
-		{
-			iVar0++;
-			iVar1 = (iVar1 - 12);
-		}
-		iVar6 = func_14(iVar1, iVar0);
-	}
-	iVar1 = (iVar1 + iParam5);
-	while (iVar1 > 11)
-	{
-		iParam6++;
-		iVar1 = (iVar1 - 12);
-	}
-	iVar0 = (iVar0 + iParam6);
-	func_16(uParam0, iVar5, iVar4, iVar3, iVar2, iVar1, iVar0);
-}
 
-void func_16(var uParam0, int iParam1, int iParam2, int iParam3, int iParam4, int iParam5, int iParam6)//Position - 0x1CAF
-{
-	func_22(uParam0, iParam1);
-	func_21(uParam0, iParam2);
-	func_20(uParam0, iParam3);
-	func_19(uParam0, iParam4);
-	func_18(uParam0, iParam5);
-	func_17(uParam0, iParam6);
-}
 
-void func_17(var uParam0, int iParam1)//Position - 0x1CE7
-{
-	if (iParam1 <= 0)
-	{
-		return;
-	}
-	if (iParam1 > 2043 || iParam1 < 1979)
-	{
-		return;
-	}
-	*uParam0 = (*uParam0 - *uParam0 & 2080374784);
-	if (iParam1 < 2011)
-	{
-		*uParam0 = (*uParam0 || SYSTEM::SHIFT_LEFT((2011 - iParam1), 26));
-		*uParam0 |= -2147483648;
-	}
-	else
-	{
-		*uParam0 = (*uParam0 || SYSTEM::SHIFT_LEFT((iParam1 - 2011), 26));
-		*uParam0 = (*uParam0 - *uParam0 & -2147483648);
-	}
-}
 
-void func_18(var uParam0, int iParam1)//Position - 0x1D6D
-{
-	if (iParam1 < 0 || iParam1 > 11)
-	{
-		return;
-	}
-	*uParam0 = (*uParam0 - *uParam0 & 15);
-	*uParam0 = (*uParam0 || iParam1);
-}
 
-void func_19(var uParam0, int iParam1)//Position - 0x1DA0
-{
-	int iVar0;
-	int iVar1;
-	
-	iVar0 = func_10(*uParam0);
-	iVar1 = func_11(*uParam0);
-	if (iParam1 < 1 || iParam1 > func_14(iVar0, iVar1))
-	{
-		return;
-	}
-	*uParam0 = (*uParam0 - *uParam0 & 496);
-	*uParam0 = (*uParam0 || SYSTEM::SHIFT_LEFT(iParam1, 4));
-}
 
-void func_20(var uParam0, int iParam1)//Position - 0x1DF1
-{
-	if (iParam1 < 0 || iParam1 > 24)
-	{
-		return;
-	}
-	*uParam0 = (*uParam0 - *uParam0 & 15872);
-	*uParam0 = (*uParam0 || SYSTEM::SHIFT_LEFT(iParam1, 9));
-}
 
-void func_21(var uParam0, int iParam1)//Position - 0x1E2B
-{
-	if (iParam1 < 0 || iParam1 >= 60)
-	{
-		return;
-	}
-	*uParam0 = (*uParam0 - *uParam0 & 1032192);
-	*uParam0 = (*uParam0 || SYSTEM::SHIFT_LEFT(iParam1, 14));
-}
 
-void func_22(var uParam0, int iParam1)//Position - 0x1E66
-{
-	if (iParam1 < 0 || iParam1 >= 60)
-	{
-		return;
-	}
-	*uParam0 = (*uParam0 - *uParam0 & 66060288);
-	*uParam0 = (*uParam0 || SYSTEM::SHIFT_LEFT(iParam1, 20));
-}
 
-int func_23()//Position - 0x1EA2
-{
-	var uVar0;
-	
-	func_22(&uVar0, CLOCK::GET_CLOCK_SECONDS());
-	func_21(&uVar0, CLOCK::GET_CLOCK_MINUTES());
-	func_20(&uVar0, CLOCK::GET_CLOCK_HOURS());
-	func_19(&uVar0, CLOCK::GET_CLOCK_DAY_OF_MONTH());
-	func_18(&uVar0, CLOCK::GET_CLOCK_MONTH());
-	func_17(&uVar0, CLOCK::GET_CLOCK_YEAR());
-	return uVar0;
-}
+
 
 void func_24(struct<3> Param0)//Position - 0x1EE8
 {
@@ -1387,7 +1020,7 @@ void func_24(struct<3> Param0)//Position - 0x1EE8
 	iVar37 = 0;
 	while (iVar37 <= (12 - 1))
 	{
-		if (func_25(Param0, Var0[iVar37 /*3*/], 1056964608))
+		if (GlobalFunc_537(Param0, Var0[iVar37 /*3*/], 1056964608))
 		{
 			iLocal_2 = iVar37;
 			return;
@@ -1396,24 +1029,6 @@ void func_24(struct<3> Param0)//Position - 0x1EE8
 	}
 }
 
-int func_25(struct<3> Param0, struct<3> Param3, float fParam6)//Position - 0x2036
-{
-	if (fParam6 < 0f)
-	{
-		fParam6 = 0f;
-	}
-	if (MISC::ABSF((Param0.x - Param3.x)) <= fParam6)
-	{
-		if (MISC::ABSF((Param0.f_1 - Param3.f_1)) <= fParam6)
-		{
-			if (MISC::ABSF((Param0.f_2 - Param3.f_2)) <= fParam6)
-			{
-				return 1;
-			}
-		}
-	}
-	return 0;
-}
 
 void func_26()//Position - 0x2082
 {
