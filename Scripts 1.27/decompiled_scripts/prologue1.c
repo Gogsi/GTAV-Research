@@ -1277,14 +1277,14 @@ void __EntryFunction__()//Position - 0x0
 			case 12:
 				if (((func_547(26, sLocal_560) && func_547(701, sLocal_560)) && func_547(702, sLocal_560)) && func_637(sLocal_583))
 				{
-					func_499();
+					stage12();
 				}
 				break;
 			
 			case 13:
 				if ((((func_638(25, joaat("s_m_m_snowcop_01")) && func_638(13, joaat("policeold1"))) && func_638(14, joaat("policeold2"))) && func_638(23, joaat("rancherxl2"))) && func_637(sLocal_583))
 				{
-					func_470();
+					stage13();
 				}
 				break;
 			
@@ -74434,7 +74434,7 @@ void func_360()//Position - 0x521B2
 	
 	if (func_467())
 	{
-		func_421(5, "stageFinale", 1, 0, 0, 1);
+		checkpoint(5, "stageFinale", 1, 0, 0, 1);
 		func_420(PLAYER::PLAYER_ID(), 1, 0);
 		iLocal_1975 = 0;
 		Global_89962.f_12[0] = iLocal_1975;
@@ -76555,7 +76555,7 @@ void func_420(int iParam0, int iParam1, int iParam2)//Position - 0x557CF
 	bLocal_1938 = iParam1;
 }
 
-void func_421(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4, int iParam5)//Position - 0x557E6
+void checkpoint(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4, int iParam5)//Position - 0x557E6
 {
 	int iVar0;
 	int iVar1;
@@ -79642,7 +79642,7 @@ void func_468()//Position - 0x5ACAD
 	
 	if (func_467())
 	{
-		func_421(5, "stageFinale", 0, 0, 0, 1);
+		checkpoint(5, "stageFinale", 0, 0, 0, 1);
 		func_469(0, 456);
 		PED::SET_PED_COMPONENT_VARIATION(iLocal_658, 2, 0, 0, 0);
 		PED::SET_PED_COMPONENT_VARIATION(iLocal_658, 6, 0, 0, 0);
@@ -80147,7 +80147,7 @@ void func_469(bool bParam0, int iParam1)//Position - 0x5BC83
 	}
 }
 
-void func_470()//Position - 0x5BD1D
+void stage13()//Position - 0x5BD1D
 {
 	int iVar0;
 	int iVar1;
@@ -80160,7 +80160,7 @@ void func_470()//Position - 0x5BD1D
 	
 	if (func_467())
 	{
-		func_421(4, "stageGetAway", 0, 0, 0, 1);
+		checkpoint(4, "stageGetAway", 0, 0, 0, 1);
 		func_498(456, 0);
 		func_420(PLAYER::PLAYER_ID(), 1, 0);
 		if (func_695() != 0)
@@ -81637,7 +81637,7 @@ void func_498(int iParam0, bool bParam1)//Position - 0x5EA72
 	}
 }
 
-void func_499()//Position - 0x5EABC
+void stage12()//Position - 0x5EABC
 {
 	int iVar0;
 	int iVar1;
@@ -82769,7 +82769,7 @@ void func_504()//Position - 0x612AB
 		iLocal_1987 = 0;
 		iLocal_1988 = 0;
 		iLocal_1989 = 0;
-		func_421(3, "stageShootOut", 0, 0, 0, 1);
+		checkpoint(3, "stageShootOut", 0, 0, 0, 1);
 		func_420(PLAYER::PLAYER_ID(), 1, 0);
 		if (!CAM::IS_SCREEN_FADED_OUT())
 		{
@@ -87127,7 +87127,7 @@ void func_556()//Position - 0x69947
 	
 	if (func_467())
 	{
-		func_421(1, "cutGuard", 0, 0, 0, 1);
+		checkpoint(1, "cutGuard", 0, 0, 0, 1);
 		func_567(&uLocal_1670, 4, 4, 4);
 		func_420(PLAYER::PLAYER_ID(), 0, 0);
 		PED::SET_PED_USING_ACTION_MODE(iLocal_654, 1, -1, 0);
@@ -87578,7 +87578,7 @@ void func_556()//Position - 0x69947
 						{
 							if ((!func_644(91) && !func_644(92)) && !func_644(93))
 							{
-								func_421(2, "cutGuard(AimAtGuard)", 0, 0, 0, 1);
+								checkpoint(2, "cutGuard(AimAtGuard)", 0, 0, 0, 1);
 								PED::SET_PED_DIES_WHEN_INJURED(uLocal_1670[0], 1);
 								if (func_471("PRO_Idle4"))
 								{
