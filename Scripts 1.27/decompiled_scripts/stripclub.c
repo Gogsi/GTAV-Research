@@ -1167,7 +1167,7 @@ void func_5(char* sParam0, bool bParam1, int iParam2)//Position - 0x876
 		}
 		else
 		{
-			GlobalFunc_1(sParam0);
+			GlobalFunc_Display_Help_Text(sParam0);
 		}
 	}
 }
@@ -16509,7 +16509,7 @@ void func_957(var uParam0)//Position - 0x5E7F4
 	
 	if (uParam0->f_271)
 	{
-		if ((MISC::GET_FRAME_COUNT() >= (uParam0->f_272 + uParam0->f_273) || MISC::IS_BIT_SET(Global_89962.f_20, 2)) || MISC::IS_BIT_SET(Global_89962.f_20, 13))
+		if ((MISC::GET_FRAME_COUNT() >= (uParam0->f_272 + uParam0->f_273) || MISC::IS_BIT_SET(Global_Mission_Fail_State.f_20, 2)) || MISC::IS_BIT_SET(Global_Mission_Fail_State.f_20, 13))
 		{
 			iVar0 = 0;
 			while (iVar0 < 15)

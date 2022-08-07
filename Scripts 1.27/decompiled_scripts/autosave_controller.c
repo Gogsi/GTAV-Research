@@ -217,7 +217,7 @@ void func_1()//Position - 0x89
 			iVar4 = Global_SAVE_DATA.FLOW_STRUCT.MF_STRANDS_ARRAY[iVar2 /*3*/].f_1;
 			if (iVar4 != -1)
 			{
-				if (Global_68514.f_6825[iVar4 /*3*/] == -868169264)
+				if (Global_68514.f_6825[iVar4 /*3*/] == joaat("flow_do_mission_now"))
 				{
 					bVar5 = false;
 					iVar6 = 0;

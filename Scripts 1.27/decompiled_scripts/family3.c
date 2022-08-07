@@ -803,9 +803,9 @@ void __EntryFunction__()//Position - 0x0
 		func_843();
 		SCRIPT::TERMINATE_THIS_THREAD();
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		func_840(&iLocal_3101, GlobalFunc_198());
+		func_840(&iLocal_3101, GlobalFunc_Get_Mission_Fail_Checkpoint());
 		iLocal_3640 = 1;
 		if (Global_84544 == 1)
 		{
@@ -814,11 +814,11 @@ void __EntryFunction__()//Position - 0x0
 	}
 	else
 	{
-		GlobalFunc_11043(0, "CAR CHASE", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint1(0, "CAR CHASE", 0, 0, 0, 1);
 	}
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
-		if (!GlobalFunc_199())
+		if (!GlobalFunc_Is_Mission_Retry())
 		{
 			iLocal_3101 = 0;
 			iLocal_3640 = 1;
@@ -914,7 +914,7 @@ void __EntryFunction__()//Position - 0x0
 					if (func_106(&iLocal_3638))
 					{
 						func_711();
-						if (!GlobalFunc_2(0))
+						if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 						{
 							iLocal_3101 = 6;
 						}
@@ -1986,7 +1986,7 @@ int func_106(int iParam0)//Position - 0x954E
 			break;
 		
 		case 5:
-			if (!GlobalFunc_2(0))
+			if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				return 1;
 			}
@@ -7543,7 +7543,7 @@ int func_350(int iParam0, float fParam1, struct<2> Param2, var uParam4, float fP
 			{
 				if (!HUD::IS_HELP_MESSAGE_BEING_DISPLAYED())
 				{
-					GlobalFunc_1("FAM3_HPULL");
+					GlobalFunc_Display_Help_Text("FAM3_HPULL");
 					func_84("FAM3_HPULL", 1);
 				}
 			}
@@ -16492,7 +16492,7 @@ int func_727(int iParam0, int iParam1, int iParam2, var uParam3, int iParam4)//P
 		switch (iParam0)
 		{
 			case 0:
-				if (GlobalFunc_2(0))
+				if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					if (func_322(&Local_3200, 0, 0, 145, 1, -1, 132, 0, 0, 0))
 					{
@@ -17264,15 +17264,15 @@ int func_727(int iParam0, int iParam1, int iParam2, var uParam3, int iParam4)//P
 		switch (iParam0)
 		{
 			case 1:
-				GlobalFunc_11043(0, "CAR CHASE", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint1(0, "CAR CHASE", 0, 0, 0, 1);
 				break;
 			
 			case 3:
-				GlobalFunc_11043(1, "PULL HOUSE DOWN", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint1(1, "PULL HOUSE DOWN", 0, 0, 0, 1);
 				break;
 			
 			case 4:
-				GlobalFunc_11043(2, "ESCAPE GOONS", 1, 0, 0, 1);
+				GlobalFunc_Checkpoint1(2, "ESCAPE GOONS", 1, 0, 0, 1);
 				break;
 		}
 		*iParam1++;

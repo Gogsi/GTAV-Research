@@ -407,11 +407,11 @@ void func_20()//Position - 0xCDC
 	iVar0 = 0;
 	while (iVar0 < 7)
 	{
-		if (Global_81119[iVar0 /*5*/] != -1)
+		if (Global_Running_Missions[iVar0 /*5*/] != -1)
 		{
 			if (Global_85368 < 52)
 			{
-				iVar1 = Global_68514.f_109[Global_81119[iVar0 /*5*/] /*4*/];
+				iVar1 = Global_68514.f_109[Global_Running_Missions[iVar0 /*5*/] /*4*/];
 				MemCopy(&(Global_85159[Global_85368 /*4*/]), {GlobalFunc_125(iVar1)}, 4);
 				Global_85368++;
 			}

@@ -250,7 +250,7 @@ void __EntryFunction__()//Position - 0x0
 							bVar5 = true;
 						}
 					}
-					if (GlobalFunc_2(0))
+					if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 					{
 						bVar5 = true;
 						Global_54770 = 1;
@@ -321,7 +321,7 @@ void __EntryFunction__()//Position - 0x0
 						}
 						if (iVar10 > 0)
 						{
-							if (!GlobalFunc_2(0))
+							if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 							{
 								switch (iVar6)
 								{
@@ -4352,7 +4352,7 @@ void func_70(var uParam0)//Position - 0xB596
 	iLocal_621 = 0;
 	iLocal_622 = 0;
 	iVar0 = 0;
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		MISC::CLEAR_REPLAY_STATS();
 		Global_54742 = 1;
@@ -4399,7 +4399,7 @@ void func_70(var uParam0)//Position - 0xB596
 	}
 	Global_66994 = iLocal_621;
 	fVar3 = func_76(uParam0, iLocal_621, iLocal_622, bVar2);
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		MISC::ADD_REPLAY_STAT_VALUE(Global_66996);
 		MISC::ADD_REPLAY_STAT_VALUE(SYSTEM::ROUND(fVar3));
@@ -4667,7 +4667,7 @@ int func_81(var uParam0, int iParam1)//Position - 0xBA39
 	sVar19 = func_82(Global_66846[iParam1 /*9*/]);
 	if (Global_66846[iParam1 /*9*/].f_3 != 0)
 	{
-		if (!GlobalFunc_2(0))
+		if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			func_83(-1, Global_66846[iParam1 /*9*/]);
 		}
@@ -5863,7 +5863,7 @@ void func_83(int iParam0, int iParam1)//Position - 0xD0EA
 	Global_54975[iParam1 /*13*/].f_1 = iParam0;
 	uVar1 = iParam0 + 1;
 	STATS::STAT_SET_INT(iVar0, uVar1, 1);
-	if (GlobalFunc_2(0) && Global_54742)
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) && Global_54742)
 	{
 		MISC::ADD_REPLAY_STAT_VALUE(iVar0);
 		MISC::ADD_REPLAY_STAT_VALUE(iParam0);

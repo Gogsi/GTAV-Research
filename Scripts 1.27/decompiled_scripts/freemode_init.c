@@ -1287,7 +1287,7 @@ int func_58(char[24] cParam0, char[64] cParam6, int iParam22, struct<13> Param23
 		bVar1 = true;
 		if (!GlobalFunc_2845())
 		{
-			if (!GlobalFunc_2(0))
+			if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				if (bVar1)
 				{

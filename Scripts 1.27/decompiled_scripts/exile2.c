@@ -7010,7 +7010,7 @@ void func_395()//Position - 0x51FAE
 	AUDIO::START_AUDIO_SCENE("EXILE_2_HELI_PICK_UP");
 	func_444(1, 0, 0, 1);
 	GlobalFunc_164("FS_GOD_2", 7500, 1);
-	GlobalFunc_11046(5, "pickup franklin and chop", 1, 0, 0, 1);
+	GlobalFunc_Checkpoint2(5, "pickup franklin and chop", 1, 0, 0, 1);
 }
 
 
@@ -7440,7 +7440,7 @@ void func_457()//Position - 0x57F86
 	iLocal_2334 = 1;
 	iLocal_2333 = 7;
 	func_444(0, 22f, 0f, 0);
-	GlobalFunc_11046(4, "shooting the rpg enemy", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint2(4, "shooting the rpg enemy", 0, 0, 0, 1);
 }
 
 void func_458(char* sParam0, bool bParam1)//Position - 0x5899B
@@ -10518,7 +10518,7 @@ void func_488()//Position - 0x5E502
 	func_489(0);
 	iLocal_2333 = 7;
 	iLocal_2334 = 1;
-	GlobalFunc_11046(3, "start of sniper stage", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint2(3, "start of sniper stage", 0, 0, 0, 1);
 }
 
 void func_489(bool bParam0)//Position - 0x5EDF6
@@ -11032,7 +11032,7 @@ void func_504()//Position - 0x5FC63
 	iLocal_2334 = 1;
 	iLocal_2333 = 5;
 	func_444(1, 0, 0, 1);
-	GlobalFunc_11046(2, "fly to franklin", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint2(2, "fly to franklin", 0, 0, 0, 1);
 }
 
 void func_505()//Position - 0x600B6
@@ -11228,7 +11228,7 @@ void func_507()//Position - 0x60510
 	AUDIO::START_AUDIO_SCENE("EXILE_2_FOLLOW_CAR");
 	func_444(0, 0f, 0f, 0);
 	func_508();
-	GlobalFunc_11046(1, "start of casr chase mission", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint2(1, "start of casr chase mission", 0, 0, 0, 1);
 }
 
 void func_508()//Position - 0x60AC3
@@ -14173,7 +14173,7 @@ void func_569()//Position - 0x6504D
 	func_444(0, 90f, 0f, 0);
 	iLocal_2334 = 0;
 	iLocal_2333 = 2;
-	GlobalFunc_11046(0, "start of mission", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint2(0, "start of mission", 0, 0, 0, 1);
 }
 
 int func_570(int iParam0, int iParam1, struct<3> Param2, float fParam5, bool bParam6, int iParam7)//Position - 0x65285
@@ -15471,7 +15471,7 @@ int func_633()//Position - 0x6B7E3
 				{
 					if (VEHICLE::IS_VEHICLE_ON_ALL_WHEELS(Local_1714) && ENTITY::GET_ENTITY_SPEED(Local_1714) < 0.2f)
 					{
-						if (GlobalFunc_109())
+						if (GlobalFunc_Has_Cutscene_Loaded())
 						{
 							if (func_635(1, 1, 1))
 							{
@@ -16287,7 +16287,7 @@ void func_683()//Position - 0x6F26F
 				iLocal_693 = 200;
 				iLocal_684 = 400;
 				iLocal_2333 = 10;
-				GlobalFunc_11046(5, "pickup franklin and chop", 1, 0, 0, 1);
+				GlobalFunc_Checkpoint2(5, "pickup franklin and chop", 1, 0, 0, 1);
 				GlobalFunc_164("FS_GOD_2", 7500, 1);
 			}
 			break;
@@ -18268,7 +18268,7 @@ void func_762()//Position - 0x73A17
 			{
 				if (!GlobalFunc_74("FS_SNIPEHELP"))
 				{
-					GlobalFunc_1("FS_SNIPEHELP");
+					GlobalFunc_Display_Help_Text("FS_SNIPEHELP");
 				}
 			}
 			if (GRAPHICS::GET_USINGSEETHROUGH())
@@ -18438,7 +18438,7 @@ int func_766()//Position - 0x73BC1
 		AUDIO::TRIGGER_MUSIC_EVENT("EXL2_SNIPE_START");
 		iLocal_788 = 0;
 		func_489(0);
-		GlobalFunc_11046(3, "start of sniper section", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint2(3, "start of sniper section", 0, 0, 0, 1);
 		iLocal_2334 = 1;
 	}
 	if (iLocal_2334 == 1)
@@ -22496,7 +22496,7 @@ int func_838()//Position - 0x7BFAB
 				}
 				GlobalFunc_2511(&uLocal_2019, 0, 1, 1);
 				AUDIO::START_AUDIO_SCENE("EXILE_2_KILL_ENEMY_FRANKLIN");
-				GlobalFunc_11046(4, "shooting the rpg enemy", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint2(4, "shooting the rpg enemy", 0, 0, 0, 1);
 				iLocal_651++;
 			}
 			break;
@@ -22860,7 +22860,7 @@ int func_846()//Position - 0x7CF4F
 									ENTITY::SET_ENTITY_LOAD_COLLISION_FLAG(Local_1714, 1);
 									iLocal_798 = 1;
 									RECORDING::_0x293220DA1B46CEBC(2f, 10f, 4);
-									GlobalFunc_11046(2, "fly to franklin", 0, 0, 0, 1);
+									GlobalFunc_Checkpoint2(2, "fly to franklin", 0, 0, 0, 1);
 								}
 							}
 							func_851(&Local_2282, -1503.4f, 4358.3f, 155.7f, 0.1f, 0.1f, 0.1f, 0, uLocal_2019[0], Local_1714, "FS_forest_0", "FS_michael_0", "", "FS_HELI_1", 0, 1, 1, -1);
@@ -25104,7 +25104,7 @@ void func_909()//Position - 0x8452F
 						iLocal_704 = MISC::GET_GAME_TIMER();
 						iLocal_656 = 0;
 						iLocal_788 = 0;
-						GlobalFunc_11046(1, "start of car chase", 0, 0, 0, 1);
+						GlobalFunc_Checkpoint2(1, "start of car chase", 0, 0, 0, 1);
 						break;
 					}
 			}
@@ -26361,7 +26361,7 @@ void func_924()//Position - 0x86EC8
 						iLocal_706 = 1;
 						iLocal_2334 = 1;
 						iLocal_2333 = 2;
-						GlobalFunc_11046(1, "start of car chase", 0, 0, 0, 1);
+						GlobalFunc_Checkpoint2(1, "start of car chase", 0, 0, 0, 1);
 						break;
 					}
 			}
@@ -26640,7 +26640,7 @@ int func_939(var uParam0, var uParam1, bool bParam2, bool bParam3, bool bParam4,
 	
 	uParam0->f_7 = *uParam1;
 	uParam0->f_8 = uParam1->f_1;
-	if ((GlobalFunc_2(0) && !bParam2) && !bParam4)
+	if ((GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) && !bParam2) && !bParam4)
 	{
 		if (uParam0->f_5)
 		{
@@ -27693,12 +27693,12 @@ void func_975()//Position - 0x8C2A3
 	iLocal_2307 = GlobalFunc_2576();
 	GlobalFunc_2874(1);
 	GlobalFunc_601(4, 1);
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		iLocal_2336 = 1;
 		if (!Global_84544)
 		{
-			switch (GlobalFunc_198())
+			switch (GlobalFunc_Get_Mission_Fail_Checkpoint())
 			{
 				case 0:
 					func_569();
@@ -27727,7 +27727,7 @@ void func_975()//Position - 0x8C2A3
 		}
 		else
 		{
-			iVar0 = GlobalFunc_198() + 1;
+			iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint() + 1;
 			switch (iVar0)
 			{
 				case 1:
@@ -27757,7 +27757,7 @@ void func_975()//Position - 0x8C2A3
 		}
 		iLocal_2336 = 0;
 	}
-	else if (!GlobalFunc_2(0))
+	else if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		if (STREAMING::IS_PLAYER_SWITCH_IN_PROGRESS())
 		{
@@ -27770,7 +27770,7 @@ void func_975()//Position - 0x8C2A3
 				CAM::DO_SCREEN_FADE_IN(800);
 			}
 		}
-		GlobalFunc_11046(0, "start of mission", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint2(0, "start of mission", 0, 0, 0, 1);
 	}
 	else
 	{
@@ -27832,7 +27832,7 @@ void func_976()//Position - 0x8C4D4
 	iLocal_2334 = 1;
 	iLocal_2333 = 0;
 	CAM::DO_SCREEN_FADE_IN(800);
-	GlobalFunc_11046(0, "start of mission", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint2(0, "start of mission", 0, 0, 0, 1);
 }
 
 

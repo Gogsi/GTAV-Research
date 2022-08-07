@@ -141,7 +141,7 @@ void __EntryFunction__()//Position - 0x0
 		}
 		func_245();
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		Global_68490 = 1;
 		iLocal_81 = 0;
@@ -396,7 +396,7 @@ void func_46(int iParam0, int iParam1, int iParam2, bool bParam3)//Position - 0x
 			}
 		}
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		PED::SET_PED_STEALTH_MOVEMENT(PLAYER::PLAYER_PED_ID(), 0, 0);
 	}
@@ -1949,7 +1949,7 @@ int func_207(int iParam0, int iParam1, int iParam2)//Position - 0x237F4
 	}
 	if (iParam0 == 1)
 	{
-		if (!GlobalFunc_109())
+		if (!GlobalFunc_Has_Cutscene_Loaded())
 		{
 			return 0;
 		}
@@ -2643,11 +2643,11 @@ void func_319(bool bParam0)//Position - 0x2CC12
 		{
 			return;
 		}
-		if (Global_84542 == Global_89999)
+		if (Global_84542 == Global_Current_Checkpoint)
 		{
 			Global_SAVE_DATA.SAVED_RANDOM_CHARACTERS[iVar0 /*6*/].f_4++;
 		}
-		Global_84542 = Global_89999;
+		Global_84542 = Global_Current_Checkpoint;
 		if (bParam0)
 		{
 			GlobalFunc_7620(iVar0, 1, 0);

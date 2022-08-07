@@ -478,10 +478,10 @@ void __EntryFunction__()//Position - 0x0
 	}
 	GlobalFunc_9621(58, 2, 0);
 	func_582();
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		func_573(&Local_522, 1, 1, 0);
-		iVar0 = GlobalFunc_198();
+		iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544 == 1)
 		{
 			iVar0++;
@@ -2686,7 +2686,7 @@ void func_309()//Position - 0x28D60
 		}
 		else if ((MISC::GET_GAME_TIMER() - iLocal_851) > 7500)
 		{
-			GlobalFunc_1("JOSH3_03");
+			GlobalFunc_Display_Help_Text("JOSH3_03");
 			iLocal_641 = 1;
 		}
 	}
@@ -2877,19 +2877,19 @@ void func_317(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 	iVar0 = 0;
 	if (iParam3 == 1)
 	{
-		if (iParam0 != Global_89999)
+		if (iParam0 != Global_Current_Checkpoint)
 		{
 			iVar0 = 1;
 		}
 	}
-	else if (iParam0 > Global_89999)
+	else if (iParam0 > Global_Current_Checkpoint)
 	{
 		iVar0 = 1;
 	}
 	if (iVar0 == 1)
 	{
 		GlobalFunc_174(1);
-		if (iParam0 <= Global_89999)
+		if (iParam0 <= Global_Current_Checkpoint)
 		{
 		}
 		iVar1 = GlobalFunc_5111(SCRIPT::GET_THIS_SCRIPT_NAME(), 1);
@@ -2911,7 +2911,7 @@ void func_317(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 						break;
 					}
 			}
-			STATS::PLAYSTATS_MISSION_CHECKPOINT(&cVar3, iVar2, Global_89999, iParam0);
+			STATS::PLAYSTATS_MISSION_CHECKPOINT(&cVar3, iVar2, Global_Current_Checkpoint, iParam0);
 		}
 		else
 		{
@@ -2920,11 +2920,11 @@ void func_317(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 			{
 				Global_SAVE_DATA.SAVED_RANDOM_CHARACTERS[iVar5 /*6*/].f_4 = 0;
 				MemCopy(&uVar6, {GlobalFunc_44(iVar5)}, 4);
-				STATS::PLAYSTATS_MISSION_CHECKPOINT(&uVar6, 0, Global_89999, iParam0);
+				STATS::PLAYSTATS_MISSION_CHECKPOINT(&uVar6, 0, Global_Current_Checkpoint, iParam0);
 			}
 			else
 			{
-				iVar10 = GlobalFunc_133(&(Global_89962.f_3));
+				iVar10 = GlobalFunc_133(&(Global_Mission_Fail_State.Failed_Script_Name));
 				if (iVar10 > -1)
 				{
 					Global_SAVE_DATA.BAIL_BOND_SAVED_STRUCT.f_4[iVar10] = 0;
@@ -2932,13 +2932,13 @@ void func_317(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 			}
 		}
 		Global_84545 = iParam2;
-		Global_89999 = iParam0;
+		Global_Current_Checkpoint = iParam0;
 		GlobalFunc_10926(iParam0, sParam1, iParam4, iParam5);
 		if (MISC::ARE_STRINGS_EQUAL(sParam1, ""))
 		{
 		}
 	}
-	else if (iParam0 < Global_89999)
+	else if (iParam0 < Global_Current_Checkpoint)
 	{
 	}
 }
@@ -3543,7 +3543,7 @@ int func_449(int iParam0, int iParam1, int iParam2)//Position - 0x33234
 	}
 	if (iParam0 == 1)
 	{
-		if (!GlobalFunc_109())
+		if (!GlobalFunc_Has_Cutscene_Loaded())
 		{
 			return 0;
 		}

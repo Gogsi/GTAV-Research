@@ -3174,7 +3174,7 @@ int func_59(var uParam0, var uParam1, bool bParam2, bool bParam3, bool bParam4, 
 	
 	uParam0->f_7 = *uParam1;
 	uParam0->f_8 = uParam1->f_1;
-	if ((GlobalFunc_2(0) && !bParam2) && !bParam4)
+	if ((GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) && !bParam2) && !bParam4)
 	{
 		if (uParam0->f_5)
 		{

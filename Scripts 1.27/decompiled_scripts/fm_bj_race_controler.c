@@ -29594,7 +29594,7 @@ void func_2139(var uParam0, var uParam1)//Position - 0x9F182
 	{
 		if (!GlobalFunc_74("BASEJ_HELP_DT"))
 		{
-			GlobalFunc_1("BASEJ_HELP_DT");
+			GlobalFunc_Display_Help_Text("BASEJ_HELP_DT");
 		}
 	}
 	else if (GlobalFunc_74("BASEJ_HELP_DT"))
@@ -29610,7 +29610,7 @@ void func_2141(var uParam0, var uParam1)//Position - 0x9F202
 	{
 		if (!GlobalFunc_74("BASEJ_HELP_FF"))
 		{
-			GlobalFunc_1("BASEJ_HELP_FF");
+			GlobalFunc_Display_Help_Text("BASEJ_HELP_FF");
 			if (uParam1->f_7 == -1)
 			{
 				uParam1->f_7 = (uParam0[NETWORK::PARTICIPANT_ID_TO_INT() /*125*/])->f_96 + 1;

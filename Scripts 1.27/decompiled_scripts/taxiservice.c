@@ -8419,7 +8419,7 @@ void func_223(bool bParam0)//Position - 0xF69E
 				{
 					if (!CAM::IS_SCREEN_FADING_IN())
 					{
-						if ((!GlobalFunc_188() && !GlobalFunc_142()) && Global_89962 != 10)
+						if ((!GlobalFunc_188() && !GlobalFunc_142()) && Global_Mission_Fail_State != 10)
 						{
 							CAM::DO_SCREEN_FADE_IN(250);
 						}

@@ -4448,7 +4448,7 @@ void __EntryFunction__()//Position - 0x0
 		func_336();
 	}
 	Local_6009.f_235 = -1;
-	bLocal_4678 = GlobalFunc_199();
+	bLocal_4678 = GlobalFunc_Is_Mission_Retry();
 	if (!ScriptParam_0.f_1)
 	{
 		func_326(Global_SAVE_DATA.TRAFFICKING_SAVED_STRUCT.TRAFFICKING_SAVED_iAirRank, &ScriptParam_0, bLocal_4678);
@@ -4521,11 +4521,11 @@ void __EntryFunction__()//Position - 0x0
 	PATHFIND::SET_ROADS_IN_ANGLED_AREA(2164.038f, 4825.627f, 35.61375f, 1899.278f, 4697.752f, 49.08641f, 100f, 0, 0, 1);
 	Local_6009.f_202 = Local_4847.f_1161;
 	PLAYER::SET_WANTED_LEVEL_MULTIPLIER(0.1f);
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		Global_89962.f_12[0]++;
+		Global_Mission_Fail_State.f_12[0]++;
 		bLocal_4559 = true;
-		iLocal_6413 = GlobalFunc_198();
+		iLocal_6413 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (iLocal_6413 == 0)
 		{
 			GlobalFunc_5116(Local_4667, fLocal_4670, 1, 0);
@@ -4533,7 +4533,7 @@ void __EntryFunction__()//Position - 0x0
 	}
 	else
 	{
-		Global_89962.f_12[0] = 0;
+		Global_Mission_Fail_State.f_12[0] = 0;
 	}
 	GlobalFunc_5696("MG_TRAF_AVAIL", 1);
 	while (true)
@@ -6855,7 +6855,7 @@ int func_153(var uParam0, var uParam1, var uParam2)//Position - 0x7A66
 				else if (ENTITY::GET_ENTITY_HEIGHT_ABOVE_GROUND(PLAYER::PLAYER_PED_ID()) > 20f)
 				{
 					SYSTEM::SETTIMERA(0);
-					if (Global_89962.f_12[0] < 3)
+					if (Global_Mission_Fail_State.f_12[0] < 3)
 					{
 						func_151("DTRFAIR_TUTO3", -1);
 					}
@@ -6876,7 +6876,7 @@ int func_153(var uParam0, var uParam1, var uParam2)//Position - 0x7A66
 					}
 				}
 			}
-			if (Global_89962.f_12[0] < 3)
+			if (Global_Mission_Fail_State.f_12[0] < 3)
 			{
 				if (iVar0 != -1)
 				{
@@ -6897,7 +6897,7 @@ int func_153(var uParam0, var uParam1, var uParam2)//Position - 0x7A66
 					if (GlobalFunc_2264(PLAYER::PLAYER_PED_ID(), *(uParam1[iVar0 /*3*/]), 1) < 1500f)
 					{
 						SYSTEM::SETTIMERA(0);
-						if (Global_89962.f_12[0] < 3)
+						if (Global_Mission_Fail_State.f_12[0] < 3)
 						{
 							if (!iLocal_4547)
 							{

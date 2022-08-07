@@ -313,7 +313,7 @@ void __EntryFunction__()//Position - 0x0
 		GlobalFunc_9624(1);
 		func_310();
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		Global_68490 = 1;
 		iLocal_78 = 0;

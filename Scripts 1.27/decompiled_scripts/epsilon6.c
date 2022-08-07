@@ -680,9 +680,9 @@ void __EntryFunction__()//Position - 0x0
 		GlobalFunc_10102(1);
 		func_457();
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		if (GlobalFunc_198() == 0)
+		if (GlobalFunc_Get_Mission_Fail_Checkpoint() == 0)
 		{
 			Global_68490 = 1;
 			iLocal_90 = 0;
@@ -700,7 +700,7 @@ void __EntryFunction__()//Position - 0x0
 		VEHICLE::SET_VEHICLE_HAS_STRONG_AXLES(Local_155.x, 1);
 		VEHICLE::SET_VEHICLE_DOORS_LOCKED(Local_155.x, 1);
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		uLocal_759 = PED::GET_PED_RELATIONSHIP_GROUP_HASH(PLAYER::PLAYER_PED_ID());
 	}
@@ -713,10 +713,10 @@ void __EntryFunction__()//Position - 0x0
 	}
 	func_444();
 	GlobalFunc_2838("*** Epsilon 6 is now in loop");
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		GlobalFunc_2838("*** Replay detected! Skipping to appropriate stage!");
-		iVar0 = GlobalFunc_198();
+		iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544 == 1)
 		{
 			iVar0++;
@@ -971,7 +971,7 @@ void func_23()//Position - 0xA37
 	{
 		case 0:
 			GlobalFunc_2838("*** Doing Wait for Jimmy init");
-			GlobalFunc_11077(3, "Wait For Jimmy stage", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint6(3, "Wait For Jimmy stage", 0, 0, 0, 1);
 			if (iLocal_208 == 1)
 			{
 				func_261();
@@ -984,7 +984,7 @@ void func_23()//Position - 0xA37
 			VEHICLE::REQUEST_VEHICLE_RECORDING(501, "Eps6_Takeoff");
 			iLocal_242 = 0;
 			iLocal_244 = 0;
-			if (GlobalFunc_199())
+			if (GlobalFunc_Is_Mission_Retry())
 			{
 				if (GlobalFunc_188())
 				{
@@ -3223,7 +3223,7 @@ void func_261()//Position - 0x27064
 			AUDIO::STOP_SOUND(iLocal_236);
 			AUDIO::STOP_SOUND(iLocal_235);
 			AUDIO::TRIGGER_MUSIC_EVENT("EPS6_START");
-			GlobalFunc_11077(1, "Landing stage", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint6(1, "Landing stage", 0, 0, 0, 1);
 			iLocal_228 = 1;
 			PLAYER::SET_MAX_WANTED_LEVEL(5);
 			if (func_231())
@@ -3920,7 +3920,7 @@ void func_344()//Position - 0x2DAE8
 			}
 			GlobalFunc_173(&uLocal_594, 3, Local_173, "JIMMYBOSTON", 0, 1);
 			GlobalFunc_173(&uLocal_594, 0, PLAYER::PLAYER_PED_ID(), "MICHAEL", 0, 1);
-			if (GlobalFunc_199())
+			if (GlobalFunc_Is_Mission_Retry())
 			{
 				if (GlobalFunc_188())
 				{
@@ -3976,7 +3976,7 @@ void func_344()//Position - 0x2DAE8
 				AUDIO::TRIGGER_MUSIC_EVENT("EPS6_STOP");
 				CUTSCENE::START_CUTSCENE(0);
 				SYSTEM::WAIT(0);
-				if (GlobalFunc_199())
+				if (GlobalFunc_Is_Mission_Retry())
 				{
 					GlobalFunc_79(500, 0);
 				}
@@ -4081,7 +4081,7 @@ void func_345(int iParam0, int iParam1, int iParam2, bool bParam3)//Position - 0
 			}
 		}
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		PED::SET_PED_STEALTH_MOVEMENT(PLAYER::PLAYER_PED_ID(), 0, 0);
 	}
@@ -4280,7 +4280,7 @@ void func_374()//Position - 0x2F12A
 	{
 		case 0:
 			GlobalFunc_2838("*** Doing See Jimmy init");
-			GlobalFunc_11077(1, "See Jimmy stage", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint6(1, "See Jimmy stage", 0, 0, 0, 1);
 			if (GlobalFunc_111())
 			{
 				GlobalFunc_4935();
@@ -4317,7 +4317,7 @@ void func_374()//Position - 0x2F12A
 			{
 				Local_173.f_1 = GlobalFunc_5739(Local_173, 1, 1, 9);
 			}
-			if (GlobalFunc_199())
+			if (GlobalFunc_Is_Mission_Retry())
 			{
 				if (GlobalFunc_188())
 				{
@@ -4604,7 +4604,7 @@ void func_383()//Position - 0x2FB37
 				iLocal_208 = 0;
 			}
 			MISC::CLEAR_ANGLED_AREA_OF_VEHICLES(1727.442f, 3288.315f, 39.406f, 1706.909f, 3280.669f, 45.13256f, 14.25f, 0, 0, 0, 0, 0);
-			if (GlobalFunc_199())
+			if (GlobalFunc_Is_Mission_Retry())
 			{
 				if (GlobalFunc_188())
 				{
@@ -4636,7 +4636,7 @@ void func_383()//Position - 0x2FB37
 				{
 					if (GlobalFunc_713(Local_155.x, Local_169, 1) < 1100f)
 					{
-						GlobalFunc_11077(1, "Landing stage", 0, 0, 0, 1);
+						GlobalFunc_Checkpoint6(1, "Landing stage", 0, 0, 0, 1);
 						iLocal_228 = 1;
 						GlobalFunc_2838("Landing checkpoint set");
 					}
@@ -5129,7 +5129,7 @@ void func_398()//Position - 0x30668
 		case 1:
 			if (iLocal_194 == 0)
 			{
-				if (GlobalFunc_4924(Local_181))
+				if (GlobalFunc_IsPedNotInjuredOrDead(Local_181))
 				{
 					TASK::CLEAR_PED_TASKS(Local_181);
 					TASK::TASK_TURN_PED_TO_FACE_ENTITY(Local_181, PLAYER::PLAYER_PED_ID(), 0);
@@ -5159,7 +5159,7 @@ void func_398()//Position - 0x30668
 			}
 			else if (iLocal_194 == 1)
 			{
-				if ((GlobalFunc_115(PLAYER::PLAYER_PED_ID()) && GlobalFunc_4947(Local_155.x)) && GlobalFunc_4924(Local_181))
+				if ((GlobalFunc_115(PLAYER::PLAYER_PED_ID()) && GlobalFunc_4947(Local_155.x)) && GlobalFunc_IsPedNotInjuredOrDead(Local_181))
 				{
 					if (!PED::IS_PED_IN_ANY_VEHICLE(PLAYER::PLAYER_PED_ID(), 0))
 					{
@@ -5466,7 +5466,7 @@ void func_398()//Position - 0x30668
 		case 4:
 			if (iLocal_194 == 0)
 			{
-				if (GlobalFunc_4924(Local_181))
+				if (GlobalFunc_IsPedNotInjuredOrDead(Local_181))
 				{
 					if (GlobalFunc_713(Local_181, -2884.934f, 3200.156f, 10.7036f, 1) > 2f)
 					{
@@ -5564,7 +5564,7 @@ void func_399()//Position - 0x310BC
 	{
 		GlobalFunc_4956();
 	}
-	if (GlobalFunc_4924(Local_181))
+	if (GlobalFunc_IsPedNotInjuredOrDead(Local_181))
 	{
 		TASK::CLEAR_PED_TASKS(Local_181);
 		if (PED::IS_PED_IN_GROUP(Local_181))
@@ -5755,7 +5755,7 @@ void func_414()//Position - 0x31849
 {
 	if (GlobalFunc_115(Local_181))
 	{
-		if (GlobalFunc_4924(Local_181))
+		if (GlobalFunc_IsPedNotInjuredOrDead(Local_181))
 		{
 			if (!ENTITY::HAS_ENTITY_BEEN_DAMAGED_BY_ENTITY(Local_181, PLAYER::PLAYER_PED_ID(), 1))
 			{
@@ -5826,7 +5826,7 @@ int func_415()//Position - 0x3193A
 			GlobalFunc_2838("Player bumped cultist with vehicle");
 		}
 		iLocal_237 = 3;
-		if (GlobalFunc_4924(Local_181))
+		if (GlobalFunc_IsPedNotInjuredOrDead(Local_181))
 		{
 			if (GlobalFunc_111())
 			{
@@ -5843,7 +5843,7 @@ void func_416()//Position - 0x319D9
 {
 	if (bLocal_231 == 0)
 	{
-		if (GlobalFunc_4924(Local_181) && GlobalFunc_115(PLAYER::PLAYER_PED_ID()))
+		if (GlobalFunc_IsPedNotInjuredOrDead(Local_181) && GlobalFunc_115(PLAYER::PLAYER_PED_ID()))
 		{
 			if (iLocal_230 == 0)
 			{
@@ -5854,7 +5854,7 @@ void func_416()//Position - 0x319D9
 					iLocal_230 = 1;
 				}
 			}
-			else if (GlobalFunc_4924(Local_181))
+			else if (GlobalFunc_IsPedNotInjuredOrDead(Local_181))
 			{
 				if (TASK::IS_PED_GETTING_UP(Local_181) || PED::IS_PED_ON_FOOT(Local_181))
 				{
@@ -6136,7 +6136,7 @@ void func_422()//Position - 0x31F58
 				GlobalFunc_2839("*** Plane engine health: ", VEHICLE::GET_VEHICLE_ENGINE_HEALTH(Local_155.x));
 				GlobalFunc_2839("*** Plane petrol tank health: ", VEHICLE::GET_VEHICLE_PETROL_TANK_HEALTH(Local_155.x));
 			}
-			if (GlobalFunc_199())
+			if (GlobalFunc_Is_Mission_Retry())
 			{
 				if (GlobalFunc_188())
 				{
@@ -6658,7 +6658,7 @@ int func_451(var uParam0)//Position - 0x3324A
 				bVar6 = false;
 			}
 			GlobalFunc_5903(&(uParam0->f_28[0]), iVar0[1], -2881.755f, 3188.125f, 10.1136f, 254.1723f, 26);
-			if (GlobalFunc_115(uParam0->f_28[0]) && GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+			if (GlobalFunc_115(uParam0->f_28[0]) && GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 			{
 				uVar7 = PED::GET_PED_RELATIONSHIP_GROUP_HASH(PLAYER::PLAYER_PED_ID());
 				WEAPON::GIVE_WEAPON_TO_PED(uParam0->f_28[0], joaat("weapon_digiscanner"), -1, 1, 1);

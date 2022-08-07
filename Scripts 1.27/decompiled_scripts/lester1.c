@@ -3630,11 +3630,11 @@ void func_119()//Position - 0xB778
 				GlobalFunc_9621(129, 0, 0);
 				func_187(1);
 				GRAPHICS::SET_TV_CHANNEL_PLAYLIST(3, GlobalFunc_432(9), 0);
-				GlobalFunc_11067(7, "8. Start TV", 1, 0, 0, 1);
+				GlobalFunc_Checkpoint4(7, "8. Start TV", 1, 0, 0, 1);
 				GlobalFunc_8380(0, 1, 1, 0);
 				PLAYER::SET_WANTED_LEVEL_MULTIPLIER(1f);
 				HUD::CLEAR_HELP(1);
-				GlobalFunc_1("TV_HLP_LEST1B_1");
+				GlobalFunc_Display_Help_Text("TV_HLP_LEST1B_1");
 				GlobalFunc_657();
 				iLocal_2888++;
 			}
@@ -3842,7 +3842,7 @@ void func_195()//Position - 0x129F7
 	switch (iLocal_2888)
 	{
 		case 0:
-			GlobalFunc_11067(6, "7. Go home", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint4(6, "7. Go home", 0, 0, 0, 1);
 			func_285(1, 0);
 			GlobalFunc_695(1);
 			func_70(16, 0);
@@ -4048,7 +4048,7 @@ void func_195()//Position - 0x129F7
 			}
 			if (func_202())
 			{
-				if (GlobalFunc_4924(iLocal_628[27]))
+				if (GlobalFunc_IsPedNotInjuredOrDead(iLocal_628[27]))
 				{
 					TASK::TASK_SMART_FLEE_PED(iLocal_628[27], PLAYER::PLAYER_PED_ID(), 200f, -1, 0, 0);
 					PED::SET_PED_KEEP_TASK(iLocal_628[27], 1);
@@ -4772,7 +4772,7 @@ void func_286()//Position - 0x176BF
 	switch (iLocal_2888)
 	{
 		case 0:
-			GlobalFunc_11067(5, "6. Leave the building", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint4(5, "6. Leave the building", 0, 0, 0, 1);
 			GlobalFunc_719(&uLocal_1083, "AMB@PROP_HUMAN_SEAT_COMPUTER@MALE@IDLE_B");
 			func_290(&uLocal_1083, &cLocal_206);
 			func_285(4, 0);
@@ -4938,7 +4938,7 @@ void func_291()//Position - 0x17C30
 			if (OBJECT::DOES_OBJECT_OF_TYPE_EXIST_AT_COORDS(-1053.66f, -231.77f, 43.99f, 0.5f, joaat("prop_security_case_01"), 0))
 			{
 				Local_657[4 /*10*/] = OBJECT::GET_CLOSEST_OBJECT_OF_TYPE(-1053.66f, -231.77f, 43.99f, 0.5f, joaat("prop_security_case_01"), 1, 0, 1);
-				GlobalFunc_11067(4, "5. Plant the bomb", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint4(4, "5. Plant the bomb", 0, 0, 0, 1);
 				GlobalFunc_4935();
 				GlobalFunc_164("LES1A_6", 7500, 1);
 				uLocal_356 = GlobalFunc_6799(Local_657[4 /*10*/]);
@@ -5377,28 +5377,28 @@ void func_294()//Position - 0x1803D
 				{
 					if (PAD::_IS_USING_KEYBOARD(0))
 					{
-						GlobalFunc_1("LES1A_16_KM");
+						GlobalFunc_Display_Help_Text("LES1A_16_KM");
 					}
 					else
 					{
-						GlobalFunc_1("LES1A_16");
+						GlobalFunc_Display_Help_Text("LES1A_16");
 					}
 				}
 				else if (iLocal_2979 == 1)
 				{
-					GlobalFunc_1("LES1A_161");
+					GlobalFunc_Display_Help_Text("LES1A_161");
 				}
 				else if (iLocal_2979 == 2)
 				{
-					GlobalFunc_1("LES1A_162");
+					GlobalFunc_Display_Help_Text("LES1A_162");
 				}
 				else if (iLocal_2979 == 3)
 				{
-					GlobalFunc_1("LES1A_17");
+					GlobalFunc_Display_Help_Text("LES1A_17");
 				}
 				else if (iLocal_2979 == 4)
 				{
-					GlobalFunc_1("LES1A_18");
+					GlobalFunc_Display_Help_Text("LES1A_18");
 				}
 			}
 			if (func_413() == 0)
@@ -6556,7 +6556,7 @@ void func_416()//Position - 0x35C36
 	switch (iLocal_2888)
 	{
 		case 0:
-			GlobalFunc_11067(3, "3. Follow Programmer", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint4(3, "3. Follow Programmer", 0, 0, 0, 1);
 			CUTSCENE::REQUEST_CUTSCENE("LES_1A_MCS_2", 8);
 			GlobalFunc_9024(&uLocal_2063, PLAYER::PLAYER_PED_ID(), "Michael", 0);
 			iLocal_568 = 0;
@@ -6724,7 +6724,7 @@ void func_419()//Position - 0x360E7
 	switch (iLocal_2888)
 	{
 		case 0:
-			GlobalFunc_11067(2, "2. Goto Lifeinvader offices", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint4(2, "2. Goto Lifeinvader offices", 0, 0, 0, 1);
 			func_285(0, 0);
 			iLocal_602 = 0;
 			iLocal_606 = 0;
@@ -7105,7 +7105,7 @@ void func_429()//Position - 0x36C87
 				GlobalFunc_10617(130, 1);
 				GlobalFunc_10617(131, 1);
 				MISC::SET_WEATHER_TYPE_OVERTIME_PERSIST("EXTRASUNNY", 120f);
-				GlobalFunc_11067(1, "1. Get clothes", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint4(1, "1. Get clothes", 0, 0, 0, 1);
 				GlobalFunc_8634(16, 1);
 				func_70(16, 1);
 				func_285(2, 0);
@@ -7402,8 +7402,8 @@ void func_429()//Position - 0x36C87
 					func_70(16, 1);
 					iLocal_566 = 1;
 					GlobalFunc_7139(&Local_360, 0);
-					Global_89962.f_12[0] = iVar11;
-					Global_89962.f_12[1] = iVar12;
+					Global_Mission_Fail_State.f_12[0] = iVar11;
+					Global_Mission_Fail_State.f_12[1] = iVar12;
 					HUD::CLEAR_HELP(1);
 					func_109(2);
 				}
@@ -8580,9 +8580,9 @@ void func_521()//Position - 0x3D178
 				
 				case 1:
 					CLOCK::SET_CLOCK_TIME(7, 0, 0);
-					Global_89962.f_12[0] = -1;
-					Global_89962.f_12[1] = -1;
-					Global_89962.f_12[2] = -1;
+					Global_Mission_Fail_State.f_12[0] = -1;
+					Global_Mission_Fail_State.f_12[1] = -1;
+					Global_Mission_Fail_State.f_12[2] = -1;
 					func_545();
 					if (GlobalFunc_7698())
 					{
@@ -9062,25 +9062,25 @@ void func_521()//Position - 0x3D178
 
 void func_523()//Position - 0x3E8EE
 {
-	if (Global_89962.f_12[0] == -1)
+	if (Global_Mission_Fail_State.f_12[0] == -1)
 	{
 		GlobalFunc_11088(GlobalFunc_4917(0), 3, 70, 1, 1);
 		func_377(PLAYER::PLAYER_PED_ID(), 3, 70, 1, -1, 0, 0, 0, -1, -1, -1, 0);
 	}
 	else
 	{
-		GlobalFunc_11088(GlobalFunc_4917(0), 3, Global_89962.f_12[0], 1, 1);
-		func_377(PLAYER::PLAYER_PED_ID(), 3, Global_89962.f_12[0], 1, -1, 0, 0, 0, -1, -1, -1, 0);
+		GlobalFunc_11088(GlobalFunc_4917(0), 3, Global_Mission_Fail_State.f_12[0], 1, 1);
+		func_377(PLAYER::PLAYER_PED_ID(), 3, Global_Mission_Fail_State.f_12[0], 1, -1, 0, 0, 0, -1, -1, -1, 0);
 	}
-	if (Global_89962.f_12[1] == -1)
+	if (Global_Mission_Fail_State.f_12[1] == -1)
 	{
 		GlobalFunc_11088(GlobalFunc_4917(0), 4, 41, 1, 1);
 		func_377(PLAYER::PLAYER_PED_ID(), 4, 41, 1, -1, 0, 0, 0, -1, -1, -1, 0);
 	}
 	else
 	{
-		GlobalFunc_11088(GlobalFunc_4917(0), 4, Global_89962.f_12[1], 1, 1);
-		func_377(PLAYER::PLAYER_PED_ID(), 4, Global_89962.f_12[1], 1, -1, 0, 0, 0, -1, -1, -1, 0);
+		GlobalFunc_11088(GlobalFunc_4917(0), 4, Global_Mission_Fail_State.f_12[1], 1, 1);
+		func_377(PLAYER::PLAYER_PED_ID(), 4, Global_Mission_Fail_State.f_12[1], 1, -1, 0, 0, 0, -1, -1, -1, 0);
 	}
 	GlobalFunc_5128(0);
 }
@@ -9171,9 +9171,9 @@ int func_528(var uParam0, struct<3> Param1, float fParam4, bool bParam5)//Positi
 						GlobalFunc_7695(iVar8);
 					}
 				}
-				if (((Global_89962 != 13 && Global_89962 != 10) && Global_89962 != 11) && Global_89962 != 12)
+				if (((Global_Mission_Fail_State != 13 && Global_Mission_Fail_State != 10) && Global_Mission_Fail_State != 11) && Global_Mission_Fail_State != 12)
 				{
-					if (MISC::GET_HASH_KEY(&(Global_89962.f_3)) == Global_68102)
+					if (MISC::GET_HASH_KEY(&(Global_Mission_Fail_State.Failed_Script_Name)) == Global_68102)
 					{
 						if (uParam0->f_12.f_42 == Global_SAVE_DATA.VEHICLE_GEN_SAVED_DATA_STRUCT.f_69[21 /*54*/].f_42)
 						{
@@ -14227,25 +14227,25 @@ void func_750()//Position - 0x75CFD
 	int iVar19;
 	
 	MISC::SET_MISSION_FLAG(1);
-	if (GlobalFunc_199() || GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Retry() || GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
-		if (GlobalFunc_2(0))
+		if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			GlobalFunc_7934(6, 0);
 		}
-		if (GlobalFunc_199())
+		if (GlobalFunc_Is_Mission_Retry())
 		{
-			iLocal_2893 = GlobalFunc_198();
+			iLocal_2893 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 			if (Global_84544)
 			{
 				iLocal_2893++;
 			}
 		}
-		else if (GlobalFunc_2(0))
+		else if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
-			Global_89962.f_12[0] = -1;
-			Global_89962.f_12[1] = -1;
-			Global_89962.f_12[2] = -1;
+			Global_Mission_Fail_State.f_12[0] = -1;
+			Global_Mission_Fail_State.f_12[1] = -1;
+			Global_Mission_Fail_State.f_12[2] = -1;
 			iLocal_2893 = 0;
 		}
 		switch (iLocal_2893)
@@ -14286,7 +14286,7 @@ void func_750()//Position - 0x75CFD
 				iLocal_2893 = 10;
 				break;
 		}
-		if (GlobalFunc_199())
+		if (GlobalFunc_Is_Mission_Retry())
 		{
 			func_693(iLocal_2893, &Var0, &uVar3);
 			GlobalFunc_5812(Var0, uVar3, 1, 0);
@@ -14295,9 +14295,9 @@ void func_750()//Position - 0x75CFD
 	}
 	else
 	{
-		Global_89962.f_12[0] = -1;
-		Global_89962.f_12[1] = -1;
-		Global_89962.f_12[2] = -1;
+		Global_Mission_Fail_State.f_12[0] = -1;
+		Global_Mission_Fail_State.f_12[1] = -1;
+		Global_Mission_Fail_State.f_12[2] = -1;
 	}
 	GlobalFunc_7621(101, 1, 0, 1, 0);
 	HUD::REQUEST_ADDITIONAL_TEXT("LEST1", 0);
@@ -14420,7 +14420,7 @@ void func_750()//Position - 0x75CFD
 		iLocal_618[iVar4] = -1;
 		iVar4++;
 	}
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		GlobalFunc_52(1, 1);
 	}

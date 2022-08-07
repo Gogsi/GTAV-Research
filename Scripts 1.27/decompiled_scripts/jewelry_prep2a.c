@@ -1807,7 +1807,7 @@ int func_21()//Position - 0x805
 						{
 							if (!GlobalFunc_74("JHP2A_HLP1"))
 							{
-								GlobalFunc_1("JHP2A_HLP1");
+								GlobalFunc_Display_Help_Text("JHP2A_HLP1");
 							}
 						}
 						if (PAD::IS_CONTROL_JUST_PRESSED(0, 51) && iVar10 == joaat("weapon_briefcase"))
@@ -2985,7 +2985,7 @@ int func_191(int iParam0, struct<3> Param1, float fParam4, bool bParam5)//Positi
 	
 	Var0.f_9 = 25;
 	Var0.f_35 = 2;
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		if (GlobalFunc_7698())
 		{
@@ -3321,10 +3321,10 @@ void func_232()//Position - 0xEE41
 	PED::SET_RELATIONSHIP_BETWEEN_GROUPS(1, iLocal_1299, joaat("COP"));
 	PED::SET_RELATIONSHIP_BETWEEN_GROUPS(1, iLocal_1299, -183807561);
 	PED::SET_RELATIONSHIP_BETWEEN_GROUPS(1, joaat("COP"), iLocal_1299);
-	if (GlobalFunc_2(0) || GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) || GlobalFunc_Is_Mission_Retry())
 	{
 		iLocal_96 = 0;
-		if (GlobalFunc_199())
+		if (GlobalFunc_Is_Mission_Retry())
 		{
 			if (Global_84544)
 			{
@@ -3332,7 +3332,7 @@ void func_232()//Position - 0xEE41
 			}
 		}
 		StringCopy(&Global_87229, "jhp2a_alt", 64);
-		if (GlobalFunc_199())
+		if (GlobalFunc_Is_Mission_Retry())
 		{
 			func_226(iLocal_96, &Var0, &uVar3);
 			GlobalFunc_5812(Var0, uVar3, 1, 0);

@@ -2928,7 +2928,7 @@ int func_261(var uParam0)//Position - 0x2292E
 		case 1:
 			if (!uParam0->f_10)
 			{
-				GlobalFunc_1("PLAY_CABLE_NO_CASH");
+				GlobalFunc_Display_Help_Text("PLAY_CABLE_NO_CASH");
 				uParam0->f_10 = 1;
 			}
 			if (!bVar0 || func_263() >= 10)
@@ -2942,7 +2942,7 @@ int func_261(var uParam0)//Position - 0x2292E
 		case 2:
 			if (!uParam0->f_10)
 			{
-				GlobalFunc_1("CAR_IN_CABLECAR");
+				GlobalFunc_Display_Help_Text("CAR_IN_CABLECAR");
 				uParam0->f_10 = 1;
 			}
 			if (!bVar0 || !func_267(uParam0))
@@ -2956,7 +2956,7 @@ int func_261(var uParam0)//Position - 0x2292E
 		case 7:
 			if (!uParam0->f_10)
 			{
-				GlobalFunc_1("CABLE_WANTED");
+				GlobalFunc_Display_Help_Text("CABLE_WANTED");
 				uParam0->f_10 = 1;
 			}
 			if (!bVar0 || PLAYER::GET_PLAYER_WANTED_LEVEL(PLAYER::PLAYER_ID()) == 0)
@@ -3000,7 +3000,7 @@ int func_261(var uParam0)//Position - 0x2292E
 			}
 			if (!uParam0->f_10 && !GlobalFunc_116(0))
 			{
-				GlobalFunc_1("PLAY_CABLE");
+				GlobalFunc_Display_Help_Text("PLAY_CABLE");
 				uParam0->f_10 = 0;
 			}
 			if (PAD::IS_CONTROL_PRESSED(2, 51) && !GlobalFunc_116(0))

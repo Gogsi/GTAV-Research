@@ -72,7 +72,7 @@ void __EntryFunction__()//Position - 0x0
 												if (MISC::ARE_STRINGS_EQUAL(&(Global_SAVE_DATA.FLOW_HELP_STRUCT_ARRAY[iLocal_36 /*16*/].f_4), ""))
 												{
 													HUD::ADD_NEXT_MESSAGE_TO_PREVIOUS_BRIEFS(1);
-													GlobalFunc_2542(&(Global_SAVE_DATA.FLOW_HELP_STRUCT_ARRAY[iLocal_36 /*16*/]));
+													GlobalFunc_Display_Help_Text2(&(Global_SAVE_DATA.FLOW_HELP_STRUCT_ARRAY[iLocal_36 /*16*/]));
 												}
 												else
 												{

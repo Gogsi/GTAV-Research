@@ -302,7 +302,7 @@ void __EntryFunction__()//Position - 0x0
 		GlobalFunc_9624(1);
 		func_405();
 	}
-	if (GlobalFunc_199() == 1)
+	if (GlobalFunc_Is_Mission_Retry() == 1)
 	{
 		Global_68490 = 1;
 		iLocal_78 = 0;
@@ -2487,7 +2487,7 @@ void func_238(int iParam0, int iParam1, int iParam2, bool bParam3)//Position - 0
 			}
 		}
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		PED::SET_PED_STEALTH_MOVEMENT(PLAYER::PLAYER_PED_ID(), 0, 0);
 	}
@@ -2745,7 +2745,7 @@ void func_272()//Position - 0x27F84
 		bLocal_170 = false;
 		func_223(1);
 		func_238(1, 1, 1, 1);
-		if (!GlobalFunc_199())
+		if (!GlobalFunc_Is_Mission_Retry())
 		{
 			if (GlobalFunc_115(iLocal_146))
 			{
@@ -2760,7 +2760,7 @@ void func_272()//Position - 0x27F84
 	}
 	else if (iLocal_143 == 1)
 	{
-		if (GlobalFunc_4924(iLocal_146))
+		if (GlobalFunc_IsPedNotInjuredOrDead(iLocal_146))
 		{
 			if (!bLocal_160 && (ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), 415.4781f, -771.7041f, 27.85562f, 415.5606f, -759.9372f, 31.36162f, 7.25f, 0, 1, 0) || GlobalFunc_1720()))
 			{
@@ -2879,9 +2879,9 @@ void func_281()//Position - 0x28391
 	{
 		if ((HUD::HAS_ADDITIONAL_TEXT_LOADED(0) && STREAMING::HAS_MODEL_LOADED(iLocal_154)) && STREAMING::HAS_ANIM_DICT_LOADED(sLocal_144))
 		{
-			if (GlobalFunc_199())
+			if (GlobalFunc_Is_Mission_Retry())
 			{
-				switch (GlobalFunc_198())
+				switch (GlobalFunc_Get_Mission_Fail_Checkpoint())
 				{
 					case 0:
 						STREAMING::REQUEST_MODEL(iLocal_152);
@@ -3156,9 +3156,9 @@ void func_309()//Position - 0x29239
 			}
 			else if (!MISC::IS_STRING_NULL_OR_EMPTY(sLocal_141))
 			{
-				if (GlobalFunc_4924(iLocal_146))
+				if (GlobalFunc_IsPedNotInjuredOrDead(iLocal_146))
 				{
-					if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()) && GlobalFunc_155(PLAYER::PLAYER_PED_ID(), iLocal_146, 15f))
+					if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()) && GlobalFunc_155(PLAYER::PLAYER_PED_ID(), iLocal_146, 15f))
 					{
 						func_310();
 					}

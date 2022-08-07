@@ -1894,7 +1894,7 @@ int func_147(int iParam0, int iParam1, int iParam2, int iParam3, int iParam4)//P
 		}
 	}
 	iVar0 = 1;
-	if (((Global_89962 == 13 || Global_89962 == 10) || Global_89962 == 11) || Global_89962 == 12)
+	if (((Global_Mission_Fail_State == 13 || Global_Mission_Fail_State == 10) || Global_Mission_Fail_State == 11) || Global_Mission_Fail_State == 12)
 	{
 		iVar0 = 0;
 	}
@@ -9102,7 +9102,7 @@ void func_727()//Position - 0x38CBD
 							MISC::SET_BIT(&(Global_2359301.f_1), 2);
 						}
 					}
-					if (GlobalFunc_2(0))
+					if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 					{
 						GlobalFunc_4462();
 					}
@@ -13191,7 +13191,7 @@ void func_1077(var uParam0)//Position - 0x41B9F
 			}
 		}
 	}
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		NETWORK::_0xF814FEC6A19FD6E0();
 	}

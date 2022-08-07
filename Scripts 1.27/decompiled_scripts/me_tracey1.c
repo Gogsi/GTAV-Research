@@ -409,9 +409,9 @@ void __EntryFunction__()//Position - 0x0
 	}
 	MISC::SET_MISSION_FLAG(1);
 	func_474();
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		switch (GlobalFunc_198())
+		switch (GlobalFunc_Get_Mission_Fail_Checkpoint())
 		{
 			case 0:
 				func_456(&iVar0, 1, 1, 1, 1, joaat("tailgater"), 0, 145);
@@ -1195,11 +1195,11 @@ void func_178()//Position - 0x1DDC8
 				}
 				if (bLocal_335)
 				{
-					GlobalFunc_11043(5, "Drive home - stalker dead (CP4)", 0, 0, 0, 1);
+					GlobalFunc_Checkpoint1(5, "Drive home - stalker dead (CP4)", 0, 0, 0, 1);
 				}
 				else
 				{
-					GlobalFunc_11043(4, "Drive home - stalker chased off (CP3)", 0, 0, 0, 1);
+					GlobalFunc_Checkpoint1(4, "Drive home - stalker chased off (CP3)", 0, 0, 0, 1);
 				}
 				iLocal_465 = 0;
 				GlobalFunc_846(&uLocal_297);
@@ -3405,7 +3405,7 @@ void func_331()//Position - 0x291EC
 					TASK::CLOSE_SEQUENCE_TASK(uVar0);
 					TASK::TASK_PERFORM_SEQUENCE(iLocal_289, uVar0);
 					TASK::CLEAR_SEQUENCE_TASK(&uVar0);
-					GlobalFunc_11043(3, "Stalker appears (CP2)", 0, 0, 0, 1);
+					GlobalFunc_Checkpoint1(3, "Stalker appears (CP2)", 0, 0, 0, 1);
 					bLocal_335 = false;
 					func_289();
 					iLocal_92 = 1;
@@ -4270,7 +4270,7 @@ void func_350()//Position - 0x2A81D
 						case 1:
 							if (GlobalFunc_10618(&uLocal_95, "MET1AUD", "MET1_SEES", 7, 1, 0, 0) || PED::IS_PED_IN_VEHICLE(PLAYER::PLAYER_PED_ID(), iLocal_272, 0))
 							{
-								GlobalFunc_11043(2, "Met Tracey (CP2)", 0, 0, 0, 1);
+								GlobalFunc_Checkpoint1(2, "Met Tracey (CP2)", 0, 0, 0, 1);
 								iLocal_93 = 4;
 								iLocal_307 = MISC::GET_GAME_TIMER();
 								GlobalFunc_846(&uLocal_296);
@@ -4677,7 +4677,7 @@ void func_364()//Position - 0x2BE85
 	{
 		func_179(0);
 		GlobalFunc_10718(0f, 0f, 0f, 0f, 1, 0);
-		if (GlobalFunc_2(0))
+		if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			GlobalFunc_79(500, 1);
 		}
@@ -4913,7 +4913,7 @@ void func_410(bool bParam0, bool bParam1)//Position - 0x2F69F
 		func_422(Local_617, 71.4f, 1);
 		func_421(PLAYER::PLAYER_PED_ID(), iLocal_272, -1);
 	}
-	GlobalFunc_11043(4, "Drive home (CP3)", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint1(4, "Drive home (CP3)", 0, 0, 0, 1);
 	func_179(6);
 	iLocal_91 = 7;
 	iLocal_92 = 0;
@@ -5151,7 +5151,7 @@ void func_428(bool bParam0)//Position - 0x2FEE3
 	else
 	{
 		GlobalFunc_8326(Local_486[3 /*8*/], 1112014848, 12, 5000, 0, 0);
-		GlobalFunc_11043(3, "Stalker appears (CP2)", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint1(3, "Stalker appears (CP2)", 0, 0, 0, 1);
 	}
 }
 
@@ -5421,7 +5421,7 @@ void func_474()//Position - 0x34B4C
 	iLocal_93 = 0;
 	iLocal_94 = 0;
 	iLocal_573 = -1;
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		MISC::SET_WEATHER_TYPE_PERSIST("EXTRASUNNY");
 	}

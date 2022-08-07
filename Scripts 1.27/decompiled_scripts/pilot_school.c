@@ -56767,7 +56767,7 @@ void func_501()//Position - 0x50CF6
 					if (Local_148.f_2[iVar1 /*5*/] == 1)
 					{
 						HUD::CLEAR_HELP(1);
-						GlobalFunc_1(Local_148.f_2[iVar1 /*5*/].f_1);
+						GlobalFunc_Display_Help_Text(Local_148.f_2[iVar1 /*5*/].f_1);
 						if (Local_148.f_2[iVar1 /*5*/].f_3 == -1f)
 						{
 							Local_148.f_2[iVar1 /*5*/].f_3 = SYSTEM::TO_FLOAT(7);
@@ -67948,7 +67948,7 @@ int func_867()//Position - 0x620AB
 							{
 								if (!GlobalFunc_74("PS_TAXI_E") && !GlobalFunc_74("PS_TAXI_D"))
 								{
-									GlobalFunc_1("PS_TAXI_E");
+									GlobalFunc_Display_Help_Text("PS_TAXI_E");
 								}
 							}
 						}

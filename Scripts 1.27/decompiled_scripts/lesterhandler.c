@@ -254,7 +254,7 @@ void __EntryFunction__()//Position - 0x0
 	{
 		func_24();
 	}
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		func_24();
 	}

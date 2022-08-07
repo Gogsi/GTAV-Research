@@ -1986,10 +1986,10 @@ void __EntryFunction__()//Position - 0x0
 		}
 		func_430(&uLocal_2239);
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		bLocal_137 = true;
-		iLocal_2002 = GlobalFunc_198();
+		iLocal_2002 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544)
 		{
 			iLocal_2002++;
@@ -2080,11 +2080,11 @@ void __EntryFunction__()//Position - 0x0
 				AUDIO::TRIGGER_MUSIC_EVENT("ASS3_FAIL");
 				if (PED::IS_PED_IN_ANY_VEHICLE(PLAYER::PLAYER_PED_ID(), 0))
 				{
-					Global_89962.f_12[0] = 1;
+					Global_Mission_Fail_State.f_12[0] = 1;
 				}
 				else
 				{
-					Global_89962.f_12[0] = 0;
+					Global_Mission_Fail_State.f_12[0] = 0;
 				}
 				func_374(&uLocal_2239);
 			}
@@ -2711,7 +2711,7 @@ int func_102(var uParam0, var uParam1)//Position - 0x4E77
 	switch (iLocal_1040)
 	{
 		case 1:
-			if (GlobalFunc_199())
+			if (GlobalFunc_Is_Mission_Retry())
 			{
 				if (GlobalFunc_7698())
 				{
@@ -2783,7 +2783,7 @@ int func_102(var uParam0, var uParam1)//Position - 0x4E77
 				HUD::REMOVE_BLIP(&(uParam0->f_2));
 				GlobalFunc_164("ASS_HK_COPS", 7500, 1);
 			}
-			GlobalFunc_11067(0, "assassin_hooker_locate_hooker", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint4(0, "assassin_hooker_locate_hooker", 0, 0, 0, 1);
 			GlobalFunc_9138(iLocal_2009);
 			func_320();
 			GlobalFunc_173(&(uParam0->f_16), 1, PLAYER::PLAYER_PED_ID(), "FRANKLIN", 0, 1);
@@ -3203,7 +3203,7 @@ void func_118(var uParam0, var uParam1)//Position - 0x5D0A
 	switch (iLocal_1459)
 	{
 		case 0:
-			GlobalFunc_11067(1, "assassin_hooker_wait_for_target", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint4(1, "assassin_hooker_wait_for_target", 0, 0, 0, 1);
 			PED::SET_PED_NON_CREATION_AREA(-708.9319f, -1841.254f, -100f, -430.8133f, -1647.652f, 100f);
 			PED::SET_PED_NON_CREATION_AREA(-708.9319f, -1841.254f, -100f, -430.8133f, -1647.652f, 100f);
 			GlobalFunc_173(&(uParam0->f_16), 1, PLAYER::PLAYER_PED_ID(), "FRANKLIN", 0, 1);
@@ -3255,7 +3255,7 @@ void func_118(var uParam0, var uParam1)//Position - 0x5D0A
 			if (!iLocal_1991)
 			{
 				GlobalFunc_173(&(uParam0->f_16), 1, PLAYER::PLAYER_PED_ID(), "FRANKLIN", 0, 1);
-				GlobalFunc_11067(2, "assassin_hooker_kill_target", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint4(2, "assassin_hooker_kill_target", 0, 0, 0, 1);
 				iLocal_1991 = 1;
 			}
 			if (!GlobalFunc_226(&uLocal_2073))
@@ -6812,7 +6812,7 @@ void func_351(var uParam0)//Position - 0x14AB8
 								{
 									GlobalFunc_7731(&uLocal_1480);
 									iLocal_1487 = 1;
-									if (GlobalFunc_2(0))
+									if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 									{
 										GlobalFunc_575(500);
 									}
@@ -7197,9 +7197,9 @@ int func_388(var uParam0, struct<3> Param1, float fParam4, bool bParam5)//Positi
 						GlobalFunc_7695(iVar8);
 					}
 				}
-				if (((Global_89962 != 13 && Global_89962 != 10) && Global_89962 != 11) && Global_89962 != 12)
+				if (((Global_Mission_Fail_State != 13 && Global_Mission_Fail_State != 10) && Global_Mission_Fail_State != 11) && Global_Mission_Fail_State != 12)
 				{
-					if (MISC::GET_HASH_KEY(&(Global_89962.f_3)) == Global_68102)
+					if (MISC::GET_HASH_KEY(&(Global_Mission_Fail_State.Failed_Script_Name)) == Global_68102)
 					{
 						if (uParam0->f_12.f_42 == Global_SAVE_DATA.VEHICLE_GEN_SAVED_DATA_STRUCT.f_69[21 /*54*/].f_42)
 						{

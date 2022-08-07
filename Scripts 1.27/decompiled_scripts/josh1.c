@@ -298,7 +298,7 @@ void __EntryFunction__()//Position - 0x0
 		GlobalFunc_10544(1);
 		func_292();
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		Global_68490 = 1;
 		iLocal_78 = 0;
@@ -309,7 +309,7 @@ void __EntryFunction__()//Position - 0x0
 		GlobalFunc_4923(&Local_82, 0, 1);
 		Global_68490 = 0;
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		uLocal_327 = PED::GET_PED_RELATIONSHIP_GROUP_HASH(PLAYER::PLAYER_PED_ID());
 	}
@@ -374,7 +374,7 @@ void func_1()//Position - 0x179
 			}
 			if (!iLocal_159)
 			{
-				if (GlobalFunc_4924(Local_82.f_28[0]) && ENTITY::DOES_ENTITY_EXIST(iLocal_146))
+				if (GlobalFunc_IsPedNotInjuredOrDead(Local_82.f_28[0]) && ENTITY::DOES_ENTITY_EXIST(iLocal_146))
 				{
 					uLocal_148 = PED::CREATE_SYNCHRONIZED_SCENE(Local_149, Local_152, 2);
 					TASK::TASK_SYNCHRONIZED_SCENE(Local_82.f_28[0], uLocal_148, "rcmjosh1leadinout", "leadout_josh", 8f, -4f, 27, 0, 1000f, 16);
@@ -791,7 +791,7 @@ void func_221(int iParam0, int iParam1, int iParam2, bool bParam3)//Position - 0
 			}
 		}
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		PED::SET_PED_STEALTH_MOVEMENT(PLAYER::PLAYER_PED_ID(), 0, 0);
 	}
@@ -893,7 +893,7 @@ void func_230()//Position - 0x2602E
 					GlobalFunc_5705(PLAYER::PLAYER_PED_ID(), -1104.65f, 289.02f, 63.25f, 16.6717f, 0, 1);
 					CAM::SET_GAMEPLAY_CAM_RELATIVE_PITCH(0f, 1065353216);
 					CAM::SET_GAMEPLAY_CAM_RELATIVE_HEADING(0f);
-					if (GlobalFunc_4924(Local_82.f_28[0]) && ENTITY::DOES_ENTITY_EXIST(iLocal_146))
+					if (GlobalFunc_IsPedNotInjuredOrDead(Local_82.f_28[0]) && ENTITY::DOES_ENTITY_EXIST(iLocal_146))
 					{
 						uLocal_148 = PED::CREATE_SYNCHRONIZED_SCENE(Local_149, Local_152, 2);
 						TASK::TASK_SYNCHRONIZED_SCENE(Local_82.f_28[0], uLocal_148, "rcmjosh1leadinout", "leadout_josh", 1000f, -8f, 25, 0, 1000f, 16);
@@ -914,7 +914,7 @@ void func_230()//Position - 0x2602E
 					GlobalFunc_5705(PLAYER::PLAYER_PED_ID(), -1104.65f, 289.02f, 63.25f, 16.6717f, 0, 1);
 					CAM::SET_GAMEPLAY_CAM_RELATIVE_PITCH(0f, 1065353216);
 					CAM::SET_GAMEPLAY_CAM_RELATIVE_HEADING(0f);
-					if (GlobalFunc_4924(Local_82.f_28[0]) && ENTITY::DOES_ENTITY_EXIST(iLocal_146))
+					if (GlobalFunc_IsPedNotInjuredOrDead(Local_82.f_28[0]) && ENTITY::DOES_ENTITY_EXIST(iLocal_146))
 					{
 						uLocal_148 = PED::CREATE_SYNCHRONIZED_SCENE(Local_149, Local_152, 2);
 						TASK::TASK_SYNCHRONIZED_SCENE(Local_82.f_28[0], uLocal_148, "rcmjosh1leadinout", "leadout_josh", 1000f, -8f, 25, 0, 1000f, 16);
@@ -953,7 +953,7 @@ void func_230()//Position - 0x2602E
 					GlobalFunc_5705(PLAYER::PLAYER_PED_ID(), -1104.65f, 289.02f, 63.25f, 16.6717f, 0, 1);
 					CAM::SET_GAMEPLAY_CAM_RELATIVE_PITCH(0f, 1065353216);
 					CAM::SET_GAMEPLAY_CAM_RELATIVE_HEADING(0f);
-					if (GlobalFunc_4924(Local_82.f_28[0]) && ENTITY::DOES_ENTITY_EXIST(iLocal_146))
+					if (GlobalFunc_IsPedNotInjuredOrDead(Local_82.f_28[0]) && ENTITY::DOES_ENTITY_EXIST(iLocal_146))
 					{
 						uLocal_148 = PED::CREATE_SYNCHRONIZED_SCENE(Local_149, Local_152, 2);
 						TASK::TASK_SYNCHRONIZED_SCENE(Local_82.f_28[0], uLocal_148, "rcmjosh1leadinout", "leadout_josh", 8f, -8f, 25, 0, 1000f, 16);
@@ -1103,7 +1103,7 @@ void func_253()//Position - 0x27652
 	switch (iLocal_144)
 	{
 		case 0:
-			if (!GlobalFunc_2(0) && ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), -1115.071f, 279.6581f, 62.42184f, -1092.428f, 284.1398f, 67.31652f, 15.75f, 0, 1, 0))
+			if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) && ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), -1115.071f, 279.6581f, 62.42184f, -1092.428f, 284.1398f, 67.31652f, 15.75f, 0, 1, 0))
 			{
 				GlobalFunc_2838("Doing setup for leadin");
 				GlobalFunc_173(&uLocal_162, 2, PLAYER::PLAYER_PED_ID(), "Trevor", 0, 1);
@@ -1135,13 +1135,13 @@ void func_253()//Position - 0x27652
 			break;
 		
 		case 1:
-			if (!GlobalFunc_2(0))
+			if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				if (!bLocal_155)
 				{
 					if (ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), -1115.071f, 279.6581f, 62.42184f, -1092.428f, 284.1398f, 67.31652f, 15.75f, 0, 1, 0))
 					{
-						if (GlobalFunc_4924(Local_82.f_28[0]) && ENTITY::DOES_ENTITY_EXIST(iLocal_146))
+						if (GlobalFunc_IsPedNotInjuredOrDead(Local_82.f_28[0]) && ENTITY::DOES_ENTITY_EXIST(iLocal_146))
 						{
 							uLocal_147 = PED::CREATE_SYNCHRONIZED_SCENE(Local_149, Local_152, 2);
 							TASK::TASK_SYNCHRONIZED_SCENE(Local_82.f_28[0], uLocal_147, "rcmjosh1leadinout", "leadin_josh", 8f, -8f, 25, 0, 1148846080, 0);
@@ -1154,7 +1154,7 @@ void func_253()//Position - 0x27652
 					}
 					else
 					{
-						if (!GlobalFunc_2(0) && !bLocal_155)
+						if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) && !bLocal_155)
 						{
 							GlobalFunc_2838("Cannot play lead-in, re-requesting cutscene with new sections");
 							CUTSCENE::REMOVE_CUTSCENE();
@@ -1196,7 +1196,7 @@ void func_253()//Position - 0x27652
 			}
 			else
 			{
-				if (!GlobalFunc_2(0) && !bLocal_155)
+				if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) && !bLocal_155)
 				{
 					GlobalFunc_2838("Cannot play lead-in, re-requesting cutscene with new sections");
 					CUTSCENE::REMOVE_CUTSCENE();

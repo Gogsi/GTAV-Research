@@ -542,7 +542,7 @@ void func_1()//Position - 0x380
 				}
 				if (!GlobalFunc_74("SA_STRIP_CALL"))
 				{
-					GlobalFunc_1("SA_STRIP_CALL");
+					GlobalFunc_Display_Help_Text("SA_STRIP_CALL");
 				}
 				iLocal_311 = 1;
 			}
@@ -642,7 +642,7 @@ void func_1()//Position - 0x380
 			NETWORK::NETWORK_START_SYNCHRONISED_SCENE(uLocal_316);
 			if (!GlobalFunc_74("SA_STRIP_CAM"))
 			{
-				GlobalFunc_1("SA_STRIP_CAM");
+				GlobalFunc_Display_Help_Text("SA_STRIP_CAM");
 			}
 			iLocal_311 = 5;
 			break;
@@ -697,7 +697,7 @@ void func_1()//Position - 0x380
 				iLocal_318++;
 				if (!GlobalFunc_74("SA_STRIP_MENU"))
 				{
-					GlobalFunc_1("SA_STRIP_MENU");
+					GlobalFunc_Display_Help_Text("SA_STRIP_MENU");
 				}
 				iLocal_311 = 7;
 			}

@@ -500,7 +500,7 @@ void func_1()//Position - 0x340
 				{
 					AUDIO::START_AUDIO_SCENE("FRANKLIN_SAFEHOUSE_ACTIVITIES_SCENE");
 				}
-				GlobalFunc_1(func_47());
+				GlobalFunc_Display_Help_Text(func_47());
 				iLocal_324 = 1;
 			}
 			break;
@@ -1879,7 +1879,7 @@ void func_55()//Position - 0x2BB4
 					{
 						AUDIO::START_AUDIO_SCENE("FRANKLIN_SAFEHOUSE_ACTIVITIES_SCENE");
 					}
-					GlobalFunc_1(sLocal_369);
+					GlobalFunc_Display_Help_Text(sLocal_369);
 					iLocal_324 = 1;
 				}
 			}

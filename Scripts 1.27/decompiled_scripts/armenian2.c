@@ -346,9 +346,9 @@ void __EntryFunction__()//Position - 0x0
 	iLocal_1066 = 0;
 	func_589();
 	func_587();
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		iVar1 = GlobalFunc_198();
+		iVar1 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		while (!HUD::HAS_ADDITIONAL_TEXT_LOADED(0))
 		{
 			SYSTEM::WAIT(0);
@@ -397,7 +397,7 @@ void __EntryFunction__()//Position - 0x0
 				break;
 		}
 	}
-	else if (GlobalFunc_2(0))
+	else if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		while (!HUD::HAS_ADDITIONAL_TEXT_LOADED(0))
 		{
@@ -837,7 +837,7 @@ void func_35()//Position - 0x1C27
 		case 0:
 			if (iLocal_1066 >= 2)
 			{
-				GlobalFunc_11043(1, "Follow Lemar down the alley", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint1(1, "Follow Lemar down the alley", 0, 0, 0, 1);
 				iLocal_2276++;
 			}
 			break;
@@ -845,7 +845,7 @@ void func_35()//Position - 0x1C27
 		case 1:
 			if (iLocal_1066 >= 7)
 			{
-				GlobalFunc_11043(2, "Alleyway shootout", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint1(2, "Alleyway shootout", 0, 0, 0, 1);
 				iLocal_2276++;
 			}
 			break;
@@ -853,7 +853,7 @@ void func_35()//Position - 0x1C27
 		case 2:
 			if (iLocal_1066 >= 9)
 			{
-				GlobalFunc_11043(3, "Chase bike", 1, 0, 0, 1);
+				GlobalFunc_Checkpoint1(3, "Chase bike", 1, 0, 0, 1);
 				iLocal_2276++;
 			}
 			break;
@@ -2344,7 +2344,7 @@ int func_151()//Position - 0x13934
 					CUTSCENE::SET_CUTSCENE_PED_COMPONENT_VARIATION("LAMAR", 9, 0, 0, 0);
 				}
 			}
-			if (GlobalFunc_109())
+			if (GlobalFunc_Has_Cutscene_Loaded())
 			{
 				func_535(11);
 				GlobalFunc_8316(1, 1, 1, 0);
@@ -17664,7 +17664,7 @@ int func_512()//Position - 0x4F8FB
 				CUTSCENE::SET_CUTSCENE_PED_COMPONENT_VARIATION("LAMAR", 8, 0, 0, 0);
 				CUTSCENE::SET_CUTSCENE_PED_COMPONENT_VARIATION("LAMAR", 9, 0, 0, 0);
 			}
-			if (GlobalFunc_109())
+			if (GlobalFunc_Has_Cutscene_Loaded())
 			{
 				func_407("ARM2_OPEN_DOOR", 0, "ARM2_FIGHT_START");
 				iLocal_1470 = 2;
@@ -17672,7 +17672,7 @@ int func_512()//Position - 0x4F8FB
 			break;
 		
 		case 2:
-			if (GlobalFunc_109())
+			if (GlobalFunc_Has_Cutscene_Loaded())
 			{
 				GlobalFunc_8316(1, 1, 1, 0);
 				if (!PED::IS_PED_INJURED(Local_1070[2 /*14*/]))
@@ -18062,7 +18062,7 @@ int func_523()//Position - 0x507BF
 			break;
 		
 		case 1002:
-			if (GlobalFunc_109())
+			if (GlobalFunc_Has_Cutscene_Loaded())
 			{
 				func_146(10, 2, 0);
 				func_110(10);
@@ -18090,7 +18090,7 @@ int func_523()//Position - 0x507BF
 				WEAPON::SET_CURRENT_PED_WEAPON(PLAYER::PLAYER_PED_ID(), joaat("weapon_unarmed"), 0);
 				SYSTEM::SETTIMERB(0);
 				CUTSCENE::SET_CUTSCENE_CAN_BE_SKIPPED(0);
-				if (GlobalFunc_2(0))
+				if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					if (CAM::IS_SCREEN_FADED_OUT() && !CAM::IS_SCREEN_FADING_IN())
 					{
@@ -18581,7 +18581,7 @@ void func_538(int iParam0, bool bParam1, int iParam2)//Position - 0x5157B
 					ENTITY::SET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), -32.5669f, -1094.297f, 25.4223f, 1, 0, 0, 1);
 					ENTITY::SET_ENTITY_HEADING(PLAYER::PLAYER_PED_ID(), 141f);
 				}
-				if (GlobalFunc_2(0))
+				if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					STREAMING::REQUEST_MODEL(joaat("baller"));
 					STREAMING::REQUEST_MODEL(joaat("schwarzer"));
@@ -19450,7 +19450,7 @@ void func_556(int iParam0, struct<3> Param1, float fParam4, int iParam5, int iPa
 	int iVar0;
 	
 	iVar0 = 1;
-	if (!GlobalFunc_199() || !GlobalFunc_7698())
+	if (!GlobalFunc_Is_Mission_Retry() || !GlobalFunc_7698())
 	{
 		iVar0 = 0;
 	}
@@ -19607,9 +19607,9 @@ int func_563(var uParam0, struct<3> Param1, float fParam4, bool bParam5)//Positi
 						GlobalFunc_7695(iVar8);
 					}
 				}
-				if (((Global_89962 != 13 && Global_89962 != 10) && Global_89962 != 11) && Global_89962 != 12)
+				if (((Global_Mission_Fail_State != 13 && Global_Mission_Fail_State != 10) && Global_Mission_Fail_State != 11) && Global_Mission_Fail_State != 12)
 				{
-					if (MISC::GET_HASH_KEY(&(Global_89962.f_3)) == Global_68102)
+					if (MISC::GET_HASH_KEY(&(Global_Mission_Fail_State.Failed_Script_Name)) == Global_68102)
 					{
 						if (uParam0->f_12.f_42 == Global_SAVE_DATA.VEHICLE_GEN_SAVED_DATA_STRUCT.f_69[21 /*54*/].f_42)
 						{

@@ -3523,7 +3523,7 @@ void func_27(var uParam0)//Position - 0x2A20
 					{
 						if (!HUD::IS_HELP_MESSAGE_BEING_DISPLAYED())
 						{
-							GlobalFunc_1("MC_TEST");
+							GlobalFunc_Display_Help_Text("MC_TEST");
 							uParam0->f_1 = 1;
 						}
 					}

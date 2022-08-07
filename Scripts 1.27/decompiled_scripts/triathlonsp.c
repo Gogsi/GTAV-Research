@@ -10953,7 +10953,7 @@ void func_660(var uParam0)//Position - 0x5BA3E
 			if (!GlobalFunc_74("SPR_HELP_DIST_2"))
 			{
 				HUD::CLEAR_HELP(1);
-				GlobalFunc_1("SPR_HELP_DIST_2");
+				GlobalFunc_Display_Help_Text("SPR_HELP_DIST_2");
 				func_691(8);
 			}
 		}

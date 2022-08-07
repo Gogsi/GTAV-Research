@@ -2204,9 +2204,9 @@ void __EntryFunction__()//Position - 0x0
 		func_974();
 	}
 	func_964();
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		iVar0 = GlobalFunc_198();
+		iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544)
 		{
 			iVar0++;
@@ -2255,7 +2255,7 @@ void __EntryFunction__()//Position - 0x0
 	}
 	else
 	{
-		GlobalFunc_11046(0, "GO_TO_BANK", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint2(0, "GO_TO_BANK", 0, 0, 0, 1);
 	}
 	while (true)
 	{
@@ -2873,7 +2873,7 @@ void func_1()//Position - 0x931
 						CAM::RENDER_SCRIPT_CAMS(false, 0, 3000, 1, 0, 0);
 						func_25();
 						GlobalFunc_45(1, 1);
-						if (!GlobalFunc_2(0))
+						if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 						{
 							VEHICLE::SET_VEHICLE_DENSITY_MULTIPLIER_THIS_FRAME(0f);
 							MISC::CLEAR_AREA(1339.561f, 642.08f, 79.4907f, 100f, 1, 0, 0, 0);
@@ -2916,7 +2916,7 @@ void func_1()//Position - 0x931
 			case 53:
 				if (!Global_68505)
 				{
-					if (GlobalFunc_2(0))
+					if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 					{
 						iLocal_997 = 2;
 					}
@@ -3323,9 +3323,9 @@ int func_42(int iParam0, bool bParam1, bool bParam2, int iParam3)//Position - 0x
 				iVar4 = 0;
 				while (iVar4 < 7)
 				{
-					if (MISC::IS_BIT_SET(Global_81119[iVar4 /*5*/].f_1, 2))
+					if (MISC::IS_BIT_SET(Global_Running_Missions[iVar4 /*5*/].f_1, 2))
 					{
-						iVar5 = Global_81119[iVar4 /*5*/];
+						iVar5 = Global_Running_Missions[iVar4 /*5*/];
 						StringCopy(&cVar6, "MISS_SWITCH_", 64);
 						StringConCat(&cVar6, &(Global_81155[Global_68514.f_109[iVar5 /*4*/] /*34*/]), 64);
 						STATS::STAT_INCREMENT(MISC::GET_HASH_KEY(&cVar6), 1f);
@@ -6721,7 +6721,7 @@ void func_453()//Position - 0x55982
 			iLocal_915[1] = PED::ADD_SCENARIO_BLOCKING_AREA(1774.141f, 4628.916f, 30f, 1817.505f, 4693.505f, 127.7757f, 0, 1, 1, 1);
 			iLocal_915[2] = PED::ADD_SCENARIO_BLOCKING_AREA(1862.735f, 4663.57f, 30f, 2196.043f, 4909.083f, 127.7757f, 0, 1, 1, 1);
 			TASK::SET_SCENARIO_GROUP_ENABLED("Grapeseed_Planes", 0);
-			GlobalFunc_11046(8, "LAND_AT_AIRFIELD", 1, 0, 0, 1);
+			GlobalFunc_Checkpoint2(8, "LAND_AT_AIRFIELD", 1, 0, 0, 1);
 			if (!AUDIO::IS_AUDIO_SCENE_ACTIVE("BS_2B_GET_TO_AIRSTRIP"))
 			{
 				AUDIO::START_AUDIO_SCENE("BS_2B_GET_TO_AIRSTRIP");
@@ -9232,7 +9232,7 @@ void func_542()//Position - 0x5B8E2
 			bLocal_442 = false;
 			iLocal_708 = 0;
 			iLocal_734 = 0;
-			GlobalFunc_11046(7, "DROP_OFF_GOLD", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(7, "DROP_OFF_GOLD", 0, 0, 0, 1);
 			GlobalFunc_574(687, 0);
 			PLAYER::SET_PLAYER_CONTROL(PLAYER::PLAYER_ID(), true, 0);
 			iLocal_414 = 0;
@@ -9353,7 +9353,7 @@ void func_542()//Position - 0x5B8E2
 									{
 										if ((MISC::GET_GAME_TIMER() - iLocal_735) > 1000 || iLocal_734 == 0)
 										{
-											GlobalFunc_1("F3B_DROPHELP");
+											GlobalFunc_Display_Help_Text("F3B_DROPHELP");
 											iLocal_457[129] = 1;
 										}
 									}
@@ -10466,7 +10466,7 @@ void func_588()//Position - 0x5EF4A
 			}
 			RECORDING::_0x293220DA1B46CEBC(2f, 10f, 4);
 			func_36();
-			GlobalFunc_11046(6, "CHOPPER_CHASE", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(6, "CHOPPER_CHASE", 0, 0, 0, 1);
 			iLocal_657 = 0;
 			iLocal_997 = 1;
 		}
@@ -11925,7 +11925,7 @@ void func_596()//Position - 0x616D9
 			iLocal_423 = 1;
 			bLocal_441 = false;
 			iLocal_446 = 1;
-			GlobalFunc_11046(5, "LOSE_COPS", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(5, "LOSE_COPS", 0, 0, 0, 1);
 			if (!PED::IS_PED_INJURED(iLocal_1004[1]))
 			{
 				PED::SET_BLOCKING_OF_NON_TEMPORARY_EVENTS(iLocal_1004[1], 0);
@@ -17572,7 +17572,7 @@ void func_676()//Position - 0x6FE5E
 				Local_1280.f_4 = 0;
 				iLocal_430 = 0;
 				iLocal_435 = 0;
-				GlobalFunc_11046(3, "CITY_SHOOTOUT", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint2(3, "CITY_SHOOTOUT", 0, 0, 0, 1);
 				iLocal_657 = 0;
 			}
 			else
@@ -17594,7 +17594,7 @@ void func_676()//Position - 0x6FE5E
 				Local_1280.f_4 = 50;
 				iLocal_430 = 1;
 				iLocal_435 = 0;
-				GlobalFunc_11046(4, "CITY_SHOOTOUT_MID_POINT", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint2(4, "CITY_SHOOTOUT_MID_POINT", 0, 0, 0, 1);
 				iLocal_657 = 1;
 			}
 			SYSTEM::SETTIMERA(0);
@@ -18069,7 +18069,7 @@ void func_676()//Position - 0x6FE5E
 						{
 							if (ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), -183.0731f, -660.4916f, 40.23224f, -147.5234f, -555.3495f, 72.3472f, 115.25f, 0, 1, 0))
 							{
-								GlobalFunc_11046(4, "CITY_SHOOTOUT_MID_POINT", 0, 0, 0, 1);
+								GlobalFunc_Checkpoint2(4, "CITY_SHOOTOUT_MID_POINT", 0, 0, 0, 1);
 								iLocal_996 = 9;
 							}
 						}
@@ -22587,7 +22587,7 @@ void func_701()//Position - 0x7A463
 			Local_1223[0 /*14*/].f_4 = 0;
 			fLocal_645 = 1f;
 			PLAYER::SET_PLAYER_CONTROL(PLAYER::PLAYER_ID(), true, 0);
-			GlobalFunc_11046(2, "TUNNEL_SHOOTOUT", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(2, "TUNNEL_SHOOTOUT", 0, 0, 0, 1);
 			GlobalFunc_173(&Local_3903, 0, 0, "MICHAEL", 0, 1);
 			SYSTEM::SETTIMERB(0);
 			iLocal_657 = 0;
@@ -27983,7 +27983,7 @@ void func_772()//Position - 0x8592B
 				STREAMING::NEW_LOAD_SCENE_STOP();
 				func_36();
 				GlobalFunc_173(&Local_3903, 0, 0, "MICHAEL", 0, 1);
-				GlobalFunc_11046(1, "DRILL_THROUGH_WALL", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint2(1, "DRILL_THROUGH_WALL", 0, 0, 0, 1);
 				RECORDING::_0x293220DA1B46CEBC(10f, 10f, 4);
 				if (!ENTITY::IS_ENTITY_DEAD(iLocal_922))
 				{
@@ -30543,7 +30543,7 @@ void func_852()//Position - 0x90547
 			}
 			else if (iLocal_657 == 100)
 			{
-				if (GlobalFunc_109())
+				if (GlobalFunc_Has_Cutscene_Loaded())
 				{
 					GlobalFunc_3034();
 					if (GlobalFunc_6674(PLAYER::PLAYER_PED_ID()) != 2)
@@ -30788,7 +30788,7 @@ int func_858(var uParam0, var uParam1, bool bParam2, bool bParam3, bool bParam4,
 	
 	uParam0->f_7 = *uParam1;
 	uParam0->f_8 = uParam1->f_1;
-	if ((GlobalFunc_2(0) && !bParam2) && !bParam4)
+	if ((GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) && !bParam2) && !bParam4)
 	{
 		if (uParam0->f_5)
 		{
@@ -31481,39 +31481,39 @@ void func_961(int iParam0, bool bParam1)//Position - 0x9E769
 	{
 		if (iLocal_996 >= 14)
 		{
-			GlobalFunc_11046(8, "LAND_AT_AIRFIELD", 1, 0, 0, 1);
+			GlobalFunc_Checkpoint2(8, "LAND_AT_AIRFIELD", 1, 0, 0, 1);
 		}
 		else if (iLocal_996 >= 12)
 		{
-			GlobalFunc_11046(7, "DROP_OFF_GOLD", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(7, "DROP_OFF_GOLD", 0, 0, 0, 1);
 		}
 		else if (iLocal_996 >= 11)
 		{
-			GlobalFunc_11046(6, "CHOPPER_CHASE", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(6, "CHOPPER_CHASE", 0, 0, 0, 1);
 		}
 		else if (iLocal_996 >= 10)
 		{
-			GlobalFunc_11046(5, "LOSE_COPS", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(5, "LOSE_COPS", 0, 0, 0, 1);
 		}
 		else if (iLocal_996 >= 9)
 		{
-			GlobalFunc_11046(4, "CITY_SHOOTOUT_MID_POINT", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(4, "CITY_SHOOTOUT_MID_POINT", 0, 0, 0, 1);
 		}
 		else if (iLocal_996 >= 8)
 		{
-			GlobalFunc_11046(3, "CITY_SHOOTOUT", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(3, "CITY_SHOOTOUT", 0, 0, 0, 1);
 		}
 		else if (iLocal_996 >= 6)
 		{
-			GlobalFunc_11046(2, "TUNNEL_SHOOTOUT", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(2, "TUNNEL_SHOOTOUT", 0, 0, 0, 1);
 		}
 		else if (iLocal_996 >= 2)
 		{
-			GlobalFunc_11046(1, "DRILL_THROUGH_WALL", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(1, "DRILL_THROUGH_WALL", 0, 0, 0, 1);
 		}
 		else if (iLocal_996 >= 1)
 		{
-			GlobalFunc_11046(0, "GO_TO_BANK", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(0, "GO_TO_BANK", 0, 0, 0, 1);
 		}
 	}
 }

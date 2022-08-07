@@ -2215,7 +2215,7 @@ void __EntryFunction__()//Position - 0x0
 		}
 		func_455(&uLocal_1928);
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		if (GlobalFunc_7698())
 		{
@@ -2238,11 +2238,11 @@ void __EntryFunction__()//Position - 0x0
 	iLocal_1442 = 1;
 	Local_1230 = { GlobalFunc_5689(iLocal_1442) };
 	iLocal_1040 = 1;
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		GlobalFunc_737();
 		bLocal_137 = true;
-		iLocal_1550 = GlobalFunc_198();
+		iLocal_1550 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544)
 		{
 			bLocal_1527 = true;
@@ -3205,7 +3205,7 @@ int func_134(var uParam0, var uParam1)//Position - 0x68FF
 	switch (iLocal_1040)
 	{
 		case 1:
-			if (GlobalFunc_199())
+			if (GlobalFunc_Is_Mission_Retry())
 			{
 				iLocal_1040 = 4;
 				break;
@@ -3217,7 +3217,7 @@ int func_134(var uParam0, var uParam1)//Position - 0x68FF
 			uParam0->f_274 = 2;
 			if (bLocal_1511 && !iLocal_1513)
 			{
-				iLocal_1554 = Global_89962.f_12[0];
+				iLocal_1554 = Global_Mission_Fail_State.f_12[0];
 				if (iLocal_1550 == 0)
 				{
 					iLocal_1538 = 0;
@@ -3335,7 +3335,7 @@ int func_134(var uParam0, var uParam1)//Position - 0x68FF
 			func_333();
 			func_273();
 			iLocal_1554 = iLocal_1553;
-			Global_89962.f_12[0] = iLocal_1554;
+			Global_Mission_Fail_State.f_12[0] = iLocal_1554;
 			if (!HUD::DOES_BLIP_EXIST(uParam1->f_2))
 			{
 				uParam1->f_2 = HUD::ADD_BLIP_FOR_COORD(uParam0->f_6);
@@ -6154,20 +6154,20 @@ void func_273()//Position - 0xCBC1
 	switch (iLocal_1459)
 	{
 		case 0:
-			GlobalFunc_11067(0, "assassin_multi_locate_bodybuilder", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint4(0, "assassin_multi_locate_bodybuilder", 0, 0, 0, 1);
 			GlobalFunc_9138(iLocal_1582);
 			break;
 		
 		case 1:
-			GlobalFunc_11067(1, "assassin_multi_locate_yacht_target", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint4(1, "assassin_multi_locate_yacht_target", 0, 0, 0, 1);
 			break;
 		
 		case 2:
-			GlobalFunc_11067(2, "assassin_multi_locate_window_washer", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint4(2, "assassin_multi_locate_window_washer", 0, 0, 0, 1);
 			break;
 		
 		case 3:
-			GlobalFunc_11067(3, "assassin_multi_locate_biker", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint4(3, "assassin_multi_locate_biker", 0, 0, 0, 1);
 			break;
 	}
 }
@@ -6923,7 +6923,7 @@ void func_419(var uParam0)//Position - 0x1835D
 								{
 									GlobalFunc_7777(&uLocal_1489);
 									iLocal_1496 = 1;
-									if (GlobalFunc_2(0))
+									if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 									{
 										GlobalFunc_575(500);
 									}

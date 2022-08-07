@@ -411,7 +411,7 @@ void __EntryFunction__()//Position - 0x0
 	}
 	func_439();
 	AUDIO::REGISTER_SCRIPT_WITH_AUDIO(0);
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		GlobalFunc_4972(-404.3334f, -2147.648f, 9.314f, 182.5609f, 1, 0);
 	}
@@ -419,7 +419,7 @@ void __EntryFunction__()//Position - 0x0
 	while (true)
 	{
 		RECORDING::_0x208784099002BC30("M_ToT", 0);
-		if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+		if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 		{
 			func_421();
 			func_418();
@@ -625,7 +625,7 @@ void func_30(int iParam0, int iParam1, int iParam2, bool bParam3)//Position - 0x
 			}
 		}
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		PED::SET_PED_STEALTH_MOVEMENT(PLAYER::PLAYER_PED_ID(), 0, 0);
 	}
@@ -645,7 +645,7 @@ int func_40(var uParam0, int iParam1, int iParam2, int iParam3, int iParam4, int
 	struct<15> Var0;
 	int iVar15;
 	
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		return 0;
 	}
@@ -1481,7 +1481,7 @@ int func_103(int iParam0, bool bParam1)//Position - 0x33E0
 			}
 			else if (func_117(1, Local_220, 0))
 			{
-				if (!GlobalFunc_199())
+				if (!GlobalFunc_Is_Mission_Retry())
 				{
 					if (func_116())
 					{
@@ -1497,7 +1497,7 @@ int func_103(int iParam0, bool bParam1)//Position - 0x33E0
 						GlobalFunc_562(34);
 						VEHICLE::SET_VEHICLE_MODEL_IS_SUPPRESSED(joaat("trash"), 1);
 						VEHICLE::SET_VEHICLE_MODEL_IS_SUPPRESSED(joaat("towtruck"), 1);
-						if (GlobalFunc_4924(Local_251))
+						if (GlobalFunc_IsPedNotInjuredOrDead(Local_251))
 						{
 							if (!GlobalFunc_6964(Local_251, -2017877118))
 							{
@@ -1535,7 +1535,7 @@ int func_103(int iParam0, bool bParam1)//Position - 0x33E0
 				{
 					MISC::CLEAR_AREA(Local_251.f_1, 100f, 1, 0, 0, 0);
 					func_108();
-					if (GlobalFunc_4924(Local_251))
+					if (GlobalFunc_IsPedNotInjuredOrDead(Local_251))
 					{
 						PED::SET_PED_CAPSULE(Local_251, 0.1f);
 						if (!GlobalFunc_6964(Local_251, -2017877118))
@@ -1548,7 +1548,7 @@ int func_103(int iParam0, bool bParam1)//Position - 0x33E0
 							PED::SET_PED_RELATIONSHIP_GROUP_HASH(Local_251, uLocal_287);
 						}
 					}
-					if (!GlobalFunc_199())
+					if (!GlobalFunc_Is_Mission_Retry())
 					{
 						func_107(PLAYER::PLAYER_PED_ID(), -396.3081f, -2145.176f, 9.3193f, 172.0072f);
 					}
@@ -1632,7 +1632,7 @@ int func_103(int iParam0, bool bParam1)//Position - 0x33E0
 
 void func_107(int iParam0, struct<3> Param1, float fParam4)//Position - 0x3917
 {
-	if (GlobalFunc_4924(iParam0))
+	if (GlobalFunc_IsPedNotInjuredOrDead(iParam0))
 	{
 		TASK::CLEAR_PED_TASKS(iParam0);
 	}
@@ -1771,7 +1771,7 @@ int func_117(int iParam0, struct<3> Param1, float fParam4)//Position - 0x3B18
 				{
 					ENTITY::SET_ENTITY_AS_MISSION_ENTITY(Global_86864.f_9[0], 1, 1);
 					Local_251 = Global_86864.f_9[0];
-					if (GlobalFunc_4924(Local_251))
+					if (GlobalFunc_IsPedNotInjuredOrDead(Local_251))
 					{
 						PED::SET_BLOCKING_OF_NON_TEMPORARY_EVENTS(Local_251, true);
 						PED::SET_PED_CAPSULE(Local_251, 0.1f);
@@ -1853,7 +1853,7 @@ int func_118(var uParam0, var uParam1, struct<3> Param2, var uParam5, bool bPara
 		if (GlobalFunc_3015(uParam1, "Loading", 0))
 		{
 			*uParam0 = PED::CREATE_PED(26, uParam1, Param2, uParam5, 1, 1);
-			if (GlobalFunc_4924(*uParam0))
+			if (GlobalFunc_IsPedNotInjuredOrDead(*uParam0))
 			{
 				if (bParam7)
 				{
@@ -1875,7 +1875,7 @@ int func_118(var uParam0, var uParam1, struct<3> Param2, var uParam5, bool bPara
 			}
 		}
 	}
-	else if (GlobalFunc_4924(*uParam0))
+	else if (GlobalFunc_IsPedNotInjuredOrDead(*uParam0))
 	{
 		return 1;
 	}
@@ -2125,7 +2125,7 @@ void func_131()//Position - 0x446B
 			{
 				if (!GlobalFunc_111())
 				{
-					if (GlobalFunc_4924(Local_251))
+					if (GlobalFunc_IsPedNotInjuredOrDead(Local_251))
 					{
 						if (GlobalFunc_7191(PED::GET_VEHICLE_PED_IS_IN(Local_251, 0)))
 						{
@@ -2267,7 +2267,7 @@ int func_140(int iParam0, int iParam1)//Position - 0x4993
 	char* sVar6;
 	
 	Var3 = { 0f, -1f, 0f };
-	if (GlobalFunc_4924(Local_251))
+	if (GlobalFunc_IsPedNotInjuredOrDead(Local_251))
 	{
 		if (PED::IS_PED_IN_MELEE_COMBAT(Local_251))
 		{
@@ -2398,7 +2398,7 @@ int func_145(int iParam0, int iParam1)//Position - 0x4CF9
 {
 	if (!GlobalFunc_236())
 	{
-		if (GlobalFunc_4924(Local_251))
+		if (GlobalFunc_IsPedNotInjuredOrDead(Local_251))
 		{
 			if (((ENTITY::IS_ENTITY_IN_ANGLED_AREA(iParam1, -408.0286f, -2175.476f, 5.31836f, -394.644f, -2175.297f, 15.31835f, 21.52f, 0, 1, 0) && !func_146(iParam0)) && !PED::IS_PED_IN_MELEE_COMBAT(Local_251)) && !PED::IS_PED_IN_ANY_VEHICLE(iParam1, 0))
 			{
@@ -2469,7 +2469,7 @@ void func_149()//Position - 0x4EA9
 {
 	var uVar0;
 	
-	if (GlobalFunc_4924(Local_251))
+	if (GlobalFunc_IsPedNotInjuredOrDead(Local_251))
 	{
 		func_213();
 		switch (iLocal_95)
@@ -3656,7 +3656,7 @@ int func_209(int iParam0, float fParam1)//Position - 0x7A84
 	{
 		return 1;
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()) && GlobalFunc_4924(iParam0))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()) && GlobalFunc_IsPedNotInjuredOrDead(iParam0))
 	{
 		if (GlobalFunc_156(PLAYER::PLAYER_PED_ID(), iParam0, 0) <= fParam1 && func_210(iParam0, PLAYER::PLAYER_PED_ID()))
 		{
@@ -4120,7 +4120,7 @@ void func_235()//Position - 0x84D9
 
 void func_236()//Position - 0x855F
 {
-	if (GlobalFunc_4924(Local_251) && iLocal_95 != 15)
+	if (GlobalFunc_IsPedNotInjuredOrDead(Local_251) && iLocal_95 != 15)
 	{
 		if (GlobalFunc_775(Local_251, Local_223, 200f))
 		{
@@ -4232,7 +4232,7 @@ void func_239()//Position - 0x8742
 				PLAYER::SET_WANTED_LEVEL_MULTIPLIER(0.5f);
 				func_373();
 				GlobalFunc_5198(34);
-				if (GlobalFunc_199())
+				if (GlobalFunc_Is_Mission_Retry())
 				{
 					MISC::CLEAR_AREA_OF_VEHICLES(-399.8117f, -2172.942f, 9.3184f, 50f, 0, 0, 1, 1, 0);
 					MISC::CLEAR_AREA_OF_PROJECTILES(-399.8117f, -2172.942f, 9.3184f, 50f, 0);
@@ -4240,7 +4240,7 @@ void func_239()//Position - 0x8742
 				}
 				else
 				{
-					if (GlobalFunc_2(0))
+					if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 					{
 						func_107(PLAYER::PLAYER_PED_ID(), -404.3334f, -2147.648f, 9.314f, 182.5609f);
 						CAM::GET_GAMEPLAY_CAM_RELATIVE_HEADING();

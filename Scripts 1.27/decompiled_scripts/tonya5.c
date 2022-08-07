@@ -1088,7 +1088,7 @@ void __EntryFunction__()//Position - 0x0
 	Local_3320.f_7 = 1;
 	iLocal_2765 = Local_2981.f_28[0];
 	iLocal_2646 = 52;
-	if (!GlobalFunc_2(0))
+	if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		Global_SAVE_DATA.TOWING_SAVED_STRUCT.TOWING_iJobsCompleted = 4;
 	}
@@ -1122,9 +1122,9 @@ void __EntryFunction__()//Position - 0x0
 		func_582(&Local_2778, bLocal_510, &Local_2658, &uLocal_2766, &uLocal_2768, &iLocal_2933, iLocal_2940, iLocal_2765);
 		if (!iLocal_3344)
 		{
-			if (GlobalFunc_199())
+			if (GlobalFunc_Is_Mission_Retry())
 			{
-				iLocal_3348 = GlobalFunc_198();
+				iLocal_3348 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 				if (!Global_84544)
 				{
 					if (iLocal_3348 == 0)
@@ -2780,7 +2780,7 @@ int func_240(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, va
 			GlobalFunc_173(&Local_2390, 1, PLAYER::PLAYER_PED_ID(), "FRANKLIN", 0, 1);
 			GlobalFunc_173(&Local_2390, 3, iLocal_2765, "TONYA", 0, 1);
 			GlobalFunc_173(&Local_2390, 4, 0, "TOWDISPATCH", 0, 1);
-			GlobalFunc_11110(1, "towing_tonya_franklin_towing", 1, 0, 0, 1);
+			GlobalFunc_Checkpoint8(1, "towing_tonya_franklin_towing", 1, 0, 0, 1);
 			if (iLocal_462 == 3)
 			{
 				if (GlobalFunc_6656(&Local_2857, &fLocal_2860, &uLocal_2841, &uLocal_2844))
@@ -7866,7 +7866,7 @@ void func_504()//Position - 0x3AF9F
 	switch (iLocal_3317)
 	{
 		case 0:
-			GlobalFunc_11110(0, "towing_tonya_franklin_travel", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint8(0, "towing_tonya_franklin_travel", 0, 0, 0, 1);
 			GlobalFunc_173(&uLocal_526, 1, PLAYER::PLAYER_PED_ID(), "FRANKLIN", 0, 1);
 			GlobalFunc_173(&uLocal_526, 3, iLocal_2765, "TONYA", 0, 1);
 			STREAMING::REQUEST_MODEL(joaat("towtruck"));
@@ -8381,7 +8381,7 @@ void func_517()//Position - 0x3BDE8
 			break;
 		
 		case 1:
-			if (GlobalFunc_109())
+			if (GlobalFunc_Has_Cutscene_Loaded())
 			{
 				GlobalFunc_8316(1, 1, 1, 0);
 				GlobalFunc_601(23, 1);
@@ -8402,7 +8402,7 @@ void func_517()//Position - 0x3BDE8
 				uLocal_3350 = PATHFIND::ADD_NAVMESH_BLOCKING_OBJECT(Local_3332, 5f, 5f, 5f, 0f, 0, 7);
 				GlobalFunc_9161();
 				CUTSCENE::START_CUTSCENE(0);
-				if (GlobalFunc_2(0))
+				if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					if (CAM::IS_SCREEN_FADED_OUT())
 					{
@@ -8545,9 +8545,9 @@ void func_543()//Position - 0x3D04C
 	{
 		SYSTEM::WAIT(0);
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		iLocal_3348 = GlobalFunc_198();
+		iLocal_3348 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544)
 		{
 			if (iLocal_3348 <= 1)

@@ -634,7 +634,7 @@ void __EntryFunction__()//Position - 0x0
 	GlobalFunc_238(iLocal_579);
 	GlobalFunc_238(iLocal_582);
 	GlobalFunc_238(iLocal_577);
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		if (!CAM::IS_SCREEN_FADED_IN())
 		{
@@ -892,7 +892,7 @@ void func_32(int iParam0)//Position - 0xFC4
 			}
 			else if (MISC::ARE_STRINGS_EQUAL(sLocal_157, "B2_FAIL2"))
 			{
-				if (func_33(0) && GlobalFunc_2(0))
+				if (func_33(0) && GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					func_589();
 				}
@@ -1254,7 +1254,7 @@ void func_70(int iParam0)//Position - 0x23FC
 			{
 				SCRIPT::REQUEST_SCRIPT("postRC_Barry1and2");
 			}
-			GlobalFunc_11076(2, "Outro", 1, 0, 0, 1);
+			GlobalFunc_Checkpoint5(2, "Outro", 1, 0, 0, 1);
 			*iParam0 = 1;
 			break;
 		
@@ -3303,7 +3303,7 @@ int func_291(int iParam0, float fParam1, int iParam2)//Position - 0x28915
 	}
 	if (iParam0 == 1)
 	{
-		if (!GlobalFunc_109())
+		if (!GlobalFunc_Has_Cutscene_Loaded())
 		{
 			return 0;
 		}
@@ -4284,7 +4284,7 @@ void func_399(int iParam0)//Position - 0x2E78D
 				return;
 			}
 			iLocal_584 = 0;
-			GlobalFunc_11076(1, "Half Way", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint5(1, "Half Way", 0, 0, 0, 1);
 			if (func_398(&iVar0))
 			{
 				func_397(&(Local_498[iVar0 /*15*/]), 173.7f, -918.9f, 32.2f, 235.72f, -1, 1250, 1150, 1750);
@@ -4532,7 +4532,7 @@ void func_405(int iParam0)//Position - 0x2EBD9
 			GlobalFunc_4923(&Local_95, 0, 1);
 			func_409(&Local_95, 1, 1, 0);
 			func_408();
-			GlobalFunc_11076(0, "Mission Start", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint5(0, "Mission Start", 0, 0, 0, 1);
 			break;
 		
 		case 1:
@@ -6975,7 +6975,7 @@ void func_556()//Position - 0x36897
 	GlobalFunc_601(20, 1);
 	GlobalFunc_601(4, 1);
 	GlobalFunc_563(1);
-	if (GlobalFunc_199() == 1)
+	if (GlobalFunc_Is_Mission_Retry() == 1)
 	{
 		Global_68490 = 1;
 		iLocal_81 = 0;
@@ -6997,7 +6997,7 @@ void func_556()//Position - 0x36897
 		{
 			ENTITY::SET_ENTITY_VISIBLE(PLAYER::PLAYER_PED_ID(), 1);
 		}
-		iVar0 = GlobalFunc_198();
+		iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544 == 1)
 		{
 			iVar0++;

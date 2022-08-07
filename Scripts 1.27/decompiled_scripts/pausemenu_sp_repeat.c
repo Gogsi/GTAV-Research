@@ -339,7 +339,7 @@ int func_8()//Position - 0x43F
 	{
 		return 1;
 	}
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		return 0;
 	}

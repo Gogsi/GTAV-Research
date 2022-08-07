@@ -12480,7 +12480,7 @@ void func_227(int iParam0, var uParam1, int iParam2)//Position - 0x1584B
 				{
 					if (func_245(iParam0, iVar6, "mini@strip_club@lap_dance@ld_girl_a_song_a_p1", "ld_girl_a_song_a_p1_m", "ld_girl_a_song_a_p1_f", "ld_girl_a_song_a_p1_f_face", 1f, 1, 0))
 					{
-						GlobalFunc_1("SA_STRIP_DANCE");
+						GlobalFunc_Display_Help_Text("SA_STRIP_DANCE");
 						iParam0->f_1 = 0;
 					}
 				}
@@ -12504,7 +12504,7 @@ void func_227(int iParam0, var uParam1, int iParam2)//Position - 0x1584B
 					fVar24 = 4f;
 					if (func_245(iParam0, iVar6, "mini@strip_club@lap_dance@ld_girl_a_exit", "ld_girl_a_exit_m", "ld_girl_a_exit_f", "ld_girl_a_exit_f_face", fVar24, 1, 0))
 					{
-						GlobalFunc_1("SA_STRIP_DANCEb");
+						GlobalFunc_Display_Help_Text("SA_STRIP_DANCEb");
 						iParam0->f_1 = 0;
 					}
 				}
@@ -12528,7 +12528,7 @@ void func_227(int iParam0, var uParam1, int iParam2)//Position - 0x1584B
 				{
 					if (func_245(iParam0, iVar6, "mini@strip_club@lap_dance@ld_girl_a_wait", "ld_girl_a_wait_m", "ld_girl_a_wait_f", "ld_girl_a_wait_f_face", 1082130432, 0, 1))
 					{
-						GlobalFunc_1("SA_STRIP_RETRIG");
+						GlobalFunc_Display_Help_Text("SA_STRIP_RETRIG");
 						iParam0->f_1 = 0;
 					}
 				}
@@ -12554,7 +12554,7 @@ void func_227(int iParam0, var uParam1, int iParam2)//Position - 0x1584B
 				{
 					if (func_245(iParam0, iVar6, "mini@strip_club@lap_dance@ld_girl_a_accept", "ld_girl_a_accept_m", "ld_girl_a_accept_f", "ld_girl_a_accept_f_face", 1082130432, 1, 0))
 					{
-						GlobalFunc_1("SA_STRIP_DANCE");
+						GlobalFunc_Display_Help_Text("SA_STRIP_DANCE");
 						iParam0->f_1 = 0;
 					}
 				}
@@ -25066,7 +25066,7 @@ int func_686(var uParam0, int iParam1, int iParam2, var uParam3, int iParam4)//P
 			{
 				if (!GlobalFunc_74(sLocal_564))
 				{
-					GlobalFunc_1(sLocal_564);
+					GlobalFunc_Display_Help_Text(sLocal_564);
 				}
 				if (PAD::IS_CONTROL_JUST_PRESSED(2, 51))
 				{

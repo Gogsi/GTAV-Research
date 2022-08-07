@@ -763,9 +763,9 @@ int func_7(var uParam0, bool bParam1, bool bParam2, int iParam3)//Position - 0xA
 				iVar4 = 0;
 				while (iVar4 < 7)
 				{
-					if (MISC::IS_BIT_SET(Global_81119[iVar4 /*5*/].f_1, 2))
+					if (MISC::IS_BIT_SET(Global_Running_Missions[iVar4 /*5*/].f_1, 2))
 					{
-						iVar5 = Global_81119[iVar4 /*5*/];
+						iVar5 = Global_Running_Missions[iVar4 /*5*/];
 						StringCopy(&cVar6, "MISS_SWITCH_", 64);
 						StringConCat(&cVar6, &(Global_81155[Global_68514.f_109[iVar5 /*4*/] /*34*/]), 64);
 						STATS::STAT_INCREMENT(MISC::GET_HASH_KEY(&cVar6), 1f);
@@ -3751,11 +3751,11 @@ int func_556(int iParam0, var uParam1, var uParam2)//Position - 0x72792
 					break;
 			}
 			iVar3 = 0;
-			while (iVar3 < Global_81119)
+			while (iVar3 < Global_Running_Missions)
 			{
-				if (Global_81119[iVar3 /*5*/] != -1)
+				if (Global_Running_Missions[iVar3 /*5*/] != -1)
 				{
-					uVar1 = Global_68514.f_109[Global_81119[iVar3 /*5*/] /*4*/];
+					uVar1 = Global_68514.f_109[Global_Running_Missions[iVar3 /*5*/] /*4*/];
 					iVar2 = uVar1;
 					if (GlobalFunc_747(Global_81155[iVar2 /*34*/].f_12, iVar0))
 					{
@@ -7610,7 +7610,7 @@ void func_616()//Position - 0x7910B
 	{
 		return;
 	}
-	if (Global_68246 && !GlobalFunc_2(0))
+	if (Global_68246 && !GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		bVar0 = false;
 		if (!MISC::IS_BIT_SET(Global_SAVE_DATA.FLOW_STRUCT.MF_STRANDS_ARRAY[27 /*3*/], 1))
@@ -7641,7 +7641,7 @@ void func_616()//Position - 0x7910B
 					iVar3 = Global_SAVE_DATA.FLOW_STRUCT.MF_STRANDS_ARRAY[iVar2 /*3*/].f_1;
 					if (iVar3 != -1)
 					{
-						if (Global_68514.f_6825[iVar3 /*3*/] == -868169264)
+						if (Global_68514.f_6825[iVar3 /*3*/] == joaat("flow_do_mission_now"))
 						{
 							bVar0 = true;
 							iVar4 = Global_68514.f_109[Global_68514.f_6825[iVar3 /*3*/].f_2 /*4*/];
@@ -7680,7 +7680,7 @@ void func_616()//Position - 0x7910B
 				iVar2++;
 			}
 		}
-		if (bVar0 && !GlobalFunc_2(0))
+		if (bVar0 && !GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			STREAMING::STOP_PLAYER_SWITCH();
 			GlobalFunc_749(0);

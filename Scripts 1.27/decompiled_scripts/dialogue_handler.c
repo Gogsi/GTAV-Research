@@ -2368,7 +2368,7 @@ int func_91()//Position - 0x45DA
 	{
 		if (GlobalFunc_39(0))
 		{
-			if (Global_3145728 || GlobalFunc_2(0))
+			if (Global_3145728 || GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				return 1;
 			}
@@ -2378,7 +2378,7 @@ int func_91()//Position - 0x45DA
 	{
 		if (GlobalFunc_39(0))
 		{
-			if (Global_3670016 || GlobalFunc_2(0))
+			if (Global_3670016 || GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				return 1;
 			}

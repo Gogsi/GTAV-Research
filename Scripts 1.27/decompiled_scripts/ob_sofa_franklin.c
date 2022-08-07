@@ -704,7 +704,7 @@ void func_17()//Position - 0xE0D
 		case 0:
 			if (((GlobalFunc_6527(Local_335, Var0) && !GlobalFunc_236()) && PED::IS_PED_HEADING_TOWARDS_POSITION(PLAYER::PLAYER_PED_ID(), Local_338, 90f)) && func_78())
 			{
-				GlobalFunc_1("TV_HLP0");
+				GlobalFunc_Display_Help_Text("TV_HLP0");
 				if (!AUDIO::IS_AUDIO_SCENE_ACTIVE("FRANKLIN_SAFEHOUSE_ACTIVITIES_SCENE"))
 				{
 					AUDIO::START_AUDIO_SCENE("FRANKLIN_SAFEHOUSE_ACTIVITIES_SCENE");
@@ -846,7 +846,7 @@ void func_17()//Position - 0xE0D
 			PAD::DISABLE_CONTROL_ACTION(0, 0, 1);
 			if (!Global_24504[0 /*11*/].f_2)
 			{
-				GlobalFunc_1("TV_HLP3");
+				GlobalFunc_Display_Help_Text("TV_HLP3");
 				if (GlobalFunc_4616(iLocal_326))
 				{
 					CAM::SHAKE_CAM(iLocal_326, "HAND_SHAKE", (0.2f / 3f));
@@ -863,7 +863,7 @@ void func_17()//Position - 0xE0D
 				{
 					if (!GlobalFunc_74("TV_HLP4"))
 					{
-						GlobalFunc_1("TV_HLP4");
+						GlobalFunc_Display_Help_Text("TV_HLP4");
 					}
 					if (GlobalFunc_4616(iLocal_326))
 					{
@@ -885,7 +885,7 @@ void func_17()//Position - 0xE0D
 			}
 			if (!GlobalFunc_74("TV_HLP3"))
 			{
-				GlobalFunc_1("TV_HLP3");
+				GlobalFunc_Display_Help_Text("TV_HLP3");
 			}
 			if (PAD::IS_CONTROL_JUST_PRESSED(2, 51))
 			{
@@ -949,7 +949,7 @@ void func_17()//Position - 0xE0D
 				if (PED::GET_SYNCHRONIZED_SCENE_PHASE(uLocal_329) > 0.5f)
 				{
 					GlobalFunc_5649(0, 0, 1, 0, 0);
-					GlobalFunc_1("TV_HLP4");
+					GlobalFunc_Display_Help_Text("TV_HLP4");
 					if (!AUDIO::IS_AUDIO_SCENE_ACTIVE("TV_FRANKLINS_HOUSE_SOCEN"))
 					{
 						AUDIO::START_AUDIO_SCENE("TV_FRANKLINS_HOUSE_SOCEN");
@@ -1310,7 +1310,7 @@ void func_17()//Position - 0xE0D
 							TASK::TASK_SYNCHRONIZED_SCENE(PLAYER::PLAYER_PED_ID(), uLocal_329, sLocal_334, "tv_base", 8f, -8f, 64, 0, 1148846080, 0);
 							ENTITY::PLAY_SYNCHRONIZED_ENTITY_ANIM(func_58(), uLocal_329, "tv_base_remote", sLocal_334, 8f, -8f, 64, 1148846080);
 							PED::SET_SYNCHRONIZED_SCENE_LOOPED(uLocal_329, 1);
-							GlobalFunc_1("TV_HLP4");
+							GlobalFunc_Display_Help_Text("TV_HLP4");
 							iLocal_307 = 7;
 						}
 						else
@@ -1322,7 +1322,7 @@ void func_17()//Position - 0xE0D
 								CAM::SET_CAM_PARAMS(iLocal_326, Local_350, Local_353, fLocal_356, 0, 1, 1, 2);
 							}
 							PED::SET_SYNCHRONIZED_SCENE_LOOPED(uLocal_329, 1);
-							GlobalFunc_1("TV_HLP3");
+							GlobalFunc_Display_Help_Text("TV_HLP3");
 							iLocal_307 = 5;
 						}
 					}

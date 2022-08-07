@@ -437,10 +437,10 @@ void __EntryFunction__()//Position - 0x0
 		func_626();
 	}
 	func_624();
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		func_614(&Local_95, 1, 1, 0);
-		iVar0 = GlobalFunc_198();
+		iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544 == 1)
 		{
 			iVar0++;
@@ -2476,7 +2476,7 @@ void func_367()//Position - 0x2C22F
 			{
 				iLocal_344 = 1;
 				iLocal_411 = 1;
-				GlobalFunc_11110(2, "Car chase", 1, 0, 0, 1);
+				GlobalFunc_Checkpoint8(2, "Car chase", 1, 0, 0, 1);
 			}
 		}
 		else if (!WEAPON::HAS_PED_GOT_WEAPON(PLAYER::PLAYER_PED_ID(), joaat("weapon_stungun"), 0))
@@ -3227,7 +3227,7 @@ void func_463()//Position - 0x31E73
 	{
 		case 0:
 			func_37();
-			GlobalFunc_11110(1, "Enter bar", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint8(1, "Enter bar", 0, 0, 0, 1);
 			func_323(3);
 			func_316(1);
 			PED::SET_SCENARIO_PEDS_SPAWN_IN_SPHERE_AREA(1985.258f, 3048.67f, 46.21502f, 7f, 20);
@@ -3541,7 +3541,7 @@ void func_479()//Position - 0x32721
 			GlobalFunc_9623("mmb_1_rcm", 1);
 			func_542();
 			iLocal_169 = 0;
-			if ((((CAM::IS_SCREEN_FADED_IN() && !GlobalFunc_199()) && GlobalFunc_115(Local_95.f_28[0])) && GlobalFunc_156(PLAYER::PLAYER_PED_ID(), Local_95.f_28[0], 1) > 7f) && !ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), 329.2873f, 3403.302f, 34.5026f, 336.4215f, 3385.256f, 39.40556f, 20f, 0, 1, 0))
+			if ((((CAM::IS_SCREEN_FADED_IN() && !GlobalFunc_Is_Mission_Retry()) && GlobalFunc_115(Local_95.f_28[0])) && GlobalFunc_156(PLAYER::PLAYER_PED_ID(), Local_95.f_28[0], 1) > 7f) && !ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), 329.2873f, 3403.302f, 34.5026f, 336.4215f, 3385.256f, 39.40556f, 20f, 0, 1, 0))
 			{
 				CAM::SET_GAMEPLAY_ENTITY_HINT(Local_95.f_28[0], 0f, 0f, 0f, 1, -1, 3000, 2000, 0);
 				CAM::SET_GAMEPLAY_HINT_FOLLOW_DISTANCE_SCALAR(0.45f);
@@ -4045,7 +4045,7 @@ int func_533(int iParam0, float fParam1, int iParam2)//Position - 0x3658E
 	}
 	if (iParam0 == 1)
 	{
-		if (!GlobalFunc_109())
+		if (!GlobalFunc_Has_Cutscene_Loaded())
 		{
 			return 0;
 		}

@@ -1528,9 +1528,9 @@ int func_13(var uParam0, bool bParam1, bool bParam2, int iParam3)//Position - 0x
 				iVar4 = 0;
 				while (iVar4 < 7)
 				{
-					if (MISC::IS_BIT_SET(Global_81119[iVar4 /*5*/].f_1, 2))
+					if (MISC::IS_BIT_SET(Global_Running_Missions[iVar4 /*5*/].f_1, 2))
 					{
-						iVar5 = Global_81119[iVar4 /*5*/];
+						iVar5 = Global_Running_Missions[iVar4 /*5*/];
 						StringCopy(&cVar6, "MISS_SWITCH_", 64);
 						StringConCat(&cVar6, &(Global_81155[Global_68514.f_109[iVar5 /*4*/] /*34*/]), 64);
 						STATS::STAT_INCREMENT(MISC::GET_HASH_KEY(&cVar6), 1f);
@@ -2063,7 +2063,7 @@ void func_360()//Position - 0x521B2
 		func_421(5, "stageFinale", 1, 0, 0, 1);
 		func_420(PLAYER::PLAYER_ID(), 1, 0);
 		iLocal_1975 = 0;
-		Global_89962.f_12[0] = iLocal_1975;
+		Global_Mission_Fail_State.f_12[0] = iLocal_1975;
 		MISC::SET_FAKE_WANTED_LEVEL(5);
 		PED::SET_PED_COMPONENT_VARIATION(iLocal_658, 2, 0, 0, 0);
 		PED::SET_PED_COMPONENT_VARIATION(iLocal_658, 6, 0, 0, 0);
@@ -2387,7 +2387,7 @@ void func_360()//Position - 0x521B2
 				}
 				if ((SYSTEM::TIMERA() > 33000 && !GlobalFunc_111()) || !ENTITY::IS_ENTITY_AT_COORD(iLocal_657, 3550.011f, -4691.855f, 114.7595f, 2.5f, 3f, 2f, 0, 1, 0))
 				{
-					if (GlobalFunc_109())
+					if (GlobalFunc_Has_Cutscene_Loaded())
 					{
 						func_420(PLAYER::PLAYER_ID(), 0, 0);
 						func_419(&iLocal_1098);
@@ -2416,7 +2416,7 @@ void func_360()//Position - 0x521B2
 						GlobalFunc_8316(1, 1, 1, 0);
 						CUTSCENE::START_CUTSCENE(0);
 						func_387(0, 0);
-						if (!GlobalFunc_2(0))
+						if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 						{
 							CUTSCENE::SET_CUTSCENE_CAN_BE_SKIPPED(0);
 						}
@@ -2921,7 +2921,7 @@ void func_360()//Position - 0x521B2
 			iVar1++;
 		}
 		ENTITY::SET_ENTITY_INVINCIBLE(iLocal_654, 0);
-		if (Global_SAVE_DATA.isGameflowActive || GlobalFunc_2(0))
+		if (Global_SAVE_DATA.isGameflowActive || GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			ENTITY::FREEZE_ENTITY_POSITION(iLocal_654, 1);
 		}
@@ -3292,19 +3292,19 @@ void func_421(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 	iVar0 = 0;
 	if (iParam3 == 1)
 	{
-		if (iParam0 != Global_89999)
+		if (iParam0 != Global_Current_Checkpoint)
 		{
 			iVar0 = 1;
 		}
 	}
-	else if (iParam0 > Global_89999)
+	else if (iParam0 > Global_Current_Checkpoint)
 	{
 		iVar0 = 1;
 	}
 	if (iVar0 == 1)
 	{
 		GlobalFunc_174(1);
-		if (iParam0 <= Global_89999)
+		if (iParam0 <= Global_Current_Checkpoint)
 		{
 		}
 		iVar1 = GlobalFunc_5111(SCRIPT::GET_THIS_SCRIPT_NAME(), 1);
@@ -3326,7 +3326,7 @@ void func_421(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 						break;
 					}
 			}
-			STATS::PLAYSTATS_MISSION_CHECKPOINT(&cVar3, uVar2, Global_89999, iParam0);
+			STATS::PLAYSTATS_MISSION_CHECKPOINT(&cVar3, uVar2, Global_Current_Checkpoint, iParam0);
 		}
 		else
 		{
@@ -3335,11 +3335,11 @@ void func_421(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 			{
 				Global_SAVE_DATA.SAVED_RANDOM_CHARACTERS[iVar5 /*6*/].f_4 = 0;
 				MemCopy(&uVar6, {GlobalFunc_44(iVar5)}, 4);
-				STATS::PLAYSTATS_MISSION_CHECKPOINT(&uVar6, 0, Global_89999, iParam0);
+				STATS::PLAYSTATS_MISSION_CHECKPOINT(&uVar6, 0, Global_Current_Checkpoint, iParam0);
 			}
 			else
 			{
-				iVar10 = GlobalFunc_547(&(Global_89962.f_3));
+				iVar10 = GlobalFunc_547(&(Global_Mission_Fail_State.Failed_Script_Name));
 				if (iVar10 > -1)
 				{
 					Global_SAVE_DATA.BAIL_BOND_SAVED_STRUCT.f_4[iVar10] = 0;
@@ -3347,13 +3347,13 @@ void func_421(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 			}
 		}
 		Global_84545 = iParam2;
-		Global_89999 = iParam0;
+		Global_Current_Checkpoint = iParam0;
 		func_422(iParam0, sParam1, iParam4, iParam5);
 		if (MISC::ARE_STRINGS_EQUAL(sParam1, ""))
 		{
 		}
 	}
-	else if (iParam0 < Global_89999)
+	else if (iParam0 < Global_Current_Checkpoint)
 	{
 	}
 }
@@ -3713,7 +3713,7 @@ void func_468()//Position - 0x5ACAD
 		switch (iLocal_28)
 		{
 			case 0:
-				if (GlobalFunc_109() && WEAPON::HAS_WEAPON_ASSET_LOADED(joaat("weapon_sniperrifle")))
+				if (GlobalFunc_Has_Cutscene_Loaded() && WEAPON::HAS_WEAPON_ASSET_LOADED(joaat("weapon_sniperrifle")))
 				{
 					if (GlobalFunc_8315() != 2)
 					{
@@ -3769,7 +3769,7 @@ void func_468()//Position - 0x5ACAD
 					CUTSCENE::START_CUTSCENE(0);
 					func_387(0, 0);
 					RECORDING::_0x48621C9FCA3EBD28(4);
-					if (!GlobalFunc_2(0))
+					if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 					{
 						CUTSCENE::SET_CUTSCENE_CAN_BE_SKIPPED(0);
 					}
@@ -3878,7 +3878,7 @@ void func_468()//Position - 0x5ACAD
 					if (CUTSCENE::GET_CUTSCENE_TIME() > SYSTEM::ROUND((35.86667f * 1000f)))
 					{
 						iLocal_1975 = (iLocal_1975 - 84000);
-						Global_89962.f_12[0] = iLocal_1975;
+						Global_Mission_Fail_State.f_12[0] = iLocal_1975;
 						func_643(275, 1);
 					}
 				}
@@ -3887,7 +3887,7 @@ void func_468()//Position - 0x5ACAD
 					if (CUTSCENE::GET_CUTSCENE_TIME() > SYSTEM::ROUND((45.16667f * 1000f)))
 					{
 						iLocal_1975 = 0;
-						Global_89962.f_12[0] = iLocal_1975;
+						Global_Mission_Fail_State.f_12[0] = iLocal_1975;
 						func_643(61, 1);
 					}
 				}
@@ -5835,7 +5835,7 @@ void func_499()//Position - 0x5EABC
 					}
 					if (!GlobalFunc_74("PROHLP_CAR1"))
 					{
-						GlobalFunc_1("PROHLP_CAR1");
+						GlobalFunc_Display_Help_Text("PROHLP_CAR1");
 					}
 					if (!func_644(160))
 					{
@@ -5862,7 +5862,7 @@ void func_499()//Position - 0x5EABC
 					}
 					if (PAD::IS_DISABLED_CONTROL_JUST_PRESSED(0, 23) || iLocal_90 == 1)
 					{
-						if (GlobalFunc_109())
+						if (GlobalFunc_Has_Cutscene_Loaded())
 						{
 							if (GlobalFunc_8315() != 0)
 							{
@@ -5914,7 +5914,7 @@ void func_499()//Position - 0x5EABC
 							RECORDING::_0x293220DA1B46CEBC(5f, 0f, 3);
 							RECORDING::_0x48621C9FCA3EBD28(4);
 							func_387(0, 0);
-							if (!GlobalFunc_2(0))
+							if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 							{
 								CUTSCENE::SET_CUTSCENE_CAN_BE_SKIPPED(0);
 							}
@@ -9756,7 +9756,7 @@ void func_556()//Position - 0x69947
 		switch (iLocal_28)
 		{
 			case 0:
-				if (GlobalFunc_109() && ((PED::HAS_PED_PRELOAD_VARIATION_DATA_FINISHED(iLocal_656) || !PED::IS_SYNCHRONIZED_SCENE_RUNNING(uLocal_624)) || (PED::IS_SYNCHRONIZED_SCENE_RUNNING(uLocal_624) && PED::GET_SYNCHRONIZED_SCENE_PHASE(uLocal_624) > 0.95f)))
+				if (GlobalFunc_Has_Cutscene_Loaded() && ((PED::HAS_PED_PRELOAD_VARIATION_DATA_FINISHED(iLocal_656) || !PED::IS_SYNCHRONIZED_SCENE_RUNNING(uLocal_624)) || (PED::IS_SYNCHRONIZED_SCENE_RUNNING(uLocal_624) && PED::GET_SYNCHRONIZED_SCENE_PHASE(uLocal_624) > 0.95f)))
 				{
 					CUTSCENE::REGISTER_ENTITY_FOR_CUTSCENE(uLocal_1670[2], "Trevor", 0, 0, 0);
 					CUTSCENE::REGISTER_ENTITY_FOR_CUTSCENE(iLocal_665, "PRO_SecurityGuard_Grabs_mike", 0, 0, 0);
@@ -9767,7 +9767,7 @@ void func_556()//Position - 0x69947
 					GlobalFunc_8316(1, 1, 1, 0);
 					CUTSCENE::START_CUTSCENE(2048);
 					func_387(0, 0);
-					if (!GlobalFunc_2(0))
+					if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 					{
 						CUTSCENE::SET_CUTSCENE_CAN_BE_SKIPPED(0);
 					}
@@ -9887,7 +9887,7 @@ void func_556()//Position - 0x69947
 									if (!GlobalFunc_74("PROHLP_SWITCH4"))
 									{
 										GlobalFunc_2238(1);
-										GlobalFunc_1("PROHLP_SWITCH4");
+										GlobalFunc_Display_Help_Text("PROHLP_SWITCH4");
 									}
 								}
 							}
@@ -9899,7 +9899,7 @@ void func_556()//Position - 0x69947
 								if (!GlobalFunc_74("PROHLP_SWITCH2"))
 								{
 									GlobalFunc_2238(1);
-									GlobalFunc_1("PROHLP_SWITCH2");
+									GlobalFunc_Display_Help_Text("PROHLP_SWITCH2");
 								}
 							}
 							SYSTEM::SETTIMERA(0);
@@ -10791,7 +10791,7 @@ void func_570()//Position - 0x6C786
 		if (iVar1 > iLocal_68)
 		{
 			iLocal_1975 = (iLocal_1975 + (iVar1 - iLocal_68));
-			Global_89962.f_12[0] = iLocal_1975;
+			Global_Mission_Fail_State.f_12[0] = iLocal_1975;
 			iLocal_68 = iVar1;
 		}
 		func_641(1, joaat("v_ilev_cd_door"));
@@ -11068,7 +11068,7 @@ void func_570()//Position - 0x6C786
 					{
 						if (func_474(0f, 0, 1, 0))
 						{
-							if (GlobalFunc_109())
+							if (GlobalFunc_Has_Cutscene_Loaded())
 							{
 								CUTSCENE::REGISTER_ENTITY_FOR_CUTSCENE(uLocal_1670[2], "Trevor", 0, 0, 0);
 								iLocal_1163[0] = GlobalFunc_8264(iLocal_656, 1, 0, 0, 0, 0);
@@ -11080,7 +11080,7 @@ void func_570()//Position - 0x6C786
 								func_693(5);
 								CUTSCENE::START_CUTSCENE(0);
 								func_387(0, 0);
-								if (!GlobalFunc_2(0))
+								if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 								{
 									CUTSCENE::SET_CUTSCENE_CAN_BE_SKIPPED(0);
 								}
@@ -11169,7 +11169,7 @@ void func_570()//Position - 0x6C786
 				if (CUTSCENE::GET_CUTSCENE_TIME() > SYSTEM::ROUND((5.4f * 1000f)))
 				{
 					iLocal_1975 = (iLocal_1975 + 93000);
-					Global_89962.f_12[0] = iLocal_1975;
+					Global_Mission_Fail_State.f_12[0] = iLocal_1975;
 					func_643(60, 1);
 				}
 			}
@@ -11178,7 +11178,7 @@ void func_570()//Position - 0x6C786
 				if (CUTSCENE::GET_CUTSCENE_TIME() > SYSTEM::ROUND((7.6f * 1000f)))
 				{
 					iLocal_1975 = (iLocal_1975 + 84000);
-					Global_89962.f_12[0] = iLocal_1975;
+					Global_Mission_Fail_State.f_12[0] = iLocal_1975;
 					func_643(274, 1);
 				}
 			}
@@ -11488,7 +11488,7 @@ void func_574()//Position - 0x6D93F
 					{
 						if (!GlobalFunc_74("PROHLP_PHONE1"))
 						{
-							GlobalFunc_1("PROHLP_PHONE1");
+							GlobalFunc_Display_Help_Text("PROHLP_PHONE1");
 						}
 					}
 					else
@@ -11497,7 +11497,7 @@ void func_574()//Position - 0x6D93F
 						{
 							if (!GlobalFunc_74("PROHLP_PHONE4"))
 							{
-								GlobalFunc_1("PROHLP_PHONE4");
+								GlobalFunc_Display_Help_Text("PROHLP_PHONE4");
 							}
 							if (!func_644(170))
 							{
@@ -11515,7 +11515,7 @@ void func_574()//Position - 0x6D93F
 						{
 							if (!GlobalFunc_74("PROHLP_PHONE5"))
 							{
-								GlobalFunc_1("PROHLP_PHONE5");
+								GlobalFunc_Display_Help_Text("PROHLP_PHONE5");
 							}
 							if (!func_644(169))
 							{
@@ -13028,7 +13028,7 @@ void func_581()//Position - 0x71C06
 					CUTSCENE::SET_CUTSCENE_PED_COMPONENT_VARIATION_FROM_PED("PRO_Male_Hostage_1", iLocal_660[2], 0);
 					CUTSCENE::SET_CUTSCENE_PED_COMPONENT_VARIATION_FROM_PED("PRO_Male_Hostage_2", iLocal_660[3], 0);
 				}
-				if (GlobalFunc_109())
+				if (GlobalFunc_Has_Cutscene_Loaded())
 				{
 					PED::SET_PED_CAN_PLAY_AMBIENT_ANIMS(iLocal_654, 0);
 					CUTSCENE::REGISTER_ENTITY_FOR_CUTSCENE(iLocal_660[0], "PRO_SecurityGuard_Tiedup", 0, 0, 0);
@@ -13042,7 +13042,7 @@ void func_581()//Position - 0x71C06
 					GlobalFunc_8316(1, 1, 1, 0);
 					CUTSCENE::START_CUTSCENE(2048);
 					func_387(0, 0);
-					if (!GlobalFunc_2(0))
+					if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 					{
 						CUTSCENE::SET_CUTSCENE_CAN_BE_SKIPPED(0);
 					}
@@ -13636,7 +13636,7 @@ void func_583()//Position - 0x73035
 		AUDIO::SET_FRONTEND_RADIO_ACTIVE(0);
 		func_500(Local_101, 1101004800, 0);
 		func_407(2);
-		while (((!MISC::IS_BIT_SET(Global_SAVE_DATA.FLOW_CUSTOM_STRUCT.spInitBitset, 0) && !(GlobalFunc_486() || Global_90001.f_10 > 0)) && !GlobalFunc_199()) && !GlobalFunc_2(0))
+		while (((!MISC::IS_BIT_SET(Global_SAVE_DATA.FLOW_CUSTOM_STRUCT.spInitBitset, 0) && !(GlobalFunc_486() || Global_90001.f_10 > 0)) && !GlobalFunc_Is_Mission_Retry()) && !GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			func_387(0, 0);
 			GlobalFunc_5077();
@@ -14342,19 +14342,19 @@ void func_589()//Position - 0x742CB
 	if (func_361())
 	{
 		iLocal_1252++;
-		if (GlobalFunc_199())
+		if (GlobalFunc_Is_Mission_Retry())
 		{
 			if (Global_84544 == 1)
 			{
-				func_590(GlobalFunc_198() + 1);
+				func_590(GlobalFunc_Get_Mission_Fail_Checkpoint() + 1);
 			}
 			else
 			{
-				func_590(GlobalFunc_198());
+				func_590(GlobalFunc_Get_Mission_Fail_Checkpoint());
 			}
-			if (GlobalFunc_198() > 0)
+			if (GlobalFunc_Get_Mission_Fail_Checkpoint() > 0)
 			{
-				iLocal_1975 = Global_89962.f_12[0];
+				iLocal_1975 = Global_Mission_Fail_State.f_12[0];
 				iLocal_1976 = iLocal_1975;
 			}
 		}
@@ -14586,7 +14586,7 @@ void func_590(int iParam0)//Position - 0x74C41
 			{
 				SYSTEM::WAIT(0);
 			}
-			if (!GlobalFunc_2(0))
+			if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				CUTSCENE::SET_CUTSCENE_CAN_BE_SKIPPED(0);
 			}

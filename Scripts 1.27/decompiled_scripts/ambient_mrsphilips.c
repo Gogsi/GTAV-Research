@@ -224,7 +224,7 @@ int func_3()//Position - 0x1B5
 	MemCopy(&sVar32, {GlobalFunc_44(36)}, 4);
 	GlobalFunc_5225(&sVar32, Var0.f_3, 0);
 	GlobalFunc_865(36);
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		func_23("MrsPhilips2", 1);
 	}
@@ -253,13 +253,13 @@ int func_3()//Position - 0x1B5
 
 void func_23(char[4] cParam0, int iParam1)//Position - 0xBAA
 {
-	MISC::CLEAR_BIT(&(Global_89962.f_20), 17);
+	MISC::CLEAR_BIT(&(Global_Mission_Fail_State.f_20), 17);
 	func_24(cParam0, iParam1, 0);
 }
 
 void func_24(char[4] cParam0, int iParam1, int iParam2)//Position - 0xBC7
 {
-	if (Global_89962 != 10 && Global_89962 != 9)
+	if (Global_Mission_Fail_State != 10 && Global_Mission_Fail_State != 9)
 	{
 		StringCopy(&Global_91343, cParam0, 32);
 		func_26(&Global_91351, cParam0, 0, "Start", iParam1, iParam2);
@@ -584,7 +584,7 @@ void func_99(int iParam0)//Position - 0x84B3
 			GlobalFunc_8395(PLAYER::PLAYER_PED_ID());
 		}
 	}
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		if (iParam0 < 63)
 		{

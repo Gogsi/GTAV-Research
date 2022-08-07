@@ -733,7 +733,7 @@ void __EntryFunction__()//Position - 0x0
 	func_488(iLocal_190, 1);
 	GlobalFunc_2357(181.3f, -969.1f, 30.3f, 200f, &Var0, &Var3);
 	GlobalFunc_238(iLocal_875);
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		if (!CAM::IS_SCREEN_FADED_IN())
 		{
@@ -938,7 +938,7 @@ void func_10(int iParam0)//Position - 0x755
 			}
 			else if (MISC::ARE_STRINGS_EQUAL(sLocal_158, "B1_FAIL"))
 			{
-				if (func_13(0) && GlobalFunc_2(0))
+				if (func_13(0) && GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					func_518();
 				}
@@ -1260,7 +1260,7 @@ void func_46(int iParam0, int iParam1, int iParam2, bool bParam3)//Position - 0x
 			}
 		}
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		PED::SET_PED_STEALTH_MOVEMENT(PLAYER::PLAYER_PED_ID(), 0, 0);
 	}
@@ -5300,7 +5300,7 @@ void func_489()//Position - 0x3193F
 	PLAYER::SPECIAL_ABILITY_RESET(PLAYER::PLAYER_ID());
 	GlobalFunc_601(4, 1);
 	GlobalFunc_563(1);
-	if (GlobalFunc_199() == 1)
+	if (GlobalFunc_Is_Mission_Retry() == 1)
 	{
 		Global_68490 = 1;
 		iLocal_81 = 0;
@@ -5655,11 +5655,11 @@ void func_523(bool bParam0)//Position - 0x32EE0
 		{
 			return;
 		}
-		if (Global_84542 == Global_89999)
+		if (Global_84542 == Global_Current_Checkpoint)
 		{
 			Global_SAVE_DATA.SAVED_RANDOM_CHARACTERS[iVar0 /*6*/].f_4++;
 		}
-		Global_84542 = Global_89999;
+		Global_84542 = Global_Current_Checkpoint;
 		if (bParam0)
 		{
 			GlobalFunc_7620(iVar0, 1, 0);
@@ -5682,11 +5682,11 @@ void func_523(bool bParam0)//Position - 0x32EE0
 
 void func_524(char* sParam0, int iParam1)//Position - 0x32FB0
 {
-	if (Global_89962 != 12)
+	if (Global_Mission_Fail_State != 12)
 	{
 		if (func_525(sParam0, 6, iParam1))
 		{
-			Global_89962.f_1 = iParam1;
+			Global_Mission_Fail_State.f_1 = iParam1;
 		}
 	}
 }
@@ -5699,9 +5699,9 @@ int func_525(char* sParam0, int iParam1, int iParam2)//Position - 0x32FD8
 	
 	GlobalFunc_4909();
 	GlobalFunc_141();
-	Global_89962 = 0;
-	StringCopy(&(Global_89962.f_3), sParam0, 32);
-	Global_89962.f_11 = iParam1;
+	Global_Mission_Fail_State = 0;
+	StringCopy(&(Global_Mission_Fail_State.Failed_Script_Name), sParam0, 32);
+	Global_Mission_Fail_State.Fail_Type = iParam1;
 	MISC::PAUSE_DEATH_ARREST_RESTART(1);
 	MISC::SET_FADE_OUT_AFTER_ARREST(0);
 	MISC::SET_FADE_OUT_AFTER_DEATH(0);
@@ -5709,11 +5709,11 @@ int func_525(char* sParam0, int iParam1, int iParam2)//Position - 0x32FD8
 	GlobalFunc_7632(1);
 	GlobalFunc_4944(0);
 	GlobalFunc_137(1);
-	MISC::CLEAR_BIT(&(Global_89962.f_20), 9);
-	MISC::CLEAR_BIT(&(Global_89962.f_20), 6);
-	MISC::CLEAR_BIT(&(Global_89962.f_20), 20);
-	MISC::CLEAR_BIT(&(Global_89962.f_20), 21);
-	MISC::CLEAR_BIT(&(Global_89962.f_20), 5);
+	MISC::CLEAR_BIT(&(Global_Mission_Fail_State.f_20), 9);
+	MISC::CLEAR_BIT(&(Global_Mission_Fail_State.f_20), 6);
+	MISC::CLEAR_BIT(&(Global_Mission_Fail_State.f_20), 20);
+	MISC::CLEAR_BIT(&(Global_Mission_Fail_State.f_20), 21);
+	MISC::CLEAR_BIT(&(Global_Mission_Fail_State.f_20), 5);
 	if (ENTITY::DOES_ENTITY_EXIST(PLAYER::PLAYER_PED_ID()))
 	{
 		if (!PED::IS_PED_INJURED(PLAYER::PLAYER_PED_ID()))
@@ -5723,7 +5723,7 @@ int func_525(char* sParam0, int iParam1, int iParam2)//Position - 0x32FD8
 				uVar0 = PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), 0);
 				if (ENTITY::IS_ENTITY_UPSIDEDOWN(uVar0))
 				{
-					MISC::SET_BIT(&(Global_89962.f_20), 5);
+					MISC::SET_BIT(&(Global_Mission_Fail_State.f_20), 5);
 				}
 			}
 		}
@@ -5732,12 +5732,12 @@ int func_525(char* sParam0, int iParam1, int iParam2)//Position - 0x32FD8
 	HUD::CLEAR_PRINTS();
 	GlobalFunc_136(0);
 	GlobalFunc_12(1);
-	Global_89962.f_2 = Global_89999;
+	Global_Mission_Fail_State.Last_Checkpoint = Global_Current_Checkpoint;
 	if (GlobalFunc_5737())
 	{
 		if (GlobalFunc_135())
 		{
-			if (Global_89999 >= GlobalFunc_6691())
+			if (Global_Current_Checkpoint >= GlobalFunc_6691())
 			{
 				if (!MISC::IS_BIT_SET(Global_81155[iParam2 /*34*/].f_15, 16))
 				{
@@ -5748,7 +5748,7 @@ int func_525(char* sParam0, int iParam1, int iParam2)//Position - 0x32FD8
 				}
 			}
 		}
-		else if (Global_89962.f_11 == 6)
+		else if (Global_Mission_Fail_State.Fail_Type == 6)
 		{
 			GlobalFunc_6675(iParam2, &Var1);
 			if (Var1.f_31 == 1)

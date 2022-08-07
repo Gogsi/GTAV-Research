@@ -1502,7 +1502,7 @@ void __EntryFunction__()//Position - 0x0
 	{
 		PLAYER::CLEAR_PLAYER_WANTED_LEVEL(PLAYER::PLAYER_ID());
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		if (GlobalFunc_7698())
 		{
@@ -1525,10 +1525,10 @@ void __EntryFunction__()//Position - 0x0
 	PED::SET_PED_MODEL_IS_SUPPRESSED(iLocal_1325, 1);
 	PED::SET_PED_MODEL_IS_SUPPRESSED(iLocal_1326, 1);
 	CAM::INVALIDATE_IDLE_CAM();
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		bLocal_375 = true;
-		iLocal_1207 = GlobalFunc_198();
+		iLocal_1207 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544)
 		{
 			if (iLocal_1207 <= 1)
@@ -1922,11 +1922,11 @@ void func_31(int iParam0)//Position - 0x1428
 		}
 		if (PED::IS_PED_IN_ANY_VEHICLE(PLAYER::PLAYER_PED_ID(), 0))
 		{
-			Global_89962.f_12[0] = 1;
+			Global_Mission_Fail_State.f_12[0] = 1;
 		}
 		else
 		{
-			Global_89962.f_12[0] = 0;
+			Global_Mission_Fail_State.f_12[0] = 0;
 		}
 		switch (iLocal_1042)
 		{
@@ -4845,7 +4845,7 @@ void func_141()//Position - 0x74C2
 	switch (iLocal_1029)
 	{
 		case 3:
-			if (GlobalFunc_199())
+			if (GlobalFunc_Is_Mission_Retry())
 			{
 				iLocal_1029 = 4;
 				break;
@@ -4855,7 +4855,7 @@ void func_141()//Position - 0x74C2
 			break;
 		
 		case 4:
-			if (GlobalFunc_199())
+			if (GlobalFunc_Is_Mission_Retry())
 			{
 				if (GlobalFunc_7698())
 				{
@@ -4888,7 +4888,7 @@ void func_141()//Position - 0x74C2
 				{
 					GlobalFunc_4987(&uLocal_1334, Global_SAVE_DATA.ASSASSIN_SAVED_STRUCT.ASSASSIN_HotelMissionTime);
 				}
-				iLocal_1207 = GlobalFunc_198();
+				iLocal_1207 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 				if (Global_84544)
 				{
 					if (iLocal_1207 <= 2)
@@ -6241,7 +6241,7 @@ void func_259()//Position - 0xCB12
 	switch (iLocal_1191)
 	{
 		case 0:
-			GlobalFunc_11067(1, "assassin_hotel_plan_attack", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint4(1, "assassin_hotel_plan_attack", 0, 0, 0, 1);
 			GlobalFunc_5312(&Local_359, 2);
 			if (VEHICLE::IS_VEHICLE_DRIVEABLE(iLocal_1310, 0))
 			{
@@ -6971,7 +6971,7 @@ void func_372()//Position - 0x15639
 	{
 		case 0:
 			GlobalFunc_575(500);
-			GlobalFunc_11067(0, "assassin_hotel_go_to_hotel", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint4(0, "assassin_hotel_go_to_hotel", 0, 0, 0, 1);
 			if (PLAYER::IS_PLAYER_WANTED_LEVEL_GREATER(PLAYER::PLAYER_ID(), 0))
 			{
 				GlobalFunc_164("ASS_VA_LOSECOPS", 7500, 1);
@@ -7385,7 +7385,7 @@ void func_392()//Position - 0x16285
 void func_393()//Position - 0x162AF
 {
 	AUDIO::TRIGGER_MUSIC_EVENT("ASS1_STOP");
-	if (!MISC::IS_BIT_SET(Global_89962.f_20, 13))
+	if (!MISC::IS_BIT_SET(Global_Mission_Fail_State.f_20, 13))
 	{
 		func_462();
 	}
@@ -7408,7 +7408,7 @@ void func_397()//Position - 0x163F7
 	}
 	func_368();
 	func_342(0);
-	if (!MISC::IS_BIT_SET(Global_89962.f_20, 13))
+	if (!MISC::IS_BIT_SET(Global_Mission_Fail_State.f_20, 13))
 	{
 		func_462();
 	}
@@ -7607,7 +7607,7 @@ void func_407()//Position - 0x16A9B
 					CAM::SHAKE_CAM(uLocal_1671, "HAND_SHAKE", 0.3f);
 				}
 				CAM::RENDER_SCRIPT_CAMS(1, 0, 3000, 1, 0, 0);
-				if (GlobalFunc_2(0))
+				if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					CAM::DO_SCREEN_FADE_IN(800);
 				}
@@ -7636,7 +7636,7 @@ void func_407()//Position - 0x16A9B
 			break;
 		
 		case 3:
-			if (GlobalFunc_109())
+			if (GlobalFunc_Has_Cutscene_Loaded())
 			{
 				iLocal_1191++;
 			}
@@ -8208,9 +8208,9 @@ int func_423(var uParam0, struct<3> Param1, float fParam4, bool bParam5)//Positi
 						GlobalFunc_7695(iVar8);
 					}
 				}
-				if (((Global_89962 != 13 && Global_89962 != 10) && Global_89962 != 11) && Global_89962 != 12)
+				if (((Global_Mission_Fail_State != 13 && Global_Mission_Fail_State != 10) && Global_Mission_Fail_State != 11) && Global_Mission_Fail_State != 12)
 				{
-					if (MISC::GET_HASH_KEY(&(Global_89962.f_3)) == Global_68102)
+					if (MISC::GET_HASH_KEY(&(Global_Mission_Fail_State.Failed_Script_Name)) == Global_68102)
 					{
 						if (uParam0->f_12.f_42 == Global_SAVE_DATA.VEHICLE_GEN_SAVED_DATA_STRUCT.f_69[21 /*54*/].f_42)
 						{

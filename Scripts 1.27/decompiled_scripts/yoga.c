@@ -2882,14 +2882,14 @@ void func_300(var uParam0, int iParam1, var uParam2)//Position - 0x49B3D
 		}
 		if (GlobalFunc_74("STICKS"))
 		{
-			GlobalFunc_1("STICKS_KM");
+			GlobalFunc_Display_Help_Text("STICKS_KM");
 		}
 	}
 	else if (MISC::IS_PC_VERSION())
 	{
 		if (GlobalFunc_74("STICKS_KM"))
 		{
-			GlobalFunc_1("STICKS");
+			GlobalFunc_Display_Help_Text("STICKS");
 		}
 	}
 	GRAPHICS::BEGIN_SCALEFORM_MOVIE_METHOD(*uParam2, "SET_STICK_POINTER_ANGLE");
@@ -2977,11 +2977,11 @@ int func_302(var uParam0, int iParam1, int iParam2, int iParam3, float fParam4, 
 							{
 								if (PAD::_IS_USING_KEYBOARD(2))
 								{
-									GlobalFunc_1("STICKS_KM");
+									GlobalFunc_Display_Help_Text("STICKS_KM");
 								}
 								else
 								{
-									GlobalFunc_1("STICKS");
+									GlobalFunc_Display_Help_Text("STICKS");
 								}
 								iLocal_433 = 1;
 								iLocal_434 = 0;
@@ -3049,7 +3049,7 @@ int func_302(var uParam0, int iParam1, int iParam2, int iParam3, float fParam4, 
 									{
 										if (!iLocal_434)
 										{
-											GlobalFunc_1("INHALE_NEW");
+											GlobalFunc_Display_Help_Text("INHALE_NEW");
 											iLocal_433 = 0;
 											iLocal_434 = 1;
 											iLocal_435 = 0;
@@ -3076,7 +3076,7 @@ int func_302(var uParam0, int iParam1, int iParam2, int iParam3, float fParam4, 
 									{
 										if (!iLocal_434)
 										{
-											GlobalFunc_1("INHALE_NEW");
+											GlobalFunc_Display_Help_Text("INHALE_NEW");
 											iLocal_433 = 0;
 											iLocal_434 = 1;
 											iLocal_435 = 0;
@@ -3102,7 +3102,7 @@ int func_302(var uParam0, int iParam1, int iParam2, int iParam3, float fParam4, 
 									{
 										if (!iLocal_434)
 										{
-											GlobalFunc_1("INHALE_NEW");
+											GlobalFunc_Display_Help_Text("INHALE_NEW");
 											iLocal_433 = 0;
 											iLocal_434 = 1;
 											iLocal_435 = 0;
@@ -3183,7 +3183,7 @@ int func_302(var uParam0, int iParam1, int iParam2, int iParam3, float fParam4, 
 									{
 										if (!iLocal_435)
 										{
-											GlobalFunc_1("EXHALE_NEW");
+											GlobalFunc_Display_Help_Text("EXHALE_NEW");
 											iLocal_433 = 0;
 											iLocal_434 = 0;
 											iLocal_435 = 1;

@@ -520,7 +520,7 @@ void func_1()//Position - 0x354
 				{
 					AUDIO::START_AUDIO_SCENE("FRANKLIN_SAFEHOUSE_ACTIVITIES_SCENE");
 				}
-				GlobalFunc_1(func_44());
+				GlobalFunc_Display_Help_Text(func_44());
 				iLocal_324 = 1;
 			}
 			break;
@@ -2355,7 +2355,7 @@ void func_78()//Position - 0x3B40
 			{
 				if ((((((GlobalFunc_6525(Local_345, Var0) && !STREAMING::IS_PLAYER_SWITCH_IN_PROGRESS()) && func_348()) && ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), Local_354, Local_357, 1.5f, 0, 1, 0)) && iLocal_333 != 2) && iLocal_333 != 1) && iLocal_333 != 0)
 				{
-					GlobalFunc_1(sLocal_344);
+					GlobalFunc_Display_Help_Text(sLocal_344);
 					iLocal_324 = 1;
 				}
 			}

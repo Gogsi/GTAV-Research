@@ -525,7 +525,7 @@ void __EntryFunction__()//Position - 0x0
 	func_368();
 	uLocal_359 = PED::ADD_SCENARIO_BLOCKING_AREA(402.9022f, -1633.604f, 25.0472f, 315.6288f, -1558.814f, 38.7931f, 0, 1, 1, 1);
 	GlobalFunc_585(27, 0);
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		GlobalFunc_5116(409.6954f, -1567.046f, 28.2916f, 138.7093f, 1, 0);
 	}
@@ -533,7 +533,7 @@ void __EntryFunction__()//Position - 0x0
 	while (true)
 	{
 		RECORDING::_0x208784099002BC30("M_STS", 0);
-		if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+		if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 		{
 			func_357();
 			func_354();
@@ -769,7 +769,7 @@ void func_37(int iParam0, int iParam1, int iParam2, int iParam3)//Position - 0x1
 			}
 		}
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		PED::SET_PED_STEALTH_MOVEMENT(PLAYER::PLAYER_PED_ID(), 0, 0);
 	}
@@ -1198,7 +1198,7 @@ int func_80(int iParam0, struct<3> Param1, float fParam4)//Position - 0x2886
 					{
 						ENTITY::SET_ENTITY_AS_MISSION_ENTITY(Global_86864.f_9[iVar0], 1, 1);
 						Local_388[iVar0 /*22*/] = Global_86864.f_9[iVar0];
-						if (GlobalFunc_4924(Local_388[iVar0 /*22*/]))
+						if (GlobalFunc_IsPedNotInjuredOrDead(Local_388[iVar0 /*22*/]))
 						{
 							PED::SET_PED_TARGET_LOSS_RESPONSE(Local_388[iVar0 /*22*/], 2);
 							AUDIO::STOP_PED_SPEAKING(Local_388[iVar0 /*22*/], 1);
@@ -1309,7 +1309,7 @@ int func_84(var uParam0, var uParam1, struct<3> Param2, var uParam5, bool bParam
 		if (GlobalFunc_3015(uParam1, "Loading", 0))
 		{
 			*uParam0 = PED::CREATE_PED(26, uParam1, Param2, uParam5, 1, 1);
-			if (GlobalFunc_4924(*uParam0))
+			if (GlobalFunc_IsPedNotInjuredOrDead(*uParam0))
 			{
 				if (bParam7)
 				{
@@ -1340,7 +1340,7 @@ int func_84(var uParam0, var uParam1, struct<3> Param2, var uParam5, bool bParam
 
 void func_85(int iParam0)//Position - 0x2D29
 {
-	if (GlobalFunc_4924(Local_388[iParam0 /*22*/]))
+	if (GlobalFunc_IsPedNotInjuredOrDead(Local_388[iParam0 /*22*/]))
 	{
 		if (iParam0 == 0)
 		{
@@ -1869,7 +1869,7 @@ void func_117()//Position - 0x3D41
 	{
 		func_188(&(Local_388[iVar0 /*22*/].f_6));
 	}
-	if (GlobalFunc_4924(Local_388[iVar0 /*22*/]))
+	if (GlobalFunc_IsPedNotInjuredOrDead(Local_388[iVar0 /*22*/]))
 	{
 		func_145(iVar0);
 		switch (Local_388[iVar0 /*22*/].f_18)
@@ -2108,15 +2108,15 @@ void func_121(int iParam0)//Position - 0x436F
 	PLAYER::SET_MAX_WANTED_LEVEL(5);
 	PLAYER::SET_WANTED_LEVEL_MULTIPLIER(1f);
 	iLocal_659 = -1;
-	if (GlobalFunc_4924(Local_388[0 /*22*/]))
+	if (GlobalFunc_IsPedNotInjuredOrDead(Local_388[0 /*22*/]))
 	{
 		PED::SET_BLOCKING_OF_NON_TEMPORARY_EVENTS(Local_388[0 /*22*/], false);
 	}
-	if (GlobalFunc_4924(Local_388[1 /*22*/]))
+	if (GlobalFunc_IsPedNotInjuredOrDead(Local_388[1 /*22*/]))
 	{
 		PED::SET_BLOCKING_OF_NON_TEMPORARY_EVENTS(Local_388[1 /*22*/], false);
 	}
-	if (GlobalFunc_4924(Local_388[2 /*22*/]))
+	if (GlobalFunc_IsPedNotInjuredOrDead(Local_388[2 /*22*/]))
 	{
 		PED::SET_BLOCKING_OF_NON_TEMPORARY_EVENTS(Local_388[2 /*22*/], false);
 	}
@@ -2188,7 +2188,7 @@ void func_125(int iParam0)//Position - 0x44CC
 {
 	if (Local_388[iParam0 /*22*/].f_20 != 7)
 	{
-		if (GlobalFunc_4924(Local_388[iParam0 /*22*/]))
+		if (GlobalFunc_IsPedNotInjuredOrDead(Local_388[iParam0 /*22*/]))
 		{
 			if (GlobalFunc_6964(Local_388[iParam0 /*22*/], 242628503) || PED::IS_PED_RUNNING_MOBILE_PHONE_TASK(Local_388[iParam0 /*22*/]))
 			{
@@ -2260,7 +2260,7 @@ int func_129(int iParam0, float fParam1)//Position - 0x46E0
 	{
 		return 1;
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()) && GlobalFunc_4924(iParam0))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()) && GlobalFunc_IsPedNotInjuredOrDead(iParam0))
 	{
 		if (GlobalFunc_156(PLAYER::PLAYER_PED_ID(), iParam0, 0) <= fParam1)
 		{
@@ -3524,7 +3524,7 @@ void func_190()//Position - 0x6F3F
 		{
 			func_188(&(Local_388[iVar0 /*22*/].f_6));
 		}
-		if (GlobalFunc_4924(Local_388[iVar0 /*22*/]))
+		if (GlobalFunc_IsPedNotInjuredOrDead(Local_388[iVar0 /*22*/]))
 		{
 			func_192(iVar0);
 			switch (Local_388[iVar0 /*22*/].f_18)
@@ -3840,7 +3840,7 @@ int func_197(int iParam0)//Position - 0x7627
 {
 	float fVar0;
 	
-	if (GlobalFunc_4924(Local_388[iParam0 /*22*/]))
+	if (GlobalFunc_IsPedNotInjuredOrDead(Local_388[iParam0 /*22*/]))
 	{
 		if (WEAPON::IS_PED_ARMED(PLAYER::PLAYER_PED_ID(), 6))
 		{
@@ -3868,7 +3868,7 @@ void func_198()//Position - 0x76A9
 {
 	if ((Local_388[0 /*22*/].f_18 == 1 && Local_388[1 /*22*/].f_18 == 1) && Local_388[2 /*22*/].f_18 == 1)
 	{
-		if ((((GlobalFunc_4924(Local_388[0 /*22*/]) && GlobalFunc_4924(Local_388[1 /*22*/])) && GlobalFunc_496(&uLocal_91, ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), 1))) && GlobalFunc_775(Local_388[0 /*22*/], Local_388[0 /*22*/].f_1, 3f)) && GlobalFunc_775(Local_388[1 /*22*/], Local_388[1 /*22*/].f_1, 3f))
+		if ((((GlobalFunc_IsPedNotInjuredOrDead(Local_388[0 /*22*/]) && GlobalFunc_IsPedNotInjuredOrDead(Local_388[1 /*22*/])) && GlobalFunc_496(&uLocal_91, ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), 1))) && GlobalFunc_775(Local_388[0 /*22*/], Local_388[0 /*22*/].f_1, 3f)) && GlobalFunc_775(Local_388[1 /*22*/], Local_388[1 /*22*/].f_1, 3f))
 		{
 			if ((func_122(0, 15) && func_122(1, 15)) && !iLocal_647[iLocal_656])
 			{
@@ -3883,7 +3883,7 @@ void func_198()//Position - 0x76A9
 				}
 			}
 		}
-		else if ((GlobalFunc_4924(Local_388[2 /*22*/]) && GlobalFunc_496(&uLocal_143, ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), 1))) && GlobalFunc_775(Local_388[2 /*22*/], Local_388[2 /*22*/].f_1, 3f))
+		else if ((GlobalFunc_IsPedNotInjuredOrDead(Local_388[2 /*22*/]) && GlobalFunc_496(&uLocal_143, ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), 1))) && GlobalFunc_775(Local_388[2 /*22*/], Local_388[2 /*22*/].f_1, 3f))
 		{
 			if (!MISC::IS_BIT_SET(Local_388[2 /*22*/].f_15, 2) && !MISC::IS_BIT_SET(Local_388[2 /*22*/].f_15, 4))
 			{
@@ -3970,7 +3970,7 @@ void func_202()//Position - 0x7932
 		case 1:
 			if (PLAYER::GET_PLAYER_WANTED_LEVEL(PLAYER::PLAYER_ID()) < 3)
 			{
-				if (GlobalFunc_4924(Local_388[2 /*22*/]))
+				if (GlobalFunc_IsPedNotInjuredOrDead(Local_388[2 /*22*/]))
 				{
 					if (PED::IS_PED_IN_ANY_HELI(PLAYER::PLAYER_PED_ID()))
 					{
@@ -4038,7 +4038,7 @@ void func_203()//Position - 0x7B0C
 				}
 				GlobalFunc_10756();
 				GlobalFunc_5198(78);
-				if (GlobalFunc_199())
+				if (GlobalFunc_Is_Mission_Retry())
 				{
 					GlobalFunc_5108(0, -1, 1);
 					GlobalFunc_79(500, 1);
@@ -4046,7 +4046,7 @@ void func_203()//Position - 0x7B0C
 				}
 				else
 				{
-					if (GlobalFunc_2(0))
+					if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 					{
 						GlobalFunc_7252(PLAYER::PLAYER_PED_ID(), 408.3364f, -1567.429f, 28.2723f, 128.2512f);
 						GlobalFunc_8533(408.3364f, -1567.429f, 28.2723f, 50f, 12, 5000, 0, 0);

@@ -6605,7 +6605,7 @@ void func_9()//Position - 0x706
 				TASK::CLEAR_PED_SECONDARY_TASK(func_196());
 			}
 			RECORDING::_0x293220DA1B46CEBC(0f, 10f, 3);
-			GlobalFunc_11043(6, "Stage 6: Drop off point", 1, 0, 0, 1);
+			GlobalFunc_Checkpoint1(6, "Stage 6: Drop off point", 1, 0, 0, 1);
 			iLocal_3520 = 0;
 			iLocal_5436++;
 			break;
@@ -7097,7 +7097,7 @@ void func_10()//Position - 0x108C
 							}
 							else if (!HUD::IS_MESSAGE_BEING_DISPLAYED())
 							{
-								if (!func_21(14, 0) || Global_89962.f_12[1] == 1)
+								if (!func_21(14, 0) || Global_Mission_Fail_State.f_12[1] == 1)
 								{
 									iLocal_3523 = 0;
 									iLocal_3519 = MISC::GET_GAME_TIMER();
@@ -7187,7 +7187,7 @@ void func_10()//Position - 0x108C
 							}
 							else if (!HUD::IS_MESSAGE_BEING_DISPLAYED())
 							{
-								if (Global_89962.f_12[1] == 1)
+								if (Global_Mission_Fail_State.f_12[1] == 1)
 								{
 									iLocal_3523 = 0;
 									iLocal_3519 = MISC::GET_GAME_TIMER();
@@ -8095,7 +8095,7 @@ void func_202()//Position - 0x10C1E
 			}
 			CAM::SET_CINEMATIC_BUTTON_ACTIVE(0);
 			GlobalFunc_4935();
-			GlobalFunc_11043(5, "Stage 5: Construction hole", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint1(5, "Stage 5: Construction hole", 0, 0, 0, 1);
 			iLocal_9234 = 0;
 			iLocal_9233 = 0;
 			iLocal_3521 = 0;
@@ -9511,7 +9511,7 @@ void func_230()//Position - 0x13675
 			iLocal_9229 = 0;
 			iLocal_9230 = 0;
 			iLocal_9231 = 0;
-			GlobalFunc_11043(4, "Stage 4: Follow truck", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint1(4, "Stage 4: Follow truck", 0, 0, 0, 1);
 			GlobalFunc_173(&uLocal_3096, 0, func_129(), "TREVOR", 0, 1);
 			GlobalFunc_173(&uLocal_3096, 3, func_196(), "LESTER", 0, 1);
 			GlobalFunc_5175(&uLocal_3547, "missbigscore1guard_wait_rifle");
@@ -14399,7 +14399,7 @@ void func_445()//Position - 0x3D318
 					{
 						if (PED::IS_PED_IN_VEHICLE(func_129(), Local_3032[1 /*2*/], 0) || iLocal_9193)
 						{
-							Global_89962.f_12[1] = 1;
+							Global_Mission_Fail_State.f_12[1] = 1;
 							iLocal_3479 = 4;
 							CUTSCENE::REMOVE_CUTSCENE();
 							VEHICLE::REMOVE_VEHICLE_RECORDING(3, "FH1REC");
@@ -14408,7 +14408,7 @@ void func_445()//Position - 0x3D318
 						}
 						else if (GlobalFunc_10618(&uLocal_3096, "FH1AUD", "FH1_TMBB_H", 7, 0, 0, 0))
 						{
-							Global_89962.f_12[1] = 1;
+							Global_Mission_Fail_State.f_12[1] = 1;
 							iLocal_3479 = 4;
 							CUTSCENE::REMOVE_CUTSCENE();
 							VEHICLE::REMOVE_VEHICLE_RECORDING(3, "FH1REC");
@@ -14472,7 +14472,7 @@ void func_445()//Position - 0x3D318
 								GlobalFunc_7139(&Local_3261, 0);
 								ENTITY::FREEZE_ENTITY_POSITION(Local_3032[2 /*2*/], 0);
 								PLAYER::SET_MAX_WANTED_LEVEL(2);
-								GlobalFunc_11043(3, "Stage 3: Get in Position", 0, 0, 0, 1);
+								GlobalFunc_Checkpoint1(3, "Stage 3: Get in Position", 0, 0, 0, 1);
 								iLocal_3294 = 1;
 								iLocal_3470 = 0;
 								iLocal_3521 = 0;
@@ -14485,7 +14485,7 @@ void func_445()//Position - 0x3D318
 							{
 								if (PED::IS_PED_IN_VEHICLE(func_129(), Local_3032[2 /*2*/], 0))
 								{
-									Global_89962.f_12[1] = 1;
+									Global_Mission_Fail_State.f_12[1] = 1;
 									func_8(6);
 									if (!AUDIO::IS_AUDIO_SCENE_ACTIVE("BS_1_FLY_TO_TRUCKS"))
 									{
@@ -14542,7 +14542,7 @@ void func_445()//Position - 0x3D318
 								}
 								if (!iLocal_3401 && MISC::GET_DISTANCE_BETWEEN_COORDS(Local_3014, ENTITY::GET_ENTITY_COORDS(Local_3032[2 /*2*/], 1), 1) < 1000f)
 								{
-									if (Global_89962.f_12[1] == 1)
+									if (Global_Mission_Fail_State.f_12[1] == 1)
 									{
 										func_218(4, 0);
 										iLocal_3401 = 1;
@@ -14714,7 +14714,7 @@ void func_452()//Position - 0x3DAE8
 					INTERIOR::UNPIN_INTERIOR(iLocal_3297);
 				}
 				GlobalFunc_5661(45, 1);
-				Global_89962.f_12[1] = 1;
+				Global_Mission_Fail_State.f_12[1] = 1;
 				Local_9168 = { ENTITY::GET_ENTITY_COORDS(Local_3051[2 /*4*/], 1) };
 				if (iLocal_3477 == 0)
 				{
@@ -16597,7 +16597,7 @@ void func_503()//Position - 0x42BA0
 							{
 								iLocal_3479 = 4;
 								func_218(2, 0);
-								Global_89962.f_12[0] = 1;
+								Global_Mission_Fail_State.f_12[0] = 1;
 								iLocal_5436 = 4;
 								iLocal_3400 = MISC::GET_GAME_TIMER();
 							}
@@ -16606,7 +16606,7 @@ void func_503()//Position - 0x42BA0
 				}
 				else if (PLAYER::PLAYER_PED_ID() == func_130())
 				{
-					if ((((GlobalFunc_199() && Global_89999 == 1) && Global_89962.f_12[0] == 1) && !Global_84544) && !bLocal_5441)
+					if ((((GlobalFunc_Is_Mission_Retry() && Global_Current_Checkpoint == 1) && Global_Mission_Fail_State.f_12[0] == 1) && !Global_84544) && !bLocal_5441)
 					{
 						iLocal_3437 = 2;
 						iLocal_5436 = 3;
@@ -16717,7 +16717,7 @@ void func_503()//Position - 0x42BA0
 				AUDIO::SET_VEH_RADIO_STATION(Local_3032[0 /*2*/], "OFF");
 				AUDIO::SET_VEHICLE_RADIO_ENABLED(Local_3032[0 /*2*/], 1);
 				func_218(2, 0);
-				Global_89962.f_12[0] = 1;
+				Global_Mission_Fail_State.f_12[0] = 1;
 				iLocal_3435 = 1;
 				iLocal_3427 = MISC::GET_GAME_TIMER();
 				func_198(0, 1, 0, 0, 0, 0);
@@ -16775,7 +16775,7 @@ void func_503()//Position - 0x42BA0
 								STREAMING::_0xF8155A7F03DDFC8E(2);
 								iLocal_5436 = 0;
 								func_211(2);
-								GlobalFunc_11043(2, "Stage 2: Back of bank", 0, 0, 0, 1);
+								GlobalFunc_Checkpoint1(2, "Stage 2: Back of bank", 0, 0, 0, 1);
 							}
 						}
 					}
@@ -16824,7 +16824,7 @@ void func_503()//Position - 0x42BA0
 				iLocal_5436 = 0;
 				func_211(2);
 				GlobalFunc_4935();
-				GlobalFunc_11043(2, "Stage 2: Back of bank", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint1(2, "Stage 2: Back of bank", 0, 0, 0, 1);
 			}
 			break;
 	}
@@ -17028,7 +17028,7 @@ void func_517()//Position - 0x4411B
 	switch (iLocal_5436)
 	{
 		case 0:
-			if (GlobalFunc_199())
+			if (GlobalFunc_Is_Mission_Retry())
 			{
 				iLocal_5436 = 3;
 			}
@@ -17045,7 +17045,7 @@ void func_517()//Position - 0x4411B
 		case 1:
 			if (CUTSCENE::IS_CUTSCENE_PLAYING())
 			{
-				if (GlobalFunc_2(0) && CAM::IS_SCREEN_FADED_OUT())
+				if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) && CAM::IS_SCREEN_FADED_OUT())
 				{
 					CAM::DO_SCREEN_FADE_IN(800);
 				}
@@ -17166,7 +17166,7 @@ void func_517()//Position - 0x4411B
 			{
 				bLocal_3539 = true;
 			}
-			if ((((((iLocal_3534 && iLocal_3536) && iLocal_3537) && iLocal_3538) && bLocal_3539) || GlobalFunc_199()) || bLocal_5441)
+			if ((((((iLocal_3534 && iLocal_3536) && iLocal_3537) && iLocal_3538) && bLocal_3539) || GlobalFunc_Is_Mission_Retry()) || bLocal_5441)
 			{
 				GlobalFunc_562(76);
 				VEHICLE::REQUEST_VEHICLE_RECORDING(1, "FH1RECMIKE");
@@ -17312,7 +17312,7 @@ void func_517()//Position - 0x4411B
 								if (GlobalFunc_10618(&uLocal_3096, "FH1AUD", "FH1_TRVFBS", 7, 0, 0, 0))
 								{
 									iLocal_3479 = 4;
-									GlobalFunc_11043(1, "Stage 1: Front of bank", 0, 0, 0, 1);
+									GlobalFunc_Checkpoint1(1, "Stage 1: Front of bank", 0, 0, 0, 1);
 									iLocal_5436 = 0;
 									func_211(1);
 									iLocal_3400 = MISC::GET_GAME_TIMER();
@@ -17339,7 +17339,7 @@ void func_517()//Position - 0x4411B
 				GlobalFunc_5105();
 				iLocal_5436 = 0;
 				func_211(1);
-				GlobalFunc_11043(1, "Stage 1: Front of bank", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint1(1, "Stage 1: Front of bank", 0, 0, 0, 1);
 			}
 			else
 			{
@@ -17460,9 +17460,9 @@ int func_519(var uParam0, bool bParam1, bool bParam2, int iParam3)//Position - 0
 				iVar4 = 0;
 				while (iVar4 < 7)
 				{
-					if (MISC::IS_BIT_SET(Global_81119[iVar4 /*5*/].f_1, 2))
+					if (MISC::IS_BIT_SET(Global_Running_Missions[iVar4 /*5*/].f_1, 2))
 					{
-						iVar5 = Global_81119[iVar4 /*5*/];
+						iVar5 = Global_Running_Missions[iVar4 /*5*/];
 						StringCopy(&cVar6, "MISS_SWITCH_", 64);
 						StringConCat(&cVar6, &(Global_81155[Global_68514.f_109[iVar5 /*4*/] /*34*/]), 64);
 						STATS::STAT_INCREMENT(MISC::GET_HASH_KEY(&cVar6), 1f);
@@ -20453,7 +20453,7 @@ void func_639()//Position - 0x5331C
 			GlobalFunc_76(20);
 			if (!GlobalFunc_188())
 			{
-				func_816(iLocal_5440, &Var0, &uVar3, Global_89962.f_12[2]);
+				func_816(iLocal_5440, &Var0, &uVar3, Global_Mission_Fail_State.f_12[2]);
 				ENTITY::SET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), Var0, 1, 0, 0, 1);
 				ENTITY::SET_ENTITY_HEADING(PLAYER::PLAYER_PED_ID(), uVar3);
 				ENTITY::FREEZE_ENTITY_POSITION(PLAYER::PLAYER_PED_ID(), 1);
@@ -20614,7 +20614,7 @@ void func_641()//Position - 0x536AA
 {
 	if (ENTITY::DOES_ENTITY_EXIST(PLAYER::PLAYER_PED_ID()))
 	{
-		if (Global_89962.f_12[2] == 1)
+		if (Global_Mission_Fail_State.f_12[2] == 1)
 		{
 			while (!GlobalFunc_9756(&(Local_3032[1 /*2*/]), 2, 1759.54f, 3290.233f, 40.1387f, 259.1121f, 1, 0))
 			{
@@ -22326,7 +22326,7 @@ void func_806()//Position - 0x80FB6
 	{
 		SYSTEM::WAIT(0);
 	}
-	if (Global_89962.f_12[2] == 0)
+	if (Global_Mission_Fail_State.f_12[2] == 0)
 	{
 		func_642(0, 1, 1);
 		Local_3051[0 /*4*/] = PLAYER::PLAYER_PED_ID();
@@ -22355,7 +22355,7 @@ void func_806()//Position - 0x80FB6
 		func_198(0, 1, 0, 0, 0, 0);
 		iLocal_3392 = 0;
 	}
-	else if (Global_89962.f_12[2] == 1)
+	else if (Global_Mission_Fail_State.f_12[2] == 1)
 	{
 		func_642(2, 1, 1);
 		Local_3051[2 /*4*/] = PLAYER::PLAYER_PED_ID();
@@ -22387,11 +22387,11 @@ void func_806()//Position - 0x80FB6
 		func_198(0, 1, 0, 0, 0, 0);
 		iLocal_3392 = 1;
 	}
-	if (Global_89962.f_12[1] == 1)
+	if (Global_Mission_Fail_State.f_12[1] == 1)
 	{
-		if ((GlobalFunc_199() && Global_84544) && (Global_89999 == 3 || Global_89999 == 2))
+		if ((GlobalFunc_Is_Mission_Retry() && Global_84544) && (Global_Current_Checkpoint == 3 || Global_Current_Checkpoint == 2))
 		{
-			Global_89962.f_12[2] = 1;
+			Global_Mission_Fail_State.f_12[2] = 1;
 			iLocal_3392 = 0;
 		}
 		CLOCK::SET_CLOCK_TIME(14, 15, 0);
@@ -22417,7 +22417,7 @@ void func_806()//Position - 0x80FB6
 	MISC::CLEAR_AREA(ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), 1), 50f, 1, 0, 0, 0);
 	ENTITY::FREEZE_ENTITY_POSITION(Local_3032[2 /*2*/], 0);
 	GlobalFunc_730(ENTITY::GET_ENTITY_HEADING(PLAYER::PLAYER_PED_ID()));
-	GlobalFunc_11043(3, "Stage 3: Get in Position", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint1(3, "Stage 3: Get in Position", 0, 0, 0, 1);
 }
 
 void func_807()//Position - 0x8136D
@@ -22449,7 +22449,7 @@ void func_807()//Position - 0x8136D
 	{
 		SYSTEM::WAIT(0);
 	}
-	if (Global_89962.f_12[2] == 0)
+	if (Global_Mission_Fail_State.f_12[2] == 0)
 	{
 		func_642(0, 1, 1);
 		Local_3051[0 /*4*/] = PLAYER::PLAYER_PED_ID();
@@ -22478,7 +22478,7 @@ void func_807()//Position - 0x8136D
 		func_198(0, 1, 0, 0, 0, 0);
 		iLocal_3392 = 0;
 	}
-	else if (Global_89962.f_12[2] == 1)
+	else if (Global_Mission_Fail_State.f_12[2] == 1)
 	{
 		func_642(2, 1, 1);
 		Local_3051[2 /*4*/] = PLAYER::PLAYER_PED_ID();
@@ -22512,11 +22512,11 @@ void func_807()//Position - 0x8136D
 		func_198(0, 1, 0, 0, 0, 0);
 		iLocal_3392 = 1;
 	}
-	if (Global_89962.f_12[1] == 1)
+	if (Global_Mission_Fail_State.f_12[1] == 1)
 	{
-		if ((GlobalFunc_199() && Global_84544) && (Global_89999 == 3 || Global_89999 == 2))
+		if ((GlobalFunc_Is_Mission_Retry() && Global_84544) && (Global_Current_Checkpoint == 3 || Global_Current_Checkpoint == 2))
 		{
-			Global_89962.f_12[2] = 1;
+			Global_Mission_Fail_State.f_12[2] = 1;
 			iLocal_3392 = 0;
 		}
 		CLOCK::SET_CLOCK_TIME(14, 0, 0);
@@ -22539,7 +22539,7 @@ void func_807()//Position - 0x8136D
 	iLocal_3478 = 1;
 	MISC::CLEAR_AREA(ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), 1), 50f, 1, 0, 0, 0);
 	GlobalFunc_730(ENTITY::GET_ENTITY_HEADING(PLAYER::PLAYER_PED_ID()));
-	GlobalFunc_11043(2, "Stage 2: Back of bank", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint1(2, "Stage 2: Back of bank", 0, 0, 0, 1);
 }
 
 
@@ -22567,7 +22567,7 @@ void func_809()//Position - 0x817B1
 	{
 		SYSTEM::WAIT(0);
 	}
-	if (Global_89962.f_12[2] == 0)
+	if (Global_Mission_Fail_State.f_12[2] == 0)
 	{
 		func_642(0, 1, 1);
 		Local_3051[0 /*4*/] = PLAYER::PLAYER_PED_ID();
@@ -22588,7 +22588,7 @@ void func_809()//Position - 0x817B1
 			}
 		}
 	}
-	else if (Global_89962.f_12[2] == 1)
+	else if (Global_Mission_Fail_State.f_12[2] == 1)
 	{
 		func_642(2, 1, 1);
 		Local_3051[2 /*4*/] = PLAYER::PLAYER_PED_ID();
@@ -22629,7 +22629,7 @@ void func_809()//Position - 0x817B1
 	VEHICLE::SET_VEHICLE_ENGINE_CAN_DEGRADE(Local_3032[2 /*2*/], 0);
 	GlobalFunc_5174(&uLocal_3547, joaat("frogger2"));
 	func_329(0);
-	if ((((GlobalFunc_199() && Global_89999 == 1) && Global_89962.f_12[0] == 1) && !Global_84544) && !bLocal_5441)
+	if ((((GlobalFunc_Is_Mission_Retry() && Global_Current_Checkpoint == 1) && Global_Mission_Fail_State.f_12[0] == 1) && !Global_84544) && !bLocal_5441)
 	{
 		CLOCK::SET_CLOCK_TIME(13, 15, 0);
 	}
@@ -22646,7 +22646,7 @@ void func_809()//Position - 0x817B1
 	iLocal_3476 = 1;
 	MISC::CLEAR_AREA(ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), 1), 50f, 1, 0, 0, 0);
 	GlobalFunc_730(ENTITY::GET_ENTITY_HEADING(PLAYER::PLAYER_PED_ID()));
-	GlobalFunc_11043(1, "Stage 1: Front of bank", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint1(1, "Stage 1: Front of bank", 0, 0, 0, 1);
 }
 
 void func_810()//Position - 0x81B1D
@@ -23032,11 +23032,11 @@ void func_825()//Position - 0x831E4
 	GlobalFunc_9628(77.12664f, -1261.754f, 28.25048f, 104.4054f, -1305.117f, 39.38937f, 40f, 78.4684f, -1295.328f, 28.169f, 29.1546f, 1, 1, 1, 0, 0);
 	GlobalFunc_6791(2, 0);
 	iLocal_3530 = 0;
-	if (GlobalFunc_199() || GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Retry() || GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
-		if (GlobalFunc_199())
+		if (GlobalFunc_Is_Mission_Retry())
 		{
-			iLocal_5440 = GlobalFunc_198();
+			iLocal_5440 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 			if (Global_84544)
 			{
 				iLocal_5440++;
@@ -23047,13 +23047,13 @@ void func_825()//Position - 0x831E4
 			}
 			bLocal_5441 = false;
 		}
-		else if (GlobalFunc_2(0))
+		else if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			iLocal_5440 = 0;
 		}
-		if (GlobalFunc_199())
+		if (GlobalFunc_Is_Mission_Retry())
 		{
-			func_816(iLocal_5440, &Var0, &uVar3, Global_89962.f_12[2]);
+			func_816(iLocal_5440, &Var0, &uVar3, Global_Mission_Fail_State.f_12[2]);
 			GlobalFunc_5196(Var0, uVar3, 1, 0);
 		}
 		bLocal_5439 = true;
@@ -23076,12 +23076,12 @@ void func_825()//Position - 0x831E4
 				Local_3051[0 /*4*/] = Global_86864.f_9[1];
 			}
 		}
-		GlobalFunc_11043(0, "Stage 0: Strip club", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint1(0, "Stage 0: Strip club", 0, 0, 0, 1);
 		iLocal_5435 = 0;
 		func_218(0, 0);
-		Global_89962.f_12[0] = 0;
-		Global_89962.f_12[1] = 0;
-		Global_89962.f_12[2] = 0;
+		Global_Mission_Fail_State.f_12[0] = 0;
+		Global_Mission_Fail_State.f_12[1] = 0;
+		Global_Mission_Fail_State.f_12[2] = 0;
 	}
 	iLocal_5436 = 0;
 	if (PLAYER::IS_PLAYER_PLAYING(PLAYER::PLAYER_ID()))
@@ -23112,11 +23112,11 @@ void func_844(int iParam0)//Position - 0x843DB
 {
 	if (GlobalFunc_6674(PLAYER::PLAYER_PED_ID()) == 0)
 	{
-		Global_89962.f_12[2] = 0;
+		Global_Mission_Fail_State.f_12[2] = 0;
 	}
 	else if (GlobalFunc_6674(PLAYER::PLAYER_PED_ID()) == 2)
 	{
-		Global_89962.f_12[2] = 1;
+		Global_Mission_Fail_State.f_12[2] = 1;
 	}
 	if (VEHICLE::IS_VEHICLE_DRIVEABLE(Local_3032[0 /*2*/], 0))
 	{

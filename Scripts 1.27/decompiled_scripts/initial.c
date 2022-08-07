@@ -3391,7 +3391,7 @@ void func_94(int iParam0, int iParam1, int iParam2, int iParam3, int iParam4, in
 	
 	iVar0 = 7;
 	func_81(iVar0);
-	Global_68514.f_6825[Global_68514.f_12591 /*3*/] = 322211806;
+	Global_68514.f_6825[Global_68514.f_12591 /*3*/] = joaat("flow_text_player");
 	Global_68514.f_6825[Global_68514.f_12591 /*3*/].f_1 = iVar0;
 	Global_68514.f_6825[Global_68514.f_12591 /*3*/].f_2 = Global_68514.f_12592[iVar0];
 	func_85(Global_68514.f_12592[iVar0], iParam3, iParam0, iParam1, iParam2, iParam4, iParam5, iParam9, iParam10, iParam6, iParam7, iParam8);
@@ -3732,7 +3732,7 @@ void func_118(int iParam0, int iParam1, int iParam2, int iParam3, int iParam4)//
 	}
 	iVar0 = 1;
 	func_81(iVar0);
-	Global_68514.f_6825[Global_68514.f_12591 /*3*/] = -2093459088;
+	Global_68514.f_6825[Global_68514.f_12591 /*3*/] = joaat("flow_do_mission_at_blip");
 	Global_68514.f_6825[Global_68514.f_12591 /*3*/].f_1 = iVar0;
 	Global_68514.f_6825[Global_68514.f_12591 /*3*/].f_2 = Global_68514.f_12592[iVar0];
 	Global_81155[iParam0 /*34*/].f_7 = Global_68514.f_12592[iVar0];
@@ -4008,7 +4008,7 @@ void func_129(int iParam0, int iParam1, int iParam2, int iParam3)//Position - 0x
 	}
 	iVar0 = 1;
 	func_81(iVar0);
-	Global_68514.f_6825[Global_68514.f_12591 /*3*/] = -868169264;
+	Global_68514.f_6825[Global_68514.f_12591 /*3*/] = joaat("flow_do_mission_now");
 	Global_68514.f_6825[Global_68514.f_12591 /*3*/].f_1 = iVar0;
 	Global_68514.f_6825[Global_68514.f_12591 /*3*/].f_2 = Global_68514.f_12592[iVar0];
 	Global_81155[iParam0 /*34*/].f_7 = Global_68514.f_12592[iVar0];
@@ -6458,7 +6458,7 @@ void func_191(int iParam0, int iParam1, int iParam2, int iParam3)//Position - 0x
 	}
 	iVar0 = 1;
 	func_81(iVar0);
-	Global_68514.f_6825[Global_68514.f_12591 /*3*/] = 889972124;
+	Global_68514.f_6825[Global_68514.f_12591 /*3*/] = joaat("flow_do_mission_at_switch");
 	Global_68514.f_6825[Global_68514.f_12591 /*3*/].f_1 = iVar0;
 	Global_68514.f_6825[Global_68514.f_12591 /*3*/].f_2 = Global_68514.f_12592[iVar0];
 	Global_81155[iParam0 /*34*/].f_7 = Global_68514.f_12592[iVar0];
@@ -6724,7 +6724,7 @@ void func_210()//Position - 0xFDF7
 				iVar2 = Global_SAVE_DATA.FLOW_STRUCT.MF_STRANDS_ARRAY[iVar1 /*3*/].f_1;
 				if (iVar2 != -1)
 				{
-					if (Global_68514.f_6825[iVar2 /*3*/] == -868169264)
+					if (Global_68514.f_6825[iVar2 /*3*/] == joaat("flow_do_mission_now"))
 					{
 						if (!CAM::IS_SCREEN_FADED_OUT())
 						{

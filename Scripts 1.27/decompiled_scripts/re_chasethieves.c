@@ -1220,7 +1220,7 @@ void func_60(int iParam0, int iParam1, int iParam2, bool bParam3)//Position - 0x
 			}
 		}
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		PED::SET_PED_STEALTH_MOVEMENT(PLAYER::PLAYER_PED_ID(), 0, 0);
 	}
@@ -3683,7 +3683,7 @@ int func_336(struct<3> Param0, int iParam3, int iParam4, bool bParam5, bool bPar
 		{
 			return 0;
 		}
-		if (GlobalFunc_2(0))
+		if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			return 0;
 		}

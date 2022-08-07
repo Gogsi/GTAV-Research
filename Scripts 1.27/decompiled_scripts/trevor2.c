@@ -1508,7 +1508,7 @@ void func_38()//Position - 0x24D2
 		
 		case 2:
 			HUD::HIDE_HUD_AND_RADAR_THIS_FRAME();
-			if (!GlobalFunc_2(0))
+			if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				func_39();
 			}
@@ -1518,7 +1518,7 @@ void func_38()//Position - 0x24D2
 			break;
 		
 		case 3:
-			if (!GlobalFunc_2(0))
+			if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				GlobalFunc_2781(500);
 			}
@@ -1582,7 +1582,7 @@ void func_39()//Position - 0x25EB
 				{
 					HUD::ADD_NEXT_MESSAGE_TO_PREVIOUS_BRIEFS(1);
 					AUDIO::TRIGGER_MUSIC_EVENT("PROP_INTRO_START");
-					GlobalFunc_1("SJC_PROPH1");
+					GlobalFunc_Display_Help_Text("SJC_PROPH1");
 					func_33("SJC_PROPH1", 1);
 				}
 				if (SYSTEM::TIMERB() > 6000)
@@ -1590,7 +1590,7 @@ void func_39()//Position - 0x25EB
 					if (!func_36("SJC_PROPH2"))
 					{
 						HUD::ADD_NEXT_MESSAGE_TO_PREVIOUS_BRIEFS(1);
-						GlobalFunc_1("SJC_PROPH2");
+						GlobalFunc_Display_Help_Text("SJC_PROPH2");
 						func_33("SJC_PROPH2", 1);
 					}
 				}
@@ -1615,7 +1615,7 @@ void func_39()//Position - 0x25EB
 					}
 					GlobalFunc_2781(500);
 					HUD::ADD_NEXT_MESSAGE_TO_PREVIOUS_BRIEFS(1);
-					GlobalFunc_1("SJC_PROPH4B");
+					GlobalFunc_Display_Help_Text("SJC_PROPH4B");
 					GlobalFunc_8380(1, 1, 1, 0);
 					PLAYER::SET_PLAYER_CONTROL(PLAYER::PLAYER_ID(), false, 0);
 					STREAMING::SET_FOCUS_POS_AND_VEL(-68.64695f, -1819.643f, 25.94197f, 0f, 0f, 0f);
@@ -1654,7 +1654,7 @@ void func_39()//Position - 0x25EB
 					CAM::SET_CAM_FAR_CLIP(uLocal_5091, 55f);
 					CAM::SHAKE_CAM(uLocal_5091, "HAND_SHAKE", 0.09f);
 					HUD::ADD_NEXT_MESSAGE_TO_PREVIOUS_BRIEFS(1);
-					GlobalFunc_1("SJC_PROPH3");
+					GlobalFunc_Display_Help_Text("SJC_PROPH3");
 					SYSTEM::SETTIMERB(0);
 					iLocal_5821++;
 				}
@@ -1692,7 +1692,7 @@ void func_39()//Position - 0x25EB
 					CAM::SET_CAM_FAR_CLIP(uLocal_5091, 55f);
 					CAM::SHAKE_CAM(uLocal_5091, "HAND_SHAKE", 0.05f);
 					HUD::ADD_NEXT_MESSAGE_TO_PREVIOUS_BRIEFS(1);
-					GlobalFunc_1("SJC_PROPH4");
+					GlobalFunc_Display_Help_Text("SJC_PROPH4");
 					SYSTEM::SETTIMERB(0);
 					ENTITY::SET_ENTITY_VISIBLE(PLAYER::PLAYER_PED_ID(), 1);
 					STREAMING::REQUEST_COLLISION_AT_COORD(2120.1f, 4793f, 40.2f);
@@ -1723,7 +1723,7 @@ void func_39()//Position - 0x25EB
 					CAM::SHAKE_CAM(uLocal_5091, "HAND_SHAKE", 0.05f);
 					HUD::ADD_NEXT_MESSAGE_TO_PREVIOUS_BRIEFS(1);
 					AUDIO::TRIGGER_MUSIC_EVENT("PROP_INTRO_STOP");
-					GlobalFunc_1("SJC_PROPH5");
+					GlobalFunc_Display_Help_Text("SJC_PROPH5");
 					SYSTEM::SETTIMERB(0);
 					iLocal_5821++;
 				}
@@ -1890,7 +1890,7 @@ void func_50()//Position - 0x30F4
 					}
 					iLocal_5904 = MISC::GET_GAME_TIMER();
 					iLocal_5813 = 1;
-					if (!GlobalFunc_2(0))
+					if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 					{
 						STREAMING::SET_GAME_PAUSES_FOR_STREAMING(0);
 						STREAMING::NEW_LOAD_SCENE_START_SPHERE(396.71f, -709.68f, 30.7f, 20f, 2);
@@ -1910,7 +1910,7 @@ void func_50()//Position - 0x30F4
 			}
 			if (CUTSCENE::CAN_SET_EXIT_STATE_FOR_CAMERA(0))
 			{
-				if (!GlobalFunc_2(0))
+				if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					if (!CAM::DOES_CAM_EXIST(uLocal_5091))
 					{
@@ -1970,7 +1970,7 @@ void func_50()//Position - 0x30F4
 			}
 			if (CUTSCENE::HAS_CUTSCENE_FINISHED() && iLocal_5813 == 1)
 			{
-				if (!GlobalFunc_2(0))
+				if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					GlobalFunc_702(1, 1, 1);
 				}
@@ -1987,7 +1987,7 @@ void func_50()//Position - 0x30F4
 				{
 					SYSTEM::WAIT(0);
 				}
-				if (!GlobalFunc_2(0))
+				if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					GlobalFunc_702(1, 1, 1);
 				}
@@ -2006,7 +2006,7 @@ void func_50()//Position - 0x30F4
 				VEHICLE::SET_VEHICLE_ON_GROUND_PROPERLY(Local_4414[1 /*19*/]);
 				ENTITY::_SET_ENTITY_CLEANUP_BY_ENGINE(Local_4414[1 /*19*/], 1);
 			}
-			if (GlobalFunc_2(0))
+			if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				GlobalFunc_8380(0, 1, 1, 0);
 				PLAYER::SET_PLAYER_CONTROL(PLAYER::PLAYER_ID(), true, 0);
@@ -2021,7 +2021,7 @@ void func_50()//Position - 0x30F4
 		{
 			if (!GlobalFunc_588(&iLocal_5956, 8000))
 			{
-				if (!GlobalFunc_2(0))
+				if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					while (!STREAMING::IS_NEW_LOAD_SCENE_LOADED())
 					{
@@ -2218,7 +2218,7 @@ void func_55()//Position - 0x36CD
 			}
 			PLAYER::SET_PLAYER_CONTROL(PLAYER::PLAYER_ID(), true, 0);
 			MISC::CLEAR_AREA(2129.739f, 4790.823f, 40.0188f, 100f, 0, 0, 0, 0);
-			GlobalFunc_11046(6, "Fly to airstrip", 1, 0, 0, 1);
+			GlobalFunc_Checkpoint2(6, "Fly to airstrip", 1, 0, 0, 1);
 			iLocal_5774[0] = 1;
 			if (VEHICLE::IS_VEHICLE_DRIVEABLE(Local_4414[1 /*19*/], 0))
 			{
@@ -2264,7 +2264,7 @@ void func_55()//Position - 0x36CD
 						}
 						VEHICLE::CLOSE_BOMB_BAY_DOORS(Local_4414[2 /*19*/]);
 					}
-					if (GlobalFunc_199())
+					if (GlobalFunc_Is_Mission_Retry())
 					{
 						if (!func_36("TR_pload"))
 						{
@@ -4158,7 +4158,7 @@ void func_497()//Position - 0x59592
 		{
 			if (!func_36("SET FLIGHT CHECKPOINT"))
 			{
-				GlobalFunc_11046(5, "Fly to drop off point", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint2(5, "Fly to drop off point", 0, 0, 0, 1);
 				func_33("SET FLIGHT CHECKPOINT", 1);
 			}
 		}
@@ -5916,7 +5916,7 @@ void func_526()//Position - 0x5C2CF
 			STREAMING::REQUEST_ANIM_DICT("misstrevor2ig_10");
 			STREAMING::SET_MODEL_AS_NO_LONGER_NEEDED(joaat("prop_wall_light_02a"));
 			PLAYER::SET_WANTED_LEVEL_MULTIPLIER(0f);
-			GlobalFunc_11046(4, "Plane wing", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(4, "Plane wing", 0, 0, 0, 1);
 			iLocal_5806 = 0;
 			if (ENTITY::DOES_ENTITY_EXIST(uLocal_5739[1]))
 			{
@@ -6595,7 +6595,7 @@ void func_527()//Position - 0x5D962
 			}
 			else if (iLocal_5082 == 1)
 			{
-				if (GlobalFunc_109())
+				if (GlobalFunc_Has_Cutscene_Loaded())
 				{
 					if (CAM::IS_SCREEN_FADED_OUT())
 					{
@@ -9189,7 +9189,7 @@ void func_555()//Position - 0x6230D
 			TASK::ADD_COVER_BLOCKING_AREA((1719.118f + 0.75f), (3285.014f + 0.75f), (41.28481f + 0.75f), (1719.118f - 0.75f), (3285.014f - 0.75f), (41.28481f - 0.75f), 1, 1, 1, 0);
 			PLAYER::SET_PLAYER_CONTROL(PLAYER::PLAYER_ID(), true, 0);
 			GlobalFunc_2781(500);
-			GlobalFunc_11046(3, "Steal the plane", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(3, "Steal the plane", 0, 0, 0, 1);
 			GlobalFunc_5884("SJC_ENEM2G");
 			iLocal_5796 = 0;
 			iLocal_5938 = 0;
@@ -11429,7 +11429,7 @@ void func_575()//Position - 0x66E3F
 					STREAMING::REQUEST_PTFX_ASSET();
 					STREAMING::REQUEST_IPL("airfield");
 					iLocal_5923 = 0;
-					GlobalFunc_11046(2, "Shoot down heli cutscene", 0, 0, 0, 1);
+					GlobalFunc_Checkpoint2(2, "Shoot down heli cutscene", 0, 0, 0, 1);
 					iLocal_5819++;
 				}
 				else if (CUTSCENE::CAN_REQUEST_ASSETS_FOR_CUTSCENE_ENTITY())
@@ -11527,7 +11527,7 @@ void func_575()//Position - 0x66E3F
 				STREAMING::REQUEST_PTFX_ASSET();
 				STREAMING::REQUEST_IPL("airfield");
 				iLocal_5923 = 0;
-				GlobalFunc_11046(2, "Shoot down heli cutscene", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint2(2, "Shoot down heli cutscene", 0, 0, 0, 1);
 				iLocal_5819++;
 			}
 			else if (CUTSCENE::CAN_REQUEST_ASSETS_FOR_CUTSCENE_ENTITY())
@@ -11762,7 +11762,7 @@ void func_580()//Position - 0x678A8
 		}
 		PLAYER::SET_WANTED_LEVEL_MULTIPLIER(0f);
 		PLAYER::SET_MAX_WANTED_LEVEL(0);
-		GlobalFunc_11046(1, "Cover Ron with Sniper Rifle", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint2(1, "Cover Ron with Sniper Rifle", 0, 0, 0, 1);
 		if (!AUDIO::IS_AUDIO_SCENE_ACTIVE("TREVOR_2_TRAINS_VOLUME"))
 		{
 			AUDIO::START_AUDIO_SCENE("TREVOR_2_TRAINS_VOLUME");
@@ -18173,7 +18173,7 @@ int func_615(var uParam0, var uParam1, bool bParam2, bool bParam3, bool bParam4,
 	
 	uParam0->f_7 = *uParam1;
 	uParam0->f_8 = uParam1->f_1;
-	if ((GlobalFunc_2(0) && !bParam2) && !bParam4)
+	if ((GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) && !bParam2) && !bParam4)
 	{
 		if (uParam0->f_5)
 		{
@@ -18866,7 +18866,7 @@ void func_666()//Position - 0x7630A
 		}
 		else if (iLocal_5082 == 1)
 		{
-			if (GlobalFunc_109())
+			if (GlobalFunc_Has_Cutscene_Loaded())
 			{
 				if (!PED::IS_PED_INJURED(Local_5546))
 				{
@@ -18875,7 +18875,7 @@ void func_666()//Position - 0x7630A
 				CUTSCENE::START_CUTSCENE(0);
 				RECORDING::_0x48621C9FCA3EBD28(4);
 				GlobalFunc_8380(1, 1, 1, 0);
-				if (GlobalFunc_2(0))
+				if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					GlobalFunc_2781(500);
 				}
@@ -19151,11 +19151,11 @@ void func_696()//Position - 0x7D539
 	GlobalFunc_2224(1);
 	func_753();
 	GlobalFunc_563(1);
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		if (GlobalFunc_198() >= 0 && GlobalFunc_198() < 11)
+		if (GlobalFunc_Get_Mission_Fail_Checkpoint() >= 0 && GlobalFunc_Get_Mission_Fail_Checkpoint() < 11)
 		{
-			iLocal_5818 = GlobalFunc_198();
+			iLocal_5818 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 			if (Global_84544 == 1)
 			{
 				if (iLocal_5818 < 11)
@@ -19272,7 +19272,7 @@ void func_696()//Position - 0x7D539
 			}
 			iLocal_5874 = 1;
 		}
-		if (!GlobalFunc_199())
+		if (!GlobalFunc_Is_Mission_Retry())
 		{
 			func_749(iLocal_5874);
 		}

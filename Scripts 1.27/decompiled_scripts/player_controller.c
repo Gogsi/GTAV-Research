@@ -3132,7 +3132,7 @@ void func_90()//Position - 0x2010F
 	}
 	if (!NETWORK::NETWORK_IS_GAME_IN_PROGRESS() && (MISC::GET_GAME_TIMER() - iLocal_275) > 10000)
 	{
-		if (((((((((((((((PED::IS_PED_INJURED(PLAYER::PLAYER_PED_ID()) || STREAMING::IS_PLAYER_SWITCH_IN_PROGRESS()) || GlobalFunc_236()) || CUTSCENE::IS_CUTSCENE_PLAYING()) || !PLAYER::IS_PLAYER_CONTROL_ON(PLAYER::PLAYER_ID())) || Global_68243) || iLocal_274 > 16) || CAM::IS_SCREEN_FADING_OUT()) || CAM::IS_SCREEN_FADED_OUT()) || GlobalFunc_39(0)) || GlobalFunc_39(3)) || GlobalFunc_39(4)) || GlobalFunc_2(0)) || INTERIOR::IS_INTERIOR_SCENE()) || Global_67058) || !GlobalFunc_5085())
+		if (((((((((((((((PED::IS_PED_INJURED(PLAYER::PLAYER_PED_ID()) || STREAMING::IS_PLAYER_SWITCH_IN_PROGRESS()) || GlobalFunc_236()) || CUTSCENE::IS_CUTSCENE_PLAYING()) || !PLAYER::IS_PLAYER_CONTROL_ON(PLAYER::PLAYER_ID())) || Global_68243) || iLocal_274 > 16) || CAM::IS_SCREEN_FADING_OUT()) || CAM::IS_SCREEN_FADED_OUT()) || GlobalFunc_39(0)) || GlobalFunc_39(3)) || GlobalFunc_39(4)) || GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0)) || INTERIOR::IS_INTERIOR_SCENE()) || Global_67058) || !GlobalFunc_5085())
 		{
 			iLocal_274 = 12;
 			iLocal_275 = MISC::GET_GAME_TIMER();
@@ -4046,8 +4046,8 @@ void func_153()//Position - 0x2833E
 		iVar0 = 0;
 		while (iVar0 < 7)
 		{
-			iVar1 = Global_81119[iVar0 /*5*/];
-			iVar2 = Global_81119[iVar0 /*5*/].f_2;
+			iVar1 = Global_Running_Missions[iVar0 /*5*/];
+			iVar2 = Global_Running_Missions[iVar0 /*5*/].f_2;
 			if (!iVar1 == -1)
 			{
 				if (!iVar2 == -1)

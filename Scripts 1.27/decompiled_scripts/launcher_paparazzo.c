@@ -218,7 +218,7 @@ int func_2(int iParam0)//Position - 0x2B7
 	struct<4> Var0;
 	char* sVar32;
 	
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		while (!GlobalFunc_9038(*iParam0))
 		{
@@ -247,7 +247,7 @@ int func_2(int iParam0)//Position - 0x2B7
 	MemCopy(&sVar32, {GlobalFunc_44(*iParam0)}, 4);
 	GlobalFunc_5225(&sVar32, Var0.f_3, 0);
 	GlobalFunc_865(*iParam0);
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		if (iParam0->f_16 == 2)
 		{
@@ -591,7 +591,7 @@ int func_191(var uParam0, bool bParam1, int iParam2)//Position - 0xC0DC
 	{
 		iParam2 = 1;
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		iVar0 = 0;
 		while (iVar0 <= iVar1)
@@ -987,7 +987,7 @@ int func_221(var uParam0)//Position - 0xCFA7
 			if (!ENTITY::DOES_ENTITY_EXIST(uParam0->f_28[1]))
 			{
 				GlobalFunc_6479(&(uParam0->f_28[1]), iVar0[3], -498.1656f, 228.6284f, 82.09948f, 292.9763f, 26);
-				if (GlobalFunc_4924(uParam0->f_28[1]))
+				if (GlobalFunc_IsPedNotInjuredOrDead(uParam0->f_28[1]))
 				{
 					PED::SET_PED_NAME_DEBUG(uParam0->f_28[1], "Camera Man");
 					TASK::TASK_PLAY_ANIM(uParam0->f_28[1], "rcmpaparazzo_4", "Idle_Camman", 8f, -8f, -1, 57, 0, 0, 0, 0);
@@ -1006,7 +1006,7 @@ int func_221(var uParam0)//Position - 0xCFA7
 			if (!ENTITY::DOES_ENTITY_EXIST(uParam0->f_28[2]))
 			{
 				GlobalFunc_6479(&(uParam0->f_28[2]), iVar0[4], -498.309f, 227.9112f, 82.106f, 296.4216f, 26);
-				if (GlobalFunc_4924(uParam0->f_28[2]))
+				if (GlobalFunc_IsPedNotInjuredOrDead(uParam0->f_28[2]))
 				{
 					PED::SET_PED_NAME_DEBUG(uParam0->f_28[2], "Makeup Woman");
 					TASK::TASK_PLAY_ANIM(uParam0->f_28[2], "rcmpaparazzo_4", "Idle_Prod", 8f, -8f, -1, 57, 0, 0, 0, 0);
@@ -1216,7 +1216,7 @@ int func_233(var uParam0)//Position - 0xD947
 					bVar32 = false;
 				}
 			}
-			if (GlobalFunc_4924(uParam0->f_28[0]))
+			if (GlobalFunc_IsPedNotInjuredOrDead(uParam0->f_28[0]))
 			{
 				if (!ENTITY::DOES_ENTITY_EXIST(uParam0->f_41[3]))
 				{
@@ -1353,7 +1353,7 @@ int func_234(var uParam0)//Position - 0xDE86
 					bVar5 = false;
 				}
 			}
-			if (GlobalFunc_4924(uParam0->f_28[0]))
+			if (GlobalFunc_IsPedNotInjuredOrDead(uParam0->f_28[0]))
 			{
 				if (!ENTITY::DOES_ENTITY_EXIST(uParam0->f_41[0]))
 				{

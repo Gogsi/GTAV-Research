@@ -269,7 +269,7 @@ int func_2(int iParam0)//Position - 0x399
 	struct<4> Var0;
 	char* sVar32;
 	
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		while (!GlobalFunc_9038(*iParam0))
 		{
@@ -298,7 +298,7 @@ int func_2(int iParam0)//Position - 0x399
 	MemCopy(&sVar32, {GlobalFunc_44(*iParam0)}, 4);
 	GlobalFunc_5225(&sVar32, Var0.f_3, 0);
 	GlobalFunc_865(*iParam0);
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		if (iParam0->f_16 == 2)
 		{
@@ -869,7 +869,7 @@ int func_202(var uParam0, bool bParam1, int iParam2)//Position - 0xC892
 	{
 		iParam2 = 1;
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		iVar0 = 0;
 		while (iVar0 <= iVar1)
@@ -1804,7 +1804,7 @@ int func_251(var uParam0)//Position - 0xEDB9
 				VEHICLE::SET_VEHICLE_COLOURS(uParam0->f_35[1], 27, 27);
 			}
 			GlobalFunc_6479(&(uParam0->f_28[0]), iVar0[0], -1054.7f, 355.94f, 68.35f, 23.67f, 26);
-			if (GlobalFunc_4924(uParam0->f_28[0]))
+			if (GlobalFunc_IsPedNotInjuredOrDead(uParam0->f_28[0]))
 			{
 				PED::SET_PED_DIES_IN_WATER(uParam0->f_28[0], 0);
 				ENTITY::SET_ENTITY_COORDS_NO_OFFSET(uParam0->f_28[0], -1054.7f, 355.94f, 68.35f, 0, 0, 1);
@@ -1812,7 +1812,7 @@ int func_251(var uParam0)//Position - 0xEDB9
 				TASK::TASK_PLAY_ANIM(uParam0->f_28[0], sVar8, "Swimming_Idle", 8f, -8f, -1, 0, 0, 0, 0, 0);
 			}
 			GlobalFunc_6479(&(uParam0->f_28[1]), iVar0[1], -1058.43f, 362.78f, 69.86f, 130.45f, 26);
-			if (GlobalFunc_4924(uParam0->f_28[1]))
+			if (GlobalFunc_IsPedNotInjuredOrDead(uParam0->f_28[1]))
 			{
 				PED::SET_PED_COMPONENT_VARIATION(uParam0->f_28[1], 0, 0, 0, 0);
 				PED::SET_PED_COMPONENT_VARIATION(uParam0->f_28[1], 2, 0, 0, 0);
@@ -1826,7 +1826,7 @@ int func_251(var uParam0)//Position - 0xEDB9
 				TASK::TASK_SYNCHRONIZED_SCENE(uParam0->f_28[1], uParam0->f_59, uParam0->f_48, "base_girl", 1000f, -8f, 592, 0, 1148846080, 0);
 			}
 			GlobalFunc_6479(&(uParam0->f_28[2]), iVar0[2], -1012.57f, 357.48f, 70.62f, -28.55f, 26);
-			if (GlobalFunc_4924(uParam0->f_28[2]))
+			if (GlobalFunc_IsPedNotInjuredOrDead(uParam0->f_28[2]))
 			{
 				PED::SET_PED_DEFAULT_COMPONENT_VARIATION(uParam0->f_28[2]);
 				ENTITY::SET_ENTITY_COORDS_NO_OFFSET(uParam0->f_28[2], -1012.57f, 357.48f, 70.62f, 0, 0, 1);
@@ -1914,7 +1914,7 @@ int func_255(var uParam0)//Position - 0xF39C
 		case 2:
 			GlobalFunc_6479(&(uParam0->f_28[0]), iVar0[0], -552.66f, 287.75f, 82.18f, 123.75f, 26);
 			GlobalFunc_6479(&(uParam0->f_28[1]), iVar0[1], -553.46f, 287.34f, 82.18f, -65.86f, 26);
-			if (GlobalFunc_4924(uParam0->f_28[1]))
+			if (GlobalFunc_IsPedNotInjuredOrDead(uParam0->f_28[1]))
 			{
 				PED::SET_PED_CAN_BE_TARGETTED(uParam0->f_28[1], 0);
 				PED::SET_PED_COMPONENT_VARIATION(uParam0->f_28[1], 0, 1, 0, 0);
@@ -1927,11 +1927,11 @@ int func_255(var uParam0)//Position - 0xF39C
 			uParam0->f_59 = PED::CREATE_SYNCHRONIZED_SCENE(-552.18f, 285.476f, 81.976f, 0f, 0f, 79.5f, 2);
 			PED::SET_SYNCHRONIZED_SCENE_LOOPED(uParam0->f_59, 1);
 			PED::SET_SYNCHRONIZED_SCENE_HOLD_LAST_FRAME(uParam0->f_59, 0);
-			if (GlobalFunc_4924(uParam0->f_28[0]))
+			if (GlobalFunc_IsPedNotInjuredOrDead(uParam0->f_28[0]))
 			{
 				TASK::TASK_SYNCHRONIZED_SCENE(uParam0->f_28[0], uParam0->f_59, uParam0->f_48, "BASE_02_Willie", 1000f, -8f, 17, 0, 1148846080, 0);
 			}
-			if (GlobalFunc_4924(uParam0->f_28[1]))
+			if (GlobalFunc_IsPedNotInjuredOrDead(uParam0->f_28[1]))
 			{
 				TASK::TASK_SYNCHRONIZED_SCENE(uParam0->f_28[1], uParam0->f_59, uParam0->f_48, "BASE_02_GIRL", 1000f, -8f, 17, 0, 1148846080, 0);
 			}
@@ -1939,7 +1939,7 @@ int func_255(var uParam0)//Position - 0xF39C
 			GlobalFunc_6479(&(uParam0->f_28[3]), iVar0[3], -558.87f, 289.79f, 85.38f, 162.44f, 26);
 			GlobalFunc_6479(&(uParam0->f_28[4]), iVar0[4], -559f, 286.09f, 85.38f, 65.92f, 26);
 			GlobalFunc_6479(&(uParam0->f_28[5]), iVar0[5], -558.84f, 288.97f, 85.38f, -7.72f, 26);
-			if (GlobalFunc_4924(uParam0->f_28[2]))
+			if (GlobalFunc_IsPedNotInjuredOrDead(uParam0->f_28[2]))
 			{
 				PED::SET_PED_COMPONENT_VARIATION(uParam0->f_28[2], 0, 0, 1, 0);
 				PED::SET_PED_COMPONENT_VARIATION(uParam0->f_28[2], 2, 1, 2, 0);
@@ -1948,7 +1948,7 @@ int func_255(var uParam0)//Position - 0xF39C
 				PED::SET_PED_COMPONENT_VARIATION(uParam0->f_28[2], 7, 1, 0, 0);
 				PED::SET_PED_COMPONENT_VARIATION(uParam0->f_28[2], 8, 1, 0, 0);
 			}
-			if (GlobalFunc_4924(uParam0->f_28[3]))
+			if (GlobalFunc_IsPedNotInjuredOrDead(uParam0->f_28[3]))
 			{
 				PED::SET_PED_COMPONENT_VARIATION(uParam0->f_28[3], 0, 1, 1, 0);
 				PED::SET_PED_COMPONENT_VARIATION(uParam0->f_28[3], 2, 1, 0, 0);
@@ -1957,7 +1957,7 @@ int func_255(var uParam0)//Position - 0xF39C
 				PED::SET_PED_COMPONENT_VARIATION(uParam0->f_28[3], 7, 1, 0, 0);
 				PED::SET_PED_COMPONENT_VARIATION(uParam0->f_28[3], 8, 1, 0, 0);
 			}
-			if (GlobalFunc_4924(uParam0->f_28[4]))
+			if (GlobalFunc_IsPedNotInjuredOrDead(uParam0->f_28[4]))
 			{
 				PED::SET_PED_COMPONENT_VARIATION(uParam0->f_28[4], 0, 0, 0, 0);
 				PED::SET_PED_COMPONENT_VARIATION(uParam0->f_28[4], 2, 0, 2, 0);
@@ -1965,7 +1965,7 @@ int func_255(var uParam0)//Position - 0xF39C
 				PED::SET_PED_COMPONENT_VARIATION(uParam0->f_28[4], 4, 0, 1, 0);
 				PED::SET_PED_COMPONENT_VARIATION(uParam0->f_28[4], 8, 0, 0, 0);
 			}
-			if (GlobalFunc_4924(uParam0->f_28[5]))
+			if (GlobalFunc_IsPedNotInjuredOrDead(uParam0->f_28[5]))
 			{
 				PED::SET_PED_COMPONENT_VARIATION(uParam0->f_28[5], 0, 1, 0, 0);
 				PED::SET_PED_COMPONENT_VARIATION(uParam0->f_28[5], 2, 2, 0, 0);
@@ -2180,7 +2180,7 @@ void func_292(var uParam0)//Position - 0x112A5
 {
 	if (PED::IS_SYNCHRONIZED_SCENE_RUNNING(uParam0->f_59))
 	{
-		if (GlobalFunc_4924(uParam0->f_28[1]))
+		if (GlobalFunc_IsPedNotInjuredOrDead(uParam0->f_28[1]))
 		{
 			if (GlobalFunc_7188(uParam0->f_28[1], 1785177548))
 			{
@@ -2196,7 +2196,7 @@ void func_294(var uParam0)//Position - 0x11329
 {
 	if (PED::IS_SYNCHRONIZED_SCENE_RUNNING(uParam0->f_59))
 	{
-		if (GlobalFunc_4924(uParam0->f_28[0]))
+		if (GlobalFunc_IsPedNotInjuredOrDead(uParam0->f_28[0]))
 		{
 			if (GlobalFunc_7188(uParam0->f_28[0], 1785177548))
 			{
@@ -2204,7 +2204,7 @@ void func_294(var uParam0)//Position - 0x11329
 			}
 			ENTITY::STOP_SYNCHRONIZED_ENTITY_ANIM(uParam0->f_28[0], -1000f, 1);
 		}
-		if (GlobalFunc_4924(uParam0->f_28[1]))
+		if (GlobalFunc_IsPedNotInjuredOrDead(uParam0->f_28[1]))
 		{
 			if (GlobalFunc_7188(uParam0->f_28[1], 1785177548))
 			{

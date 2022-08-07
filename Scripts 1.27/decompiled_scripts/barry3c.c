@@ -369,9 +369,9 @@ void __EntryFunction__()//Position - 0x0
 	{
 		GlobalFunc_2372(&(Local_190[6 /*7*/].f_4), &(Local_80.f_35[1]));
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		iVar0 = GlobalFunc_198();
+		iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544)
 		{
 			iVar0++;
@@ -402,7 +402,7 @@ void __EntryFunction__()//Position - 0x0
 				break;
 		}
 	}
-	else if (GlobalFunc_2(0))
+	else if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		if (GlobalFunc_115(PLAYER::PLAYER_PED_ID()))
 		{
@@ -1462,7 +1462,7 @@ void func_241()//Position - 0x25E60
 	{
 		if (GlobalFunc_10638(&uLocal_250, 49, "BAR3CAU", "BAR3C_P1", 9, 1, 0, 0, 0))
 		{
-			GlobalFunc_11077(2, "Delivered vehicle", 1, 0, 0, 1);
+			GlobalFunc_Checkpoint6(2, "Delivered vehicle", 1, 0, 0, 1);
 			iLocal_456 = 1;
 			iLocal_155 = 7;
 			iLocal_156 = 0;
@@ -1771,7 +1771,7 @@ void func_311()//Position - 0x2B88A
 					func_313(4);
 					iLocal_485 = 0;
 					GlobalFunc_574(748, 0);
-					GlobalFunc_11077(1, "Start of towing stage", 0, 0, 0, 1);
+					GlobalFunc_Checkpoint6(1, "Start of towing stage", 0, 0, 0, 1);
 					GlobalFunc_146(&iLocal_157);
 					iLocal_155 = 5;
 					iLocal_156 = 0;
@@ -1813,7 +1813,7 @@ void func_311()//Position - 0x2B88A
 			if (func_2())
 			{
 				GlobalFunc_574(748, 0);
-				GlobalFunc_11077(1, "Start of towing stage", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint6(1, "Start of towing stage", 0, 0, 0, 1);
 				iLocal_156 = 2;
 				iLocal_437 = 1;
 			}
@@ -1958,7 +1958,7 @@ void func_314()//Position - 0x2BAB5
 				if (func_2())
 				{
 					GlobalFunc_574(748, 0);
-					GlobalFunc_11077(1, "Start of towing stage", 0, 0, 0, 1);
+					GlobalFunc_Checkpoint6(1, "Start of towing stage", 0, 0, 0, 1);
 					iLocal_155 = 5;
 				}
 				else
@@ -3059,7 +3059,7 @@ void func_409(bool bParam0)//Position - 0x30578
 	{
 		func_395(-1148.183f, -1227.005f, 8.4468f, 19.2f, 1);
 	}
-	GlobalFunc_11077(2, "Delivered vehicle", 1, 0, 0, 1);
+	GlobalFunc_Checkpoint6(2, "Delivered vehicle", 1, 0, 0, 1);
 }
 
 void func_410(bool bParam0)//Position - 0x307BF
@@ -3160,7 +3160,7 @@ void func_410(bool bParam0)//Position - 0x307BF
 			SYSTEM::WAIT(0);
 		}
 	}
-	GlobalFunc_11077(1, "Start of towing stage", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint6(1, "Start of towing stage", 0, 0, 0, 1);
 }
 
 void func_411(int iParam0, int iParam1, int iParam2)//Position - 0x30A3A
@@ -3425,11 +3425,11 @@ void func_437(bool bParam0)//Position - 0x316BF
 		{
 			return;
 		}
-		if (Global_84542 == Global_89999)
+		if (Global_84542 == Global_Current_Checkpoint)
 		{
 			Global_SAVE_DATA.SAVED_RANDOM_CHARACTERS[iVar0 /*6*/].f_4++;
 		}
-		Global_84542 = Global_89999;
+		Global_84542 = Global_Current_Checkpoint;
 		if (bParam0)
 		{
 			GlobalFunc_7620(iVar0, 1, 0);

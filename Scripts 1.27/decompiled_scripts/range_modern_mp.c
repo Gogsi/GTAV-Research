@@ -3877,27 +3877,27 @@ int func_413(var uParam0, int iParam1, int iParam2, var uParam3, var uParam4, va
 			}
 			if (iParam2 == iVar2 && (iParam1[iParam2 /*80*/])->f_11.f_1 == 0)
 			{
-				GlobalFunc_1("CDESC1_ORAN");
+				GlobalFunc_Display_Help_Text("CDESC1_ORAN");
 			}
 			else if (iParam2 == iVar2 && (iParam1[iParam2 /*80*/])->f_11.f_1 == 1)
 			{
-				GlobalFunc_1("CDESC2_ORAN");
+				GlobalFunc_Display_Help_Text("CDESC2_ORAN");
 			}
 			else if (iParam2 == iVar2 && (iParam1[iParam2 /*80*/])->f_11.f_1 == 2)
 			{
-				GlobalFunc_1("CDESC3_ORAN");
+				GlobalFunc_Display_Help_Text("CDESC3_ORAN");
 			}
 			else if (iParam2 == iVar3 && (iParam1[iParam2 /*80*/])->f_11.f_1 == 0)
 			{
-				GlobalFunc_1("CDESC1_PURP");
+				GlobalFunc_Display_Help_Text("CDESC1_PURP");
 			}
 			else if (iParam2 == iVar3 && (iParam1[iParam2 /*80*/])->f_11.f_1 == 1)
 			{
-				GlobalFunc_1("CDESC2_PURP");
+				GlobalFunc_Display_Help_Text("CDESC2_PURP");
 			}
 			else if (iParam2 == iVar3 && (iParam1[iParam2 /*80*/])->f_11.f_1 == 2)
 			{
-				GlobalFunc_1("CDESC3_PURP");
+				GlobalFunc_Display_Help_Text("CDESC3_PURP");
 			}
 			func_887();
 			if (GlobalFunc_1739(uParam0) == -1)
@@ -4989,27 +4989,27 @@ int func_498(var uParam0, var uParam1, int iParam2, int iParam3, var uParam4, va
 		case 0:
 			if (iParam2 == iVar0 && iParam3 == 0)
 			{
-				GlobalFunc_1("CDESC1_ORAN");
+				GlobalFunc_Display_Help_Text("CDESC1_ORAN");
 			}
 			else if (iParam2 == iVar0 && iParam3 == 1)
 			{
-				GlobalFunc_1("CDESC2_ORAN");
+				GlobalFunc_Display_Help_Text("CDESC2_ORAN");
 			}
 			else if (iParam2 == iVar0 && iParam3 == 2)
 			{
-				GlobalFunc_1("CDESC3_ORAN");
+				GlobalFunc_Display_Help_Text("CDESC3_ORAN");
 			}
 			else if (iParam2 == iVar1 && iParam3 == 0)
 			{
-				GlobalFunc_1("CDESC1_PURP");
+				GlobalFunc_Display_Help_Text("CDESC1_PURP");
 			}
 			else if (iParam2 == iVar1 && iParam3 == 1)
 			{
-				GlobalFunc_1("CDESC2_PURP");
+				GlobalFunc_Display_Help_Text("CDESC2_PURP");
 			}
 			else if (iParam2 == iVar1 && iParam3 == 2)
 			{
-				GlobalFunc_1("CDESC3_PURP");
+				GlobalFunc_Display_Help_Text("CDESC3_PURP");
 			}
 			GlobalFunc_5342(-1);
 			GlobalFunc_1354(51, "IB_QUIT", -1);
@@ -13076,7 +13076,7 @@ int func_894(var uParam0, var uParam1, var uParam2, int iParam3, var uParam4)//P
 		{
 			if (GlobalFunc_2264(iLocal_91, uParam2->f_8, 1) < 4f)
 			{
-				GlobalFunc_1("SHR_MP_LEAVE");
+				GlobalFunc_Display_Help_Text("SHR_MP_LEAVE");
 				func_499(uParam1, 2);
 			}
 		}
@@ -13264,7 +13264,7 @@ int func_897(var uParam0, int iParam1, int iParam2, var uParam3, var uParam4, va
 			break;
 		
 		case 6:
-			GlobalFunc_1("SR_SPEC_BUTTONS");
+			GlobalFunc_Display_Help_Text("SR_SPEC_BUTTONS");
 			if (!func_91(uParam4[iParam2 /*412*/], 8))
 			{
 				func_499(uParam4[iParam2 /*412*/], 8);

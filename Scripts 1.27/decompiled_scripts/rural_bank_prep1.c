@@ -1785,7 +1785,7 @@ void func_138()//Position - 0x74F1
 			{
 				CAM::DO_SCREEN_FADE_IN(800);
 			}
-			while (Global_89962 == 12)
+			while (Global_Mission_Fail_State == 12)
 			{
 				SYSTEM::WAIT(0);
 			}
@@ -4495,11 +4495,11 @@ void func_251()//Position - 0x101C1
 	VEHICLE::SET_VEHICLE_MODEL_IS_SUPPRESSED(joaat("barracks"), 1);
 	uLocal_444 = PED::ADD_SCENARIO_BLOCKING_AREA(Vector(35.39456f, 3600.538f, 1375.234f) - Vector(0f, 7f, 14.25f), Vector(35.39456f, 3600.538f, 1375.234f) + Vector(3f, 7f, 14.25f), 0, 1, 1, 1);
 	VEHICLE::SET_ALL_VEHICLE_GENERATORS_ACTIVE_IN_AREA(Vector(33.8865f, 3596.518f, 1383.51f) - Vector(1f, 5f, 5f), Vector(33.8865f, 3596.518f, 1383.51f) + Vector(2f, 5f, 5f), 0, 1);
-	if (GlobalFunc_199() || GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Retry() || GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
-		if (GlobalFunc_199())
+		if (GlobalFunc_Is_Mission_Retry())
 		{
-			iLocal_1479 = GlobalFunc_198();
+			iLocal_1479 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 			if (Global_84544)
 			{
 				iLocal_1479++;
@@ -4509,11 +4509,11 @@ void func_251()//Position - 0x101C1
 				iLocal_1479 = 3;
 			}
 		}
-		else if (GlobalFunc_2(0))
+		else if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			iLocal_1479 = 0;
 		}
-		if (GlobalFunc_199())
+		if (GlobalFunc_Is_Mission_Retry())
 		{
 			func_216(iLocal_1479, &Var0, &uVar3);
 			GlobalFunc_5812(Var0, uVar3, 1, 0);
@@ -4526,7 +4526,7 @@ void func_251()//Position - 0x101C1
 		{
 			SYSTEM::WAIT(0);
 		}
-		func_254(0, "stage 0: reached ambush", 0, 0, 0, 1);
+		checkpoint(0, "stage 0: reached ambush", 0, 0, 0, 1);
 		iLocal_1474 = 0;
 		func_212(0);
 	}
@@ -4536,7 +4536,7 @@ void func_251()//Position - 0x101C1
 
 
 
-void func_254(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4, int iParam5)//Position - 0x10470
+void checkpoint(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4, int iParam5)//Position - 0x10470
 {
 	int iVar0;
 	int iVar1;
@@ -4555,19 +4555,19 @@ void func_254(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 	iVar0 = 0;
 	if (iParam3 == 1)
 	{
-		if (iParam0 != Global_89999)
+		if (iParam0 != Global_Current_Checkpoint)
 		{
 			iVar0 = 1;
 		}
 	}
-	else if (iParam0 > Global_89999)
+	else if (iParam0 > Global_Current_Checkpoint)
 	{
 		iVar0 = 1;
 	}
 	if (iVar0 == 1)
 	{
 		GlobalFunc_174(1);
-		if (iParam0 <= Global_89999)
+		if (iParam0 <= Global_Current_Checkpoint)
 		{
 		}
 		iVar1 = GlobalFunc_5111(SCRIPT::GET_THIS_SCRIPT_NAME(), 1);
@@ -4589,7 +4589,7 @@ void func_254(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 						break;
 					}
 			}
-			STATS::PLAYSTATS_MISSION_CHECKPOINT(&cVar3, uVar2, Global_89999, iParam0);
+			STATS::PLAYSTATS_MISSION_CHECKPOINT(&cVar3, uVar2, Global_Current_Checkpoint, iParam0);
 		}
 		else
 		{
@@ -4598,11 +4598,11 @@ void func_254(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 			{
 				Global_SAVE_DATA.SAVED_RANDOM_CHARACTERS[iVar5 /*6*/].f_4 = 0;
 				MemCopy(&uVar6, {GlobalFunc_44(iVar5)}, 4);
-				STATS::PLAYSTATS_MISSION_CHECKPOINT(&uVar6, 0, Global_89999, iParam0);
+				STATS::PLAYSTATS_MISSION_CHECKPOINT(&uVar6, 0, Global_Current_Checkpoint, iParam0);
 			}
 			else
 			{
-				iVar10 = GlobalFunc_547(&(Global_89962.f_3));
+				iVar10 = GlobalFunc_547(&(Global_Mission_Fail_State.Failed_Script_Name));
 				if (iVar10 > -1)
 				{
 					Global_SAVE_DATA.BAIL_BOND_SAVED_STRUCT.f_4[iVar10] = 0;
@@ -4610,13 +4610,13 @@ void func_254(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 			}
 		}
 		Global_84545 = iParam2;
-		Global_89999 = iParam0;
+		Global_Current_Checkpoint = iParam0;
 		GlobalFunc_10923(iParam0, sParam1, iParam4, iParam5);
 		if (MISC::ARE_STRINGS_EQUAL(sParam1, ""))
 		{
 		}
 	}
-	else if (iParam0 < Global_89999)
+	else if (iParam0 < Global_Current_Checkpoint)
 	{
 	}
 }

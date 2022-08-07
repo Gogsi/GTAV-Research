@@ -2638,7 +2638,7 @@ void func_57()//Position - 0x6725
 	switch (iLocal_173)
 	{
 		case 0:
-			GlobalFunc_11061(2, sLocal_137, 1, 1, 0, 1);
+			GlobalFunc_Checkpoint3(2, sLocal_137, 1, 1, 0, 1);
 			AUDIO::START_AUDIO_SCENE("STREET_RACE_OUTRO");
 			iLocal_173++;
 			break;
@@ -3561,7 +3561,7 @@ void func_203()//Position - 0x115E0
 	switch (iLocal_173)
 	{
 		case 0:
-			GlobalFunc_11061(1, sLocal_136, 0, 1, 0, 1);
+			GlobalFunc_Checkpoint3(1, sLocal_136, 0, 1, 0, 1);
 			func_3(500);
 			AUDIO::REQUEST_SCRIPT_AUDIO_BANK("HUD_321_GO", 0);
 			GlobalFunc_5312(&(Local_45.f_1), 8);
@@ -3734,7 +3734,7 @@ void func_207(struct<5> Param0, var uParam5, var uParam6, var uParam7, var uPara
 	struct<3> Var12;
 	int iVar15;
 	
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		PED::SET_PED_RESET_FLAG(PLAYER::PLAYER_PED_ID(), 272, 1);
 		if (PED::IS_PED_IN_ANY_VEHICLE(PLAYER::PLAYER_PED_ID(), 0))
@@ -3750,17 +3750,17 @@ void func_207(struct<5> Param0, var uParam5, var uParam6, var uParam7, var uPara
 			{
 				if (ENTITY::IS_ENTITY_IN_WATER(PLAYER::GET_PLAYERS_LAST_VEHICLE()))
 				{
-					GlobalFunc_1("CRACESTUCK");
+					GlobalFunc_Display_Help_Text("CRACESTUCK");
 					iLocal_122 = MISC::GET_GAME_TIMER() + 1000;
 				}
 				if (((VEHICLE::IS_VEHICLE_STUCK_TIMER_UP(PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), 0), 2, 15000) || VEHICLE::IS_VEHICLE_STUCK_TIMER_UP(PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), 0), 3, 30000)) || VEHICLE::IS_VEHICLE_STUCK_TIMER_UP(PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), 0), 0, 10000)) || VEHICLE::IS_VEHICLE_STUCK_TIMER_UP(PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), 0), 1, 3000))
 				{
-					GlobalFunc_1("CRACESTUCK");
+					GlobalFunc_Display_Help_Text("CRACESTUCK");
 					iLocal_122 = MISC::GET_GAME_TIMER() + 1000;
 				}
 				if (SYSTEM::VDIST2(ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), 1), Var1) > 900f)
 				{
-					GlobalFunc_1("CRACESTUCK");
+					GlobalFunc_Display_Help_Text("CRACESTUCK");
 					iLocal_122 = MISC::GET_GAME_TIMER() + 1000;
 				}
 			}
@@ -3974,7 +3974,7 @@ void func_237()//Position - 0x12617
 	switch (iLocal_173)
 	{
 		case 0:
-			GlobalFunc_11061(0, sLocal_135, 0, 1, 0, 1);
+			GlobalFunc_Checkpoint3(0, sLocal_135, 0, 1, 0, 1);
 			iLocal_177 = 0;
 			iLocal_173++;
 			break;
@@ -6401,7 +6401,7 @@ void func_315(var uParam0)//Position - 0x1735A
 
 void func_316()//Position - 0x1756C
 {
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		func_209(500);
 	}

@@ -49901,35 +49901,35 @@ int func_272()//Position - 0x47B5E
 			case 4:
 			case 5:
 				iLocal_2832 = (MISC::GET_GAME_TIMER() - iLocal_2833);
-				if (iLocal_2832 <= (iLocal_2835 - Global_89962.f_12[0]))
+				if (iLocal_2832 <= (iLocal_2835 - Global_Mission_Fail_State.f_12[0]))
 				{
-					if (iLocal_2832 > ((iLocal_2835 - 10000) - Global_89962.f_12[0]))
+					if (iLocal_2832 > ((iLocal_2835 - 10000) - Global_Mission_Fail_State.f_12[0]))
 					{
-						if (IntToFloat(iLocal_2832) > (IntToFloat(((iLocal_2835 - 10000) - Global_89962.f_12[0])) - MISC::GET_FRAME_TIME()))
+						if (IntToFloat(iLocal_2832) > (IntToFloat(((iLocal_2835 - 10000) - Global_Mission_Fail_State.f_12[0])) - MISC::GET_FRAME_TIME()))
 						{
-							if (iLocal_2832 > ((iLocal_2835 - 5000) - Global_89962.f_12[0]))
+							if (iLocal_2832 > ((iLocal_2835 - 5000) - Global_Mission_Fail_State.f_12[0]))
 							{
 								iLocal_3570 = 500;
 							}
-							if (MISC::ABSI((((iLocal_2835 - iLocal_2832) - Global_89962.f_12[0]) - iLocal_3569)) > iLocal_3570)
+							if (MISC::ABSI((((iLocal_2835 - iLocal_2832) - Global_Mission_Fail_State.f_12[0]) - iLocal_3569)) > iLocal_3570)
 							{
 								AUDIO::PLAY_SOUND_FRONTEND(iLocal_3568, "10_SEC_WARNING", "HUD_MINI_GAME_SOUNDSET", 1);
-								iLocal_3569 = ((iLocal_2835 - iLocal_2832) - Global_89962.f_12[0]);
+								iLocal_3569 = ((iLocal_2835 - iLocal_2832) - Global_Mission_Fail_State.f_12[0]);
 							}
 						}
 						if (iLocal_3349 == 0)
 						{
-							GlobalFunc_5277(((iLocal_2835 - iLocal_2832) - Global_89962.f_12[0]), "TIMER_TIME", 0, 0, 0, 0, 2, 0, 6, 0, 0, 0, 0, 0);
+							GlobalFunc_5277(((iLocal_2835 - iLocal_2832) - Global_Mission_Fail_State.f_12[0]), "TIMER_TIME", 0, 0, 0, 0, 2, 0, 6, 0, 0, 0, 0, 0);
 							iLocal_3349 = 1;
 						}
 						else
 						{
-							GlobalFunc_5277(((iLocal_2835 - iLocal_2832) - Global_89962.f_12[0]), "TIMER_TIME", 0, 0, 10000, 0, 2, 0, 6, 0, 0, 0, 0, 0);
+							GlobalFunc_5277(((iLocal_2835 - iLocal_2832) - Global_Mission_Fail_State.f_12[0]), "TIMER_TIME", 0, 0, 10000, 0, 2, 0, 6, 0, 0, 0, 0, 0);
 						}
 					}
 					else
 					{
-						GlobalFunc_5277(((iLocal_2835 - iLocal_2832) - Global_89962.f_12[0]), "TIMER_TIME", 0, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0);
+						GlobalFunc_5277(((iLocal_2835 - iLocal_2832) - Global_Mission_Fail_State.f_12[0]), "TIMER_TIME", 0, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0);
 					}
 				}
 				else
@@ -49942,7 +49942,7 @@ int func_272()//Position - 0x47B5E
 					GlobalFunc_5277(0, "TIMER_TIME", 0, 0, 110000, 0, 2, 0, 6, 0, 0, 0, 0, 0);
 				}
 				HUD::HIDE_HUD_COMPONENT_THIS_FRAME(7);
-				if ((iLocal_2832 + Global_89962.f_12[0]) > iLocal_2835 + 2000)
+				if ((iLocal_2832 + Global_Mission_Fail_State.f_12[0]) > iLocal_2835 + 2000)
 				{
 					return func_280("SOL5_TIMEUP");
 				}
@@ -50577,7 +50577,7 @@ void func_311()//Position - 0x498D5
 				PED::SET_PED_USING_ACTION_MODE(PLAYER::PLAYER_PED_ID(), 0, -1, 0);
 				PED::SET_PED_MAX_MOVE_BLEND_RATIO(PLAYER::PLAYER_PED_ID(), 1f);
 			}
-			if (ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), -799.9903f, 179.3952f, 74.91506f, -807.95f, 176.6743f, 77.99074f, 8.5f, 0, 1, 0) && GlobalFunc_109())
+			if (ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), -799.9903f, 179.3952f, 74.91506f, -807.95f, 176.6743f, 77.99074f, 8.5f, 0, 1, 0) && GlobalFunc_Has_Cutscene_Loaded())
 			{
 				HUD::REMOVE_BLIP(&uLocal_3261);
 				ENTITY::SET_PED_AS_NO_LONGER_NEEDED(&iLocal_3047);
@@ -51511,7 +51511,7 @@ void func_350()//Position - 0x4D685
 	GlobalFunc_688();
 	if (PLAYER::IS_SPECIAL_ABILITY_ACTIVE(PLAYER::PLAYER_ID()))
 	{
-		Global_89962.f_12[2] = 1;
+		Global_Mission_Fail_State.f_12[2] = 1;
 	}
 	if ((!GlobalFunc_5172(&Local_3005, 1) && iLocal_3560 == 0) && iLocal_3004 >= 3)
 	{
@@ -51588,7 +51588,7 @@ void func_350()//Position - 0x4D685
 			ENTITY::SET_PED_AS_NO_LONGER_NEEDED(&iLocal_3046);
 			iLocal_3519 = 0;
 			func_345(9);
-			GlobalFunc_11046(6, "STAGE_FIGHT_INCOMING_BAD_GUYS", 1, 0, 0, 1);
+			GlobalFunc_Checkpoint2(6, "STAGE_FIGHT_INCOMING_BAD_GUYS", 1, 0, 0, 1);
 			if (iLocal_3443 != 0)
 			{
 				TASK::REMOVE_COVER_POINT(iLocal_3443);
@@ -51679,7 +51679,7 @@ void func_350()//Position - 0x4D685
 			func_367();
 			if (((ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), -808.8208f, 184.6101f, 71.09059f, -807.0656f, 179.2834f, 86.24236f, 7f, 0, 1, 0) || func_365()) || bLocal_3531) || (MISC::GET_GAME_TIMER() - iLocal_3536) > 45000)
 			{
-				if (((GlobalFunc_199() && Global_89962.f_12[1] == 0) && Global_89962.f_12[2] == 0) && (Global_SAVE_DATA.FLOW_STRUCT.MF_MISSION_ARRAY[49 /*6*/].f_1 == 1 || Global_SAVE_DATA.FLOW_STRUCT.MF_MISSION_ARRAY[49 /*6*/].f_1 == 2))
+				if (((GlobalFunc_Is_Mission_Retry() && Global_Mission_Fail_State.f_12[1] == 0) && Global_Mission_Fail_State.f_12[2] == 0) && (Global_SAVE_DATA.FLOW_STRUCT.MF_MISSION_ARRAY[49 /*6*/].f_1 == 1 || Global_SAVE_DATA.FLOW_STRUCT.MF_MISSION_ARRAY[49 /*6*/].f_1 == 2))
 				{
 					if (PAD::_IS_USING_KEYBOARD(0))
 					{
@@ -51689,7 +51689,7 @@ void func_350()//Position - 0x4D685
 					{
 						GlobalFunc_159("MIC4_SA", -1);
 					}
-					Global_89962.f_12[1] = 1;
+					Global_Mission_Fail_State.f_12[1] = 1;
 				}
 				if (GlobalFunc_10618(&uLocal_2839, "SOL5AUD", "SOL5_GRENADE", 9, 0, 0, 0))
 				{
@@ -52954,7 +52954,7 @@ void func_439()//Position - 0x5783D
 			AUDIO::START_AUDIO_SCENE("MI_4_SAVE_FAMILY_MAIN");
 			bLocal_2831 = false;
 			func_345(8);
-			GlobalFunc_11046(5, "STAGE_SAVE_TRACEY", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(5, "STAGE_SAVE_TRACEY", 0, 0, 0, 1);
 			PED::SET_CREATE_RANDOM_COPS(0);
 			PED::SET_CREATE_RANDOM_COPS_ON_SCENARIOS(0);
 			if (CAM::IS_SCREEN_FADED_OUT())
@@ -53460,7 +53460,7 @@ void func_446()//Position - 0x58C3F
 			bLocal_2831 = false;
 			PED::SET_CREATE_RANDOM_COPS(0);
 			PED::SET_CREATE_RANDOM_COPS_ON_SCENARIOS(0);
-			GlobalFunc_11046(4, "STAGE_SAVE_AMANDA", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(4, "STAGE_SAVE_AMANDA", 0, 0, 0, 1);
 			func_305();
 			SYSTEM::SETTIMERA(0);
 			AUDIO::SET_PLAYER_ANGRY(PLAYER::PLAYER_PED_ID(), 1);
@@ -53726,7 +53726,7 @@ void func_447()//Position - 0x593C7
 				STREAMING::SET_MODEL_AS_NO_LONGER_NEEDED(joaat("a_m_y_vindouche_01"));
 				STREAMING::SET_MODEL_AS_NO_LONGER_NEEDED(joaat("a_f_y_vinewood_03"));
 				PED::SET_PED_USING_ACTION_MODE(PLAYER::PLAYER_PED_ID(), 1, -1, 0);
-				GlobalFunc_11046(3, "STAGE_ENTER_THE_HOUSE", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint2(3, "STAGE_ENTER_THE_HOUSE", 0, 0, 0, 1);
 				PLAYER::SET_PLAYER_CONTROL(PLAYER::PLAYER_ID(), true, 0);
 				PED::REMOVE_PED_FROM_GROUP(iLocal_3033);
 				TASK::SET_PED_PATH_CAN_USE_CLIMBOVERS(iLocal_3033, 0);
@@ -53871,13 +53871,13 @@ void func_449()//Position - 0x59997
 			{
 				PATHFIND::REMOVE_NAVMESH_BLOCKING_OBJECT(iLocal_3301);
 			}
-			Global_89962.f_12[0] = 0;
+			Global_Mission_Fail_State.f_12[0] = 0;
 			if (!PED::IS_PED_INJURED(iLocal_3033))
 			{
 				ENTITY::SET_ENTITY_COORDS(iLocal_3033, 301.4036f, 198.9978f, 103.1659f, 1, 0, 0, 1);
 				ENTITY::SET_ENTITY_HEADING(iLocal_3033, 167.8465f);
 			}
-			GlobalFunc_11046(2, "STAGE_GET_TO_MICHAELS_HOUSE", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(2, "STAGE_GET_TO_MICHAELS_HOUSE", 0, 0, 0, 1);
 			if (!PED::IS_PED_INJURED(iLocal_3033))
 			{
 				func_340(&iLocal_3033, 1);
@@ -55379,7 +55379,7 @@ void func_516()//Position - 0x5DDBD
 			iLocal_3411 = 0;
 			iLocal_3412 = 0;
 			func_305();
-			GlobalFunc_11046(1, "STAGE_MOVIE_PREMIERE_CUT", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(1, "STAGE_MOVIE_PREMIERE_CUT", 0, 0, 0, 1);
 			uLocal_3409 = GlobalFunc_5104(298.3941f, 192.811f, 103.3272f, 0);
 			GlobalFunc_164("SOL5_REDCARPET", 7500, 1);
 			iLocal_3004++;
@@ -60190,7 +60190,7 @@ void func_670()//Position - 0x6DC4B
 		case 0:
 			MISC::SET_WEATHER_TYPE_OVERTIME_PERSIST("EXTRASUNNY", 15f);
 			func_345(1);
-			if (GlobalFunc_2(0))
+			if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				ENTITY::SET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), -712.0151f, -154.033f, 36.4152f, 1, 0, 0, 1);
 				GlobalFunc_8913(18);
@@ -60486,9 +60486,9 @@ int func_675()//Position - 0x6E6E0
 	{
 		return 1;
 	}
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
-		if (func_676(49, &uLocal_3279, GlobalFunc_2(0), 0, 0, 0, 1))
+		if (func_676(49, &uLocal_3279, GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0), 0, 0, 0, 1))
 		{
 			if (iLocal_3298 == 0)
 			{
@@ -60585,7 +60585,7 @@ int func_677(var uParam0, var uParam1, bool bParam2, bool bParam3, bool bParam4,
 	
 	uParam0->f_7 = *uParam1;
 	uParam0->f_8 = uParam1->f_1;
-	if ((GlobalFunc_2(0) && !bParam2) && !bParam4)
+	if ((GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) && !bParam2) && !bParam4)
 	{
 		if (uParam0->f_5)
 		{
@@ -60990,11 +60990,11 @@ void func_729()//Position - 0x7337B
 	GlobalFunc_563(1);
 	iLocal_2833 = MISC::GET_GAME_TIMER();
 	iLocal_3278 = 1;
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		func_530(0, 1);
 		GlobalFunc_173(&uLocal_2839, 0, PLAYER::PLAYER_PED_ID(), "MICHAEL", 0, 1);
-		iVar0 = GlobalFunc_198();
+		iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		switch (iVar0)
 		{
 			case 0:
@@ -61182,7 +61182,7 @@ void func_730(int iParam0, bool bParam1)//Position - 0x73669
 				}
 				SYSTEM::WAIT(0);
 			}
-			if (GlobalFunc_199() && GlobalFunc_7698())
+			if (GlobalFunc_Is_Mission_Retry() && GlobalFunc_7698())
 			{
 				VEHICLE::DELETE_VEHICLE(&iLocal_3031);
 				GlobalFunc_8368();
@@ -61417,13 +61417,13 @@ void func_775()//Position - 0x7878B
 {
 	GlobalFunc_2790(4, 0, 0);
 	MISC::CLEAR_WEATHER_TYPE_PERSIST();
-	if (iLocal_2832 > (iLocal_2835 - Global_89962.f_12[0]))
+	if (iLocal_2832 > (iLocal_2835 - Global_Mission_Fail_State.f_12[0]))
 	{
-		Global_89962.f_12[0] = 90000;
+		Global_Mission_Fail_State.f_12[0] = 90000;
 	}
 	else
 	{
-		Global_89962.f_12[0] = iLocal_2832;
+		Global_Mission_Fail_State.f_12[0] = iLocal_2832;
 	}
 	GlobalFunc_5574("MIC4_TUXTEXT");
 	GlobalFunc_5574("SOL5_DEVTXT");

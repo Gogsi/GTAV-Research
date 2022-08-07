@@ -2220,7 +2220,7 @@ int func_148(var uParam0)//Position - 0x8288
 	int iVar0;
 	int iVar1;
 	
-	if ((GlobalFunc_4924(PLAYER::PLAYER_PED_ID()) && PED::IS_PED_IN_ANY_VEHICLE(PLAYER::PLAYER_PED_ID(), 0)) && GlobalFunc_4940(uParam0))
+	if ((GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()) && PED::IS_PED_IN_ANY_VEHICLE(PLAYER::PLAYER_PED_ID(), 0)) && GlobalFunc_4940(uParam0))
 	{
 		iVar0 = PLAYER::GET_PLAYERS_LAST_VEHICLE();
 		if (GlobalFunc_4940(iVar0))
@@ -3401,10 +3401,10 @@ void func_465()//Position - 0x5587D
 	var uVar3;
 	
 	GlobalFunc_3041();
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		iLocal_1326 = 0;
-		if (GlobalFunc_199())
+		if (GlobalFunc_Is_Mission_Retry())
 		{
 			if (Global_84544)
 			{
@@ -3412,7 +3412,7 @@ void func_465()//Position - 0x5587D
 			}
 		}
 		StringCopy(&cLocal_313, "JHP1BRoute2", 64);
-		if (GlobalFunc_199())
+		if (GlobalFunc_Is_Mission_Retry())
 		{
 			func_454(iLocal_1326, &Var0, &uVar3);
 			GlobalFunc_5812(Var0, uVar3, 1, 0);
@@ -3436,7 +3436,7 @@ void func_465()//Position - 0x5587D
 	MISC::ENABLE_DISPATCH_SERVICE(12, 0);
 	MISC::ENABLE_DISPATCH_SERVICE(5, 0);
 	TASK::SET_SCENARIO_GROUP_ENABLED("MP_POLICE", 0);
-	if (!GlobalFunc_199() && !GlobalFunc_2(0))
+	if (!GlobalFunc_Is_Mission_Retry() && !GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		while (!func_466())
 		{
@@ -3445,7 +3445,7 @@ void func_465()//Position - 0x5587D
 		iLocal_1321 = 0;
 		func_449(0);
 	}
-	while (Global_89962 == 12)
+	while (Global_Mission_Fail_State == 12)
 	{
 		SYSTEM::WAIT(0);
 	}
@@ -3455,7 +3455,7 @@ int func_466()//Position - 0x5597E
 {
 	int iVar0;
 	
-	Global_89962.f_12[0] = Global_86864.f_358;
+	Global_Mission_Fail_State.f_12[0] = Global_86864.f_358;
 	cLocal_313 = { Global_87247 };
 	GlobalFunc_786(219, 0f, 0f, 2000f);
 	if (!ENTITY::DOES_ENTITY_EXIST(Local_51[0 /*2*/]))

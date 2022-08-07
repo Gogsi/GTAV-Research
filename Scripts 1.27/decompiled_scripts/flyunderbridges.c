@@ -94,7 +94,7 @@ void __EntryFunction__()//Position - 0x0
 	{
 		SCRIPT::TERMINATE_THIS_THREAD();
 	}
-	if ((GlobalFunc_39(13) || GlobalFunc_39(14)) || GlobalFunc_2(0))
+	if ((GlobalFunc_39(13) || GlobalFunc_39(14)) || GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		SCRIPT::TERMINATE_THIS_THREAD();
 	}

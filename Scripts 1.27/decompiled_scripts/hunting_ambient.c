@@ -454,7 +454,7 @@ void __EntryFunction__()//Position - 0x0
 	func_762();
 	while (true)
 	{
-		if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+		if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 		{
 			if (PLAYER::IS_PLAYER_BEING_ARRESTED(PLAYER::PLAYER_ID(), 1))
 			{
@@ -46289,7 +46289,7 @@ void func_535(var uParam0, int iParam1, bool bParam2, int iParam3)//Position - 0
 {
 	if (!HUD::DOES_BLIP_EXIST(*uParam0))
 	{
-		if (GlobalFunc_4924(iParam1))
+		if (GlobalFunc_IsPedNotInjuredOrDead(iParam1))
 		{
 			*uParam0 = func_536(iParam1, bParam2, 145);
 			HUD::SET_BLIP_SCALE(*uParam0, iParam3);
@@ -46387,7 +46387,7 @@ int func_540(var uParam0, struct<3> Param1, float fParam4, int iParam5, bool bPa
 {
 	if (func_541(uParam0, iParam5, Param1, fParam4, bParam6, 0, iParam7))
 	{
-		if (GlobalFunc_4924(*uParam0))
+		if (GlobalFunc_IsPedNotInjuredOrDead(*uParam0))
 		{
 			return 1;
 		}
@@ -48277,7 +48277,7 @@ int func_616()//Position - 0x5F58A
 
 void func_617(float fParam0, float fParam1)//Position - 0x5F5B6
 {
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		*fParam0 = (*fParam0 + 0.05f);
 		*fParam1 = (*fParam1 + 0.05f);
@@ -48302,7 +48302,7 @@ void func_617(float fParam0, float fParam1)//Position - 0x5F5B6
 
 void func_618(float fParam0, float fParam1)//Position - 0x5F61F
 {
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		if (TASK::IS_PED_RUNNING(PLAYER::PLAYER_PED_ID()))
 		{
@@ -48324,7 +48324,7 @@ void func_618(float fParam0, float fParam1)//Position - 0x5F61F
 
 int func_619()//Position - 0x5F676
 {
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		if (WEAPON::GET_WEAPONTYPE_GROUP(GlobalFunc_1535(PLAYER::PLAYER_PED_ID())) == joaat("GROUP_SNIPER"))
 		{
@@ -50990,7 +50990,7 @@ void func_673(int iParam0)//Position - 0x62995
 			break;
 		
 		case 15:
-			if (func_606(iParam0) && GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+			if (func_606(iParam0) && GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 			{
 				Var13 = { ENTITY::GET_ENTITY_COORDS(Local_94[iParam0 /*36*/], 0) };
 				fVar12 = MISC::GET_DISTANCE_BETWEEN_COORDS(ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), 0), Var13, 1);
@@ -51126,7 +51126,7 @@ int func_680(int iParam0, int iParam1)//Position - 0x6375B
 	float fVar6;
 	int iVar7;
 	
-	if (GlobalFunc_4924(Local_94[iParam1 /*36*/]))
+	if (GlobalFunc_IsPedNotInjuredOrDead(Local_94[iParam1 /*36*/]))
 	{
 		Var3 = { ENTITY::GET_ENTITY_COORDS(Local_94[iParam1 /*36*/], 1) };
 		fVar6 = ENTITY::GET_ENTITY_HEADING(Local_94[iParam1 /*36*/]);
@@ -51292,7 +51292,7 @@ int func_686()//Position - 0x63BDE
 	{
 		return 59;
 	}
-	if (!GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (!GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		return 59;
 	}
@@ -52005,7 +52005,7 @@ void func_699(int iParam0)//Position - 0x64AF6
 {
 	struct<3> Var0;
 	
-	if (ENTITY::DOES_ENTITY_EXIST(iParam0) && GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (ENTITY::DOES_ENTITY_EXIST(iParam0) && GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		if (!bLocal_1791)
 		{
@@ -52292,7 +52292,7 @@ void func_706(int iParam0)//Position - 0x650F1
 	var uVar0;
 	
 	uVar0 = PLAYER::PLAYER_PED_ID();
-	if (GlobalFunc_4924(uVar0))
+	if (GlobalFunc_IsPedNotInjuredOrDead(uVar0))
 	{
 		if (!WEAPON::HAS_PED_GOT_WEAPON(uVar0, joaat("weapon_sniperrifle"), 0))
 		{
@@ -52326,7 +52326,7 @@ void func_706(int iParam0)//Position - 0x650F1
 
 int func_707(struct<3> Param0, struct<3> Param3)//Position - 0x651AF
 {
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		if (!CAM::DOES_CAM_EXIST(uLocal_2485))
 		{
@@ -52795,7 +52795,7 @@ void func_727(int iParam0, int iParam1, int iParam2, int iParam3)//Position - 0x
 			}
 		}
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		PED::SET_PED_STEALTH_MOVEMENT(PLAYER::PLAYER_PED_ID(), 0, 0);
 	}
@@ -53431,8 +53431,8 @@ void func_779(int iParam0, var uParam1, var uParam2)//Position - 0x69509
 	{
 		GlobalFunc_6675(iParam0, &Var0);
 		MemCopy(&uVar32, {GlobalFunc_44(iParam0)}, 4);
-		STATS::PLAYSTATS_MISSION_CHECKPOINT(&uVar32, 0, Global_89999, 0);
-		GlobalFunc_46(&uVar32, Var0.f_3, Global_89999, uParam1, uParam2);
+		STATS::PLAYSTATS_MISSION_CHECKPOINT(&uVar32, 0, Global_Current_Checkpoint, 0);
+		GlobalFunc_46(&uVar32, Var0.f_3, Global_Current_Checkpoint, uParam1, uParam2);
 	}
 }
 
@@ -53451,7 +53451,7 @@ void func_790(var uParam0)//Position - 0x6AC54
 	var uVar0;
 	
 	uVar0 = PLAYER::PLAYER_PED_ID();
-	if (GlobalFunc_4924(uVar0) || uParam0)
+	if (GlobalFunc_IsPedNotInjuredOrDead(uVar0) || uParam0)
 	{
 		WEAPON::SET_PED_INFINITE_AMMO(uVar0, 0, joaat("weapon_sniperrifle"));
 		WEAPON::SET_PED_AMMO_BY_TYPE(iVar0, joaat("AMMO_SNIPER"), iLocal_1796);

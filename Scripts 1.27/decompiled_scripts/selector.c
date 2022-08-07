@@ -736,7 +736,7 @@ void func_6()//Position - 0x370
 						GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_TEXTURE_NAME_STRING("director");
 						GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
 					}
-					else if ((((((!GlobalFunc_39(0) && !GlobalFunc_39(3)) && !GlobalFunc_39(2)) && !GlobalFunc_39(4)) && !GlobalFunc_39(9)) && !GlobalFunc_39(10)) && !GlobalFunc_2(0))
+					else if ((((((!GlobalFunc_39(0) && !GlobalFunc_39(3)) && !GlobalFunc_39(2)) && !GlobalFunc_39(4)) && !GlobalFunc_39(9)) && !GlobalFunc_39(10)) && !GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 					{
 						GRAPHICS::BEGIN_SCALEFORM_MOVIE_METHOD(iLocal_147, "SET_MULTIPLAYER_HEAD");
 						GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_TEXTURE_NAME_STRING(sLocal_227);
@@ -1114,7 +1114,7 @@ void func_6()//Position - 0x370
 					}
 					else if (Global_17098.f_69 == 2)
 					{
-						if ((((((((!GlobalFunc_39(0) && !GlobalFunc_39(3)) && !GlobalFunc_39(2)) && !GlobalFunc_39(4)) && !GlobalFunc_39(9)) && !GlobalFunc_39(10)) && !GlobalFunc_2(0)) && GlobalFunc_6714()) && GlobalFunc_7922(GlobalFunc_5()))
+						if ((((((((!GlobalFunc_39(0) && !GlobalFunc_39(3)) && !GlobalFunc_39(2)) && !GlobalFunc_39(4)) && !GlobalFunc_39(9)) && !GlobalFunc_39(10)) && !GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0)) && GlobalFunc_6714()) && GlobalFunc_7922(GlobalFunc_5()))
 						{
 							bVar1 = true;
 						}
@@ -3023,7 +3023,7 @@ int func_89(int iParam0)//Position - 0x506B
 		{
 			if (GlobalFunc_6509(iVar1) == 5)
 			{
-				if (((!GlobalFunc_2(0) && !GlobalFunc_39(0)) && !GlobalFunc_39(3)) && !GlobalFunc_39(2))
+				if (((!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) && !GlobalFunc_39(0)) && !GlobalFunc_39(3)) && !GlobalFunc_39(2))
 				{
 					return 0;
 				}
@@ -3867,7 +3867,7 @@ void func_105()//Position - 0x59F9
 				Global_1318682 = 0;
 				return;
 			}
-			if (GlobalFunc_2(0))
+			if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				iLocal_249 = 0;
 				PLAYER::FORCE_CLEANUP(2);
@@ -4273,9 +4273,9 @@ int func_112(var uParam0, bool bParam1, bool bParam2, int iParam3)//Position - 0
 				iVar4 = 0;
 				while (iVar4 < 7)
 				{
-					if (MISC::IS_BIT_SET(Global_81119[iVar4 /*5*/].f_1, 2))
+					if (MISC::IS_BIT_SET(Global_Running_Missions[iVar4 /*5*/].f_1, 2))
 					{
-						iVar5 = Global_81119[iVar4 /*5*/];
+						iVar5 = Global_Running_Missions[iVar4 /*5*/];
 						StringCopy(&cVar6, "MISS_SWITCH_", 64);
 						StringConCat(&cVar6, &(Global_81155[Global_68514.f_109[iVar5 /*4*/] /*34*/]), 64);
 						STATS::STAT_INCREMENT(MISC::GET_HASH_KEY(&cVar6), 1f);
@@ -57613,7 +57613,7 @@ int func_707(var uParam0, int iParam1)//Position - 0x5C054
 					bVar1 = true;
 				}
 			}
-			else if (!((MISC::IS_BIT_SET(Global_SAVE_DATA.FLOW_STRUCT.MF_STRANDS_ARRAY[27 /*3*/], 1) && !Global_3) && !GlobalFunc_2(0)))
+			else if (!((MISC::IS_BIT_SET(Global_SAVE_DATA.FLOW_STRUCT.MF_STRANDS_ARRAY[27 /*3*/], 1) && !Global_3) && !GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0)))
 			{
 				if (uParam0->f_23)
 				{
@@ -57683,7 +57683,7 @@ void func_714(var uParam0, int iParam1, bool bParam2, var uParam3, var uParam4, 
 			}
 			if (uParam0->f_23 && *uParam3 == 1)
 			{
-				if ((((!NETWORK::NETWORK_IS_GAME_IN_PROGRESS() && PLAYER::GET_PLAYER_WANTED_LEVEL(PLAYER::PLAYER_ID()) > 0) || ((((GlobalFunc_6687(0) || GlobalFunc_6687(3)) || GlobalFunc_6687(2)) || GlobalFunc_39(9)) || GlobalFunc_39(10))) || GlobalFunc_2(0)) || Global_34879)
+				if ((((!NETWORK::NETWORK_IS_GAME_IN_PROGRESS() && PLAYER::GET_PLAYER_WANTED_LEVEL(PLAYER::PLAYER_ID()) > 0) || ((((GlobalFunc_6687(0) || GlobalFunc_6687(3)) || GlobalFunc_6687(2)) || GlobalFunc_39(9)) || GlobalFunc_39(10))) || GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0)) || Global_34879)
 				{
 					*uParam3 = 2;
 				}
@@ -57707,7 +57707,7 @@ void func_714(var uParam0, int iParam1, bool bParam2, var uParam3, var uParam4, 
 			}
 			if (uParam0->f_23 && *uParam3 == 1)
 			{
-				if ((((!NETWORK::NETWORK_IS_GAME_IN_PROGRESS() && PLAYER::GET_PLAYER_WANTED_LEVEL(PLAYER::PLAYER_ID()) > 0) || ((((GlobalFunc_6687(0) || GlobalFunc_6687(3)) || GlobalFunc_6687(2)) || GlobalFunc_39(9)) || GlobalFunc_39(10))) || GlobalFunc_2(0)) || Global_34879)
+				if ((((!NETWORK::NETWORK_IS_GAME_IN_PROGRESS() && PLAYER::GET_PLAYER_WANTED_LEVEL(PLAYER::PLAYER_ID()) > 0) || ((((GlobalFunc_6687(0) || GlobalFunc_6687(3)) || GlobalFunc_6687(2)) || GlobalFunc_39(9)) || GlobalFunc_39(10))) || GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0)) || Global_34879)
 				{
 					*uParam3 = 2;
 				}
@@ -57731,7 +57731,7 @@ void func_714(var uParam0, int iParam1, bool bParam2, var uParam3, var uParam4, 
 			}
 			if (uParam0->f_23 && *uParam3 == 1)
 			{
-				if ((((!NETWORK::NETWORK_IS_GAME_IN_PROGRESS() && PLAYER::GET_PLAYER_WANTED_LEVEL(PLAYER::PLAYER_ID()) > 0) || ((((GlobalFunc_6687(0) || GlobalFunc_6687(3)) || GlobalFunc_6687(2)) || GlobalFunc_39(9)) || GlobalFunc_39(10))) || GlobalFunc_2(0)) || Global_34879)
+				if ((((!NETWORK::NETWORK_IS_GAME_IN_PROGRESS() && PLAYER::GET_PLAYER_WANTED_LEVEL(PLAYER::PLAYER_ID()) > 0) || ((((GlobalFunc_6687(0) || GlobalFunc_6687(3)) || GlobalFunc_6687(2)) || GlobalFunc_39(9)) || GlobalFunc_39(10))) || GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0)) || Global_34879)
 				{
 					*uParam3 = 2;
 				}
@@ -57741,7 +57741,7 @@ void func_714(var uParam0, int iParam1, bool bParam2, var uParam3, var uParam4, 
 		case 3:
 			*uParam4 = 2;
 			*uParam6 = 0;
-			if ((((((!uParam0->f_23 || Global_3) || (uParam0->f_23 && ((((GlobalFunc_6687(0) || GlobalFunc_6687(3)) || GlobalFunc_6687(2)) || GlobalFunc_39(9)) || GlobalFunc_39(10)))) || (uParam0->f_23 && GlobalFunc_2(0))) || (uParam0->f_23 && Global_34879)) || !GlobalFunc_757()) || !GlobalFunc_5192(0))
+			if ((((((!uParam0->f_23 || Global_3) || (uParam0->f_23 && ((((GlobalFunc_6687(0) || GlobalFunc_6687(3)) || GlobalFunc_6687(2)) || GlobalFunc_39(9)) || GlobalFunc_39(10)))) || (uParam0->f_23 && GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))) || (uParam0->f_23 && Global_34879)) || !GlobalFunc_757()) || !GlobalFunc_5192(0))
 			{
 				*uParam3 = 2;
 			}
@@ -57775,7 +57775,7 @@ void func_714(var uParam0, int iParam1, bool bParam2, var uParam3, var uParam4, 
 		{
 			*uParam3 = 1;
 		}
-		else if (((uParam0->f_23 && !MISC::IS_BIT_SET(Global_SAVE_DATA.FLOW_STRUCT.MF_STRANDS_ARRAY[27 /*3*/], 1)) && !Global_3) && !GlobalFunc_2(0))
+		else if (((uParam0->f_23 && !MISC::IS_BIT_SET(Global_SAVE_DATA.FLOW_STRUCT.MF_STRANDS_ARRAY[27 /*3*/], 1)) && !Global_3) && !GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			if ((((GlobalFunc_6687(0) || GlobalFunc_6687(3)) || GlobalFunc_6687(2)) || GlobalFunc_39(9)) || GlobalFunc_39(10))
 			{

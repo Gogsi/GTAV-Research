@@ -4929,7 +4929,7 @@ void func_205(var uParam0)//Position - 0xB2DD
 	
 	if (uParam0->f_271)
 	{
-		if ((MISC::GET_FRAME_COUNT() >= (uParam0->f_272 + uParam0->f_273) || MISC::IS_BIT_SET(Global_89962.f_20, 2)) || MISC::IS_BIT_SET(Global_89962.f_20, 13))
+		if ((MISC::GET_FRAME_COUNT() >= (uParam0->f_272 + uParam0->f_273) || MISC::IS_BIT_SET(Global_Mission_Fail_State.f_20, 2)) || MISC::IS_BIT_SET(Global_Mission_Fail_State.f_20, 13))
 		{
 			iVar0 = 0;
 			while (iVar0 < 15)
@@ -5053,7 +5053,7 @@ int func_211(struct<3> Param0, int iParam3, int iParam4, bool bParam5, bool bPar
 		{
 			return 0;
 		}
-		if (GlobalFunc_2(0))
+		if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			return 0;
 		}

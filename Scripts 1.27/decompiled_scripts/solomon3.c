@@ -733,7 +733,7 @@ void __EntryFunction__()//Position - 0x0
 	fLocal_3320 = 209.7233f;
 	fLocal_3321 = 90.947f;
 	fLocal_3324 = 46.7161f;
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		GlobalFunc_7678(24, 0);
 	}
@@ -1086,7 +1086,7 @@ void func_5()//Position - 0x7AF
 			func_104();
 			iLocal_3344 = 0;
 		}
-		GlobalFunc_11061(3, "STAGE_EVADE_POLICE", 1, 0, 0, 1);
+		GlobalFunc_Checkpoint3(3, "STAGE_EVADE_POLICE", 1, 0, 0, 1);
 		iLocal_3373 = 0;
 		iLocal_3374 = 0;
 		iLocal_3375 = 0;
@@ -1835,7 +1835,7 @@ void func_106()//Position - 0x8EEC
 				STREAMING::SET_MODEL_AS_NO_LONGER_NEEDED(joaat("ig_molly"));
 				PED::SET_PED_RELATIONSHIP_GROUP_HASH(iLocal_3221, 1862763509);
 			}
-			if (GlobalFunc_199())
+			if (GlobalFunc_Is_Mission_Retry())
 			{
 				if (!ENTITY::DOES_ENTITY_EXIST(iLocal_3258))
 				{
@@ -1925,7 +1925,7 @@ void func_106()//Position - 0x8EEC
 				STREAMING::SET_MODEL_AS_NO_LONGER_NEEDED(joaat("jet"));
 				ENTITY::SET_ENTITY_LOD_DIST(iLocal_3265, 500);
 			}
-			if (GlobalFunc_199())
+			if (GlobalFunc_Is_Mission_Retry())
 			{
 				if (GlobalFunc_7698())
 				{
@@ -2006,7 +2006,7 @@ void func_106()//Position - 0x8EEC
 				SYSTEM::WAIT(0);
 			}
 			func_109();
-			if (GlobalFunc_199())
+			if (GlobalFunc_Is_Mission_Retry())
 			{
 				if (GlobalFunc_7698())
 				{
@@ -2256,7 +2256,7 @@ void func_154()//Position - 0xD34A
 	VEHICLE::REQUEST_VEHICLE_RECORDING(55, "BB_Chase");
 	VEHICLE::REQUEST_VEHICLE_RECORDING(67, "BB_Chase");
 	func_156(1, "BB_Chase");
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		if (GlobalFunc_7698())
 		{
@@ -3949,7 +3949,7 @@ void func_203()//Position - 0xFAD3
 	}
 	if (iLocal_3180 == 0)
 	{
-		GlobalFunc_11061(2, "STAGE_ON_FOOT_CHASE", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint3(2, "STAGE_ON_FOOT_CHASE", 0, 0, 0, 1);
 		if (iLocal_3344 == 1)
 		{
 			if (!CAM::IS_SCREEN_FADED_OUT())
@@ -4501,7 +4501,7 @@ void func_215()//Position - 0x111DF
 							if (!HUD::IS_MESSAGE_BEING_DISPLAYED())
 							{
 								GlobalFunc_164("TRV4_CHASE2", 7500, 1);
-								GlobalFunc_11061(1, "STAGE_CHASE_START", 0, 0, 0, 1);
+								GlobalFunc_Checkpoint3(1, "STAGE_CHASE_START", 0, 0, 0, 1);
 								AUDIO::TRIGGER_MUSIC_EVENT("TRV4_CHASE");
 								iLocal_3342 = 1;
 							}
@@ -4525,7 +4525,7 @@ void func_215()//Position - 0x111DF
 						if (!HUD::IS_MESSAGE_BEING_DISPLAYED())
 						{
 							GlobalFunc_164("TRV4_CHASE2", 7500, 1);
-							GlobalFunc_11061(1, "STAGE_CHASE_START", 0, 0, 0, 1);
+							GlobalFunc_Checkpoint3(1, "STAGE_CHASE_START", 0, 0, 0, 1);
 							AUDIO::TRIGGER_MUSIC_EVENT("TRV4_CHASE");
 							iLocal_3342 = 1;
 						}
@@ -10198,7 +10198,7 @@ void func_313()//Position - 0x1B591
 			{
 				case 0:
 					CUTSCENE::REQUEST_CUTSCENE("sol_3_int", 8);
-					if (GlobalFunc_109())
+					if (GlobalFunc_Has_Cutscene_Loaded())
 					{
 						while (!func_329(61, &uLocal_3742, 0, 1, 0, 0, 0))
 						{
@@ -10446,7 +10446,7 @@ int func_330(var uParam0, var uParam1, bool bParam2, bool bParam3, bool bParam4,
 	
 	uParam0->f_7 = *uParam1;
 	uParam0->f_8 = uParam1->f_1;
-	if ((GlobalFunc_2(0) && !bParam2) && !bParam4)
+	if ((GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) && !bParam2) && !bParam4)
 	{
 		if (uParam0->f_5)
 		{
@@ -10793,9 +10793,9 @@ int func_330(var uParam0, var uParam1, bool bParam2, bool bParam3, bool bParam4,
 void func_358()//Position - 0x1E656
 {
 	PLAYER::SET_PLAYER_CONTROL(PLAYER::PLAYER_ID(), true, 0);
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
-		if (GlobalFunc_2(0))
+		if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			PLAYER::SET_PLAYER_WANTED_LEVEL(PLAYER::PLAYER_ID(), 0, 0);
 			PLAYER::SET_PLAYER_WANTED_LEVEL_NOW(PLAYER::PLAYER_ID(), 0);
@@ -10859,7 +10859,7 @@ void func_358()//Position - 0x1E656
 		PED::SET_RELATIONSHIP_BETWEEN_GROUPS(5, iLocal_3575, 1862763509);
 		if (Global_84544 == 1)
 		{
-			if (GlobalFunc_198() == 0)
+			if (GlobalFunc_Get_Mission_Fail_Checkpoint() == 0)
 			{
 				GlobalFunc_4972(Local_3311, fLocal_3324, 1, 0);
 				iLocal_3180 = 0;
@@ -10867,7 +10867,7 @@ void func_358()//Position - 0x1E656
 				AUDIO::TRIGGER_MUSIC_EVENT("TRV4_START_RT");
 				iLocal_3179 = 3;
 			}
-			if (GlobalFunc_198() == 1)
+			if (GlobalFunc_Get_Mission_Fail_Checkpoint() == 1)
 			{
 				GlobalFunc_4972(-935.4413f, -2928.061f, 12.9451f, 178.466f, 1, 0);
 				iLocal_3180 = 0;
@@ -10875,7 +10875,7 @@ void func_358()//Position - 0x1E656
 				AUDIO::TRIGGER_MUSIC_EVENT("TRV4_FOOT_CHASE_RT");
 				iLocal_3179 = 5;
 			}
-			if (GlobalFunc_198() == 2)
+			if (GlobalFunc_Get_Mission_Fail_Checkpoint() == 2)
 			{
 				GlobalFunc_4972(-937.5466f, -2968.713f, 12.9451f, 111.5016f, 1, 0);
 				iLocal_3180 = 0;
@@ -10883,7 +10883,7 @@ void func_358()//Position - 0x1E656
 				AUDIO::TRIGGER_MUSIC_EVENT("TRV4_EVADE_RT");
 				iLocal_3179 = 8;
 			}
-			if (GlobalFunc_198() == 3)
+			if (GlobalFunc_Get_Mission_Fail_Checkpoint() == 3)
 			{
 				GlobalFunc_4972(-920.0547f, -2744.661f, 12.9322f, 357.1374f, 1, 0);
 				func_359();
@@ -10891,7 +10891,7 @@ void func_358()//Position - 0x1E656
 		}
 		else
 		{
-			if (GlobalFunc_198() == 0)
+			if (GlobalFunc_Get_Mission_Fail_Checkpoint() == 0)
 			{
 				GlobalFunc_4972(-1019.579f, -484.872f, 36.0795f, 93.7701f, 1, 0);
 				iLocal_3180 = 0;
@@ -10899,7 +10899,7 @@ void func_358()//Position - 0x1E656
 				AUDIO::TRIGGER_MUSIC_EVENT("TRV4_START_RT");
 				iLocal_3179 = 2;
 			}
-			if (GlobalFunc_198() == 1)
+			if (GlobalFunc_Get_Mission_Fail_Checkpoint() == 1)
 			{
 				GlobalFunc_4972(Local_3311, fLocal_3324, 1, 0);
 				iLocal_3180 = 0;
@@ -10907,7 +10907,7 @@ void func_358()//Position - 0x1E656
 				AUDIO::TRIGGER_MUSIC_EVENT("TRV4_START_RT");
 				iLocal_3179 = 3;
 			}
-			if (GlobalFunc_198() == 2)
+			if (GlobalFunc_Get_Mission_Fail_Checkpoint() == 2)
 			{
 				GlobalFunc_4972(-935.4413f, -2928.061f, 12.9451f, 178.466f, 1, 0);
 				iLocal_3180 = 0;
@@ -10915,7 +10915,7 @@ void func_358()//Position - 0x1E656
 				AUDIO::TRIGGER_MUSIC_EVENT("TRV4_FOOT_CHASE_RT");
 				iLocal_3179 = 5;
 			}
-			if (GlobalFunc_198() == 3)
+			if (GlobalFunc_Get_Mission_Fail_Checkpoint() == 3)
 			{
 				GlobalFunc_4972(-937.5466f, -2968.713f, 12.9451f, 111.5016f, 1, 0);
 				iLocal_3180 = 0;
@@ -11975,7 +11975,7 @@ void func_370()//Position - 0x20DC8
 				}
 				else if (!GlobalFunc_74("TRV4_HELP3"))
 				{
-					GlobalFunc_1("TRV4_HELP3");
+					GlobalFunc_Display_Help_Text("TRV4_HELP3");
 				}
 			}
 			else if (GlobalFunc_74("TRV4_HELP3"))

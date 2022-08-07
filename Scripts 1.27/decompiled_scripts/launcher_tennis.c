@@ -300,7 +300,7 @@ void __EntryFunction__()//Position - 0x0
 						if (!GlobalFunc_747(uLocal_94, 8))
 						{
 							bVar1 = true;
-							if (MISC::ARE_STRINGS_EQUAL(&(Global_89962.f_3), &cLocal_69))
+							if (MISC::ARE_STRINGS_EQUAL(&(Global_Mission_Fail_State.Failed_Script_Name), &cLocal_69))
 							{
 								cLocal_69 = { Local_53 };
 								bVar1 = false;
@@ -576,13 +576,13 @@ void __EntryFunction__()//Position - 0x0
 						{
 							if (GlobalFunc_747(Global_96007, 0))
 							{
-								STATS::PLAYSTATS_MISSION_CHECKPOINT(GlobalFunc_4519(iLocal_99), 0, Global_89999, 0);
-								GlobalFunc_4518(GlobalFunc_4519(iLocal_99), 0, Global_89999, 1, 0);
+								STATS::PLAYSTATS_MISSION_CHECKPOINT(GlobalFunc_4519(iLocal_99), 0, Global_Current_Checkpoint, 0);
+								GlobalFunc_4518(GlobalFunc_4519(iLocal_99), 0, Global_Current_Checkpoint, 1, 0);
 							}
 							else
 							{
-								STATS::PLAYSTATS_MISSION_CHECKPOINT(GlobalFunc_4519(iLocal_99), 0, Global_89999, 0);
-								GlobalFunc_4518(GlobalFunc_4519(iLocal_99), 0, Global_89999, 0, 0);
+								STATS::PLAYSTATS_MISSION_CHECKPOINT(GlobalFunc_4519(iLocal_99), 0, Global_Current_Checkpoint, 0);
+								GlobalFunc_4518(GlobalFunc_4519(iLocal_99), 0, Global_Current_Checkpoint, 0, 0);
 							}
 						}
 						GlobalFunc_587();

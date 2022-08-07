@@ -9396,7 +9396,7 @@ int func_476(int iParam0, int iParam1)//Position - 0x46289
 	int iVar0;
 	
 	iVar0 = GlobalFunc_4917(GlobalFunc_8315());
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		if (SCRIPT::_GET_NUMBER_OF_REFERENCES_OF_SCRIPT_WITH_NAME_HASH(joaat("fbi4_prep4")) > 0)
 		{

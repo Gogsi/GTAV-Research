@@ -369,7 +369,7 @@ void func_1(var uParam0, struct<3> Param1)//Position - 0x128
 				MISC::SET_BIT(&(Global_SAVE_DATA.SAVED_RANDOM_CHARACTERS[*uParam0 /*6*/]), 2);
 				MISC::CLEAR_BIT(&(Global_SAVE_DATA.SAVED_RANDOM_CHARACTERS[*uParam0 /*6*/]), 3);
 				Global_96440[*uParam0 /*10*/].f_1 = 0;
-				if (!GlobalFunc_2(0))
+				if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					Global_96440[*uParam0 /*10*/].f_3 = 0;
 				}
@@ -425,7 +425,7 @@ int func_5(var uParam0)//Position - 0x317
 	struct<4> Var0;
 	char* sVar32;
 	
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		while (!GlobalFunc_9038(*uParam0))
 		{
@@ -454,7 +454,7 @@ int func_5(var uParam0)//Position - 0x317
 	MemCopy(&sVar32, {GlobalFunc_44(*uParam0)}, 4);
 	GlobalFunc_5225(&sVar32, Var0.f_3, 0);
 	GlobalFunc_865(*uParam0);
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		if (uParam0->f_16 == 2)
 		{
@@ -746,7 +746,7 @@ int func_142(var uParam0, bool bParam1, int iParam2)//Position - 0x9C79
 	{
 		iParam2 = 1;
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		iVar0 = 0;
 		while (iVar0 <= iVar1)
@@ -1136,7 +1136,7 @@ bool func_200()//Position - 0xB72B
 			if (!GlobalFunc_74("RAMP_HELP_TRIG"))
 			{
 				HUD::CLEAR_HELP(1);
-				GlobalFunc_1("RAMP_HELP_TRIG");
+				GlobalFunc_Display_Help_Text("RAMP_HELP_TRIG");
 			}
 			iLocal_286 = 1;
 		}

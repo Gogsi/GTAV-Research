@@ -5515,7 +5515,7 @@ void func_103(char* sParam0, int iParam1, int iParam2, bool bParam3)//Position -
 	}
 	else
 	{
-		GlobalFunc_1(sParam0);
+		GlobalFunc_Display_Help_Text(sParam0);
 	}
 	GlobalFunc_814(iParam1, iParam2);
 }

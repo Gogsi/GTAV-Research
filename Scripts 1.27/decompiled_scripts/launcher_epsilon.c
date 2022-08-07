@@ -520,7 +520,7 @@ int func_2(int iParam0)//Position - 0x63A
 	struct<4> Var0;
 	char* sVar32;
 	
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		while (!GlobalFunc_9038(*iParam0))
 		{
@@ -549,7 +549,7 @@ int func_2(int iParam0)//Position - 0x63A
 	MemCopy(&sVar32, {GlobalFunc_44(*iParam0)}, 4);
 	GlobalFunc_5225(&sVar32, Var0.f_3, 0);
 	GlobalFunc_865(*iParam0);
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		if (iParam0->f_16 == 2)
 		{
@@ -585,13 +585,13 @@ int func_2(int iParam0)//Position - 0x63A
 
 void func_22(char[4] cParam0, int iParam1)//Position - 0x108C
 {
-	MISC::CLEAR_BIT(&(Global_89962.f_20), 17);
+	MISC::CLEAR_BIT(&(Global_Mission_Fail_State.f_20), 17);
 	func_23(cParam0, iParam1, 0);
 }
 
 void func_23(char[4] cParam0, int iParam1, int iParam2)//Position - 0x10A9
 {
-	if (Global_89962 != 10 && Global_89962 != 9)
+	if (Global_Mission_Fail_State != 10 && Global_Mission_Fail_State != 9)
 	{
 		StringCopy(&Global_91343, cParam0, 32);
 		func_25(&Global_91351, cParam0, 0, "Start", iParam1, iParam2);
@@ -1009,7 +1009,7 @@ int func_152(var uParam0)//Position - 0xA1C4
 			break;
 		
 		case 16:
-			if (GlobalFunc_2(0))
+			if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				GlobalFunc_10969(joaat("player_zero"), 12, 28, 1);
 				GlobalFunc_11088(joaat("player_zero"), 12, 28, 1, 1);
@@ -1750,7 +1750,7 @@ void func_379(int iParam0)//Position - 0x2E5BC
 		iVar0 = 0;
 		while (iVar0 <= (iParam0->f_28 - 1))
 		{
-			if (GlobalFunc_4924(iParam0->f_28[iVar0]))
+			if (GlobalFunc_IsPedNotInjuredOrDead(iParam0->f_28[iVar0]))
 			{
 				PED::SET_PED_COMBAT_ATTRIBUTES(iParam0->f_28[iVar0], 1, 0);
 				PED::SET_BLOCKING_OF_NON_TEMPORARY_EVENTS(iParam0->f_28[iVar0], 0);
@@ -1913,7 +1913,7 @@ int func_389(var uParam0, bool bParam1, int iParam2)//Position - 0x2F17D
 	{
 		iParam2 = 1;
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		iVar0 = 0;
 		while (iVar0 <= iVar1)
@@ -2387,7 +2387,7 @@ int func_413(var uParam0)//Position - 0x30023
 				bVar6 = false;
 			}
 			GlobalFunc_6479(&(uParam0->f_28[0]), iVar0[1], -2881.755f, 3188.125f, 10.1136f, 254.1723f, 26);
-			if (GlobalFunc_115(uParam0->f_28[0]) && GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+			if (GlobalFunc_115(uParam0->f_28[0]) && GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 			{
 				uVar7 = PED::GET_PED_RELATIONSHIP_GROUP_HASH(PLAYER::PLAYER_PED_ID());
 				WEAPON::GIVE_WEAPON_TO_PED(uParam0->f_28[0], joaat("weapon_digiscanner"), -1, 1, 1);
@@ -2464,7 +2464,7 @@ int func_414(var uParam0)//Position - 0x3035F
 			bVar3 = true;
 			if (!ENTITY::DOES_ENTITY_EXIST(uParam0->f_28[0]))
 			{
-				if (GlobalFunc_7967(&(uParam0->f_28[0]), 60, 636.58f, 119.68f, 90.56f, 80.62f, "EPSILON LAUNCHER RC", 1) && GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+				if (GlobalFunc_7967(&(uParam0->f_28[0]), 60, 636.58f, 119.68f, 90.56f, 80.62f, "EPSILON LAUNCHER RC", 1) && GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 				{
 					uVar4 = PED::GET_PED_RELATIONSHIP_GROUP_HASH(PLAYER::PLAYER_PED_ID());
 					PED::SET_PED_RELATIONSHIP_GROUP_HASH(uParam0->f_28[0], uVar4);
@@ -2536,7 +2536,7 @@ int func_420(var uParam0)//Position - 0x30677
 		
 		case 2:
 			bVar4 = true;
-			if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+			if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 			{
 				uVar5 = PED::GET_PED_RELATIONSHIP_GROUP_HASH(PLAYER::PLAYER_PED_ID());
 			}
@@ -2635,7 +2635,7 @@ int func_422(var uParam0)//Position - 0x308F7
 			{
 				if (GlobalFunc_7967(&(uParam0->f_28[0]), 60, Var3, uVar6, "EPSILON LAUNCHER RC - MARNIE", 1))
 				{
-					if (ENTITY::DOES_ENTITY_EXIST(uParam0->f_28[0]) && GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+					if (ENTITY::DOES_ENTITY_EXIST(uParam0->f_28[0]) && GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 					{
 						uVar8 = PED::GET_PED_RELATIONSHIP_GROUP_HASH(PLAYER::PLAYER_PED_ID());
 						PED::SET_PED_CAN_RAGDOLL_FROM_PLAYER_IMPACT(uParam0->f_28[0], 0);

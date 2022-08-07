@@ -291,9 +291,9 @@ void __EntryFunction__()//Position - 0x0
 		ENTITY::SET_ENTITY_AS_MISSION_ENTITY(iLocal_168, 1, 1);
 	}
 	func_408();
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		iVar0 = GlobalFunc_198();
+		iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544 == 1)
 		{
 			iVar0++;
@@ -1722,7 +1722,7 @@ void func_366(struct<3> Param0, float fParam3, struct<3> Param4, float fParam7, 
 		PED::SET_PED_INTO_VEHICLE(PLAYER::PLAYER_PED_ID(), iVar0, -1);
 		GlobalFunc_190(&iVar0);
 	}
-	else if (!GlobalFunc_199())
+	else if (!GlobalFunc_Is_Mission_Retry())
 	{
 		GlobalFunc_4965(PLAYER::PLAYER_PED_ID(), Param0, fParam3, 0, 1);
 	}

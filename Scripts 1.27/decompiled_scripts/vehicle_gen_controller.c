@@ -647,7 +647,7 @@ void func_47()//Position - 0x3A1D
 	iVar109 = 0;
 	if (iLocal_628 > 0 && iLocal_628 != 99)
 	{
-		if (((((((((((((Local_401 == -1 || PED::IS_PED_INJURED(PLAYER::PLAYER_PED_ID())) || PLAYER::IS_PLAYER_BEING_ARRESTED(PLAYER::PLAYER_ID(), 1)) || !ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), Local_401.f_29.f_7, Local_401.f_29.f_10, Local_401.f_29.f_13, 0, 1, 0)) || ((ENTITY::DOES_ENTITY_EXIST(Global_67138.f_484[Local_401]) && VEHICLE::IS_VEHICLE_DRIVEABLE(Global_67138.f_484[Local_401], 0)) && (PED::IS_PED_ON_SPECIFIC_VEHICLE(PLAYER::PLAYER_PED_ID(), Global_67138.f_484[Local_401]) || PED::IS_PED_IN_VEHICLE(PLAYER::PLAYER_PED_ID(), Global_67138.f_484[Local_401], 1)))) || ((ENTITY::DOES_ENTITY_EXIST(Global_67138.f_484[Local_401]) && ENTITY::DOES_ENTITY_EXIST(PLAYER::PLAYER_PED_ID())) && ((ENTITY::GET_ENTITY_HEIGHT_ABOVE_GROUND(PLAYER::PLAYER_PED_ID()) - 1f) > 0.15f && ENTITY::IS_ENTITY_TOUCHING_ENTITY(PLAYER::PLAYER_PED_ID(), Global_67138.f_484[Local_401])))) || GlobalFunc_39(0)) || GlobalFunc_39(3)) || GlobalFunc_39(2)) || GlobalFunc_39(4)) || GlobalFunc_39(14)) || GlobalFunc_2(0) != bLocal_914) || bLocal_750) || GlobalFunc_1546(-1082130432))
+		if (((((((((((((Local_401 == -1 || PED::IS_PED_INJURED(PLAYER::PLAYER_PED_ID())) || PLAYER::IS_PLAYER_BEING_ARRESTED(PLAYER::PLAYER_ID(), 1)) || !ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), Local_401.f_29.f_7, Local_401.f_29.f_10, Local_401.f_29.f_13, 0, 1, 0)) || ((ENTITY::DOES_ENTITY_EXIST(Global_67138.f_484[Local_401]) && VEHICLE::IS_VEHICLE_DRIVEABLE(Global_67138.f_484[Local_401], 0)) && (PED::IS_PED_ON_SPECIFIC_VEHICLE(PLAYER::PLAYER_PED_ID(), Global_67138.f_484[Local_401]) || PED::IS_PED_IN_VEHICLE(PLAYER::PLAYER_PED_ID(), Global_67138.f_484[Local_401], 1)))) || ((ENTITY::DOES_ENTITY_EXIST(Global_67138.f_484[Local_401]) && ENTITY::DOES_ENTITY_EXIST(PLAYER::PLAYER_PED_ID())) && ((ENTITY::GET_ENTITY_HEIGHT_ABOVE_GROUND(PLAYER::PLAYER_PED_ID()) - 1f) > 0.15f && ENTITY::IS_ENTITY_TOUCHING_ENTITY(PLAYER::PLAYER_PED_ID(), Global_67138.f_484[Local_401])))) || GlobalFunc_39(0)) || GlobalFunc_39(3)) || GlobalFunc_39(2)) || GlobalFunc_39(4)) || GlobalFunc_39(14)) || GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) != bLocal_914) || bLocal_750) || GlobalFunc_1546(-1082130432))
 		{
 			iLocal_628 = 99;
 		}
@@ -703,7 +703,7 @@ void func_47()//Position - 0x3A1D
 										{
 											GlobalFunc_6774(&iLocal_629, 3, "WEB_VEH_TRIG", 0, 0);
 										}
-										bLocal_914 = GlobalFunc_2(0);
+										bLocal_914 = GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0);
 										iLocal_628++;
 									}
 								}
@@ -3357,7 +3357,7 @@ void func_134()//Position - 0xD974
 	bool bVar232;
 	
 	bVar11 = false;
-	if (((((((((((((((Local_401.f_29.f_80 && Local_401.f_29.f_69) && !PED::IS_PED_INJURED(PLAYER::PLAYER_PED_ID())) && Local_401.f_2 == 0) && Local_401 != -1) && GlobalFunc_78(Local_401, 0)) && GlobalFunc_78(Local_401, 5)) && !GlobalFunc_39(0)) && !GlobalFunc_39(3)) && !GlobalFunc_39(2)) && !GlobalFunc_39(4)) && !GlobalFunc_39(5)) && !GlobalFunc_39(14)) && !Global_67058) && !GlobalFunc_2(1)) || ((Local_401.f_3 > 1 && !GlobalFunc_2(0)) && !PED::IS_PED_INJURED(PLAYER::PLAYER_PED_ID())))
+	if (((((((((((((((Local_401.f_29.f_80 && Local_401.f_29.f_69) && !PED::IS_PED_INJURED(PLAYER::PLAYER_PED_ID())) && Local_401.f_2 == 0) && Local_401 != -1) && GlobalFunc_78(Local_401, 0)) && GlobalFunc_78(Local_401, 5)) && !GlobalFunc_39(0)) && !GlobalFunc_39(3)) && !GlobalFunc_39(2)) && !GlobalFunc_39(4)) && !GlobalFunc_39(5)) && !GlobalFunc_39(14)) && !Global_67058) && !GlobalFunc_Is_Mission_Repeat_Or_Benchmark(1)) || ((Local_401.f_3 > 1 && !GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0)) && !PED::IS_PED_INJURED(PLAYER::PLAYER_PED_ID())))
 	{
 		func_185(Local_401, &Local_520);
 		fVar13 = 0f;
@@ -5853,7 +5853,7 @@ void func_186()//Position - 0x14BA7
 				{
 					cVar23 = { Local_401.f_29.f_63 };
 					StringConCat(&cVar23, "_04", 16);
-					func_187(&cVar23);
+					Display_Help_Text(&cVar23);
 				}
 				else
 				{
@@ -5864,11 +5864,6 @@ void func_186()//Position - 0x14BA7
 	}
 }
 
-void func_187(char[4] cParam0)//Position - 0x15C7F
-{
-	HUD::BEGIN_TEXT_COMMAND_DISPLAY_HELP(cParam0);
-	HUD::END_TEXT_COMMAND_DISPLAY_HELP(0, 1, 1, -1);
-}
 
 
 void func_189(int iParam0)//Position - 0x15CE0

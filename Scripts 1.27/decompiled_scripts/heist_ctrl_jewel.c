@@ -894,7 +894,7 @@ void func_101(var uParam0)//Position - 0x3F97
 								if (*uParam0 != 1)
 								{
 									func_83(4, *uParam0, 1);
-									if (!GlobalFunc_2(0))
+									if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 									{
 										GlobalFunc_6467(*uParam0);
 									}
@@ -1094,7 +1094,7 @@ void func_101(var uParam0)//Position - 0x3F97
 			iVar1 = GlobalFunc_4417(*uParam0, iVar11);
 			iVar0 = GlobalFunc_656(*uParam0);
 			GlobalFunc_3026(iVar0, iVar1);
-			if (!GlobalFunc_2(0))
+			if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				GlobalFunc_4425(*uParam0);
 			}
@@ -1294,7 +1294,7 @@ void func_145()//Position - 0x707F
 				GlobalFunc_8380(1, 1, 1, 0);
 				iLocal_42 = -1;
 				CUTSCENE::START_CUTSCENE(0);
-				if (GlobalFunc_2(0))
+				if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					CUTSCENE::SET_CUTSCENE_FADE_VALUES(0, 0, 0, 0);
 				}
@@ -1356,13 +1356,13 @@ void func_145()//Position - 0x707F
 				CAM::SET_GAMEPLAY_CAM_RELATIVE_PITCH(0f, 1065353216);
 			}
 		}
-		else if (iLocal_42 == -1 && !GlobalFunc_2(0))
+		else if (iLocal_42 == -1 && !GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			iLocal_42 = MISC::GET_GAME_TIMER() + 1500;
 		}
-		else if (MISC::GET_GAME_TIMER() > iLocal_42 || GlobalFunc_2(0))
+		else if (MISC::GET_GAME_TIMER() > iLocal_42 || GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
-			if (GlobalFunc_2(0))
+			if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				CAM::DO_SCREEN_FADE_OUT(0);
 			}
@@ -1460,7 +1460,7 @@ void func_189()//Position - 0xCEB9
 	INTERIOR::ENABLE_EXTERIOR_CULL_MODEL_THIS_FRAME(-1747852954);
 	if (GlobalFunc_485(16))
 	{
-		if (!GlobalFunc_2(0))
+		if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			if (!MISC::IS_BIT_SET(uLocal_40, 10))
 			{

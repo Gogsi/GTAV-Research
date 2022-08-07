@@ -260,7 +260,7 @@ void func_1()//Position - 0xF3
 			}
 			else if (!GlobalFunc_74("DIVING_HELP"))
 			{
-				GlobalFunc_1("DIVING_HELP");
+				GlobalFunc_Display_Help_Text("DIVING_HELP");
 			}
 			break;
 	}
@@ -511,7 +511,7 @@ void func_204(int iParam0, int iParam1, int iParam2, bool bParam3)//Position - 0
 			}
 		}
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		PED::SET_PED_STEALTH_MOVEMENT(PLAYER::PLAYER_PED_ID(), 0, 0);
 	}

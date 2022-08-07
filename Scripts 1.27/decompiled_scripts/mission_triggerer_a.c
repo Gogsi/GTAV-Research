@@ -3145,7 +3145,7 @@ int func_59(var uParam0, var uParam1, bool bParam2, bool bParam3, bool bParam4, 
 	
 	uParam0->f_7 = *uParam1;
 	uParam0->f_8 = uParam1->f_1;
-	if ((GlobalFunc_2(0) && !bParam2) && !bParam4)
+	if ((GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) && !bParam2) && !bParam4)
 	{
 		if (uParam0->f_5)
 		{
@@ -3767,7 +3767,7 @@ void func_138(var uParam0)//Position - 0x714C
 	
 	if (uParam0->f_145)
 	{
-		if ((MISC::GET_FRAME_COUNT() >= (uParam0->f_146 + uParam0->f_147) || MISC::IS_BIT_SET(Global_89962.f_20, 2)) || MISC::IS_BIT_SET(Global_89962.f_20, 13))
+		if ((MISC::GET_FRAME_COUNT() >= (uParam0->f_146 + uParam0->f_147) || MISC::IS_BIT_SET(Global_Mission_Fail_State.f_20, 2)) || MISC::IS_BIT_SET(Global_Mission_Fail_State.f_20, 13))
 		{
 			iVar0 = 0;
 			while (iVar0 < 8)
@@ -8049,7 +8049,7 @@ int func_569()//Position - 0x5B668
 					{
 						if (!GlobalFunc_74("JH1_SUIT"))
 						{
-							GlobalFunc_1("JH1_SUIT");
+							GlobalFunc_Display_Help_Text("JH1_SUIT");
 						}
 					}
 					GlobalFunc_8914(18, 1);

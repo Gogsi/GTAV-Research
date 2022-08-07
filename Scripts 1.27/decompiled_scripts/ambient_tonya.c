@@ -280,7 +280,7 @@ void __EntryFunction__()//Position - 0x0
 	{
 		SCRIPT::TERMINATE_THIS_THREAD();
 	}
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		iLocal_78 = 4;
 	}
@@ -291,7 +291,7 @@ void __EntryFunction__()//Position - 0x0
 	while (true)
 	{
 		PLAYER::IS_PLAYER_PLAYING(PLAYER::PLAYER_ID());
-		if (!GlobalFunc_2(0))
+		if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			if (GlobalFunc_892(0, 14))
 			{
@@ -373,7 +373,7 @@ void func_2()//Position - 0x17A
 	
 	if (GlobalFunc_9039(2))
 	{
-		if (GlobalFunc_2(0))
+		if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			iVar0 = Global_68491;
 		}
@@ -417,7 +417,7 @@ int func_3(int iParam0)//Position - 0x1C7
 	MemCopy(&sVar32, {GlobalFunc_44(iParam0)}, 4);
 	GlobalFunc_5225(&sVar32, Var0.f_3, 0);
 	GlobalFunc_865(iParam0);
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		if (iParam0 == 60)
 		{
@@ -453,13 +453,13 @@ int func_3(int iParam0)//Position - 0x1C7
 
 void func_23(char[4] cParam0, int iParam1)//Position - 0xBD0
 {
-	MISC::CLEAR_BIT(&(Global_89962.f_20), 17);
+	MISC::CLEAR_BIT(&(Global_Mission_Fail_State.f_20), 17);
 	func_24(cParam0, iParam1, 0);
 }
 
 void func_24(char[4] cParam0, int iParam1, int iParam2)//Position - 0xBED
 {
-	if (Global_89962 != 10 && Global_89962 != 9)
+	if (Global_Mission_Fail_State != 10 && Global_Mission_Fail_State != 9)
 	{
 		StringCopy(&Global_91343, cParam0, 32);
 		func_26(&Global_91351, cParam0, 0, "Start", iParam1, iParam2);
@@ -790,7 +790,7 @@ void func_98(int iParam0)//Position - 0x84BF
 			GlobalFunc_8395(PLAYER::PLAYER_PED_ID());
 		}
 	}
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		if (iParam0 < 63)
 		{

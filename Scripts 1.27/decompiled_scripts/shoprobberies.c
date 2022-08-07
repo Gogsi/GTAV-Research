@@ -2174,7 +2174,7 @@ void func_66()//Position - 0x34A5
 									}
 									if (((!GlobalFunc_74("SHR_HOLDUP_1") && !GlobalFunc_74("SHR_MENU")) && !GlobalFunc_579()) && GlobalFunc_1545())
 									{
-										GlobalFunc_1("SHR_MENU");
+										GlobalFunc_Display_Help_Text("SHR_MENU");
 									}
 									Local_67.f_469 = -1;
 									GlobalFunc_7016(&(Local_67.f_469), 4, "SHR_MENU", 0, 0);
@@ -2201,7 +2201,7 @@ void func_66()//Position - 0x34A5
 				}
 				else if (((!GlobalFunc_74("SHR_MENU") && !GlobalFunc_74("SHR_HOLDUP_1")) && GlobalFunc_1545()) && !GlobalFunc_5456(Local_67.f_469, 0))
 				{
-					GlobalFunc_1("SHR_MENU");
+					GlobalFunc_Display_Help_Text("SHR_MENU");
 				}
 				if ((!TASK::IS_PED_RUNNING(PLAYER::PLAYER_PED_ID()) && !PED::IS_PED_RAGDOLL(PLAYER::PLAYER_PED_ID())) && !PED::IS_PED_JUMPING(PLAYER::PLAYER_PED_ID()))
 				{

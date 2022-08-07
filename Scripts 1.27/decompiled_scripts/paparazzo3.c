@@ -290,7 +290,7 @@ void __EntryFunction__()//Position - 0x0
 		GlobalFunc_10544(1);
 		func_387();
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		iLocal_78 = 0;
 		Global_68490 = 1;
@@ -1410,9 +1410,9 @@ void func_287()//Position - 0x287C1
 		SYSTEM::WAIT(0);
 	}
 	uLocal_338 = AUDIO::GET_SOUND_ID();
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		switch (GlobalFunc_198())
+		switch (GlobalFunc_Get_Mission_Fail_Checkpoint())
 		{
 			case 0:
 				func_288();

@@ -6510,26 +6510,26 @@ void func_129()//Position - 0x97B6
 						StringConCat(&Local_108, "_KM", 32);
 					}
 				}
-				GlobalFunc_1(&Local_108);
+				GlobalFunc_Display_Help_Text(&Local_108);
 			}
 			else if (iLocal_50 == 2 || iLocal_50 == 15)
 			{
 				if (PAD::_IS_USING_KEYBOARD(0))
 				{
-					GlobalFunc_1("CHOP_H_HOME_KM");
+					GlobalFunc_Display_Help_Text("CHOP_H_HOME_KM");
 				}
 				else
 				{
-					GlobalFunc_1("CHOP_H_HOME");
+					GlobalFunc_Display_Help_Text("CHOP_H_HOME");
 				}
 			}
 			else if (PAD::_IS_USING_KEYBOARD(0))
 			{
-				GlobalFunc_1("CHOP_H_NOAPP_KM");
+				GlobalFunc_Display_Help_Text("CHOP_H_NOAPP_KM");
 			}
 			else
 			{
-				GlobalFunc_1("CHOP_H_NOAPP");
+				GlobalFunc_Display_Help_Text("CHOP_H_NOAPP");
 			}
 		}
 	}
@@ -6717,11 +6717,11 @@ void func_145()//Position - 0xA3F4
 				HUD::CLEAR_HELP(1);
 				if (PAD::_IS_USING_KEYBOARD(0))
 				{
-					GlobalFunc_1("CHOP_H_INTRO_KM");
+					GlobalFunc_Display_Help_Text("CHOP_H_INTRO_KM");
 				}
 				else
 				{
-					GlobalFunc_1("CHOP_H_INTRO");
+					GlobalFunc_Display_Help_Text("CHOP_H_INTRO");
 				}
 			}
 		}

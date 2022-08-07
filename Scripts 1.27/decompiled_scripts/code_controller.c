@@ -2381,7 +2381,7 @@ void func_222()//Position - 0x213F2
 		iVar6 = GlobalFunc_2636(43);
 		iVar7 = func_231(43);
 		GlobalFunc_7999(iVar6);
-		GlobalFunc_5841(Global_81119[iVar7 /*5*/]);
+		GlobalFunc_5841(Global_Running_Missions[iVar7 /*5*/]);
 	}
 }
 
@@ -2400,9 +2400,9 @@ int func_231(int iParam0)//Position - 0x218D6
 	iVar0 = 0;
 	while (iVar0 < 7)
 	{
-		if (Global_81119[iVar0 /*5*/] != -1)
+		if (Global_Running_Missions[iVar0 /*5*/] != -1)
 		{
-			if (Global_68514.f_109[Global_81119[iVar0 /*5*/] /*4*/] == iParam0)
+			if (Global_68514.f_109[Global_Running_Missions[iVar0 /*5*/] /*4*/] == iParam0)
 			{
 				return iVar0;
 			}
@@ -2874,7 +2874,7 @@ void func_289(int iParam0)//Position - 0x23022
 	{
 		if (iParam0 == 1)
 		{
-			MISC::SET_BIT(&(Global_89962.f_20), 15);
+			MISC::SET_BIT(&(Global_Mission_Fail_State.f_20), 15);
 			TASK::CLEAR_PED_TASKS(PLAYER::PLAYER_PED_ID());
 			if (PED::IS_PED_IN_ANY_VEHICLE(PLAYER::PLAYER_PED_ID(), 0))
 			{
@@ -2895,7 +2895,7 @@ void func_289(int iParam0)//Position - 0x23022
 				}
 			}
 		}
-		else if (MISC::IS_BIT_SET(Global_89962.f_20, 15))
+		else if (MISC::IS_BIT_SET(Global_Mission_Fail_State.f_20, 15))
 		{
 			bVar0 = false;
 			if (ENTITY::IS_ENTITY_ATTACHED(PLAYER::PLAYER_PED_ID()))
@@ -2914,7 +2914,7 @@ void func_289(int iParam0)//Position - 0x23022
 			{
 				ENTITY::FREEZE_ENTITY_POSITION(PLAYER::PLAYER_PED_ID(), 0);
 			}
-			MISC::CLEAR_BIT(&(Global_89962.f_20), 15);
+			MISC::CLEAR_BIT(&(Global_Mission_Fail_State.f_20), 15);
 		}
 	}
 }
@@ -2925,7 +2925,7 @@ void func_290(int iParam0)//Position - 0x23109
 	
 	if (iParam0 == 1)
 	{
-		if (!MISC::IS_BIT_SET(Global_89962.f_20, 19))
+		if (!MISC::IS_BIT_SET(Global_Mission_Fail_State.f_20, 19))
 		{
 			ENTITY::SET_ENTITY_INVINCIBLE(PLAYER::PLAYER_PED_ID(), 1);
 			if (!NETWORK::NETWORK_IS_GAME_IN_PROGRESS())
@@ -2943,13 +2943,13 @@ void func_290(int iParam0)//Position - 0x23109
 			WEAPON::CLEAR_ENTITY_LAST_WEAPON_DAMAGE(PLAYER::PLAYER_PED_ID());
 			Var0 = { ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), 1) };
 			MISC::CLEAR_AREA(Var0, 100f, 1, 0, 0, 0);
-			MISC::SET_BIT(&(Global_89962.f_20), 19);
+			MISC::SET_BIT(&(Global_Mission_Fail_State.f_20), 19);
 		}
 	}
-	else if (MISC::IS_BIT_SET(Global_89962.f_20, 19))
+	else if (MISC::IS_BIT_SET(Global_Mission_Fail_State.f_20, 19))
 	{
 		GlobalFunc_2225();
-		MISC::CLEAR_BIT(&(Global_89962.f_20), 19);
+		MISC::CLEAR_BIT(&(Global_Mission_Fail_State.f_20), 19);
 	}
 }
 
@@ -3053,7 +3053,7 @@ int func_303(int iParam0, int iParam1, int iParam2, int iParam3, int iParam4, in
 	struct<15> Var0;
 	int iVar15;
 	
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		return 0;
 	}
@@ -3273,7 +3273,7 @@ void func_310()//Position - 0x24243
 				break;
 		}
 	}
-	else if (!GlobalFunc_2(0))
+	else if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 	}
 }
@@ -3423,7 +3423,7 @@ void func_333()//Position - 0x24890
 	int iVar0;
 	var uVar1;
 	
-	if (!GlobalFunc_2(0))
+	if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		STATS::STAT_GET_FLOAT(joaat("sp0_dist_running"), &uVar1, -1);
 		Global_SAVE_DATA.COMPONENTS_ARRAY.PP_INFO_STRUCT.f_1583[0] = uVar1;
@@ -4038,7 +4038,7 @@ void func_399()//Position - 0x26CCD
 void func_400()//Position - 0x26CF0
 {
 	GlobalFunc_7682(546458037);
-	if (!GlobalFunc_2(0))
+	if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		GlobalFunc_6677("AM_H_CHOP", 0, 3000, -1, 10000, 2, 0, 0, 0);
 	}
@@ -4704,7 +4704,7 @@ void func_421()//Position - 0x27DAA
 	{
 		GlobalFunc_7682(546458037);
 		GlobalFunc_7682(1674644829);
-		if (!GlobalFunc_2(0))
+		if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			GlobalFunc_6677("AM_H_CHOP", 0, 3000, -1, 10000, 2, 0, 0, 0);
 			GlobalFunc_7168(1674644829, 1, 2, 19, 10000, 10000, -1, 0, -1, 524288, 1);
@@ -4723,7 +4723,7 @@ void func_421()//Position - 0x27DAA
 		iVar1++;
 	}
 	Global_SAVE_DATA.SOCIAL_SAVED_DATA_STRUCT.f_264 = 1;
-	if (!GlobalFunc_2(0))
+	if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		GlobalFunc_6677("AM_H_HILLS", 2, 3000, -1, 10000, 2, 0, 0, 0);
 	}

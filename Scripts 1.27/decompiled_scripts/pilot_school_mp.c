@@ -17121,7 +17121,7 @@ void func_662()//Position - 0x57AF9
 					if (Local_1489.f_2[iVar1 /*5*/] == 1)
 					{
 						HUD::CLEAR_HELP(1);
-						GlobalFunc_2542(Local_1489.f_2[iVar1 /*5*/].f_1);
+						GlobalFunc_Display_Help_Text2(Local_1489.f_2[iVar1 /*5*/].f_1);
 						if (Local_1489.f_2[iVar1 /*5*/].f_3 == -1f)
 						{
 							Local_1489.f_2[iVar1 /*5*/].f_3 = SYSTEM::TO_FLOAT(7);

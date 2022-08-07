@@ -505,7 +505,7 @@ void func_1()//Position - 0x332
 	{
 		CUTSCENE::REQUEST_CUTSCENE("FRA_2_EXT", 8);
 		func_171("FRA_2_EXT");
-		if (!GlobalFunc_5172(&Local_431, 1) && GlobalFunc_109())
+		if (!GlobalFunc_5172(&Local_431, 1) && GlobalFunc_Has_Cutscene_Loaded())
 		{
 			GlobalFunc_8316(1, 1, 1, 0);
 			CUTSCENE::START_CUTSCENE(0);
@@ -1337,9 +1337,9 @@ int func_195(var uParam0, bool bParam1, bool bParam2, int iParam3)//Position - 0
 				iVar4 = 0;
 				while (iVar4 < 7)
 				{
-					if (MISC::IS_BIT_SET(Global_81119[iVar4 /*5*/].f_1, 2))
+					if (MISC::IS_BIT_SET(Global_Running_Missions[iVar4 /*5*/].f_1, 2))
 					{
-						iVar5 = Global_81119[iVar4 /*5*/];
+						iVar5 = Global_Running_Missions[iVar4 /*5*/];
 						StringCopy(&cVar6, "MISS_SWITCH_", 64);
 						StringConCat(&cVar6, &(Global_81155[Global_68514.f_109[iVar5 /*4*/] /*34*/]), 64);
 						STATS::STAT_INCREMENT(MISC::GET_HASH_KEY(&cVar6), 1f);
@@ -5652,19 +5652,19 @@ void func_535(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 	iVar0 = 0;
 	if (iParam3 == 1)
 	{
-		if (iParam0 != Global_89999)
+		if (iParam0 != Global_Current_Checkpoint)
 		{
 			iVar0 = 1;
 		}
 	}
-	else if (iParam0 > Global_89999)
+	else if (iParam0 > Global_Current_Checkpoint)
 	{
 		iVar0 = 1;
 	}
 	if (iVar0 == 1)
 	{
 		GlobalFunc_174(1);
-		if (iParam0 <= Global_89999)
+		if (iParam0 <= Global_Current_Checkpoint)
 		{
 		}
 		iVar1 = GlobalFunc_5111(SCRIPT::GET_THIS_SCRIPT_NAME(), 1);
@@ -5686,7 +5686,7 @@ void func_535(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 						break;
 					}
 			}
-			STATS::PLAYSTATS_MISSION_CHECKPOINT(&cVar3, uVar2, Global_89999, iParam0);
+			STATS::PLAYSTATS_MISSION_CHECKPOINT(&cVar3, uVar2, Global_Current_Checkpoint, iParam0);
 		}
 		else
 		{
@@ -5695,11 +5695,11 @@ void func_535(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 			{
 				Global_SAVE_DATA.SAVED_RANDOM_CHARACTERS[iVar5 /*6*/].f_4 = 0;
 				MemCopy(&uVar6, {GlobalFunc_44(iVar5)}, 4);
-				STATS::PLAYSTATS_MISSION_CHECKPOINT(&uVar6, 0, Global_89999, iParam0);
+				STATS::PLAYSTATS_MISSION_CHECKPOINT(&uVar6, 0, Global_Current_Checkpoint, iParam0);
 			}
 			else
 			{
-				iVar10 = GlobalFunc_547(&(Global_89962.f_3));
+				iVar10 = GlobalFunc_547(&(Global_Mission_Fail_State.Failed_Script_Name));
 				if (iVar10 > -1)
 				{
 					Global_SAVE_DATA.BAIL_BOND_SAVED_STRUCT.f_4[iVar10] = 0;
@@ -5707,13 +5707,13 @@ void func_535(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 			}
 		}
 		Global_84545 = iParam2;
-		Global_89999 = iParam0;
+		Global_Current_Checkpoint = iParam0;
 		GlobalFunc_10953(iParam0, sParam1, iParam4, iParam5);
 		if (MISC::ARE_STRINGS_EQUAL(sParam1, ""))
 		{
 		}
 	}
-	else if (iParam0 < Global_89999)
+	else if (iParam0 < Global_Current_Checkpoint)
 	{
 	}
 }
@@ -15059,7 +15059,7 @@ void func_727()//Position - 0x79EC2
 									}
 									else
 									{
-										GlobalFunc_1("FRAN2_SIGHELP2");
+										GlobalFunc_Display_Help_Text("FRAN2_SIGHELP2");
 									}
 								}
 								else if (GlobalFunc_10618(&Local_1903, "LEM2AUD", &Var2, 7, 0, 0, 0))
@@ -15300,7 +15300,7 @@ void func_727()//Position - 0x79EC2
 							{
 								if (!HUD::IS_HELP_MESSAGE_BEING_DISPLAYED())
 								{
-									GlobalFunc_1("FRAN2_SIGHELP");
+									GlobalFunc_Display_Help_Text("FRAN2_SIGHELP");
 								}
 								if (!iLocal_133[57])
 								{
@@ -15673,7 +15673,7 @@ void func_734()//Position - 0x7B4DD
 		GlobalFunc_2536(1, 0);
 		GlobalFunc_2520();
 		func_745(1);
-		if ((!GlobalFunc_5172(&Local_431, 1) && func_745(1)) && GlobalFunc_109())
+		if ((!GlobalFunc_5172(&Local_431, 1) && func_745(1)) && GlobalFunc_Has_Cutscene_Loaded())
 		{
 			if (GlobalFunc_8315() != 2)
 			{
@@ -16266,7 +16266,7 @@ void func_752()//Position - 0x7CF0D
 		CUTSCENE::REQUEST_CUTSCENE("FRA_2_INT", 8);
 		func_171("FRA_2_INT");
 		GlobalFunc_2536(1, 0);
-		if (GlobalFunc_109())
+		if (GlobalFunc_Has_Cutscene_Loaded())
 		{
 			iLocal_347 = OBJECT::GET_CLOSEST_OBJECT_OF_TYPE(7.5184f, 539.5269f, 176.1776f, 2f, joaat("v_ilev_fh_frontdoor"), 1, 0, 1);
 			if (ENTITY::DOES_ENTITY_EXIST(iLocal_347))
@@ -16435,9 +16435,9 @@ int func_769()//Position - 0x7DB60
 {
 	int iVar0;
 	
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		iVar0 = GlobalFunc_198();
+		iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544)
 		{
 			iVar0++;

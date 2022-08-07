@@ -11198,7 +11198,7 @@ void func_200()//Position - 0x1918D
 		case 6:
 			if (SYSTEM::TIMERA() > iLocal_2639)
 			{
-				if (GlobalFunc_109())
+				if (GlobalFunc_Has_Cutscene_Loaded())
 				{
 					HUD::CLEAR_PRINTS();
 					HUD::CLEAR_HELP(1);
@@ -12784,7 +12784,7 @@ void func_259()//Position - 0x1D61F
 		case 0:
 			iLocal_2505 = PLAYER::GET_PLAYERS_LAST_VEHICLE();
 			PLAYER::SET_PLAYER_CONTROL(PLAYER::PLAYER_ID(), 0, 0);
-			if (GlobalFunc_109())
+			if (GlobalFunc_Has_Cutscene_Loaded())
 			{
 				STREAMING::REQUEST_ANIM_DICT("MISSChinese2_crystalMazeMCS1_IG");
 				STREAMING::REQUEST_MODEL(joaat("ig_old_man2"));
@@ -13196,9 +13196,9 @@ void func_262()//Position - 0x1DE69
 			GlobalFunc_504(0, -1);
 			TASK::SET_SCENARIO_GROUP_ENABLED("Chinese2_Lunch", 0);
 			TASK::SET_SCENARIO_GROUP_ENABLED("CHINESE2_HILLBILLIES", 0);
-			if (GlobalFunc_199())
+			if (GlobalFunc_Is_Mission_Retry())
 			{
-				iVar0 = GlobalFunc_198();
+				iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 				if (Global_84544 == 1)
 				{
 					iVar0++;
@@ -13251,7 +13251,7 @@ void func_262()//Position - 0x1DE69
 						break;
 				}
 			}
-			else if (GlobalFunc_2(0))
+			else if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				func_263(1, 0, 1);
 			}
@@ -14302,7 +14302,7 @@ void func_343()//Position - 0x2476A
 		case 0:
 			if (iLocal_2510 >= 4)
 			{
-				GlobalFunc_11043(1, "Snipe from hill", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint1(1, "Snipe from hill", 0, 0, 0, 1);
 				iLocal_3687++;
 			}
 			break;
@@ -14312,7 +14312,7 @@ void func_343()//Position - 0x2476A
 			{
 				if (func_87(12) || iLocal_2510 == 6)
 				{
-					GlobalFunc_11043(2, "Inside House", 0, 0, 0, 1);
+					GlobalFunc_Checkpoint1(2, "Inside House", 0, 0, 0, 1);
 					iLocal_3687++;
 				}
 			}
@@ -14320,13 +14320,13 @@ void func_343()//Position - 0x2476A
 			{
 				if (WEAPON::HAS_PED_GOT_WEAPON(PLAYER::PLAYER_PED_ID(), joaat("weapon_petrolcan"), 0))
 				{
-					GlobalFunc_11043(2, "Inside House", 0, 0, 0, 1);
+					GlobalFunc_Checkpoint1(2, "Inside House", 0, 0, 0, 1);
 					iLocal_3687++;
 				}
 			}
 			else if (iLocal_2510 > 7)
 			{
-				GlobalFunc_11043(2, "Inside House", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint1(2, "Inside House", 0, 0, 0, 1);
 				iLocal_3687++;
 			}
 			break;
@@ -14334,7 +14334,7 @@ void func_343()//Position - 0x2476A
 		case 2:
 			if (iLocal_2510 >= 7)
 			{
-				GlobalFunc_11043(3, "Pour petrol trail", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint1(3, "Pour petrol trail", 0, 0, 0, 1);
 				iLocal_3687++;
 			}
 			break;
@@ -14342,7 +14342,7 @@ void func_343()//Position - 0x2476A
 		case 3:
 			if (iLocal_2510 == 9)
 			{
-				GlobalFunc_11043(4, "Leave the farm house", 1, 0, 0, 1);
+				GlobalFunc_Checkpoint1(4, "Leave the farm house", 1, 0, 0, 1);
 				iLocal_3687++;
 			}
 			break;

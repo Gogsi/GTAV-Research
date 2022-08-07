@@ -358,13 +358,13 @@ void __EntryFunction__()//Position - 0x0
 							if (!GlobalFunc_74("TIMCINMULTI"))
 							{
 								HUD::CLEAR_HELP(1);
-								GlobalFunc_1("TIMCINMULTI");
+								GlobalFunc_Display_Help_Text("TIMCINMULTI");
 							}
 						}
 						else if (!GlobalFunc_74("TIMCIN"))
 						{
 							HUD::CLEAR_HELP(1);
-							GlobalFunc_1("TIMCIN");
+							GlobalFunc_Display_Help_Text("TIMCIN");
 						}
 						func_714();
 						GlobalFunc_5084(&iLocal_165);

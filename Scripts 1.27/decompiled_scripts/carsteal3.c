@@ -500,9 +500,9 @@ void __EntryFunction__()//Position - 0x0
 	}
 	PAD::_SWITCH_TO_INPUT_MAPPING_SCHEME("Carsteal4_spycar");
 	GlobalFunc_7934(21, 0);
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		func_678(&iLocal_93, GlobalFunc_198());
+		func_678(&iLocal_93, GlobalFunc_Get_Mission_Fail_Checkpoint());
 		iLocal_505 = 1;
 		if (Global_84544 == 1)
 		{
@@ -674,7 +674,7 @@ void func_3(int iParam0)//Position - 0x4DD
 		}
 		else if (iParam0 == 0)
 		{
-			if (!GlobalFunc_2(0))
+			if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				func_6();
 				GlobalFunc_5100(1, iLocal_526);
@@ -1931,7 +1931,7 @@ int func_316(char* sParam0)//Position - 0x4CC62
 	}
 	else
 	{
-		if (GlobalFunc_109())
+		if (GlobalFunc_Has_Cutscene_Loaded())
 		{
 			if (!CUTSCENE::HAS_THIS_CUTSCENE_LOADED(sParam0))
 			{
@@ -12305,7 +12305,7 @@ int func_598(int iParam0, int iParam1, int iParam2, var uParam3, int iParam4)//P
 		{
 			AUDIO::SET_SCRIPT_UPDATE_DOOR_AUDIO(Global_34036[24 /*31*/], 1);
 		}
-		if (GlobalFunc_2(0))
+		if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			*iParam4 = 1;
 		}
@@ -12688,7 +12688,7 @@ int func_598(int iParam0, int iParam1, int iParam2, var uParam3, int iParam4)//P
 		{
 			case 0:
 			case 1:
-				if (GlobalFunc_2(0) || GlobalFunc_10910(PLAYER::PLAYER_PED_ID(), 12, 1))
+				if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) || GlobalFunc_10910(PLAYER::PLAYER_PED_ID(), 12, 1))
 				{
 					func_3(0);
 				}
@@ -13700,19 +13700,19 @@ void func_637(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 	iVar0 = 0;
 	if (iParam3 == 1)
 	{
-		if (iParam0 != Global_89999)
+		if (iParam0 != Global_Current_Checkpoint)
 		{
 			iVar0 = 1;
 		}
 	}
-	else if (iParam0 > Global_89999)
+	else if (iParam0 > Global_Current_Checkpoint)
 	{
 		iVar0 = 1;
 	}
 	if (iVar0 == 1)
 	{
 		GlobalFunc_174(1);
-		if (iParam0 <= Global_89999)
+		if (iParam0 <= Global_Current_Checkpoint)
 		{
 		}
 		iVar1 = GlobalFunc_5111(SCRIPT::GET_THIS_SCRIPT_NAME(), 1);
@@ -13734,7 +13734,7 @@ void func_637(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 						break;
 					}
 			}
-			STATS::PLAYSTATS_MISSION_CHECKPOINT(&cVar3, uVar2, Global_89999, iParam0);
+			STATS::PLAYSTATS_MISSION_CHECKPOINT(&cVar3, uVar2, Global_Current_Checkpoint, iParam0);
 		}
 		else
 		{
@@ -13743,11 +13743,11 @@ void func_637(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 			{
 				Global_SAVE_DATA.SAVED_RANDOM_CHARACTERS[iVar5 /*6*/].f_4 = 0;
 				MemCopy(&uVar6, {GlobalFunc_44(iVar5)}, 4);
-				STATS::PLAYSTATS_MISSION_CHECKPOINT(&uVar6, 0, Global_89999, iParam0);
+				STATS::PLAYSTATS_MISSION_CHECKPOINT(&uVar6, 0, Global_Current_Checkpoint, iParam0);
 			}
 			else
 			{
-				iVar10 = GlobalFunc_547(&(Global_89962.f_3));
+				iVar10 = GlobalFunc_547(&(Global_Mission_Fail_State.Failed_Script_Name));
 				if (iVar10 > -1)
 				{
 					Global_SAVE_DATA.BAIL_BOND_SAVED_STRUCT.f_4[iVar10] = 0;
@@ -13755,13 +13755,13 @@ void func_637(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 			}
 		}
 		Global_84545 = iParam2;
-		Global_89999 = iParam0;
+		Global_Current_Checkpoint = iParam0;
 		GlobalFunc_10970(iParam0, sParam1, iParam4, iParam5);
 		if (MISC::ARE_STRINGS_EQUAL(sParam1, ""))
 		{
 		}
 	}
-	else if (iParam0 < Global_89999)
+	else if (iParam0 < Global_Current_Checkpoint)
 	{
 	}
 }

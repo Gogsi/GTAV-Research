@@ -175,7 +175,7 @@ void __EntryFunction__()//Position - 0x0
 	}
 	while (true)
 	{
-		if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+		if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 		{
 			switch (iLocal_78)
 			{
@@ -215,7 +215,7 @@ void func_1()//Position - 0xC4
 		
 		case 1:
 			iVar0 = MISC::GET_GAME_TIMER();
-			GlobalFunc_1("PRC_FCAR");
+			GlobalFunc_Display_Help_Text("PRC_FCAR");
 			while ((MISC::GET_GAME_TIMER() - iVar0) < 7500)
 			{
 				SYSTEM::WAIT(0);
@@ -346,7 +346,7 @@ void func_25(int iParam0, int iParam1, int iParam2, int iParam3)//Position - 0x1
 			}
 		}
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		PED::SET_PED_STEALTH_MOVEMENT(PLAYER::PLAYER_PED_ID(), 0, 0);
 	}
@@ -508,7 +508,7 @@ void func_99()//Position - 0x4B99
 		case 0:
 			if (func_103(iLocal_78, bLocal_81))
 			{
-				if (GlobalFunc_2(0))
+				if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					GlobalFunc_79(500, 1);
 				}
@@ -584,7 +584,7 @@ void func_106()//Position - 0x4DF3
 {
 	GlobalFunc_3008(1);
 	GlobalFunc_695(1);
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		func_116(PLAYER::PLAYER_PED_ID());
 	}

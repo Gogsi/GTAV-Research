@@ -488,7 +488,7 @@ void func_4()//Position - 0x2AE
 				{
 					AUDIO::START_AUDIO_SCENE("TREVOR_SAFEHOUSE_ACTIVITIES_SCENE");
 				}
-				GlobalFunc_2542(func_54());
+				GlobalFunc_Display_Help_Text2(func_54());
 				iLocal_292 = 1;
 			}
 			break;

@@ -387,7 +387,7 @@ void __EntryFunction__()//Position - 0x0
 		}
 		if (GlobalFunc_485(12))
 		{
-			if (!GlobalFunc_2(0))
+			if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				if (!MISC::IS_BIT_SET(Global_SAVE_DATA.HEIST_DATA_STRUCT.HEIST_DISPLAY_GROUP_VISIBLE_ARRAY[3], 8))
 				{
@@ -892,7 +892,7 @@ void func_102(var uParam0)//Position - 0x414D
 								if (*uParam0 != 1)
 								{
 									GlobalFunc_2196(4, *uParam0, 1);
-									if (!GlobalFunc_2(0))
+									if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 									{
 										GlobalFunc_6467(*uParam0);
 									}
@@ -1092,7 +1092,7 @@ void func_102(var uParam0)//Position - 0x414D
 			iVar1 = GlobalFunc_4417(*uParam0, iVar11);
 			iVar0 = GlobalFunc_656(*uParam0);
 			GlobalFunc_3026(iVar0, iVar1);
-			if (!GlobalFunc_2(0))
+			if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				GlobalFunc_4425(*uParam0);
 			}
@@ -1262,7 +1262,7 @@ void func_148()//Position - 0x72ED
 			{
 				if (!ENTITY::IS_ENTITY_DEAD(PLAYER::PLAYER_PED_ID()))
 				{
-					if (!GlobalFunc_2(0) || GlobalFunc_8315() == 0)
+					if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) || GlobalFunc_8315() == 0)
 					{
 						CUTSCENE::REGISTER_ENTITY_FOR_CUTSCENE(PLAYER::PLAYER_PED_ID(), "MICHAEL", 0, joaat("player_zero"), 0);
 					}
@@ -1272,7 +1272,7 @@ void func_148()//Position - 0x72ED
 						MISC::SET_BIT(&uLocal_40, 12);
 					}
 				}
-				if (GlobalFunc_2(0))
+				if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					if (ENTITY::DOES_ENTITY_EXIST(iLocal_44))
 					{
@@ -1295,7 +1295,7 @@ void func_148()//Position - 0x72ED
 					iVar0++;
 				}
 				CUTSCENE::START_CUTSCENE(256);
-				if (GlobalFunc_2(0))
+				if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					CUTSCENE::SET_CUTSCENE_FADE_VALUES(0, 0, 0, 0);
 				}
@@ -1374,7 +1374,7 @@ void func_148()//Position - 0x72ED
 		}
 		else
 		{
-			if (GlobalFunc_2(0))
+			if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				if (ENTITY::DOES_ENTITY_EXIST(iLocal_44))
 				{
@@ -1582,9 +1582,9 @@ int func_184(var uParam0, bool bParam1, bool bParam2, int iParam3)//Position - 0
 				iVar4 = 0;
 				while (iVar4 < 7)
 				{
-					if (MISC::IS_BIT_SET(Global_81119[iVar4 /*5*/].f_1, 2))
+					if (MISC::IS_BIT_SET(Global_Running_Missions[iVar4 /*5*/].f_1, 2))
 					{
-						iVar5 = Global_81119[iVar4 /*5*/];
+						iVar5 = Global_Running_Missions[iVar4 /*5*/];
 						StringCopy(&cVar6, "MISS_SWITCH_", 64);
 						StringConCat(&cVar6, &(Global_81155[Global_68514.f_109[iVar5 /*4*/] /*34*/]), 64);
 						STATS::STAT_INCREMENT(MISC::GET_HASH_KEY(&cVar6), 1f);
@@ -1794,7 +1794,7 @@ void func_270()//Position - 0x14D8C
 {
 	if (GlobalFunc_485(6))
 	{
-		if (!GlobalFunc_2(0))
+		if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			if (!MISC::IS_BIT_SET(uLocal_40, 6))
 			{

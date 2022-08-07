@@ -175,7 +175,7 @@ void func_1()//Position - 0x15A
 		case 3:
 			if (!func_68(iLocal_84))
 			{
-				if (((func_65() && !func_64()) && func_63()) && !GlobalFunc_2(0))
+				if (((func_65() && !func_64()) && func_63()) && !GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					if (iLocal_86 != 0)
 					{
@@ -195,7 +195,7 @@ void func_1()//Position - 0x15A
 			}
 			if (!func_68(4))
 			{
-				if ((func_65() && func_63()) && !GlobalFunc_2(0))
+				if ((func_65() && func_63()) && !GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					func_60(4, 1, 0);
 				}
@@ -207,7 +207,7 @@ void func_1()//Position - 0x15A
 			{
 				func_29();
 			}
-			if (((!func_68(5) && iLocal_72 == 4) && func_63()) && !GlobalFunc_2(0))
+			if (((!func_68(5) && iLocal_72 == 4) && func_63()) && !GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				func_60(5, 1, 0);
 			}
@@ -242,7 +242,7 @@ void func_1()//Position - 0x15A
 				PAD::DISABLE_CONTROL_ACTION(0, 54, 1);
 				if (func_16(6))
 				{
-					if ((!func_68(6) && func_63()) && !GlobalFunc_2(0))
+					if ((!func_68(6) && func_63()) && !GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 					{
 						GlobalFunc_9660(134, 4, 1);
 						func_60(6, 1, 0);
@@ -544,7 +544,7 @@ void func_43()//Position - 0x2661
 		case 0:
 			if (ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), Var0, Var3, fVar6, 0, 1, 0) && !GlobalFunc_116(0))
 			{
-				GlobalFunc_1(sLocal_89);
+				GlobalFunc_Display_Help_Text(sLocal_89);
 				iLocal_72++;
 			}
 			break;
@@ -560,7 +560,7 @@ void func_43()//Position - 0x2661
 				{
 					func_45(0);
 					TASK::TASK_FOLLOW_NAV_MESH_TO_COORD(PLAYER::PLAYER_PED_ID(), -1007.351f, -477.5197f, 49.0282f, 1f, -1, 0.5f, 0, 30.4025f);
-					GlobalFunc_1(sLocal_90);
+					GlobalFunc_Display_Help_Text(sLocal_90);
 					HUD::DISPLAY_RADAR(0);
 					CAM::SET_CAM_ACTIVE(uLocal_73, 1);
 					CAM::RENDER_SCRIPT_CAMS(1, 0, 3000, 1, 0, 0);
@@ -581,7 +581,7 @@ void func_43()//Position - 0x2661
 			HUD::DISPLAY_RADAR(0);
 			if (!GlobalFunc_74(sLocal_90))
 			{
-				GlobalFunc_1(sLocal_90);
+				GlobalFunc_Display_Help_Text(sLocal_90);
 			}
 			if (PAD::IS_CONTROL_JUST_PRESSED(2, 51))
 			{
@@ -685,7 +685,7 @@ int func_55()//Position - 0x2A58
 	{
 		return 0;
 	}
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		return 0;
 	}

@@ -476,7 +476,7 @@ void func_12()//Position - 0x88E
 							if (Global_SAVE_DATA.CELLPHONE_SETTINGS_SAVED_ARRAY.Sleep_Warning_Been_Displayed == 0)
 							{
 								HUD::CLEAR_HELP(1);
-								GlobalFunc_1("CELL_7050");
+								GlobalFunc_Display_Help_Text("CELL_7050");
 								if (fLocal_62 == fLocal_63)
 								{
 								}
@@ -552,7 +552,7 @@ void func_26()//Position - 0x1608
 							if (Global_SAVE_DATA.CELLPHONE_SETTINGS_SAVED_ARRAY.Sleep_Warning_Been_Displayed == 0)
 							{
 								HUD::CLEAR_HELP(1);
-								GlobalFunc_1("CELL_7050");
+								GlobalFunc_Display_Help_Text("CELL_7050");
 								if (fLocal_62 == fLocal_63)
 								{
 								}

@@ -316,9 +316,9 @@ void __EntryFunction__()//Position - 0x0
 	{
 		uLocal_154 = Local_80.f_41[0];
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		iVar0 = GlobalFunc_198();
+		iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544)
 		{
 			iVar0++;
@@ -345,7 +345,7 @@ void __EntryFunction__()//Position - 0x0
 		}
 		func_399(1, 1, 1);
 	}
-	else if (GlobalFunc_2(0))
+	else if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		func_399(1, 1, 1);
 	}
@@ -1326,7 +1326,7 @@ void func_248()//Position - 0x2646D
 				}
 				else
 				{
-					GlobalFunc_11077(1, "Deliver vehicle.", 1, 0, 0, 1);
+					GlobalFunc_Checkpoint6(1, "Deliver vehicle.", 1, 0, 0, 1);
 					iLocal_141 = 6;
 				}
 			}
@@ -2359,7 +2359,7 @@ void func_401(int iParam0, int iParam1, int iParam2, int iParam3)//Position - 0x
 			}
 		}
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		PED::SET_PED_STEALTH_MOVEMENT(PLAYER::PLAYER_PED_ID(), 0, 0);
 	}
@@ -2512,7 +2512,7 @@ void func_415(struct<3> Param0, float fParam3, bool bParam4)//Position - 0x3065E
 
 void func_416(int iParam0, int iParam1, int iParam2)//Position - 0x307A0
 {
-	if (GlobalFunc_4924(uParam0))
+	if (GlobalFunc_IsPedNotInjuredOrDead(uParam0))
 	{
 		if (GlobalFunc_115(uParam1))
 		{
@@ -2573,7 +2573,7 @@ void func_418(bool bParam0)//Position - 0x30814
 		}
 		func_415(Local_160, 298.7f, 1);
 	}
-	GlobalFunc_11077(1, "Deliver vehicle.", 1, 0, 0, 1);
+	GlobalFunc_Checkpoint6(1, "Deliver vehicle.", 1, 0, 0, 1);
 }
 
 void func_419(bool bParam0)//Position - 0x308AB
@@ -2749,11 +2749,11 @@ void func_440(bool bParam0)//Position - 0x311E7
 		{
 			return;
 		}
-		if (Global_84542 == Global_89999)
+		if (Global_84542 == Global_Current_Checkpoint)
 		{
 			Global_SAVE_DATA.SAVED_RANDOM_CHARACTERS[iVar0 /*6*/].f_4++;
 		}
-		Global_84542 = Global_89999;
+		Global_84542 = Global_Current_Checkpoint;
 		if (bParam0)
 		{
 			GlobalFunc_7620(iVar0, 1, 0);

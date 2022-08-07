@@ -967,7 +967,7 @@ void func_85()//Position - 0x20ED
 				{
 					if (!GlobalFunc_74("SCLUB_SECLUDED"))
 					{
-						GlobalFunc_1("SCLUB_SECLUDED");
+						GlobalFunc_Display_Help_Text("SCLUB_SECLUDED");
 					}
 					if (func_102() && ENTITY::GET_ENTITY_SPEED(PLAYER::PLAYER_PED_ID()) == 0f)
 					{

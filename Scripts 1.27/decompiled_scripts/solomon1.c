@@ -2137,7 +2137,7 @@ void func_10()//Position - 0x718
 			}
 			PLAYER::SET_WANTED_LEVEL_MULTIPLIER(0.3f);
 			GlobalFunc_719(&uLocal_1221, "misssolomon_1");
-			GlobalFunc_11067(3, "stage 3:  Get to Sol", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint4(3, "stage 3:  Get to Sol", 0, 0, 0, 1);
 			func_255(0);
 			iLocal_1155 = 0;
 			iLocal_1156 = 0;
@@ -2301,7 +2301,7 @@ void func_10()//Position - 0x718
 			CAM::_SET_GAMEPLAY_HINT_ANIM_OFFSETX(fVar1);
 			CAM::SET_GAMEPLAY_HINT_FOV(fVar2);
 			CAM::_SET_GAMEPLAY_HINT_ANIM_CLOSEUP(1);
-			if (GlobalFunc_109() && ENTITY::IS_ENTITY_IN_ANGLED_AREA(func_188(), -1017.317f, -483.4477f, 35f, -1014.304f, -481.6749f, 39f, 30f, 0, 1, 0))
+			if (GlobalFunc_Has_Cutscene_Loaded() && ENTITY::IS_ENTITY_IN_ANGLED_AREA(func_188(), -1017.317f, -483.4477f, 35f, -1014.304f, -481.6749f, 39f, 30f, 0, 1, 0))
 			{
 				if (GlobalFunc_111())
 				{
@@ -3320,7 +3320,7 @@ void func_320()//Position - 0x2AAC9
 			{
 				CAM::STOP_GAMEPLAY_HINT(0);
 				PLAYER::SET_PLAYER_CONTROL(PLAYER::PLAYER_ID(), 1, 0);
-				GlobalFunc_11067(2, "stage 2: Fight Rocco", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint4(2, "stage 2: Fight Rocco", 0, 0, 0, 1);
 				MISC::CLEAR_AREA_OF_PROJECTILES(916.0302f, -1702.75f, 50.26364f, 50f, 0);
 				if (CAM::IS_SCREEN_FADED_OUT())
 				{
@@ -3394,17 +3394,17 @@ void func_320()//Position - 0x2AAC9
 			break;
 		
 		case 4:
-			if (iLocal_87 == 0 && Global_89962.f_12[0] == 0)
+			if (iLocal_87 == 0 && Global_Mission_Fail_State.f_12[0] == 0)
 			{
 				if ((MISC::GET_GAME_TIMER() - iLocal_86) > 3000)
 				{
 					HUD::CLEAR_HELP(1);
 					GlobalFunc_159("SOL1_HELP1", 6000);
 					iLocal_87 = 1;
-					Global_89962.f_12[0] = 1;
+					Global_Mission_Fail_State.f_12[0] = 1;
 				}
 			}
-			if (iLocal_88 == 0 && Global_89962.f_12[1] == 0)
+			if (iLocal_88 == 0 && Global_Mission_Fail_State.f_12[1] == 0)
 			{
 				if (iLocal_87 == 1)
 				{
@@ -3412,7 +3412,7 @@ void func_320()//Position - 0x2AAC9
 					{
 						GlobalFunc_159("SOL1_HELP2", 6000);
 						iLocal_88 = 1;
-						Global_89962.f_12[1] = 1;
+						Global_Mission_Fail_State.f_12[1] = 1;
 					}
 				}
 			}
@@ -3669,7 +3669,7 @@ void func_320()//Position - 0x2AAC9
 			break;
 		
 		case 5:
-			if (GlobalFunc_109() && (MISC::GET_GAME_TIMER() - iLocal_1143) > 3000)
+			if (GlobalFunc_Has_Cutscene_Loaded() && (MISC::GET_GAME_TIMER() - iLocal_1143) > 3000)
 			{
 				CUTSCENE::REGISTER_ENTITY_FOR_CUTSCENE(func_210(), "rocco", 1, 0, 0);
 				CUTSCENE::REGISTER_ENTITY_FOR_CUTSCENE(func_224(), "milton", 0, 0, 0);
@@ -3949,7 +3949,7 @@ void func_343()//Position - 0x2CD7F
 				iLocal_1201 = 0;
 				PLAYER::CLEAR_PLAYER_WANTED_LEVEL(PLAYER::PLAYER_ID());
 				PLAYER::SET_WANTED_LEVEL_MULTIPLIER(0f);
-				GlobalFunc_11067(1, "stage 1:  Stealth to roof", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint4(1, "stage 1:  Stealth to roof", 0, 0, 0, 1);
 				RECORDING::_0x293220DA1B46CEBC(5f, 10f, 4);
 				iLocal_2789++;
 			}
@@ -4087,7 +4087,7 @@ void func_346()//Position - 0x2D302
 	switch (iLocal_2789)
 	{
 		case 0:
-			if (GlobalFunc_199())
+			if (GlobalFunc_Is_Mission_Retry())
 			{
 				GlobalFunc_718(&uLocal_1221, joaat("cavalcade2"));
 				GlobalFunc_718(&uLocal_1221, joaat("coquette"));
@@ -4130,7 +4130,7 @@ void func_346()//Position - 0x2D302
 			{
 				iLocal_1211 = 1;
 			}
-			if ((iLocal_1212 && iLocal_1211) || GlobalFunc_199())
+			if ((iLocal_1212 && iLocal_1211) || GlobalFunc_Is_Mission_Retry())
 			{
 				if (CAM::IS_SCREEN_FADED_OUT() || CAM::IS_SCREEN_FADING_OUT())
 				{
@@ -4295,7 +4295,7 @@ void func_346()//Position - 0x2D302
 				GlobalFunc_6685(0);
 				iLocal_1198 = 4;
 				iLocal_1219 = 0;
-				GlobalFunc_11067(1, "stage 1:  Stealth to roof", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint4(1, "stage 1:  Stealth to roof", 0, 0, 0, 1);
 				iLocal_2789++;
 			}
 			break;
@@ -4453,7 +4453,7 @@ void func_346()//Position - 0x2D302
 			break;
 		
 		case 8:
-			if (GlobalFunc_109())
+			if (GlobalFunc_Has_Cutscene_Loaded())
 			{
 				VEHICLE::STOP_PLAYBACK_RECORDED_VEHICLE(Local_116[0 /*2*/]);
 				GlobalFunc_881(&(Local_131[4 /*3*/]));
@@ -9758,8 +9758,8 @@ void func_620()//Position - 0x67572
 	GlobalFunc_4935();
 	AUDIO::STOP_AUDIO_SCENES();
 	CAM::STOP_GAMEPLAY_HINT(0);
-	Global_89962.f_12[0] = 0;
-	Global_89962.f_12[1] = 0;
+	Global_Mission_Fail_State.f_12[0] = 0;
+	Global_Mission_Fail_State.f_12[1] = 0;
 	MISC::CLEAR_AREA(ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), 1), 400f, 1, 0, 0, 0);
 	func_621();
 	GlobalFunc_7678(24, 1);
@@ -9904,11 +9904,11 @@ void func_632()//Position - 0x67C66
 			GlobalFunc_9628(-1034.937f, -497.6138f, 35.33385f, -1009.555f, -483.4438f, 42.02816f, 20f, -1024.598f, -496.4365f, 35.9291f, 86.4749f, 0, 1, 1, 0, 0);
 		}
 	}
-	if (GlobalFunc_199() || GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Retry() || GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
-		if (GlobalFunc_199())
+		if (GlobalFunc_Is_Mission_Retry())
 		{
-			iLocal_2793 = GlobalFunc_198();
+			iLocal_2793 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 			if (Global_84544)
 			{
 				iLocal_2793++;
@@ -9918,11 +9918,11 @@ void func_632()//Position - 0x67C66
 				iLocal_2793 = 4;
 			}
 		}
-		else if (GlobalFunc_2(0))
+		else if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			iLocal_2793 = 0;
 		}
-		if (GlobalFunc_199())
+		if (GlobalFunc_Is_Mission_Retry())
 		{
 			func_617(iLocal_2793, &Var0, &uVar3);
 			GlobalFunc_5812(Var0, uVar3, 1, 0);
@@ -9935,9 +9935,9 @@ void func_632()//Position - 0x67C66
 		{
 			SYSTEM::WAIT(0);
 		}
-		Global_89962.f_12[0] = 0;
-		Global_89962.f_12[1] = 0;
-		GlobalFunc_11067(0, "stage 0: Get Heli", 0, 0, 0, 1);
+		Global_Mission_Fail_State.f_12[0] = 0;
+		Global_Mission_Fail_State.f_12[1] = 0;
+		GlobalFunc_Checkpoint4(0, "stage 0: Get Heli", 0, 0, 0, 1);
 		iLocal_2788 = 0;
 	}
 	iLocal_2789 = 0;

@@ -125,7 +125,7 @@ void __EntryFunction__()//Position - 0x0
 		{
 			iLocal_46 = 2;
 		}
-		if (!GlobalFunc_2(0) && !GlobalFunc_39(14))
+		if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) && !GlobalFunc_39(14))
 		{
 			if (iLocal_46 == 0)
 			{

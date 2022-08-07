@@ -22036,7 +22036,7 @@ void func_880()//Position - 0x7BF50
 
 void func_881(char[4] cParam0, int iParam1, int iParam2)//Position - 0x7C084
 {
-	if (Global_89962 != 10 && Global_89962 != 9)
+	if (Global_Mission_Fail_State != 10 && Global_Mission_Fail_State != 9)
 	{
 		StringCopy(&Global_91343, cParam0, 32);
 		func_883(&Global_91351, cParam0, 0, "Start", iParam1, iParam2);
@@ -22425,7 +22425,7 @@ int func_929(int iParam0, bool bParam1, int iParam2)//Position - 0x81760
 	{
 		return 13;
 	}
-	if (GlobalFunc_2(bParam1))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(bParam1))
 	{
 		return 3;
 	}

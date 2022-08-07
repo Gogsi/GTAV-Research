@@ -403,10 +403,10 @@ void __EntryFunction__()//Position - 0x0
 	}
 	GlobalFunc_9621(52, 1, 0);
 	func_715();
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		GlobalFunc_9251(&Local_93, 1, 1, 0);
-		iVar0 = GlobalFunc_198();
+		iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544 == 1)
 		{
 			iVar0++;
@@ -2301,7 +2301,7 @@ void func_389(int iParam0, int iParam1, int iParam2, bool bParam3)//Position - 0
 			}
 		}
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		PED::SET_PED_STEALTH_MOVEMENT(PLAYER::PLAYER_PED_ID(), 0, 0);
 	}
@@ -3269,7 +3269,7 @@ void func_472()//Position - 0x5574A
 			iLocal_524 = 0;
 			iLocal_500 = 0;
 			PED::SET_RAGDOLL_BLOCKING_FLAGS(PLAYER::PLAYER_PED_ID(), 66);
-			if (GlobalFunc_199())
+			if (GlobalFunc_Is_Mission_Retry())
 			{
 				AUDIO::TRIGGER_MUSIC_EVENT("EXTREME2_RESTART2");
 			}
@@ -3507,19 +3507,19 @@ void func_480(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 	iVar0 = 0;
 	if (iParam3 == 1)
 	{
-		if (iParam0 != Global_89999)
+		if (iParam0 != Global_Current_Checkpoint)
 		{
 			iVar0 = 1;
 		}
 	}
-	else if (iParam0 > Global_89999)
+	else if (iParam0 > Global_Current_Checkpoint)
 	{
 		iVar0 = 1;
 	}
 	if (iVar0 == 1)
 	{
 		GlobalFunc_174(1);
-		if (iParam0 <= Global_89999)
+		if (iParam0 <= Global_Current_Checkpoint)
 		{
 		}
 		iVar1 = GlobalFunc_5111(SCRIPT::GET_THIS_SCRIPT_NAME(), 1);
@@ -3541,7 +3541,7 @@ void func_480(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 						break;
 					}
 			}
-			STATS::PLAYSTATS_MISSION_CHECKPOINT(&cVar3, iVar2, Global_89999, iParam0);
+			STATS::PLAYSTATS_MISSION_CHECKPOINT(&cVar3, iVar2, Global_Current_Checkpoint, iParam0);
 		}
 		else
 		{
@@ -3550,11 +3550,11 @@ void func_480(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 			{
 				Global_SAVE_DATA.SAVED_RANDOM_CHARACTERS[iVar5 /*6*/].f_4 = 0;
 				MemCopy(&uVar6, {GlobalFunc_44(iVar5)}, 4);
-				STATS::PLAYSTATS_MISSION_CHECKPOINT(&uVar6, 0, Global_89999, iParam0);
+				STATS::PLAYSTATS_MISSION_CHECKPOINT(&uVar6, 0, Global_Current_Checkpoint, iParam0);
 			}
 			else
 			{
-				iVar10 = GlobalFunc_133(&(Global_89962.f_3));
+				iVar10 = GlobalFunc_133(&(Global_Mission_Fail_State.Failed_Script_Name));
 				if (iVar10 > -1)
 				{
 					Global_SAVE_DATA.BAIL_BOND_SAVED_STRUCT.f_4[iVar10] = 0;
@@ -3562,13 +3562,13 @@ void func_480(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 			}
 		}
 		Global_84545 = iParam2;
-		Global_89999 = iParam0;
+		Global_Current_Checkpoint = iParam0;
 		GlobalFunc_10970(iParam0, sParam1, iParam4, iParam5);
 		if (MISC::ARE_STRINGS_EQUAL(sParam1, ""))
 		{
 		}
 	}
-	else if (iParam0 < Global_89999)
+	else if (iParam0 < Global_Current_Checkpoint)
 	{
 	}
 }
@@ -4073,7 +4073,7 @@ void func_553()//Position - 0x5B3ED
 			iLocal_208 = MISC::GET_GAME_TIMER();
 			iLocal_160 = 0;
 			iLocal_239 = MISC::GET_GAME_TIMER();
-			if (!GlobalFunc_199())
+			if (!GlobalFunc_Is_Mission_Retry())
 			{
 				AUDIO::TRIGGER_MUSIC_EVENT("EXTREME2_START");
 			}
@@ -4547,7 +4547,7 @@ void func_575()//Position - 0x5C4C5
 			func_308();
 			if (GlobalFunc_115(PLAYER::PLAYER_PED_ID()))
 			{
-				if (((CAM::IS_SCREEN_FADED_IN() && !GlobalFunc_199()) && GlobalFunc_115(Local_93.f_28[0])) && ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), -954.5357f, -2760.553f, 11.91636f, -947.6847f, -2749.719f, 15.63161f, 26f, 0, 1, 0))
+				if (((CAM::IS_SCREEN_FADED_IN() && !GlobalFunc_Is_Mission_Retry()) && GlobalFunc_115(Local_93.f_28[0])) && ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), -954.5357f, -2760.553f, 11.91636f, -947.6847f, -2749.719f, 15.63161f, 26f, 0, 1, 0))
 				{
 					CUTSCENE::REMOVE_CUTSCENE();
 					GlobalFunc_8955(0);

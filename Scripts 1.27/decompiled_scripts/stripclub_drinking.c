@@ -4713,7 +4713,7 @@ void func_354(char* sParam0, bool bParam1, int iParam2)//Position - 0x39DC0
 		}
 		else
 		{
-			GlobalFunc_1(sParam0);
+			GlobalFunc_Display_Help_Text(sParam0);
 		}
 	}
 }

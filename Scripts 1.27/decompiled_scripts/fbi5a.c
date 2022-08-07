@@ -8074,7 +8074,7 @@ void func_458()//Position - 0x58BD7
 {
 	if (iLocal_84 == 0)
 	{
-		GlobalFunc_11046(7, "drive with patricia", 1, 0, 0, 1);
+		GlobalFunc_Checkpoint2(7, "drive with patricia", 1, 0, 0, 1);
 		iLocal_3237 = MISC::GET_GAME_TIMER();
 		iLocal_84 = 1;
 	}
@@ -10069,7 +10069,7 @@ void func_676()//Position - 0x6A3B2
 	{
 		if (CAM::IS_SCREEN_FADED_IN())
 		{
-			GlobalFunc_11046(6, "fly to airport", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(6, "fly to airport", 0, 0, 0, 1);
 			AUDIO::START_AUDIO_SCENE("FBI_5_FLY_TO_AIRSTRIP");
 			func_710();
 			iLocal_84 = 1;
@@ -11452,7 +11452,7 @@ void func_735()//Position - 0x6F9C6
 		ENTITY::SET_ENTITY_COORDS(Local_110, 3629.755f, 3746.942f, 27.6062f, 1, 0, 0, 1);
 		ENTITY::SET_ENTITY_HEADING(Local_110, 7f);
 		iLocal_3243 = 101;
-		GlobalFunc_11046(5, "land crate with helicopter", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint2(5, "land crate with helicopter", 0, 0, 0, 1);
 		iLocal_82 = 19;
 		iLocal_84 = 0;
 	}
@@ -15017,7 +15017,7 @@ void func_775()//Position - 0x769A9
 					CAM::RENDER_SCRIPT_CAMS(1, 0, 3000, 1, 0, 0);
 					RECORDING::_0x48621C9FCA3EBD28(4);
 					func_776();
-					GlobalFunc_11046(3, "start of shootout", 0, 0, 0, 1);
+					GlobalFunc_Checkpoint2(3, "start of shootout", 0, 0, 0, 1);
 					iLocal_3221++;
 				}
 				break;
@@ -19863,7 +19863,7 @@ void func_823()//Position - 0x815C9
 	{
 		func_459(0, 0f, 0f, 0, 800);
 	}
-	GlobalFunc_11046(2, "get to lift", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint2(2, "get to lift", 0, 0, 0, 1);
 	iLocal_3223 = MISC::GET_GAME_TIMER();
 }
 
@@ -20155,7 +20155,7 @@ void func_827()//Position - 0x81F97
 		{
 			if (ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), 3531.911f, 3706.334f, 19.992f, 3528.027f, 3706.687f, 22.992f, 1f, 0, 1, 0) || ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), 3528.667f, 3707.503f, 19.992f, 3525.471f, 3707.759f, 22.992f, 4.8f, 0, 1, 0))
 			{
-				if (GlobalFunc_109())
+				if (GlobalFunc_Has_Cutscene_Loaded())
 				{
 					if (func_485(0, 1, 1, 0))
 					{
@@ -21136,7 +21136,7 @@ void func_840()//Position - 0x83298
 			func_473(0, 1, 0, 0f, 0f, 2000, 0, 1, 1, 1, 1);
 		}
 		RECORDING::_0x81CBAE94390F9F89();
-		GlobalFunc_11046(1, "swim through tunnel", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint2(1, "swim through tunnel", 0, 0, 0, 1);
 		SYSTEM::SETTIMERB(0);
 		iLocal_3139 = 0;
 		iLocal_82 = 7;
@@ -21161,7 +21161,7 @@ void func_840()//Position - 0x83298
 		{
 			func_473(0, 1, 1, 0f, 0f, 2000, 0, 1, 1, 1, 1);
 		}
-		GlobalFunc_11046(1, "swim through tunnel", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint2(1, "swim through tunnel", 0, 0, 0, 1);
 		SYSTEM::SETTIMERB(0);
 		iLocal_3139 = 0;
 		iLocal_82 = 7;
@@ -23961,12 +23961,12 @@ void func_927()//Position - 0x8ACC1
 	func_953();
 	TASK::ADD_COVER_BLOCKING_AREA(3556.929f, 3668.026f, 30.12188f, 3558.235f, 3666.841f, 26.5f, 0, 0, 0, 1);
 	TASK::ADD_COVER_BLOCKING_AREA(3566.59f, 3685.24f, 30f, 3569.2f, 3681.5f, 26.5f, 0, 0, 0, 1);
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		iLocal_3975 = 1;
 		if (!Global_84544)
 		{
-			switch (GlobalFunc_198())
+			switch (GlobalFunc_Get_Mission_Fail_Checkpoint())
 			{
 				case 0:
 					func_949();
@@ -24003,7 +24003,7 @@ void func_927()//Position - 0x8ACC1
 		}
 		else
 		{
-			iVar1 = GlobalFunc_198() + 1;
+			iVar1 = GlobalFunc_Get_Mission_Fail_Checkpoint() + 1;
 			switch (iVar1)
 			{
 				case 1:
@@ -24045,7 +24045,7 @@ void func_927()//Position - 0x8ACC1
 	{
 		Global_86821 = 1;
 		Global_86822 = 1;
-		if (!GlobalFunc_2(0))
+		if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			if (!CAM::IS_SCREEN_FADED_IN())
 			{
@@ -24054,7 +24054,7 @@ void func_927()//Position - 0x8ACC1
 					CAM::DO_SCREEN_FADE_IN(800);
 				}
 			}
-			GlobalFunc_11046(0, "start of mission", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(0, "start of mission", 0, 0, 0, 1);
 		}
 		else
 		{
@@ -24371,7 +24371,7 @@ void func_939()//Position - 0x8B8E8
 	AUDIO::TRIGGER_MUSIC_EVENT("FBI5A_TREV_RADIO_FRTA");
 	iLocal_84 = 0;
 	iLocal_82 = 24;
-	GlobalFunc_11046(7, "drive with patricia", 1, 0, 0, 1);
+	GlobalFunc_Checkpoint2(7, "drive with patricia", 1, 0, 0, 1);
 	func_459(1, 0, 0, 1, 800);
 }
 
@@ -24543,7 +24543,7 @@ void func_941()//Position - 0x8BBAD
 	}
 	func_459(1, 0, 0, 1, 800);
 	INTERIOR::UNPIN_INTERIOR(iLocal_3684);
-	GlobalFunc_11046(6, "fly to airport", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint2(6, "fly to airport", 0, 0, 0, 1);
 	iLocal_84 = 0;
 	iLocal_82 = 21;
 }
@@ -24767,7 +24767,7 @@ void func_944()//Position - 0x8C6E0
 	AUDIO::TRIGGER_MUSIC_EVENT("FBI5A_HELI_RESTART");
 	AUDIO::START_AUDIO_SCENE("FBI_5_FLY_TO_CONTAINER");
 	AUDIO::START_ALARM("FIB_05_BIOTECH_LAB_ALARMS", 1);
-	GlobalFunc_11046(5, "land crate with helicopter", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint2(5, "land crate with helicopter", 0, 0, 0, 1);
 	iLocal_82 = 19;
 	iLocal_84 = 0;
 	iLocal_3223 = MISC::GET_GAME_TIMER();
@@ -24919,7 +24919,7 @@ void func_945()//Position - 0x8CFF5
 	}
 	AUDIO::TRIGGER_MUSIC_EVENT("FBI5A_FORKLIFT_RESTART");
 	AUDIO::START_ALARM("FIB_05_BIOTECH_LAB_ALARMS", 1);
-	GlobalFunc_11046(4, "load chemicals into container", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint2(4, "load chemicals into container", 0, 0, 0, 1);
 	iLocal_84 = 0;
 	iLocal_82 = 14;
 	func_459(0, 0f, 0f, 0, 800);
@@ -25142,7 +25142,7 @@ void func_946()//Position - 0x8D7D3
 		}
 		STREAMING::NEW_LOAD_SCENE_STOP();
 	}
-	GlobalFunc_11046(3, "start of shootout", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint2(3, "start of shootout", 0, 0, 0, 1);
 	AUDIO::TRIGGER_MUSIC_EVENT("FBI5A_FIGHT_RESTART");
 	AUDIO::START_AUDIO_SCENE("FBI_5_GET_TO_NERVE_TOXIN");
 	func_459(0, 0f, 0f, 0, 800);
@@ -25353,7 +25353,7 @@ void func_947()//Position - 0x8E344
 	}
 	AUDIO::TRIGGER_MUSIC_EVENT("FBI5A_LIFT_RESTART");
 	AUDIO::START_AUDIO_SCENE("FBI_5_GET_TO_LIFT");
-	GlobalFunc_11046(2, "get to lift", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint2(2, "get to lift", 0, 0, 0, 1);
 	MISC::CLEAR_AREA(3526.249f, 3711.001f, 19.9928f, 10000f, 1, 0, 0, 0);
 	func_459(0, 0f, 0f, 0, 800);
 	iLocal_84 = 1;
@@ -25533,7 +25533,7 @@ void func_948()//Position - 0x8EE24
 	}
 	iLocal_82 = 7;
 	iLocal_84 = 0;
-	GlobalFunc_11046(1, "swim through tunnel", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint2(1, "swim through tunnel", 0, 0, 0, 1);
 }
 
 void func_949()//Position - 0x8F723
@@ -25574,7 +25574,7 @@ void func_949()//Position - 0x8F723
 	}
 	AUDIO::START_AUDIO_SCENE("FBI_5_DINGHY_TO_DIVE_POINT");
 	AUDIO::TRIGGER_MUSIC_EVENT("FBI5A_MISSION_START_ST");
-	GlobalFunc_11046(0, "start of mission", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint2(0, "start of mission", 0, 0, 0, 1);
 	iLocal_3335 = 22;
 	iLocal_3336 = 22;
 	iLocal_3337 = 22;

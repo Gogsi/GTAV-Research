@@ -3116,7 +3116,7 @@ int func_59(var uParam0, var uParam1, bool bParam2, bool bParam3, bool bParam4, 
 	
 	uParam0->f_7 = *uParam1;
 	uParam0->f_8 = uParam1->f_1;
-	if ((GlobalFunc_2(0) && !bParam2) && !bParam4)
+	if ((GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) && !bParam2) && !bParam4)
 	{
 		if (uParam0->f_5)
 		{
@@ -9386,7 +9386,7 @@ void func_708()//Position - 0x5C33A
 		}
 		if (!MISC::IS_BIT_SET(iLocal_1211, 1))
 		{
-			if (GlobalFunc_7259(&Local_1227) && INTERIOR::IS_VALID_INTERIOR(INTERIOR::GET_INTERIOR_FROM_ENTITY(PLAYER::PLAYER_PED_ID())))
+			if (GlobalFunc_Is_Player_In_Angled_Area(&Local_1227) && INTERIOR::IS_VALID_INTERIOR(INTERIOR::GET_INTERIOR_FROM_ENTITY(PLAYER::PLAYER_PED_ID())))
 			{
 				GlobalFunc_2571(0);
 				GlobalFunc_10686(75, 1);
@@ -9399,7 +9399,7 @@ void func_708()//Position - 0x5C33A
 		{
 			GlobalFunc_2536(1, 0);
 			RECORDING::_DISABLE_ROCKSTAR_EDITOR_CAMERA_CHANGES();
-			if (GlobalFunc_7259(&Local_1235))
+			if (GlobalFunc_Is_Player_In_Angled_Area(&Local_1235))
 			{
 				PLAYER::SET_PLAYER_CONTROL(PLAYER::PLAYER_ID(), false, 256);
 			}
@@ -11090,7 +11090,7 @@ int func_936()//Position - 0x6869C
 				iVar1 = 0;
 				while (iVar1 < 7)
 				{
-					if (Global_81119[iVar1 /*5*/] != -1)
+					if (Global_Running_Missions[iVar1 /*5*/] != -1)
 					{
 						iVar0++;
 					}

@@ -299,7 +299,7 @@ void func_5()//Position - 0x3B9
 		{
 			if (CAM::IS_SCREEN_FADED_IN())
 			{
-				GlobalFunc_1("BMARK_EXIT");
+				GlobalFunc_Display_Help_Text("BMARK_EXIT");
 			}
 		}
 		else if (GlobalFunc_4926(1000))
@@ -2123,7 +2123,7 @@ int func_480(var uParam0, bool bParam1, int iParam2)//Position - 0x569A6
 	{
 		return 13;
 	}
-	if (GlobalFunc_2(bParam1))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(bParam1))
 	{
 		return 3;
 	}

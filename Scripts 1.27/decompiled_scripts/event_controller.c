@@ -342,7 +342,7 @@ int func_4(struct<6> Param0, struct<16> Param6, var uParam22, struct<13> Param23
 		bVar1 = true;
 		if (!GlobalFunc_2845())
 		{
-			if (!GlobalFunc_2(0))
+			if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				if (bVar1)
 				{

@@ -2523,7 +2523,7 @@ void func_269()//Position - 0x47D04
 	iLocal_1875 = MISC::GET_GAME_TIMER();
 	AUDIO::TRIGGER_MUSIC_EVENT("CHN1_WAVE_3_RT");
 	AUDIO::START_AUDIO_SCENE("CHI_1_SHOOTOUT_04");
-	GlobalFunc_11089(4, "Wave 3", 1, 0, 0, 1);
+	GlobalFunc_Checkpoint7(4, "Wave 3", 1, 0, 0, 1);
 	ENTITY::REMOVE_MODEL_HIDE(Local_2611, 2f, joaat("prop_ice_box_01"), 0);
 	iLocal_289 = 4;
 }
@@ -2757,7 +2757,7 @@ void func_363(int iParam0, struct<3> Param1, float fParam4, int iParam5, int iPa
 	int iVar0;
 	
 	iVar0 = 1;
-	if (!GlobalFunc_199() || !GlobalFunc_7698())
+	if (!GlobalFunc_Is_Mission_Retry() || !GlobalFunc_7698())
 	{
 		iVar0 = 0;
 	}
@@ -2944,9 +2944,9 @@ int func_400(var uParam0, struct<3> Param1, float fParam4, bool bParam5)//Positi
 						GlobalFunc_7695(iVar8);
 					}
 				}
-				if (((Global_89962 != 13 && Global_89962 != 10) && Global_89962 != 11) && Global_89962 != 12)
+				if (((Global_Mission_Fail_State != 13 && Global_Mission_Fail_State != 10) && Global_Mission_Fail_State != 11) && Global_Mission_Fail_State != 12)
 				{
-					if (MISC::GET_HASH_KEY(&(Global_89962.f_3)) == Global_68102)
+					if (MISC::GET_HASH_KEY(&(Global_Mission_Fail_State.Failed_Script_Name)) == Global_68102)
 					{
 						if (uParam0->f_12.f_42 == Global_SAVE_DATA.VEHICLE_GEN_SAVED_DATA_STRUCT.f_69[21 /*54*/].f_42)
 						{
@@ -3459,7 +3459,7 @@ void func_432()//Position - 0x57662
 	iLocal_1958 = 0;
 	iLocal_1955 = 6;
 	iLocal_1946 = 3;
-	if (Global_89962.f_12[0] == 0)
+	if (Global_Mission_Fail_State.f_12[0] == 0)
 	{
 		WEAPON::SET_CURRENT_PED_WEAPON(PLAYER::PLAYER_PED_ID(), joaat("weapon_carbinerifle"), 1);
 		iLocal_1876 = 0;
@@ -3504,9 +3504,9 @@ void func_432()//Position - 0x57662
 	iLocal_1867 = MISC::GET_GAME_TIMER();
 	iLocal_1879 = (MISC::GET_GAME_TIMER() - 5000);
 	iLocal_289 = 3;
-	GlobalFunc_11089(3, "Wave 2 after grenade launcher cutscene", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint7(3, "Wave 2 after grenade launcher cutscene", 0, 0, 0, 1);
 	AUDIO::TRIGGER_MUSIC_EVENT("CHN1_AFTER_GRENADE_RT");
-	if (Global_89962.f_12[0] == 1)
+	if (Global_Mission_Fail_State.f_12[0] == 1)
 	{
 		func_338(0, 1, -77f, -19f, 500, 0, 1);
 	}
@@ -3646,11 +3646,11 @@ void func_435()//Position - 0x582E8
 	Local_1778 = OBJECT::CREATE_OBJECT_NO_OFFSET(Local_1778.f_2, Local_1778.f_3, 1, 1, 0);
 	ENTITY::FREEZE_ENTITY_POSITION(Local_1778, 1);
 	ENTITY::SET_ENTITY_ROTATION(Local_1778, Local_1778.f_12, 2, 1);
-	if (Global_89962.f_12[1] == -1 || Global_89962.f_12[1] == 1)
+	if (Global_Mission_Fail_State.f_12[1] == -1 || Global_Mission_Fail_State.f_12[1] == 1)
 	{
 		Local_1321[0 /*15*/].f_14 = 1;
 	}
-	if (Global_89962.f_12[1] == -1 || Global_89962.f_12[1] == 0)
+	if (Global_Mission_Fail_State.f_12[1] == -1 || Global_Mission_Fail_State.f_12[1] == 0)
 	{
 		Local_1321[1 /*15*/].f_14 = 1;
 	}
@@ -3737,7 +3737,7 @@ void func_435()//Position - 0x582E8
 	iLocal_1867 = MISC::GET_GAME_TIMER();
 	AUDIO::TRIGGER_MUSIC_EVENT("CHN1_OUTSIDE_RT");
 	CAM::SET_GAMEPLAY_CAM_RELATIVE_HEADING(30f);
-	GlobalFunc_11089(2, "Wave 0 outside enemies", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint7(2, "Wave 0 outside enemies", 0, 0, 0, 1);
 }
 
 void func_436(int iParam0, int iParam1, int iParam2, int iParam3, int iParam4, bool bParam5)//Position - 0x58DEF
@@ -3952,7 +3952,7 @@ void func_440()//Position - 0x591FC
 	AUDIO::TRIGGER_MUSIC_EVENT("CHN1_WAVE_ZERO_RT");
 	AUDIO::START_AUDIO_SCENE("CHI_1_SHOOTOUT_01");
 	func_338(0, 1, 90f, -12f, 500, 0, 1);
-	GlobalFunc_11089(1, "Start of Wave 0 shootout", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint7(1, "Start of Wave 0 shootout", 0, 0, 0, 1);
 	iLocal_289 = 2;
 }
 
@@ -4421,7 +4421,7 @@ void func_481()//Position - 0x5EA02
 		PED::FORCE_PED_MOTION_STATE(PLAYER::PLAYER_PED_ID(), -668482597, 0, 0, 0);
 		PLAYER::SIMULATE_PLAYER_INPUT_GAIT(PLAYER::PLAYER_ID(), 1f, 300, 0, 1, 0);
 	}
-	GlobalFunc_11089(0, "Mission start", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint7(0, "Mission start", 0, 0, 0, 1);
 	if (CAM::IS_SCREEN_FADED_OUT())
 	{
 		func_477(1, 0, 0, 1);
@@ -5620,7 +5620,7 @@ void func_517()//Position - 0x6187A
 					return;
 				}
 			}
-			if (GlobalFunc_109())
+			if (GlobalFunc_Has_Cutscene_Loaded())
 			{
 				if (func_537(0, 0, 1, 1, 1))
 				{
@@ -7932,7 +7932,7 @@ int func_583()//Position - 0x65F0F
 					func_417();
 					OBJECT::_DOOR_CONTROL(joaat("v_ilev_ss_doorext"), Local_2554, 0, 0f, 0f, 0f);
 					OBJECT::_DOOR_CONTROL(joaat("v_ilev_ss_doorext"), Local_2557, 0, 0f, 0f, 0f);
-					GlobalFunc_11089(4, "Wave 3", 1, 0, 0, 1);
+					GlobalFunc_Checkpoint7(4, "Wave 3", 1, 0, 0, 1);
 					iLocal_1959++;
 					STREAMING::REQUEST_MODEL(Local_375.f_1);
 					STREAMING::REQUEST_MODEL(Local_353.f_1);
@@ -7950,7 +7950,7 @@ int func_583()//Position - 0x65F0F
 					func_417();
 					OBJECT::_DOOR_CONTROL(joaat("v_ilev_ss_doorext"), Local_2554, 0, 0f, 0f, 0f);
 					OBJECT::_DOOR_CONTROL(joaat("v_ilev_ss_doorext"), Local_2557, 0, 0f, 0f, 0f);
-					GlobalFunc_11089(4, "Wave 3", 1, 0, 0, 1);
+					GlobalFunc_Checkpoint7(4, "Wave 3", 1, 0, 0, 1);
 					iLocal_1959++;
 					STREAMING::REQUEST_MODEL(Local_375.f_1);
 					STREAMING::REQUEST_MODEL(Local_353.f_1);
@@ -9980,7 +9980,7 @@ int func_612()//Position - 0x692CF
 				if (func_619())
 				{
 					func_618(1);
-					GlobalFunc_11089(3, "Wave 2 after grenade launcher cutscene", 0, 0, 0, 1);
+					GlobalFunc_Checkpoint7(3, "Wave 2 after grenade launcher cutscene", 0, 0, 0, 1);
 					iLocal_1955++;
 				}
 				else if (!bLocal_1861)
@@ -9988,7 +9988,7 @@ int func_612()//Position - 0x692CF
 					if (GlobalFunc_588(&iLocal_1879, 2000))
 					{
 						func_617();
-						GlobalFunc_11089(3, "Wave 2 after grenade launcher cutscene", 0, 0, 0, 1);
+						GlobalFunc_Checkpoint7(3, "Wave 2 after grenade launcher cutscene", 0, 0, 0, 1);
 						iLocal_1955++;
 					}
 				}
@@ -9996,7 +9996,7 @@ int func_612()//Position - 0x692CF
 			else
 			{
 				func_617();
-				GlobalFunc_11089(3, "Wave 2 after grenade launcher cutscene", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint7(3, "Wave 2 after grenade launcher cutscene", 0, 0, 0, 1);
 				iLocal_1955++;
 			}
 			break;
@@ -10293,7 +10293,7 @@ int func_619()//Position - 0x69C1C
 							AUDIO::TRIGGER_MUSIC_EVENT("CHN1_G_LAUNCHER");
 							iLocal_1855 = 0;
 							bLocal_1861 = true;
-							Global_89962.f_12[0] = 1;
+							Global_Mission_Fail_State.f_12[0] = 1;
 							if (!CAM::IS_SCREEN_FADED_IN())
 							{
 								if (!CAM::IS_SCREEN_FADING_IN())
@@ -10518,7 +10518,7 @@ void func_625()//Position - 0x6A4DF
 		if (!bLocal_2603)
 		{
 			bLocal_2603 = true;
-			Global_89962.f_12[0] = 1;
+			Global_Mission_Fail_State.f_12[0] = 1;
 		}
 		if (func_626(1))
 		{
@@ -12018,7 +12018,7 @@ int func_651()//Position - 0x6D244
 		case 3:
 			if (func_653())
 			{
-				GlobalFunc_11089(2, "Wave 0 outside enemies", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint7(2, "Wave 0 outside enemies", 0, 0, 0, 1);
 				MISC::_CLEAR_TACTICAL_ANALYSIS_POINTS();
 				iLocal_1950++;
 			}
@@ -12459,7 +12459,7 @@ void func_656()//Position - 0x6DE17
 			func_476();
 			if (func_672() && !GlobalFunc_5172(&Local_2343, 0))
 			{
-				if (GlobalFunc_109())
+				if (GlobalFunc_Has_Cutscene_Loaded())
 				{
 					if (func_537(0, 1, 0, 0, 0))
 					{
@@ -12826,7 +12826,7 @@ void func_657()//Position - 0x6E809
 	}
 	AUDIO::TRIGGER_MUSIC_EVENT("CHN1_GAMEPLAY_STARTS");
 	AUDIO::START_AUDIO_SCENE("CHI_1_SHOOTOUT_01");
-	GlobalFunc_11089(1, "Start of Wave 0 shootout", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint7(1, "Start of Wave 0 shootout", 0, 0, 0, 1);
 	iLocal_289 = 2;
 }
 
@@ -13384,7 +13384,7 @@ void func_721()//Position - 0x727BB
 			INTERIOR::PIN_INTERIOR_IN_MEMORY(iVar0);
 			if (INTERIOR::IS_INTERIOR_READY(iVar0))
 			{
-				if (GlobalFunc_109())
+				if (GlobalFunc_Has_Cutscene_Loaded())
 				{
 					CUTSCENE::REGISTER_ENTITY_FOR_CUTSCENE(0, "Tao", 2, Local_375.f_1, 0);
 					CUTSCENE::REGISTER_ENTITY_FOR_CUTSCENE(0, "Taos_Translator", 2, Local_353.f_1, 0);
@@ -13397,7 +13397,7 @@ void func_721()//Position - 0x727BB
 			break;
 		
 		case 1:
-			if (GlobalFunc_2(0))
+			if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				if (!CAM::IS_SCREEN_FADED_IN())
 				{
@@ -13490,7 +13490,7 @@ void func_721()//Position - 0x727BB
 						GlobalFunc_8316(0, 1, 1, 0);
 						func_511();
 						func_483(1);
-						GlobalFunc_11089(0, "Mission start", 0, 0, 0, 1);
+						GlobalFunc_Checkpoint7(0, "Mission start", 0, 0, 0, 1);
 						func_659();
 						if (CAM::IS_SCREEN_FADED_OUT())
 						{
@@ -13600,7 +13600,7 @@ void func_721()//Position - 0x727BB
 				}
 				func_483(1);
 				func_479();
-				GlobalFunc_11089(0, "Mission start", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint7(0, "Mission start", 0, 0, 0, 1);
 				if (CAM::IS_SCREEN_FADED_OUT())
 				{
 					func_477(1, 0, 0, 1);
@@ -14034,9 +14034,9 @@ void func_749()//Position - 0x74665
 	uLocal_2383 = PATHFIND::ADD_NAVMESH_BLOCKING_OBJECT(1394.036f, 3608.936f, 37.94191f, 0.75f, 0.5f, 0.5f, -1.2f, 0, 7);
 	uLocal_2382 = PATHFIND::ADD_NAVMESH_BLOCKING_OBJECT(1392.083f, 3611.167f, 37.94191f, 0.6f, 0.4f, 0.5f, 0.36f, 0, 7);
 	uLocal_2384 = PATHFIND::ADD_NAVMESH_BLOCKING_OBJECT(1432.984f, 3626.769f, 33.93124f, 2.5f, 3.75f, 1f, 1.95f, 0, 7);
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		iVar0 = GlobalFunc_198();
+		iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544)
 		{
 			iVar0++;
@@ -14087,7 +14087,7 @@ void func_749()//Position - 0x74665
 	}
 	else
 	{
-		GlobalFunc_11089(0, "Mission start", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint7(0, "Mission start", 0, 0, 0, 1);
 	}
 }
 
@@ -14320,12 +14320,12 @@ void func_764()//Position - 0x75427
 	int iVar0;
 	
 	iVar0 = 0;
-	Global_89962.f_12[1] = -1;
+	Global_Mission_Fail_State.f_12[1] = -1;
 	if (ENTITY::DOES_ENTITY_EXIST(Local_1321[0 /*15*/]))
 	{
 		if (!ENTITY::IS_ENTITY_DEAD(Local_1321[0 /*15*/]))
 		{
-			Global_89962.f_12[1] = 0;
+			Global_Mission_Fail_State.f_12[1] = 0;
 			iVar0++;
 		}
 	}
@@ -14333,13 +14333,13 @@ void func_764()//Position - 0x75427
 	{
 		if (!ENTITY::IS_ENTITY_DEAD(Local_1321[1 /*15*/]))
 		{
-			Global_89962.f_12[1] = 1;
+			Global_Mission_Fail_State.f_12[1] = 1;
 			iVar0++;
 		}
 	}
 	if (iVar0 == 2)
 	{
-		Global_89962.f_12[1] = 2;
+		Global_Mission_Fail_State.f_12[1] = 2;
 	}
 }
 

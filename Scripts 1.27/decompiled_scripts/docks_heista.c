@@ -3406,11 +3406,11 @@ void __EntryFunction__()//Position - 0x0
 			AUDIO::TRIGGER_MUSIC_EVENT("dh2a_dead");
 			if (PLAYER::PLAYER_PED_ID() == func_887())
 			{
-				Global_89962.f_12[0] = 1;
+				Global_Mission_Fail_State.f_12[0] = 1;
 			}
 			else if (PLAYER::PLAYER_PED_ID() == func_886())
 			{
-				Global_89962.f_12[0] = 0;
+				Global_Mission_Fail_State.f_12[0] = 0;
 			}
 			GlobalFunc_10632();
 			func_881(1);
@@ -3423,10 +3423,10 @@ void __EntryFunction__()//Position - 0x0
 	}
 	func_877();
 	func_875();
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		CUTSCENE::REMOVE_CUTSCENE();
-		iLocal_1898 = GlobalFunc_198();
+		iLocal_1898 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544)
 		{
 			iLocal_1898++;
@@ -3548,7 +3548,7 @@ void __EntryFunction__()//Position - 0x0
 	}
 	else
 	{
-		GlobalFunc_11046(0, "stage 0: drive to bridge", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint2(0, "stage 0: drive to bridge", 0, 0, 0, 1);
 		iLocal_1892 = 0;
 		func_867(iLocal_1892);
 		func_820();
@@ -3634,7 +3634,7 @@ void func_2()//Position - 0x573
 				GlobalFunc_10914("MICHAEL", joaat("player_zero"), 11);
 				CUTSCENE::SET_CUTSCENE_PED_COMPONENT_VARIATION_FROM_PED("TREVOR", PLAYER::PLAYER_PED_ID(), 0);
 			}
-			if ((GlobalFunc_109() && SCRIPT::HAS_SCRIPT_LOADED("docks2ASubHandler")) && func_166(&(Local_48[0 /*2*/]), -329.75f, -2577.94f, 5.64f, 128.25f))
+			if ((GlobalFunc_Has_Cutscene_Loaded() && SCRIPT::HAS_SCRIPT_LOADED("docks2ASubHandler")) && func_166(&(Local_48[0 /*2*/]), -329.75f, -2577.94f, 5.64f, 128.25f))
 			{
 				STREAMING::REMOVE_PTFX_ASSET();
 				if (ENTITY::DOES_ENTITY_EXIST(iLocal_1720))
@@ -4121,7 +4121,7 @@ void func_233()//Position - 0x259AB
 			}
 			iLocal_1807 = 0;
 			iLocal_1808 = 0;
-			GlobalFunc_11046(10, "Stage 9: the goods", 1, 0, 0, 1);
+			GlobalFunc_Checkpoint2(10, "Stage 9: the goods", 1, 0, 0, 1);
 			if (GlobalFunc_2773(Local_48[3 /*2*/]))
 			{
 				ENTITY::SET_ENTITY_COORDS(Local_48[3 /*2*/], -466.7967f, -2381.379f, -12.1213f, 1, 0, 0, 1);
@@ -4269,7 +4269,7 @@ void func_233()//Position - 0x259AB
 					{
 						if (iLocal_2009 == 0)
 						{
-							GRAPHICS::ANIMPOSTFX_PLAY(GlobalFunc_1078(GlobalFunc_199(), "CamPushInNeutral", "CamPushInMichael"), 0, 0);
+							GRAPHICS::ANIMPOSTFX_PLAY(GlobalFunc_1078(GlobalFunc_Is_Mission_Retry(), "CamPushInNeutral", "CamPushInMichael"), 0, 0);
 							AUDIO::PLAY_SOUND_FRONTEND(-1, "1st_Person_Transition", "PLAYER_SWITCH_CUSTOM_SOUNDSET", 1);
 							iLocal_2009 = 1;
 						}
@@ -4895,13 +4895,13 @@ void func_234(int iParam0)//Position - 0x26D0C
 		AUDIO::TRIGGER_MUSIC_EVENT("dh2a_dead");
 		if (PLAYER::PLAYER_PED_ID() == func_886() && iLocal_1892 > 0)
 		{
-			Global_89962.f_12[0] = 0;
+			Global_Mission_Fail_State.f_12[0] = 0;
 			GlobalFunc_5129(-143.7584f, -2488.746f, 43.4355f, 5.5522f);
 			GlobalFunc_5166(-148.316f, -2498.048f, 47.2429f, 54.9127f);
 		}
 		else if (PLAYER::PLAYER_PED_ID() == func_887())
 		{
-			Global_89962.f_12[0] = 1;
+			Global_Mission_Fail_State.f_12[0] = 1;
 			GlobalFunc_5129(14.6669f, -2543.385f, 5.0503f, 32.847f);
 			GlobalFunc_5166(17.0702f, -2542.623f, 5.05f, 235.9222f);
 		}
@@ -6024,7 +6024,7 @@ void func_582()//Position - 0x61907
 	{
 		case 0:
 			HUD::DISPLAY_RADAR(0);
-			GlobalFunc_11046(9, "Stage 8: explosion cutscene", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(9, "Stage 8: explosion cutscene", 0, 0, 0, 1);
 			if (GlobalFunc_2773(func_887()))
 			{
 				func_577(func_887(), 1, 1);
@@ -6055,7 +6055,7 @@ void func_582()//Position - 0x61907
 			break;
 		
 		case 1:
-			if (GlobalFunc_109())
+			if (GlobalFunc_Has_Cutscene_Loaded())
 			{
 				if (CAM::IS_SCREEN_FADED_OUT())
 				{
@@ -6548,7 +6548,7 @@ void func_590()//Position - 0x66CFD
 			{
 				HUD::REMOVE_BLIP(&(Local_69[1 /*15*/].f_1));
 			}
-			GlobalFunc_11046(8, "Stage 7: detonate", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(8, "Stage 7: detonate", 0, 0, 0, 1);
 			GlobalFunc_173(&uLocal_1496, 3, func_886(), "FRANKLIN", 0, 1);
 			GlobalFunc_173(&uLocal_1496, 1, 0, "MICHAEL", 0, 1);
 			GlobalFunc_9621(128, 1, 0);
@@ -6760,11 +6760,11 @@ void func_602()//Position - 0x67519
 				CAM::SET_FIRST_PERSON_AIM_CAM_ZOOM_FACTOR(7f);
 				HUD::DISPLAY_SNIPER_SCOPE_THIS_FRAME();
 			}
-			if (GlobalFunc_199() && iLocal_1899 == 0)
+			if (GlobalFunc_Is_Mission_Retry() && iLocal_1899 == 0)
 			{
 				if (iLocal_1898 == 7)
 				{
-					GlobalFunc_11046(7, "Stage 6: way out- B escape", 0, 0, 0, 1);
+					GlobalFunc_Checkpoint2(7, "Stage 6: way out- B escape", 0, 0, 0, 1);
 					Local_48[2 /*2*/] = VEHICLE::CREATE_VEHICLE(joaat("landstalker"), -200.3281f, -2398.225f, 5.0012f, 98.1005f, 1, 1);
 					ENTITY::SET_ENTITY_LOD_DIST(Local_48[2 /*2*/], 300);
 					ENTITY::SET_ENTITY_LOAD_COLLISION_FLAG(Local_48[2 /*2*/], 1);
@@ -6785,14 +6785,14 @@ void func_602()//Position - 0x67519
 					iLocal_1893++;
 				}
 			}
-			else if (!GlobalFunc_199() || iLocal_1899)
+			else if (!GlobalFunc_Is_Mission_Retry() || iLocal_1899)
 			{
 				iLocal_1893++;
 			}
 			break;
 		
 		case 1:
-			GlobalFunc_11046(6, "Stage 6: way out- A trucks", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(6, "Stage 6: way out- A trucks", 0, 0, 0, 1);
 			func_616(26, 150f, 1, 0);
 			if (GlobalFunc_2773(Local_175[26 /*44*/]))
 			{
@@ -7126,7 +7126,7 @@ void func_602()//Position - 0x67519
 				{
 					if (GlobalFunc_10618(&uLocal_1496, "D2AAUD", "DH2A_4GO", 7, 0, 0, 0))
 					{
-						GlobalFunc_11046(7, "Stage 6: way out- B escape", 0, 0, 0, 1);
+						GlobalFunc_Checkpoint2(7, "Stage 6: way out- B escape", 0, 0, 0, 1);
 						iLocal_1893++;
 					}
 				}
@@ -8685,7 +8685,7 @@ void func_624()//Position - 0x6B141
 			{
 				GlobalFunc_11257(func_887(), 14, 1, 1, -1, 0, 0, 0, -1, -1, -1, 0);
 			}
-			GlobalFunc_11046(5, "Stage 5: fourth bomb", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(5, "Stage 5: fourth bomb", 0, 0, 0, 1);
 			iLocal_1782 = 0;
 			iLocal_1783 = 0;
 			iLocal_1744 = MISC::GET_GAME_TIMER();
@@ -11321,7 +11321,7 @@ void func_647()//Position - 0x6FBCE
 			iLocal_1783 = 0;
 			iLocal_1784 = 0;
 			iLocal_1786 = 0;
-			GlobalFunc_11046(4, "stage 4: third bomb", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(4, "stage 4: third bomb", 0, 0, 0, 1);
 			iLocal_1893++;
 			break;
 		
@@ -11463,7 +11463,7 @@ void func_649()//Position - 0x6FF8E
 			iLocal_1783 = 0;
 			iLocal_1784 = 0;
 			iLocal_1786 = 0;
-			GlobalFunc_11046(3, "stage 3: second bomb", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(3, "stage 3: second bomb", 0, 0, 0, 1);
 			iLocal_1893++;
 			break;
 		
@@ -11721,7 +11721,7 @@ void func_651()//Position - 0x70641
 		case 0:
 			OBJECT::SET_PICKUP_GENERATION_RANGE_MULTIPLIER(2f);
 			func_644(1);
-			GlobalFunc_11046(1, "Stage 1: Snipe Guards", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(1, "Stage 1: Snipe Guards", 0, 0, 0, 1);
 			if (!HUD::DOES_BLIP_EXIST(Local_175[0 /*44*/].f_1))
 			{
 				Local_175[0 /*44*/].f_1 = GlobalFunc_6797(Local_175[0 /*44*/], 1, 145);
@@ -11809,13 +11809,13 @@ void func_651()//Position - 0x70641
 				if (!GlobalFunc_74("SNIPE_HLP0"))
 				{
 					HUD::CLEAR_HELP(1);
-					GlobalFunc_1("SNIPE_HLP0");
+					GlobalFunc_Display_Help_Text("SNIPE_HLP0");
 				}
 			}
 			else if (!GlobalFunc_74("SNIPE_HLP1"))
 			{
 				HUD::CLEAR_HELP(1);
-				GlobalFunc_1("SNIPE_HLP1");
+				GlobalFunc_Display_Help_Text("SNIPE_HLP1");
 			}
 			if (CAM::IS_SCREEN_FADED_OUT())
 			{
@@ -12106,7 +12106,7 @@ void func_651()//Position - 0x70641
 			func_652();
 			GlobalFunc_5175(&uLocal_2010, "missheistdocks2aig_1");
 			GlobalFunc_5175(&uLocal_2010, "missheistdocks2aswitchig_7");
-			GlobalFunc_11046(2, "Stage 2: first bomb", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(2, "Stage 2: first bomb", 0, 0, 0, 1);
 			GlobalFunc_159("DCKH_SWHELP", -1);
 			func_867(2);
 			iLocal_1893 = 0;
@@ -12317,7 +12317,7 @@ void func_662()//Position - 0x717A6
 	switch (iLocal_1893)
 	{
 		case 0:
-			if (GlobalFunc_199() || iLocal_1771)
+			if (GlobalFunc_Is_Mission_Retry() || iLocal_1771)
 			{
 				if (CAM::IS_SCREEN_FADED_OUT())
 				{
@@ -12472,7 +12472,7 @@ void func_662()//Position - 0x717A6
 				CAM::SET_GAMEPLAY_CAM_RELATIVE_HEADING(0f);
 				CAM::SET_GAMEPLAY_CAM_RELATIVE_PITCH(0f, 1065353216);
 			}
-			if ((!CUTSCENE::IS_CUTSCENE_PLAYING() || GlobalFunc_199()) || iLocal_1771)
+			if ((!CUTSCENE::IS_CUTSCENE_PLAYING() || GlobalFunc_Is_Mission_Retry()) || iLocal_1771)
 			{
 				if (GlobalFunc_8315() != 2)
 				{
@@ -13164,7 +13164,7 @@ int func_672(var uParam0, var uParam1, bool bParam2, bool bParam3, bool bParam4,
 	
 	uParam0->f_7 = *uParam1;
 	uParam0->f_8 = uParam1->f_1;
-	if ((GlobalFunc_2(0) && !bParam2) && !bParam4)
+	if ((GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) && !bParam2) && !bParam4)
 	{
 		if (uParam0->f_5)
 		{
@@ -13676,7 +13676,7 @@ void func_701()//Position - 0x75744
 
 int func_703(int iParam0, struct<3> Param1, float fParam4)//Position - 0x75A68
 {
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		if (GlobalFunc_7984())
 		{
@@ -17107,7 +17107,7 @@ void func_803()//Position - 0x7D3A5
 	AUDIO::TRIGGER_MUSIC_EVENT("DH2A_4TH_BOMB_RT");
 	func_801(3);
 	GlobalFunc_4967(0, -1, 1);
-	if (Global_89962.f_12[0] == 0)
+	if (Global_Mission_Fail_State.f_12[0] == 0)
 	{
 		if (GlobalFunc_9019(&iLocal_1903, 1))
 		{
@@ -17240,10 +17240,10 @@ void func_804()//Position - 0x7D8CE
 	func_654();
 	func_644(1);
 	AUDIO::TRIGGER_MUSIC_EVENT("DH2A_3RD_BOMB_RT");
-	GlobalFunc_11046(4, "STAGE 3: THIRD BOMB", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint2(4, "STAGE 3: THIRD BOMB", 0, 0, 0, 1);
 	func_801(2);
 	GlobalFunc_4967(0, -1, 1);
-	if (Global_89962.f_12[0] == 0)
+	if (Global_Mission_Fail_State.f_12[0] == 0)
 	{
 		if (GlobalFunc_9019(&iLocal_1903, 1))
 		{
@@ -17370,10 +17370,10 @@ void func_805()//Position - 0x7DDE1
 	func_654();
 	AUDIO::TRIGGER_MUSIC_EVENT("DH2A_2ND_BOMB_RT");
 	func_644(1);
-	GlobalFunc_11046(3, "STAGE 3: SECOND BOMB", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint2(3, "STAGE 3: SECOND BOMB", 0, 0, 0, 1);
 	func_801(1);
 	GlobalFunc_4967(0, -1, 1);
-	if (Global_89962.f_12[0] == 0)
+	if (Global_Mission_Fail_State.f_12[0] == 0)
 	{
 		if (GlobalFunc_9019(&iLocal_1903, 1))
 		{
@@ -17500,11 +17500,11 @@ void func_806()//Position - 0x7E2B0
 	iLocal_1725 = OBJECT::CREATE_OBJECT(joaat("prop_mil_crate_02"), -193.7419f, -2422.942f, 5.0007f, 1, 1, 0);
 	ENTITY::SET_ENTITY_ROTATION(iLocal_1725, 0f, 0f, 220.8658f, 2, 1);
 	ENTITY::SET_ENTITY_LOD_DIST(iLocal_1725, 200);
-	GlobalFunc_11046(2, "STAGE 2: FIRST BOMB", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint2(2, "STAGE 2: FIRST BOMB", 0, 0, 0, 1);
 	AUDIO::TRIGGER_MUSIC_EVENT("DH2A_1ST_BOMB_RT");
 	func_644(1);
 	GlobalFunc_4967(0, -1, 1);
-	if (Global_89962.f_12[0] == 0)
+	if (Global_Mission_Fail_State.f_12[0] == 0)
 	{
 		if (GlobalFunc_9019(&iLocal_1903, 1))
 		{
@@ -17616,7 +17616,7 @@ void func_807()//Position - 0x7E78F
 		PED::_0xA52D5247A4227E14(PLAYER::PLAYER_PED_ID());
 		HUD::DISPLAY_SNIPER_SCOPE_THIS_FRAME();
 		AUDIO::TRIGGER_MUSIC_EVENT("DH2A_SNIPE_GUARDS_RT");
-		GlobalFunc_11046(1, "Stage 1: Snipe Guards", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint2(1, "Stage 1: Snipe Guards", 0, 0, 0, 1);
 	}
 	else
 	{
@@ -18169,7 +18169,7 @@ void func_820()//Position - 0x806B2
 			}
 			SYSTEM::WAIT(0);
 		}
-		if (GlobalFunc_109())
+		if (GlobalFunc_Has_Cutscene_Loaded())
 		{
 			if (ENTITY::DOES_ENTITY_EXIST(Global_86864.f_9[0]))
 			{
@@ -18232,7 +18232,7 @@ void func_820()//Position - 0x806B2
 			{
 				iLocal_1903[2] = PLAYER::PLAYER_PED_ID();
 			}
-			else if (!GlobalFunc_199())
+			else if (!GlobalFunc_Is_Mission_Retry())
 			{
 				if (GlobalFunc_9019(&iLocal_1903, 2))
 				{

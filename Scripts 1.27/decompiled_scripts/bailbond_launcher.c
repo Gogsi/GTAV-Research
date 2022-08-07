@@ -320,7 +320,7 @@ void __EntryFunction__()//Position - 0x0
 							if (func_132(&(Local_42.f_6)))
 							{
 								func_130(Local_42.f_4);
-								if (!GlobalFunc_199())
+								if (!GlobalFunc_Is_Mission_Retry())
 								{
 									func_74(SCRIPT::GET_THIS_SCRIPT_NAME(), 1);
 								}
@@ -1010,11 +1010,11 @@ void func_28(int iParam0)//Position - 0x1F02
 			break;
 		
 		case 3:
-			if (Global_89962 == 10)
+			if (Global_Mission_Fail_State == 10)
 			{
 				func_130(Local_42.f_4);
 			}
-			else if (Global_89962 == 13)
+			else if (Global_Mission_Fail_State == 13)
 			{
 				GlobalFunc_8306();
 				GlobalFunc_54(&(Local_42.f_6));
@@ -1303,13 +1303,13 @@ int func_73(int iParam0)//Position - 0x3120
 
 void func_74(char[4] cParam0, int iParam1)//Position - 0x315D
 {
-	MISC::CLEAR_BIT(&(Global_89962.f_20), 17);
+	MISC::CLEAR_BIT(&(Global_Mission_Fail_State.f_20), 17);
 	func_75(cParam0, iParam1, 0);
 }
 
 void func_75(char[4] cParam0, int iParam1, int iParam2)//Position - 0x317A
 {
-	if (Global_89962 != 10 && Global_89962 != 9)
+	if (Global_Mission_Fail_State != 10 && Global_Mission_Fail_State != 9)
 	{
 		StringCopy(&Global_91343, cParam0, 32);
 		func_77(&Global_91351, cParam0, 0, "Start", iParam1, iParam2);
@@ -1980,7 +1980,7 @@ int func_198(int iParam0, int iParam1, int iParam2, int iParam3, int iParam4)//P
 		}
 	}
 	iVar0 = 1;
-	if (((Global_89962 == 13 || Global_89962 == 10) || Global_89962 == 11) || Global_89962 == 12)
+	if (((Global_Mission_Fail_State == 13 || Global_Mission_Fail_State == 10) || Global_Mission_Fail_State == 11) || Global_Mission_Fail_State == 12)
 	{
 		iVar0 = 0;
 	}

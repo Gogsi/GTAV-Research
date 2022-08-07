@@ -400,7 +400,7 @@ int func_2(int iParam0)//Position - 0x2DD
 	struct<4> Var0;
 	char* sVar32;
 	
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		while (!GlobalFunc_9038(*iParam0))
 		{
@@ -429,7 +429,7 @@ int func_2(int iParam0)//Position - 0x2DD
 	MemCopy(&sVar32, {GlobalFunc_44(*iParam0)}, 4);
 	GlobalFunc_5225(&sVar32, Var0.f_3, 0);
 	GlobalFunc_865(*iParam0);
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		if (iParam0->f_16 == 2)
 		{
@@ -1133,7 +1133,7 @@ int func_201(var uParam0, bool bParam1, int iParam2)//Position - 0xCF4B
 	{
 		iParam2 = 1;
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		iVar0 = 0;
 		while (iVar0 <= iVar1)

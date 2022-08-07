@@ -32945,7 +32945,7 @@ void func_1160(char* sParam0, bool bParam1, bool bParam2)//Position - 0x77795
 			}
 			else
 			{
-				GlobalFunc_1(sParam0);
+				GlobalFunc_Display_Help_Text(sParam0);
 			}
 		}
 		else if (bParam2)

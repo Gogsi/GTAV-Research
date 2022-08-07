@@ -1732,7 +1732,7 @@ void func_26(var uParam0, var uParam1, var uParam2)//Position - 0x10D6
 							else if (func_261(uParam2))
 							{
 								HUD::CLEAR_HELP(1);
-								GlobalFunc_1(uParam2->f_8);
+								GlobalFunc_Display_Help_Text(uParam2->f_8);
 							}
 						}
 						else
@@ -1806,7 +1806,7 @@ void func_26(var uParam0, var uParam1, var uParam2)//Position - 0x10D6
 							else if (func_261(uParam2))
 							{
 								HUD::CLEAR_HELP(1);
-								GlobalFunc_1(uParam2->f_8);
+								GlobalFunc_Display_Help_Text(uParam2->f_8);
 							}
 						}
 						else
@@ -1849,7 +1849,7 @@ void func_26(var uParam0, var uParam1, var uParam2)//Position - 0x10D6
 							else if (func_261(uParam2))
 							{
 								HUD::CLEAR_HELP(1);
-								GlobalFunc_1(uParam2->f_8);
+								GlobalFunc_Display_Help_Text(uParam2->f_8);
 							}
 						}
 						else
@@ -1887,7 +1887,7 @@ void func_26(var uParam0, var uParam1, var uParam2)//Position - 0x10D6
 							else if (func_261(uParam2))
 							{
 								HUD::CLEAR_HELP(1);
-								GlobalFunc_1(uParam2->f_8);
+								GlobalFunc_Display_Help_Text(uParam2->f_8);
 							}
 						}
 						else
@@ -3745,11 +3745,11 @@ void func_258(var uParam0)//Position - 0x37C9B
 			{
 				if (uParam0->f_28 == joaat("luxor2"))
 				{
-					GlobalFunc_1("LUX_VEH_ACT_1ST");
+					GlobalFunc_Display_Help_Text("LUX_VEH_ACT_1ST");
 				}
 				else
 				{
-					GlobalFunc_1("LUX_ACT_1ST_SW");
+					GlobalFunc_Display_Help_Text("LUX_ACT_1ST_SW");
 				}
 				iVar0++;
 				GlobalFunc_5019(4144, iVar0, -1, 1);

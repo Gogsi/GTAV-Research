@@ -1116,7 +1116,7 @@ void __EntryFunction__()//Position - 0x0
 		func_573();
 	}
 	GlobalFunc_5226(61);
-	if (!GlobalFunc_2(0))
+	if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		Global_SAVE_DATA.TOWING_SAVED_STRUCT.TOWING_iJobsCompleted = 3;
 	}
@@ -1139,9 +1139,9 @@ void __EntryFunction__()//Position - 0x0
 		func_545(&Local_2778, bLocal_510, &Local_2658, &uLocal_2766, &uLocal_2768, &iLocal_2933, iLocal_2940, 0);
 		if (!iLocal_3339)
 		{
-			if (GlobalFunc_199())
+			if (GlobalFunc_Is_Mission_Retry())
 			{
-				iLocal_3340 = GlobalFunc_198();
+				iLocal_3340 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 				if (!Global_84544)
 				{
 					if (iLocal_3340 == 0)
@@ -2775,7 +2775,7 @@ int func_240(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, va
 			GlobalFunc_173(&Local_2390, 1, PLAYER::PLAYER_PED_ID(), "FRANKLIN", 0, 1);
 			GlobalFunc_173(&Local_2390, 3, iLocal_2765, "TONYA", 0, 1);
 			GlobalFunc_173(&Local_2390, 4, 0, "TOWDISPATCH", 0, 1);
-			GlobalFunc_11077(1, "towing_tonya_franklin_towing", 1, 0, 0, 1);
+			GlobalFunc_Checkpoint6(1, "towing_tonya_franklin_towing", 1, 0, 0, 1);
 			if (iLocal_462 == 3)
 			{
 				if (GlobalFunc_6656(&Local_2857, &fLocal_2860, &uLocal_2841, &uLocal_2844))
@@ -7880,14 +7880,14 @@ void func_507()//Position - 0x3AFE1
 		case 0:
 			if (!PLAYER::IS_PLAYER_WANTED_LEVEL_GREATER(PLAYER::GET_PLAYER_INDEX(), 0))
 			{
-				if (GlobalFunc_2(0))
+				if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					if (CAM::IS_SCREEN_FADED_OUT())
 					{
 						CAM::DO_SCREEN_FADE_IN(500);
 					}
 				}
-				GlobalFunc_11077(0, "towing_tonya_franklin_travel", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint6(0, "towing_tonya_franklin_travel", 0, 0, 0, 1);
 				HUD::CLEAR_PRINTS();
 				GlobalFunc_527("TOW_TUT_INTRUCK", 7500, 1);
 				STREAMING::REQUEST_MODEL(joaat("towtruck"));
@@ -7985,9 +7985,9 @@ void func_510()//Position - 0x3B36D
 	{
 		SYSTEM::WAIT(0);
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		iLocal_3340 = GlobalFunc_198();
+		iLocal_3340 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544)
 		{
 			if (iLocal_3340 <= 1)
@@ -8181,9 +8181,9 @@ int func_518(var uParam0, struct<3> Param1, float fParam4, bool bParam5)//Positi
 						GlobalFunc_7695(iVar8);
 					}
 				}
-				if (((Global_89962 != 13 && Global_89962 != 10) && Global_89962 != 11) && Global_89962 != 12)
+				if (((Global_Mission_Fail_State != 13 && Global_Mission_Fail_State != 10) && Global_Mission_Fail_State != 11) && Global_Mission_Fail_State != 12)
 				{
-					if (MISC::GET_HASH_KEY(&(Global_89962.f_3)) == Global_68102)
+					if (MISC::GET_HASH_KEY(&(Global_Mission_Fail_State.Failed_Script_Name)) == Global_68102)
 					{
 						if (uParam0->f_12.f_42 == Global_SAVE_DATA.VEHICLE_GEN_SAVED_DATA_STRUCT.f_69[21 /*54*/].f_42)
 						{
@@ -8725,7 +8725,7 @@ void func_567(var uParam0)//Position - 0x3D77F
 	
 	if (uParam0->f_271)
 	{
-		if ((MISC::GET_FRAME_COUNT() >= (uParam0->f_272 + uParam0->f_273) || MISC::IS_BIT_SET(Global_89962.f_20, 2)) || MISC::IS_BIT_SET(Global_89962.f_20, 13))
+		if ((MISC::GET_FRAME_COUNT() >= (uParam0->f_272 + uParam0->f_273) || MISC::IS_BIT_SET(Global_Mission_Fail_State.f_20, 2)) || MISC::IS_BIT_SET(Global_Mission_Fail_State.f_20, 13))
 		{
 			iVar0 = 0;
 			while (iVar0 < 15)

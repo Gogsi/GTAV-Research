@@ -534,7 +534,7 @@ void func_2(int iParam0, int iParam1, var uParam2, int iParam3, bool bParam4)//P
 				break;
 			
 			case 18:
-				if (Global_89962 == 10)
+				if (Global_Mission_Fail_State == 10)
 				{
 					if (Global_89996)
 					{
@@ -584,7 +584,7 @@ void func_2(int iParam0, int iParam1, var uParam2, int iParam3, bool bParam4)//P
 						}
 					}
 				}
-				else if (Global_89962 == 13)
+				else if (Global_Mission_Fail_State == 13)
 				{
 					GlobalFunc_1997(&iLocal_44);
 					GlobalFunc_8306();
@@ -641,13 +641,13 @@ void func_23()//Position - 0xFAF
 
 void func_24(char[4] cParam0, int iParam1)//Position - 0xFE4
 {
-	MISC::CLEAR_BIT(&(Global_89962.f_20), 17);
+	MISC::CLEAR_BIT(&(Global_Mission_Fail_State.f_20), 17);
 	func_25(cParam0, iParam1, 0);
 }
 
 void func_25(char[4] cParam0, int iParam1, int iParam2)//Position - 0x1001
 {
-	if (Global_89962 != 10 && Global_89962 != 9)
+	if (Global_Mission_Fail_State != 10 && Global_Mission_Fail_State != 9)
 	{
 		StringCopy(&Global_91343, cParam0, 32);
 		func_27(&Global_91351, cParam0, 0, "Start", iParam1, iParam2);

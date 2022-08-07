@@ -1145,7 +1145,7 @@ void func_123()//Position - 0x5315
 {
 	if (GlobalFunc_785() == 69)
 	{
-		if (GlobalFunc_199() && !GlobalFunc_78(25, 0))
+		if (GlobalFunc_Is_Mission_Retry() && !GlobalFunc_78(25, 0))
 		{
 			if (Local_113.f_42 != 0)
 			{

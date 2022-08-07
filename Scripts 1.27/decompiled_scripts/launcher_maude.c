@@ -188,7 +188,7 @@ int func_2(var uParam0)//Position - 0x20A
 	struct<4> Var0;
 	char* sVar32;
 	
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		while (!GlobalFunc_9038(*uParam0))
 		{
@@ -217,7 +217,7 @@ int func_2(var uParam0)//Position - 0x20A
 	MemCopy(&sVar32, {GlobalFunc_44(*uParam0)}, 4);
 	GlobalFunc_5225(&sVar32, Var0.f_3, 0);
 	GlobalFunc_865(*uParam0);
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		if (uParam0->f_16 == 2)
 		{
@@ -553,7 +553,7 @@ int func_183(var uParam0, bool bParam1, int iParam2)//Position - 0xB91A
 	{
 		iParam2 = 1;
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		iVar0 = 0;
 		while (iVar0 <= iVar1)
@@ -900,7 +900,7 @@ int func_212(var uParam0)//Position - 0xC735
 			break;
 		
 		case 3:
-			if (GlobalFunc_4924(uParam0->f_28[0]) && GlobalFunc_115(uParam0->f_41[0]))
+			if (GlobalFunc_IsPedNotInjuredOrDead(uParam0->f_28[0]) && GlobalFunc_115(uParam0->f_41[0]))
 			{
 				uParam0->f_59 = PED::CREATE_SYNCHRONIZED_SCENE(2727.4f, 4145.56f, 43.68f, 0f, 0f, -92.17f, 2);
 				PED::SET_SYNCHRONIZED_SCENE_LOOPED(uParam0->f_59, 1);
@@ -1019,7 +1019,7 @@ void func_247(var uParam0)//Position - 0xD4E1
 {
 	if (PED::IS_SYNCHRONIZED_SCENE_RUNNING(uParam0->f_59))
 	{
-		if (GlobalFunc_4924(uParam0->f_28[0]))
+		if (GlobalFunc_IsPedNotInjuredOrDead(uParam0->f_28[0]))
 		{
 			if (GlobalFunc_7188(uParam0->f_28[0], 1785177548))
 			{

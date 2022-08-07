@@ -2578,7 +2578,7 @@ void func_168()//Position - 0x1BB2F
 			CUTSCENE::SET_CUTSCENE_PED_COMPONENT_VARIATION_FROM_PED("Tracy", iLocal_102, 0);
 			CUTSCENE::SET_CUTSCENE_PED_PROP_VARIATION("Tracy", 1, 1, 0, 0);
 			CUTSCENE::SET_CUTSCENE_PED_PROP_VARIATION("Tracy", 0, 0, 0, 0);
-			if (GlobalFunc_109())
+			if (GlobalFunc_Has_Cutscene_Loaded())
 			{
 				GlobalFunc_4956();
 				GlobalFunc_8316(1, 1, 1, 0);
@@ -3030,7 +3030,7 @@ void func_189()//Position - 0x1CD8A
 					case 0:
 						if (!bLocal_301 && !bLocal_303)
 						{
-							if (GlobalFunc_199())
+							if (GlobalFunc_Is_Mission_Retry())
 							{
 								func_199("FAM2_TALK2", bVar0);
 							}
@@ -5947,7 +5947,7 @@ void func_247()//Position - 0x2290C
 			break;
 		
 		case 3:
-			if (GlobalFunc_109())
+			if (GlobalFunc_Has_Cutscene_Loaded())
 			{
 				bLocal_144 = false;
 				GlobalFunc_8316(1, 1, 1, 0);
@@ -6868,7 +6868,7 @@ int func_254(char* sParam0, bool bParam1)//Position - 0x244F0
 	}
 	else if (bParam1)
 	{
-		GlobalFunc_1(sParam0);
+		GlobalFunc_Display_Help_Text(sParam0);
 	}
 	else
 	{
@@ -6967,7 +6967,7 @@ void func_260()//Position - 0x24767
 		
 		case 2:
 			GlobalFunc_4956();
-			if (GlobalFunc_109())
+			if (GlobalFunc_Has_Cutscene_Loaded())
 			{
 				if (GlobalFunc_550("family_2_mcs_2"))
 				{
@@ -9099,7 +9099,7 @@ void func_322()//Position - 0x2CDAA
 				break;
 			
 			case 3:
-				if (GlobalFunc_199())
+				if (GlobalFunc_Is_Mission_Retry())
 				{
 					func_199("FAM2_WALK", bVar0);
 				}
@@ -9126,7 +9126,7 @@ void func_322()//Position - 0x2CDAA
 				break;
 			
 			case 5:
-				if (GlobalFunc_199())
+				if (GlobalFunc_Is_Mission_Retry())
 				{
 					func_199("FAM2_DRIVB", bVar0);
 				}
@@ -9277,7 +9277,7 @@ void func_325()//Position - 0x2D438
 			break;
 		
 		case 1:
-			if (GlobalFunc_109())
+			if (GlobalFunc_Has_Cutscene_Loaded())
 			{
 				if (GlobalFunc_550("family_2_int"))
 				{
@@ -11985,38 +11985,38 @@ void func_435()//Position - 0x383E6
 	}
 	if (iLocal_69 == 2)
 	{
-		GlobalFunc_11046(1, "stage_hire_bike", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint2(1, "stage_hire_bike", 0, 0, 0, 1);
 	}
 	else if (iLocal_69 == 3)
 	{
-		GlobalFunc_11046(1, "stage_hire_bike", 0, 0, 0, 0);
+		GlobalFunc_Checkpoint2(1, "stage_hire_bike", 0, 0, 0, 0);
 	}
 	else if ((iLocal_69 == 4 || iLocal_69 == 5) || iLocal_69 == 6)
 	{
-		GlobalFunc_11046(2, "stage_go_to_yacht", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint2(2, "stage_go_to_yacht", 0, 0, 0, 1);
 	}
 	else if (iLocal_69 == 7)
 	{
-		GlobalFunc_11046(3, "stage_speedophile_chase", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint2(3, "stage_speedophile_chase", 0, 0, 0, 1);
 	}
 	else if (iLocal_69 == 8)
 	{
-		GlobalFunc_11046(4, "stage_drive_to_beach", 1, 0, 0, 1);
+		GlobalFunc_Checkpoint2(4, "stage_drive_to_beach", 1, 0, 0, 1);
 		if (MISC::IS_BIT_SET(iLocal_86, 1))
 		{
-			GlobalFunc_11046(5, "stage_drive_to_beach", 1, 0, 0, 1);
+			GlobalFunc_Checkpoint2(5, "stage_drive_to_beach", 1, 0, 0, 1);
 		}
 		if (MISC::IS_BIT_SET(iLocal_86, 2))
 		{
-			GlobalFunc_11046(6, "stage_drive_to_beach", 1, 0, 0, 1);
+			GlobalFunc_Checkpoint2(6, "stage_drive_to_beach", 1, 0, 0, 1);
 		}
 		if (MISC::IS_BIT_SET(iLocal_86, 5))
 		{
-			GlobalFunc_11046(7, "stage_drive_to_beach", 1, 0, 0, 1);
+			GlobalFunc_Checkpoint2(7, "stage_drive_to_beach", 1, 0, 0, 1);
 		}
 		if (MISC::IS_BIT_SET(iLocal_86, 6))
 		{
-			GlobalFunc_11046(8, "stage_drive_to_beach", 1, 0, 0, 1);
+			GlobalFunc_Checkpoint2(8, "stage_drive_to_beach", 1, 0, 0, 1);
 		}
 	}
 	iLocal_269 = 0;
@@ -12285,13 +12285,13 @@ void func_487()//Position - 0x3E257
 	func_479();
 	if (PLAYER::IS_PLAYER_PLAYING(PLAYER::PLAYER_ID()))
 	{
-		if (GlobalFunc_199())
+		if (GlobalFunc_Is_Mission_Retry())
 		{
 			CUTSCENE::REMOVE_CUTSCENE();
 			GlobalFunc_9258(&Local_90, 0, 0, 2000, 1, 0, 0, 1);
 			GlobalFunc_570(500);
 			MISC::SET_WEATHER_TYPE_NOW_PERSIST("EXTRASUNNY");
-			iVar1 = GlobalFunc_198();
+			iVar1 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 			if (Global_84544 == 1)
 			{
 				if (iVar1 == 1 || iVar1 == 2)
@@ -12485,7 +12485,7 @@ void func_487()//Position - 0x3E257
 	PED::SET_RELATIONSHIP_BETWEEN_GROUPS(2, iLocal_89, iLocal_143);
 	PED::SET_RELATIONSHIP_BETWEEN_GROUPS(1, iLocal_143, 1862763509);
 	PED::SET_RELATIONSHIP_BETWEEN_GROUPS(1, 1862763509, iLocal_143);
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		if (!CAM::IS_SCREEN_FADED_OUT())
 		{

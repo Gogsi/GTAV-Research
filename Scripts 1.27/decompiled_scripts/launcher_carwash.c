@@ -568,7 +568,7 @@ int func_21(var uParam0, var uParam1)//Position - 0xEB7
 	if (GlobalFunc_5814(uParam0) || !HUD::IS_HELP_MESSAGE_BEING_DISPLAYED())
 	{
 		HUD::CLEAR_HELP(1);
-		GlobalFunc_2542(uParam1);
+		GlobalFunc_Display_Help_Text2(uParam1);
 		uParam0->f_14 = uParam1;
 		uParam0->f_15 = 0;
 		uParam0->f_9 = 1;

@@ -5769,10 +5769,10 @@ void __EntryFunction__()//Position - 0x0
 		iLocal_6057 = 1;
 	}
 	Local_4253.f_3 = 0;
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		Global_89962.f_12[0]++;
-		iLocal_6120 = GlobalFunc_198();
+		Global_Mission_Fail_State.f_12[0]++;
+		iLocal_6120 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (iLocal_6120 == 0)
 		{
 			GlobalFunc_5116(Local_6104, fLocal_6115, 1, 0);
@@ -5780,7 +5780,7 @@ void __EntryFunction__()//Position - 0x0
 	}
 	else
 	{
-		Global_89962.f_12[0] = 0;
+		Global_Mission_Fail_State.f_12[0] = 0;
 	}
 	TASK::SET_SCENARIO_GROUP_ENABLED("PRISON_TOWERS", 1);
 	Local_3491 = { Local_3491 };
@@ -16370,7 +16370,7 @@ void func_310(int iParam0, var uParam1)//Position - 0x182A3
 			uParam1->f_3 = 0;
 			if (GlobalFunc_747(Global_SAVE_DATA.TRAFFICKING_iBools, 4))
 			{
-				if (GlobalFunc_199())
+				if (GlobalFunc_Is_Mission_Retry())
 				{
 					uParam1->f_38 = 1;
 					uParam1->f_39 = 0;
@@ -16383,7 +16383,7 @@ void func_310(int iParam0, var uParam1)//Position - 0x182A3
 					uParam1->f_47 = 1;
 				}
 			}
-			else if (GlobalFunc_199())
+			else if (GlobalFunc_Is_Mission_Retry())
 			{
 				uParam1->f_47 = 1;
 			}
@@ -16415,7 +16415,7 @@ int func_311(var uParam0)//Position - 0x1859A
 {
 	uParam0->f_13[0] = 25;
 	iLocal_3053 = (MISC::GET_RANDOM_INT_IN_RANGE(0, 65000) % 7);
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		iLocal_3053 = Global_SAVE_DATA.TRAFFICKING_SAVED_STRUCT.TRAFFICKING_iLastPairing;
 	}
@@ -16491,7 +16491,7 @@ int func_312(var uParam0)//Position - 0x1874F
 {
 	uParam0->f_13[0] = 25;
 	iLocal_3053 = (MISC::GET_RANDOM_INT_IN_RANGE(0, 65000) % 8);
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		iLocal_3053 = Global_SAVE_DATA.TRAFFICKING_SAVED_STRUCT.TRAFFICKING_iLastPairing;
 	}

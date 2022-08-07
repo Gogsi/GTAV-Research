@@ -5878,7 +5878,7 @@ void func_325()//Position - 0x4D48E
 	}
 	GlobalFunc_2919(&Local_3073, 1);
 	AUDIO::TRIGGER_MUSIC_EVENT("FBI4_GETAWAY_RESTART");
-	GlobalFunc_11089(4, "burn the truck", 1, 0, 0, 1);
+	GlobalFunc_Checkpoint7(4, "burn the truck", 1, 0, 0, 1);
 	iLocal_1125 = 8;
 	func_431(0, 1, 0f, 0f, 0, 1);
 }
@@ -6141,7 +6141,7 @@ void func_395()//Position - 0x55DC4
 	iLocal_3250 = 22;
 	Local_1704.f_14 = 1;
 	func_431(0, 1, -88f, 0f, 0, 1);
-	GlobalFunc_11089(3, "Start of Shootout", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint7(3, "Start of Shootout", 0, 0, 0, 1);
 	iLocal_1125 = 6;
 }
 
@@ -6640,7 +6640,7 @@ void func_426()//Position - 0x58B22
 	iLocal_3230 = 2;
 	iLocal_3283 = 22;
 	iLocal_3308 = MISC::GET_GAME_TIMER();
-	GlobalFunc_11089(2, "Detonate C4", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint7(2, "Detonate C4", 0, 0, 0, 1);
 	func_431(0, 1, 0f, 0f, 0, 1);
 	iLocal_1125 = 5;
 }
@@ -6770,7 +6770,7 @@ void func_428()//Position - 0x595A9
 	CAM::SET_FOLLOW_VEHICLE_CAM_VIEW_MODE(4);
 	func_431(1, 1, 0f, 0f, 0, 1);
 	GlobalFunc_164("cntry_god3", 7500, 1);
-	GlobalFunc_11089(1, "Ram money truck", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint7(1, "Ram money truck", 0, 0, 0, 1);
 	iLocal_1125 = 4;
 }
 
@@ -7054,9 +7054,9 @@ int func_439(var uParam0, bool bParam1, bool bParam2, int iParam3)//Position - 0
 				iVar4 = 0;
 				while (iVar4 < 7)
 				{
-					if (MISC::IS_BIT_SET(Global_81119[iVar4 /*5*/].f_1, 2))
+					if (MISC::IS_BIT_SET(Global_Running_Missions[iVar4 /*5*/].f_1, 2))
 					{
-						iVar5 = Global_81119[iVar4 /*5*/];
+						iVar5 = Global_Running_Missions[iVar4 /*5*/];
 						StringCopy(&cVar6, "MISS_SWITCH_", 64);
 						StringConCat(&cVar6, &(Global_81155[Global_68514.f_109[iVar5 /*4*/] /*34*/]), 64);
 						STATS::STAT_INCREMENT(MISC::GET_HASH_KEY(&cVar6), 1f);
@@ -7341,7 +7341,7 @@ void func_482()//Position - 0x5F84B
 	func_431(1, 1, 0f, 0f, 0, 1);
 	iLocal_3225 = MISC::GET_GAME_TIMER();
 	AUDIO::TRIGGER_MUSIC_EVENT("FBI4_SWITCH_BINOC_ST");
-	GlobalFunc_11089(0, "Enter ambulance at FIB depot", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint7(0, "Enter ambulance at FIB depot", 0, 0, 0, 1);
 	iLocal_1125 = 1;
 }
 
@@ -10795,7 +10795,7 @@ int func_560()//Position - 0x6718B
 	switch (iLocal_3255)
 	{
 		case 0:
-			if (GlobalFunc_109())
+			if (GlobalFunc_Has_Cutscene_Loaded())
 			{
 				RECORDING::_0x293220DA1B46CEBC(3f, 0f, 3);
 				RECORDING::_0x48621C9FCA3EBD28(4);
@@ -13285,7 +13285,7 @@ void func_720()//Position - 0x6F66B
 				}
 				iLocal_3225 = MISC::GET_GAME_TIMER();
 				iLocal_3379 = MISC::GET_GAME_TIMER();
-				GlobalFunc_11089(4, "burn the truck", 1, 0, 0, 1);
+				GlobalFunc_Checkpoint7(4, "burn the truck", 1, 0, 0, 1);
 				if (VEHICLE::IS_VEHICLE_DRIVEABLE(Local_1176, 0))
 				{
 					ENTITY::SET_ENTITY_ONLY_DAMAGED_BY_PLAYER(Local_1176, 1);
@@ -17430,7 +17430,7 @@ int func_790()//Position - 0x776AD
 				STREAMING::REMOVE_ANIM_DICT("missheat");
 				MISC::SET_INSTANCE_PRIORITY_HINT(1);
 				iLocal_3254++;
-				GlobalFunc_11089(3, "Start of Shootout", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint7(3, "Start of Shootout", 0, 0, 0, 1);
 			}
 			break;
 		
@@ -18178,7 +18178,7 @@ int func_790()//Position - 0x776AD
 						{
 							TASK::TASK_LOOK_AT_ENTITY(uLocal_3098[1], PLAYER::PLAYER_PED_ID(), -1, 0, 2);
 						}
-						GlobalFunc_11089(4, "burn the truck", 1, 0, 0, 1);
+						GlobalFunc_Checkpoint7(4, "burn the truck", 1, 0, 0, 1);
 						iLocal_3225 = MISC::GET_GAME_TIMER();
 						iLocal_3379 = MISC::GET_GAME_TIMER();
 						if (VEHICLE::IS_VEHICLE_DRIVEABLE(Local_1176, 0))
@@ -18741,7 +18741,7 @@ void func_805()//Position - 0x7993F
 				iLocal_3177 = 0;
 				iLocal_3239 = MISC::GET_GAME_TIMER();
 				iLocal_3191 = 1;
-				GlobalFunc_11089(2, "Detonate C4", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint7(2, "Detonate C4", 0, 0, 0, 1);
 				iLocal_3230++;
 			}
 			break;
@@ -18862,7 +18862,7 @@ void func_805()//Position - 0x7993F
 				func_742();
 				func_741();
 				iLocal_3225 = MISC::GET_GAME_TIMER();
-				GlobalFunc_11089(2, "Detonate C4", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint7(2, "Detonate C4", 0, 0, 0, 1);
 				iLocal_1125 = 6;
 			}
 			break;
@@ -19728,7 +19728,7 @@ void func_822()//Position - 0x7B618
 								}
 								if (GlobalFunc_588(&iLocal_3225, 2000))
 								{
-									GlobalFunc_1("cntry_help8");
+									GlobalFunc_Display_Help_Text("cntry_help8");
 									func_706("cntry_help8", 1);
 								}
 							}
@@ -19737,7 +19737,7 @@ void func_822()//Position - 0x7B618
 						{
 							if (ENTITY::GET_ENTITY_SPEED(Local_1176) < 2f)
 							{
-								GlobalFunc_1("cntry_help8");
+								GlobalFunc_Display_Help_Text("cntry_help8");
 							}
 						}
 					}
@@ -19787,7 +19787,7 @@ void func_822()//Position - 0x7B618
 		case 3:
 			if (func_823())
 			{
-				GlobalFunc_11089(1, "Ram money truck", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint7(1, "Ram money truck", 0, 0, 0, 1);
 				iLocal_1125 = 4;
 			}
 			break;
@@ -24369,12 +24369,12 @@ void func_931()//Position - 0x87718
 			Global_SAVE_DATA.COMPONENTS_ARRAY.PP_INFO_STRUCT.f_1631[2] = 19;
 		}
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		iLocal_3832 = 1;
 		if (!Global_84544)
 		{
-			switch (GlobalFunc_198())
+			switch (GlobalFunc_Get_Mission_Fail_Checkpoint())
 			{
 				case 0:
 					func_482();
@@ -24399,7 +24399,7 @@ void func_931()//Position - 0x87718
 		}
 		else
 		{
-			iVar0 = GlobalFunc_198() + 1;
+			iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint() + 1;
 			switch (iVar0)
 			{
 				case 1:
@@ -24428,7 +24428,7 @@ void func_931()//Position - 0x87718
 	else
 	{
 		Global_86819 = 4;
-		if (!GlobalFunc_2(0))
+		if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			if (!CAM::IS_SCREEN_FADED_IN())
 			{
@@ -24437,7 +24437,7 @@ void func_931()//Position - 0x87718
 					CAM::DO_SCREEN_FADE_IN(800);
 				}
 			}
-			GlobalFunc_11089(0, "Start of mission", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint7(0, "Start of mission", 0, 0, 0, 1);
 		}
 		else
 		{

@@ -2639,7 +2639,7 @@ void __EntryFunction__()//Position - 0x0
 								{
 									if (ENTITY::DOES_ENTITY_EXIST(iLocal_1044))
 									{
-										if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+										if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 										{
 											if (!PED::IS_PED_IN_VEHICLE(PLAYER::PLAYER_PED_ID(), iLocal_1044, 0))
 											{
@@ -3138,7 +3138,7 @@ void __EntryFunction__()//Position - 0x0
 				{
 					if (CAM::DOES_CAM_EXIST(Local_6403.x))
 					{
-						if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+						if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 						{
 							ENTITY::SET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), CAM::GET_CAM_COORD(Local_6403.x), 1, 0, 0, 1);
 							ENTITY::SET_ENTITY_ROTATION(PLAYER::PLAYER_PED_ID(), CAM::GET_CAM_ROT(Local_6403.x, 2), 2, 1);
@@ -6587,7 +6587,7 @@ void func_287(bool bParam0)//Position - 0x1E46C
 		{
 			if (!MISC::IS_BIT_SET(iLocal_359, 12))
 			{
-				if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+				if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 				{
 					if (PED::IS_PED_IN_ANY_VEHICLE(PLAYER::PLAYER_PED_ID(), 0))
 					{
@@ -6648,7 +6648,7 @@ void func_287(bool bParam0)//Position - 0x1E46C
 				
 				case 2:
 					PLAYER::SET_PLAYER_CONTROL(PLAYER::PLAYER_ID(), false, 0);
-					if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+					if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 					{
 						if (PED::IS_PED_IN_ANY_VEHICLE(PLAYER::PLAYER_PED_ID(), 0) && VEHICLE::IS_VEHICLE_DRIVEABLE(PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), 0), 0))
 						{
@@ -6790,7 +6790,7 @@ void func_287(bool bParam0)//Position - 0x1E46C
 			iLocal_1042 = 3;
 		}
 	}
-	else if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	else if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		if (PED::IS_PED_IN_ANY_VEHICLE(PLAYER::PLAYER_PED_ID(), 0))
 		{
@@ -16052,7 +16052,7 @@ int func_562(struct<6> Param0, struct<16> Param6, var uParam22, struct<13> Param
 		bVar1 = true;
 		if (!GlobalFunc_2845())
 		{
-			if (!GlobalFunc_2(0))
+			if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				if (bVar1)
 				{
@@ -44030,7 +44030,7 @@ void func_2159(struct<3> Param0, int iParam3, bool bParam4)//Position - 0xA280E
 				{
 					Var8 = { Global_1602437.f_23206[iParam3 + 1 /*3*/] };
 				}
-				if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+				if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 				{
 					fVar11 = MISC::GET_DISTANCE_BETWEEN_COORDS(Param0, ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), 1), 1);
 					if (fVar11 > 200f)
@@ -44056,7 +44056,7 @@ void func_2159(struct<3> Param0, int iParam3, bool bParam4)//Position - 0xA280E
 			{
 				HUD::GET_HUD_COLOUR(12, &uVar0, &uVar1, &uVar2, &iVar3);
 				HUD::GET_HUD_COLOUR(134, &uVar4, &uVar5, &uVar6, &iVar3);
-				if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+				if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 				{
 					fVar11 = MISC::GET_DISTANCE_BETWEEN_COORDS(Param0, ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), 1), 1);
 					if (fVar11 > 200f)
@@ -44081,7 +44081,7 @@ void func_2159(struct<3> Param0, int iParam3, bool bParam4)//Position - 0xA280E
 	}
 	else if (iLocal_1065 != 0)
 	{
-		if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+		if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 		{
 			HUD::GET_HUD_COLOUR(12, &uVar0, &uVar1, &uVar2, &iVar3);
 			fVar11 = MISC::GET_DISTANCE_BETWEEN_COORDS(Param0, ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), 1), 1);
@@ -44324,7 +44324,7 @@ void func_2162(int iParam0, var uParam1, bool bParam2, int iParam3, bool bParam4
 			HUD::SET_BLIP_SCALE(uLocal_1061, 1.2f);
 			HUD::SET_BLIP_PRIORITY(uLocal_1061, 9);
 			iVar21 = func_2160(iParam0, -1, 0);
-			if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+			if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 			{
 				fVar20 = MISC::GET_DISTANCE_BETWEEN_COORDS(Var9, ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), 1), 1);
 				if (fVar20 > 200f)
@@ -44370,7 +44370,7 @@ void func_2162(int iParam0, var uParam1, bool bParam2, int iParam3, bool bParam4
 			{
 				iVar22 = 9;
 			}
-			if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+			if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 			{
 				fVar20 = MISC::GET_DISTANCE_BETWEEN_COORDS(Var9, ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), 1), 1);
 				if (fVar20 > 200f)
@@ -44414,7 +44414,7 @@ void func_2162(int iParam0, var uParam1, bool bParam2, int iParam3, bool bParam4
 	else if (iLocal_1063 != 0)
 	{
 		Var9 = { Global_1602437.f_23206[iParam0 /*3*/] };
-		if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+		if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 		{
 			fVar20 = MISC::GET_DISTANCE_BETWEEN_COORDS(Var9, ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), 1), 1);
 			if (fVar20 > 200f)
@@ -45082,7 +45082,7 @@ int func_2219()//Position - 0xA6C64
 					}
 					VEHICLE::DELETE_VEHICLE(&iLocal_1044);
 				}
-				if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+				if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 				{
 					uVar7 = ENTITY::GET_ENTITY_HEADING(PLAYER::PLAYER_PED_ID());
 				}
@@ -46220,7 +46220,7 @@ int func_2286(struct<3> Param0)//Position - 0xAB614
 	var uVar2;
 	var uVar3;
 	
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		if (!GlobalFunc_999(Global_2476436.f_5))
 		{
@@ -55029,7 +55029,7 @@ void func_2574()//Position - 0xCACED
 							iLocal_395 = 1;
 							Local_9490.f_39 = 1;
 							func_2293();
-							if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+							if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 							{
 								MISC::SET_BIT(&iLocal_357, 30);
 							}

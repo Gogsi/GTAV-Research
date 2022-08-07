@@ -5195,7 +5195,7 @@ int func_300(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, va
 	{
 		if (!HUD::IS_HELP_MESSAGE_BEING_DISPLAYED())
 		{
-			GlobalFunc_1("BJ_VLOOKHLP");
+			GlobalFunc_Display_Help_Text("BJ_VLOOKHLP");
 		}
 		if (GlobalFunc_226(uParam3) && GlobalFunc_4981(uParam3) > 0.5f)
 		{

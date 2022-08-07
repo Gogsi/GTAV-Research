@@ -18448,7 +18448,7 @@ void func_615(var uParam0)//Position - 0x45C67
 				GlobalFunc_163();
 				if (!HUD::IS_HELP_MESSAGE_BEING_DISPLAYED())
 				{
-					GlobalFunc_1("HAIR_SOFA_STAND");
+					GlobalFunc_Display_Help_Text("HAIR_SOFA_STAND");
 				}
 				if (!GlobalFunc_160())
 				{

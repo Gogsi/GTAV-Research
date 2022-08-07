@@ -3413,7 +3413,7 @@ void func_98(char* sParam0)//Position - 0x658C
 	{
 		if (ENTITY::DOES_ENTITY_EXIST(iLocal_82) && ENTITY::IS_ENTITY_DEAD(iLocal_82))
 		{
-			Global_89962.f_12[0] = 1;
+			Global_Mission_Fail_State.f_12[0] = 1;
 		}
 	}
 	ENTITY::SET_VEHICLE_AS_NO_LONGER_NEEDED(&iLocal_82);
@@ -4084,7 +4084,7 @@ void func_135()//Position - 0x9F8D
 				{
 					OBJECT::DELETE_OBJECT(&iLocal_88);
 				}
-				if (Global_89962.f_12[0] != 1)
+				if (Global_Mission_Fail_State.f_12[0] != 1)
 				{
 					while (!func_242(Local_100, fLocal_103))
 					{
@@ -4137,7 +4137,7 @@ void func_135()//Position - 0x9F8D
 			PLAYER::CLEAR_PLAYER_WANTED_LEVEL(PLAYER::PLAYER_ID());
 			PLAYER::SET_WANTED_LEVEL_MULTIPLIER(0f);
 			PLAYER::SET_MAX_WANTED_LEVEL(0);
-			GlobalFunc_11043(3, "Drive back", 1, 0, 0, 1);
+			GlobalFunc_Checkpoint1(3, "Drive back", 1, 0, 0, 1);
 			if (PED::GET_PED_PROP_INDEX(PLAYER::PLAYER_PED_ID(), 0) == 7)
 			{
 				STREAMING::REQUEST_ANIM_DICT("veh@bike@common@Front@base");
@@ -4231,7 +4231,7 @@ void func_135()//Position - 0x9F8D
 			{
 				func_94();
 			}
-			if (!GlobalFunc_2(0))
+			if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				if (!iLocal_166)
 				{
@@ -4311,7 +4311,7 @@ void func_138()//Position - 0xA636
 	PLAYER::CLEAR_PLAYER_WANTED_LEVEL(PLAYER::PLAYER_ID());
 	GlobalFunc_4935();
 	GlobalFunc_4956();
-	if (!GlobalFunc_2(0))
+	if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		GlobalFunc_585(6, 1);
 		GlobalFunc_5103(1, 0);
@@ -4879,7 +4879,7 @@ void func_260()//Position - 0x15F86
 			iLocal_193 = 0;
 			iLocal_194 = 0;
 			iLocal_195 = 0;
-			GlobalFunc_11043(1, "Top floor", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint1(1, "Top floor", 0, 0, 0, 1);
 			iLocal_192++;
 			break;
 		
@@ -5490,7 +5490,7 @@ void func_266()//Position - 0x16E20
 				{
 					SYSTEM::WAIT(0);
 				}
-				if (GlobalFunc_188() || GlobalFunc_2(0))
+				if (GlobalFunc_188() || GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					if (!GlobalFunc_236())
 					{
@@ -5550,8 +5550,8 @@ void func_266()//Position - 0x16E20
 				}
 				PLAYER::SET_PLAYER_WANTED_LEVEL(PLAYER::PLAYER_ID(), 0, 0);
 				PLAYER::SET_PLAYER_WANTED_LEVEL_NOW(PLAYER::PLAYER_ID(), 0);
-				GlobalFunc_11043(0, "Ground Floor", 0, 0, 0, 1);
-				if (GlobalFunc_2(0) && !GlobalFunc_188())
+				GlobalFunc_Checkpoint1(0, "Ground Floor", 0, 0, 0, 1);
+				if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) && !GlobalFunc_188())
 				{
 					func_264(-78.4023f, -1019.235f, 27.5447f, 109.0206f, 0, 12000, 200f, 0);
 				}
@@ -6285,7 +6285,7 @@ void func_279()//Position - 0x186F2
 
 void func_280()//Position - 0x1880D
 {
-	if (!GlobalFunc_2(0))
+	if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		switch (iLocal_246)
 		{
@@ -6379,7 +6379,7 @@ void func_280()//Position - 0x1880D
 	}
 	if (PLAYER::GET_PLAYER_WANTED_LEVEL(PLAYER::PLAYER_ID()) > 0 || iLocal_246 != 2)
 	{
-		if (!GlobalFunc_2(0) && !func_137(PLAYER::PLAYER_PED_ID()))
+		if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) && !func_137(PLAYER::PLAYER_PED_ID()))
 		{
 			if (OBJECT::DOOR_SYSTEM_GET_OPEN_RATIO(-826072862) != 0f)
 			{
@@ -6948,12 +6948,12 @@ void func_582()//Position - 0x66D12
 	{
 		PED::SET_PED_PRELOAD_PROP_DATA(PLAYER::PLAYER_PED_ID(), 0, 7, 0);
 		PLAYER::SET_PLAYER_CONTROL(PLAYER::PLAYER_ID(), 1, 0);
-		if (GlobalFunc_199())
+		if (GlobalFunc_Is_Mission_Retry())
 		{
 			CUTSCENE::REMOVE_CUTSCENE();
 			GlobalFunc_570(500);
 			GlobalFunc_5128(0);
-			iVar0 = GlobalFunc_198();
+			iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 			if (Global_84544 == 1)
 			{
 				iVar0++;
@@ -6986,7 +6986,7 @@ void func_582()//Position - 0x66D12
 						Local_130 = { -139.9581f, -971.2977f, 113.133f };
 						fLocal_133 = 332.4719f;
 						iLocal_242 = 2;
-						GlobalFunc_11043(2, "Architect mugged", 0, 0, 0, 1);
+						GlobalFunc_Checkpoint1(2, "Architect mugged", 0, 0, 0, 1);
 						break;
 					
 					case 3:
@@ -7009,7 +7009,7 @@ void func_582()//Position - 0x66D12
 			}
 		}
 	}
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		GlobalFunc_7621(70, 1, 0, 1, 0);
 		GlobalFunc_7621(71, 1, 0, 1, 0);

@@ -9875,7 +9875,7 @@ void func_665(char* sParam0, bool bParam1, int iParam2)//Position - 0x5BE7B
 		}
 		else
 		{
-			GlobalFunc_1(sParam0);
+			GlobalFunc_Display_Help_Text(sParam0);
 		}
 	}
 }

@@ -27524,11 +27524,11 @@ int func_328(int iParam0)//Position - 0x3515D
 		if (iVar1 != 0)
 		{
 			iVar2 = 0;
-			while (iVar2 < Global_81119)
+			while (iVar2 < Global_Running_Missions)
 			{
-				if (Global_81119[iVar2 /*5*/] != -1)
+				if (Global_Running_Missions[iVar2 /*5*/] != -1)
 				{
-					uVar3 = Global_68514.f_109[Global_81119[iVar2 /*5*/] /*4*/];
+					uVar3 = Global_68514.f_109[Global_Running_Missions[iVar2 /*5*/] /*4*/];
 					iVar4 = uVar3;
 					if (GlobalFunc_747(Global_81155[iVar4 /*34*/].f_12, iVar1))
 					{

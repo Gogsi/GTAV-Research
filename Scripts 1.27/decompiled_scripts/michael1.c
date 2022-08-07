@@ -1155,9 +1155,9 @@ void __EntryFunction__()//Position - 0x0
 		}
 		SCRIPT::TERMINATE_THIS_THREAD();
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		func_823(&iLocal_125, GlobalFunc_198());
+		func_823(&iLocal_125, GlobalFunc_Get_Mission_Fail_Checkpoint());
 		iLocal_128 = GlobalFunc_2284(0);
 		iLocal_576 = 1;
 		if (Global_84544 == 1)
@@ -1202,11 +1202,11 @@ void __EntryFunction__()//Position - 0x0
 	}
 	else
 	{
-		GlobalFunc_11067(0, "GET TO AIRPORT", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint4(0, "GET TO AIRPORT", 0, 0, 0, 1);
 	}
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
-		if (!GlobalFunc_199())
+		if (!GlobalFunc_Is_Mission_Retry())
 		{
 			iLocal_125 = 0;
 			iLocal_576 = 1;
@@ -1432,7 +1432,7 @@ void __EntryFunction__()//Position - 0x0
 				HUD::CLEAR_HELP(1);
 				HUD::CLEAR_PRINTS();
 				GlobalFunc_4935();
-				if (!GlobalFunc_2(0))
+				if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					GlobalFunc_495(35, 2);
 				}
@@ -10543,7 +10543,7 @@ int func_617(int iParam0)//Position - 0x63A82
 						iLocal_739[9] = 0;
 						Local_142.f_10 = MISC::GET_GAME_TIMER();
 						iLocal_586 = 1;
-						GlobalFunc_11067(1, "FLY TO NORTH YANKTON", 0, 0, 0, 1);
+						GlobalFunc_Checkpoint4(1, "FLY TO NORTH YANKTON", 0, 0, 0, 1);
 						if (PED::IS_PED_SITTING_IN_ANY_VEHICLE(PLAYER::PLAYER_PED_ID()))
 						{
 							if (PED::GET_VEHICLE_PED_IS_USING(PLAYER::PLAYER_PED_ID()) != Local_182)
@@ -12561,7 +12561,7 @@ int func_676(int iParam0, int iParam1, int iParam2, var uParam3, int iParam4)//P
 		{
 			PED::SET_PED_CONFIG_FLAG(PLAYER::PLAYER_PED_ID(), 32, 0);
 		}
-		if (GlobalFunc_199() || GlobalFunc_2(0))
+		if (GlobalFunc_Is_Mission_Retry() || GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			GlobalFunc_2224(1);
 			GlobalFunc_7695(0);
@@ -13885,27 +13885,27 @@ int func_676(int iParam0, int iParam1, int iParam2, var uParam3, int iParam4)//P
 		switch (iParam0)
 		{
 			case 1:
-				GlobalFunc_11067(0, "GET TO AIRPORT", 0, 0, 0, 0);
+				GlobalFunc_Checkpoint4(0, "GET TO AIRPORT", 0, 0, 0, 0);
 				break;
 			
 			case 2:
-				GlobalFunc_11067(1, "FLY TO NORTH YANKTON", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint4(1, "FLY TO NORTH YANKTON", 0, 0, 0, 1);
 				break;
 			
 			case 4:
-				GlobalFunc_11067(2, "GET TO GRAVEYARD", 0, 0, 0, 0);
+				GlobalFunc_Checkpoint4(2, "GET TO GRAVEYARD", 0, 0, 0, 0);
 				break;
 			
 			case 5:
-				GlobalFunc_11067(3, "GET TO GRAVE", 0, 0, 0, 0);
+				GlobalFunc_Checkpoint4(3, "GET TO GRAVE", 0, 0, 0, 0);
 				break;
 			
 			case 7:
-				GlobalFunc_11067(4, "GRAVEYARD SHOOTOUT", 0, 0, 0, 0);
+				GlobalFunc_Checkpoint4(4, "GRAVEYARD SHOOTOUT", 0, 0, 0, 0);
 				break;
 			
 			case 9:
-				GlobalFunc_11067(5, "FLY HOME", 1, 0, 0, 0);
+				GlobalFunc_Checkpoint4(5, "FLY HOME", 1, 0, 0, 0);
 				break;
 		}
 		*iParam1++;
@@ -14258,9 +14258,9 @@ int func_750(var uParam0, struct<3> Param1, float fParam4, bool bParam5)//Positi
 						GlobalFunc_7695(iVar8);
 					}
 				}
-				if (((Global_89962 != 13 && Global_89962 != 10) && Global_89962 != 11) && Global_89962 != 12)
+				if (((Global_Mission_Fail_State != 13 && Global_Mission_Fail_State != 10) && Global_Mission_Fail_State != 11) && Global_Mission_Fail_State != 12)
 				{
-					if (MISC::GET_HASH_KEY(&(Global_89962.f_3)) == Global_68102)
+					if (MISC::GET_HASH_KEY(&(Global_Mission_Fail_State.Failed_Script_Name)) == Global_68102)
 					{
 						if (uParam0->f_12.f_42 == Global_SAVE_DATA.VEHICLE_GEN_SAVED_DATA_STRUCT.f_69[21 /*54*/].f_42)
 						{

@@ -137,7 +137,7 @@ void __EntryFunction__()//Position - 0x0
 					}
 					else if (MISC::CREATE_INCIDENT(3, Local_44, 4, 3f, &uLocal_48))
 					{
-						if (Global_86864.f_358 == MISC::GET_HASH_KEY("AGENCY_PREP_1") || (SCRIPT::_GET_NUMBER_OF_REFERENCES_OF_SCRIPT_WITH_NAME_HASH(MISC::GET_HASH_KEY("agency_prep1")) > 0 && GlobalFunc_2(0)))
+						if (Global_86864.f_358 == MISC::GET_HASH_KEY("AGENCY_PREP_1") || (SCRIPT::_GET_NUMBER_OF_REFERENCES_OF_SCRIPT_WITH_NAME_HASH(MISC::GET_HASH_KEY("agency_prep1")) > 0 && GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0)))
 						{
 							Global_86864.f_358 = MISC::GET_HASH_KEY("AHP1_TRUCKCALLED");
 						}

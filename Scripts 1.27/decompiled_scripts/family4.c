@@ -2857,7 +2857,7 @@ void func_427()//Position - 0x53A55
 	iLocal_3926 = MISC::GET_GAME_TIMER();
 	iLocal_3975 = MISC::GET_GAME_TIMER();
 	GlobalFunc_164("family4_god_2", 4000, 1);
-	GlobalFunc_11046(4, "half way through truck chase", 1, 0, 0, 1);
+	GlobalFunc_Checkpoint2(4, "half way through truck chase", 1, 0, 0, 1);
 	iLocal_2696 = 7;
 }
 
@@ -5906,7 +5906,7 @@ void func_511()//Position - 0x5EEDA
 	iLocal_3926 = MISC::GET_GAME_TIMER();
 	iLocal_3975 = MISC::GET_GAME_TIMER();
 	GlobalFunc_164("family4_god_2", 4000, 1);
-	GlobalFunc_11046(3, "Chase truck", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint2(3, "Chase truck", 0, 0, 0, 1);
 	iLocal_2696 = 7;
 }
 
@@ -6135,7 +6135,7 @@ void func_513()//Position - 0x5F7E6
 	}
 	iLocal_3926 = MISC::GET_GAME_TIMER();
 	func_514();
-	GlobalFunc_11046(2, "run after lazlow", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint2(2, "run after lazlow", 0, 0, 0, 1);
 }
 
 void func_514()//Position - 0x5FD32
@@ -6194,7 +6194,7 @@ void func_514()//Position - 0x5FD32
 		AUDIO::TRIGGER_MUSIC_EVENT("FAM4_MISSION_START");
 		func_515("FAM4_MISSION_START", 1);
 	}
-	GlobalFunc_11046(2, "run after lazlow", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint2(2, "run after lazlow", 0, 0, 0, 1);
 	iLocal_2696 = 5;
 }
 
@@ -6620,7 +6620,7 @@ void func_548()//Position - 0x60CD0
 	iLocal_3949 = 5;
 	iLocal_3947 = 2;
 	func_473(1, 0, 0, 1);
-	GlobalFunc_11046(1, "outside stadium", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint2(1, "outside stadium", 0, 0, 0, 1);
 	iLocal_2696 = 3;
 }
 
@@ -6881,7 +6881,7 @@ void func_600()//Position - 0x68146
 	}
 	func_473(1, 0, 0, 1);
 	GlobalFunc_690(&Local_4221, Local_2698);
-	GlobalFunc_11046(0, "start of mission", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint2(0, "start of mission", 0, 0, 0, 1);
 	iLocal_2696 = 3;
 }
 
@@ -7923,7 +7923,7 @@ void func_615()//Position - 0x6B0A7
 	{
 		case 0:
 			func_425();
-			if (GlobalFunc_109())
+			if (GlobalFunc_Has_Cutscene_Loaded())
 			{
 				GlobalFunc_5652(&Local_4221, 1, 0);
 				if (!CAM::IS_SCREEN_FADED_IN())
@@ -9708,7 +9708,7 @@ void func_697()//Position - 0x6EFE9
 				case 4:
 					if (ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), 487.246f, -879.994f, 9.75f, 651.344f, -879.135f, 32.45f, 4f, 0, 1, 0))
 					{
-						GlobalFunc_11046(4, "half way through truck chase", 1, 0, 0, 1);
+						GlobalFunc_Checkpoint2(4, "half way through truck chase", 1, 0, 0, 1);
 					}
 					if (VEHICLE::GET_TIME_POSITION_IN_RECORDING(Local_2743) > 76193.88f)
 					{
@@ -10895,7 +10895,7 @@ int func_759()//Position - 0x737B5
 					{
 						HUD::REMOVE_BLIP(&(Local_2713.f_2));
 					}
-					GlobalFunc_11046(3, "Chase truck", 1, 0, 0, 1);
+					GlobalFunc_Checkpoint2(3, "Chase truck", 1, 0, 0, 1);
 					return 1;
 				}
 			}
@@ -11339,7 +11339,7 @@ void func_764()//Position - 0x74417
 									GlobalFunc_5652(&Local_4221, 1, 0);
 									iLocal_3926 = 0;
 									GlobalFunc_763(iLocal_4042, 1093140480, 1, 1056964608, 0, 1);
-									GlobalFunc_11046(1, "outside stadium", 0, 0, 0, 1);
+									GlobalFunc_Checkpoint2(1, "outside stadium", 0, 0, 0, 1);
 									iLocal_3947++;
 								}
 							}
@@ -11349,7 +11349,7 @@ void func_764()//Position - 0x74417
 								iLocal_3949 = 5;
 								GlobalFunc_5652(&Local_4221, 1, 0);
 								iLocal_3926 = 0;
-								GlobalFunc_11046(1, "outside stadium", 0, 0, 0, 1);
+								GlobalFunc_Checkpoint2(1, "outside stadium", 0, 0, 0, 1);
 								iLocal_3947 = 2;
 							}
 						}
@@ -11375,7 +11375,7 @@ void func_764()//Position - 0x74417
 							{
 								TASK::TASK_LOOK_AT_ENTITY(PLAYER::PLAYER_PED_ID(), Local_3588, 8000, 2048, 2);
 							}
-							GlobalFunc_11046(1, "outside stadium", 0, 0, 0, 1);
+							GlobalFunc_Checkpoint2(1, "outside stadium", 0, 0, 0, 1);
 							iLocal_3947++;
 						}
 					}
@@ -11383,11 +11383,11 @@ void func_764()//Position - 0x74417
 			}
 			if (ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), -248.824f, -2021.74f, 28.944f, -258.934f, -2033.879f, 31.958f, 4.5f, 0, 1, 0) || func_747(PLAYER::PLAYER_PED_ID(), -249.8176f, -2008.059f, 29.1458f))
 			{
-				if (GlobalFunc_109())
+				if (GlobalFunc_Has_Cutscene_Loaded())
 				{
 					if (func_69(0, 1, 1, 1))
 					{
-						GlobalFunc_11046(1, "outside stadium", 0, 0, 0, 1);
+						GlobalFunc_Checkpoint2(1, "outside stadium", 0, 0, 0, 1);
 						iLocal_2696 = 4;
 					}
 				}
@@ -11495,7 +11495,7 @@ void func_764()//Position - 0x74417
 			{
 				if (ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), -248.824f, -2021.74f, 28.944f, -258.934f, -2033.879f, 31.958f, 7f, 0, 1, 0) || func_747(PLAYER::PLAYER_PED_ID(), -249.8176f, -2008.059f, 29.1458f))
 				{
-					if (GlobalFunc_109())
+					if (GlobalFunc_Has_Cutscene_Loaded())
 					{
 						if (func_69(0, 1, 1, 1))
 						{
@@ -12444,7 +12444,7 @@ void func_828()//Position - 0x79599
 	{
 		func_519(0, 0, 0, 0, 0, 3000, 1);
 	}
-	GlobalFunc_11046(0, "start of mission", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint2(0, "start of mission", 0, 0, 0, 1);
 	iLocal_2696 = 3;
 }
 
@@ -13138,12 +13138,12 @@ void func_857()//Position - 0x7BCC4
 	OBJECT::_DOOR_CONTROL(joaat("v_ilev_stad_fdoor"), -252.67f, -2023.81f, 30.52f, 1, 0f, 0f, 1f);
 	OBJECT::_DOOR_CONTROL(joaat("v_ilev_stad_fdoor"), -250.68f, -2021.44f, 30.52f, 1, 0f, 0f, -1f);
 	GlobalFunc_7621(100, 1, 0, 1, 0);
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		iLocal_4009 = 1;
 		if (!Global_84544)
 		{
-			switch (GlobalFunc_198())
+			switch (GlobalFunc_Get_Mission_Fail_Checkpoint())
 			{
 				case 0:
 					func_600();
@@ -13171,7 +13171,7 @@ void func_857()//Position - 0x7BCC4
 		}
 		else
 		{
-			iVar0 = GlobalFunc_198() + 1;
+			iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint() + 1;
 			switch (iVar0)
 			{
 				case 1:
@@ -13200,7 +13200,7 @@ void func_857()//Position - 0x7BCC4
 	else
 	{
 		Global_86818 = 0;
-		if (!GlobalFunc_2(0))
+		if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			if (!CAM::IS_SCREEN_FADED_IN())
 			{
@@ -13226,7 +13226,7 @@ void func_857()//Position - 0x7BCC4
 						break;
 					}
 			}
-			GlobalFunc_11046(0, "start of mission", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(0, "start of mission", 0, 0, 0, 1);
 		}
 		else
 		{
@@ -13296,7 +13296,7 @@ void func_858()//Position - 0x7C018
 	MISC::CLEAR_AREA(-800.31f, 184.8f, 72.72f, 10000f, 1, 0, 0, 0);
 	iLocal_3945 = 2;
 	CAM::DO_SCREEN_FADE_IN(800);
-	GlobalFunc_11046(0, "start of mission", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint2(0, "start of mission", 0, 0, 0, 1);
 	Global_93588 = 0;
 }
 

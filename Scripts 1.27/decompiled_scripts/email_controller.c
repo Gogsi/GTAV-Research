@@ -594,7 +594,7 @@ int func_33(int iParam0, int iParam1, int iParam2, int iParam3, int iParam4)//Po
 		}
 	}
 	iVar0 = 1;
-	if (((Global_89962 == 13 || Global_89962 == 10) || Global_89962 == 11) || Global_89962 == 12)
+	if (((Global_Mission_Fail_State == 13 || Global_Mission_Fail_State == 10) || Global_Mission_Fail_State == 11) || Global_Mission_Fail_State == 12)
 	{
 		iVar0 = 0;
 	}

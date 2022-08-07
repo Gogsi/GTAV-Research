@@ -3455,7 +3455,7 @@ void func_3()//Position - 0x37F
 		
 		case 3:
 			CUTSCENE::SET_CUTSCENE_PED_COMPONENT_VARIATION_FROM_PED("Michael", PLAYER::PLAYER_PED_ID(), 0);
-			if (SYSTEM::TIMERA() > 3500 && GlobalFunc_109())
+			if (SYSTEM::TIMERA() > 3500 && GlobalFunc_Has_Cutscene_Loaded())
 			{
 				if (!ENTITY::IS_ENTITY_DEAD(iLocal_3210) && iLocal_5901 > 27)
 				{
@@ -4166,7 +4166,7 @@ void func_88()//Position - 0x35B8
 		
 		case 1:
 			CUTSCENE::SET_CUTSCENE_PED_COMPONENT_VARIATION_FROM_PED("Franklin", PLAYER::PLAYER_PED_ID(), 0);
-			if (!AUDIO::IS_SCRIPTED_CONVERSATION_ONGOING() && GlobalFunc_109())
+			if (!AUDIO::IS_SCRIPTED_CONVERSATION_ONGOING() && GlobalFunc_Has_Cutscene_Loaded())
 			{
 				iLocal_2996++;
 			}
@@ -4459,7 +4459,7 @@ void func_96()//Position - 0x3BCA
 				}
 				if ((ENTITY::GET_ENTITY_HEALTH(iLocal_3026) >= 1000 && VEHICLE::GET_VEHICLE_ENGINE_HEALTH(iLocal_3026) >= 1000f) && !GlobalFunc_8388(39))
 				{
-					GlobalFunc_11046(7, "STAGE_FIX_CAR_AND_TAKE_JIMMY_HOME", 1, 0, 0, 1);
+					GlobalFunc_Checkpoint2(7, "STAGE_FIX_CAR_AND_TAKE_JIMMY_HOME", 1, 0, 0, 1);
 					PLAYER::SET_AIR_DRAG_MULTIPLIER_FOR_PLAYERS_VEHICLE(PLAYER::PLAYER_ID(), 1f);
 					HUD::REMOVE_BLIP(&uLocal_3010);
 					GlobalFunc_159("AM_H_CARMOD", -1);
@@ -5468,7 +5468,7 @@ void func_238()//Position - 0xE80E
 			{
 				CUTSCENE::SET_CUTSCENE_PED_COMPONENT_VARIATION_FROM_PED("Franklin", func_2(), 0);
 			}
-			if ((STREAMING::HAS_CLIP_SET_LOADED("clipset@missfam1_jimmy_sit") && !AUDIO::IS_SCRIPTED_CONVERSATION_ONGOING()) && GlobalFunc_109())
+			if ((STREAMING::HAS_CLIP_SET_LOADED("clipset@missfam1_jimmy_sit") && !AUDIO::IS_SCRIPTED_CONVERSATION_ONGOING()) && GlobalFunc_Has_Cutscene_Loaded())
 			{
 				iLocal_2995++;
 			}
@@ -5669,9 +5669,9 @@ int func_239(var uParam0, bool bParam1, bool bParam2, int iParam3)//Position - 0
 				iVar4 = 0;
 				while (iVar4 < 7)
 				{
-					if (MISC::IS_BIT_SET(Global_81119[iVar4 /*5*/].f_1, 2))
+					if (MISC::IS_BIT_SET(Global_Running_Missions[iVar4 /*5*/].f_1, 2))
 					{
-						iVar5 = Global_81119[iVar4 /*5*/];
+						iVar5 = Global_Running_Missions[iVar4 /*5*/];
 						StringCopy(&cVar6, "MISS_SWITCH_", 64);
 						StringConCat(&cVar6, &(Global_81155[Global_68514.f_109[iVar5 /*4*/] /*34*/]), 64);
 						STATS::STAT_INCREMENT(MISC::GET_HASH_KEY(&cVar6), 1f);
@@ -5999,7 +5999,7 @@ void func_294()//Position - 0x14AE9
 				CUTSCENE::REMOVE_CUTSCENE();
 				func_79();
 				PLAYER::SET_AIR_DRAG_MULTIPLIER_FOR_PLAYERS_VEHICLE(PLAYER::PLAYER_ID(), 10.9f);
-				GlobalFunc_11046(5, "STAGE_TAKE_CAR_TO_CHOP_SHOP", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint2(5, "STAGE_TAKE_CAR_TO_CHOP_SHOP", 0, 0, 0, 1);
 				if (!GRAPHICS::DOES_PARTICLE_FX_LOOPED_EXIST(uLocal_99) && !ENTITY::IS_ENTITY_DEAD(iLocal_3026))
 				{
 					uLocal_99 = GRAPHICS::START_PARTICLE_FX_LOOPED_ON_ENTITY_BONE("scr_fam1_veh_smoke", iLocal_3026, 0f, 0f, 0f, 0f, 0f, 0f, ENTITY::GET_ENTITY_BONE_INDEX_BY_NAME(iLocal_3026, "overheat"), 1065353216, 0, 0, 0);
@@ -8464,7 +8464,7 @@ void func_351()//Position - 0x196E3
 			MISC::SET_INSTANCE_PRIORITY_HINT(2);
 			func_418();
 			func_417();
-			GlobalFunc_11046(2, "STAGE_DO_CHASE", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(2, "STAGE_DO_CHASE", 0, 0, 0, 1);
 			AUDIO::SET_AGGRESSIVE_HORNS(1);
 			if (!ENTITY::IS_ENTITY_DEAD(iLocal_3029))
 			{
@@ -9377,7 +9377,7 @@ void func_351()//Position - 0x196E3
 						GlobalFunc_565(201, 1, 0);
 						bLocal_5892 = false;
 						bLocal_5893 = false;
-						GlobalFunc_11046(3, "STAGE_JIMMY_APPEARS", 0, 0, 0, 1);
+						GlobalFunc_Checkpoint2(3, "STAGE_JIMMY_APPEARS", 0, 0, 0, 1);
 						ENTITY::DETACH_ENTITY(iLocal_3210, 0, 0);
 						if (ENTITY::IS_ENTITY_ATTACHED_TO_ANY_OBJECT(func_2()))
 						{
@@ -9890,7 +9890,7 @@ void func_351()//Position - 0x196E3
 		
 		case 32:
 			func_385();
-			GlobalFunc_11046(4, "STAGE_FRANKLIN_JUMPS_BACK_ONTO_BOAT", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(4, "STAGE_FRANKLIN_JUMPS_BACK_ONTO_BOAT", 0, 0, 0, 1);
 			iLocal_5901 = 30;
 			break;
 		
@@ -10656,11 +10656,11 @@ void func_353()//Position - 0x1D4EE
 			}
 			else
 			{
-				func_359(&uLocal_3300, iLocal_3030, "YB_FOCUS", 0, 1, (Global_89962.f_12[0] == 0 && iLocal_5901 > 9), 1);
+				func_359(&uLocal_3300, iLocal_3030, "YB_FOCUS", 0, 1, (Global_Mission_Fail_State.f_12[0] == 0 && iLocal_5901 > 9), 1);
 			}
 			if (HUD::IS_HELP_MESSAGE_BEING_DISPLAYED())
 			{
-				Global_89962.f_12[0] = 1;
+				Global_Mission_Fail_State.f_12[0] = 1;
 			}
 		}
 	}
@@ -15462,7 +15462,7 @@ void func_454()//Position - 0x28774
 				ENTITY::FREEZE_ENTITY_POSITION(iLocal_3026, 0);
 			}
 			CUTSCENE::REMOVE_CUTSCENE();
-			GlobalFunc_11046(1, "STAGE_GET_INTO_AMANDAS_CAR", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(1, "STAGE_GET_INTO_AMANDAS_CAR", 0, 0, 0, 1);
 			Local_2952 = GlobalFunc_6783(iLocal_3026, 0, 0);
 			HUD::SET_BLIP_AS_FRIENDLY(Local_2952, true);
 			GlobalFunc_11319(PLAYER::PLAYER_PED_ID(), 1);
@@ -15540,7 +15540,7 @@ void func_454()//Position - 0x28774
 		case 5:
 			if (!AUDIO::IS_SCRIPTED_CONVERSATION_ONGOING())
 			{
-				if (!GlobalFunc_199())
+				if (!GlobalFunc_Is_Mission_Retry())
 				{
 					GlobalFunc_164("YB_GETIN", 7500, 1);
 				}
@@ -16435,7 +16435,7 @@ void func_758()//Position - 0x74540
 				GlobalFunc_10914("Franklin", joaat("player_one"), 21);
 			}
 			GlobalFunc_10914("Michael", joaat("player_zero"), 34);
-			if (GlobalFunc_109())
+			if (GlobalFunc_Has_Cutscene_Loaded())
 			{
 				iLocal_2990++;
 			}
@@ -16645,13 +16645,13 @@ void func_763()//Position - 0x74D07
 	HUD::HIDE_HUD_COMPONENT_THIS_FRAME(7);
 	GlobalFunc_5574("YB_JIMTXT");
 	iLocal_5900 = 2;
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		GlobalFunc_562(17);
 		PED::DELETE_PED(&(uLocal_55[1]));
 		func_773(0, 1);
 		GlobalFunc_173(&uLocal_3324, 0, PLAYER::PLAYER_PED_ID(), "MICHAEL", 0, 1);
-		iLocal_5935 = GlobalFunc_198();
+		iLocal_5935 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		func_717(iLocal_5934);
 		switch (iLocal_5935)
 		{
@@ -16946,7 +16946,7 @@ void func_764(int iParam0, bool bParam1)//Position - 0x74FBD
 					iLocal_2937 = 1200;
 				}
 				AUDIO::TRIGGER_MUSIC_EVENT("FAM1_JIMMY_APPEARS_RT");
-				GlobalFunc_11046(3, "STAGE_JIMMY_APPEARS", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint2(3, "STAGE_JIMMY_APPEARS", 0, 0, 0, 1);
 				VEHICLE::SKIP_TIME_IN_PLAYBACK_RECORDED_VEHICLE(iLocal_3029, fVar0);
 				VEHICLE::SKIP_TIME_IN_PLAYBACK_RECORDED_VEHICLE(iLocal_3030, fVar0);
 				VEHICLE::SKIP_TIME_IN_PLAYBACK_RECORDED_VEHICLE(iLocal_53, fVar0);
@@ -16970,7 +16970,7 @@ void func_764(int iParam0, bool bParam1)//Position - 0x74FBD
 				iLocal_3299 = 1;
 				AUDIO::TRIGGER_MUSIC_EVENT("FAM1_FRANK_JUMPS_RT");
 				ENTITY::PLAY_ENTITY_ANIM(iLocal_3030, "onYacht_hitByBoom_boom", "MISSFAM1_YachtBattleonYacht02_", 8f, 0, 1, 0, 0, 0);
-				GlobalFunc_11046(4, "STAGE_FRANKLIN_JUMPS_BACK_ONTO_BOAT", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint2(4, "STAGE_FRANKLIN_JUMPS_BACK_ONTO_BOAT", 0, 0, 0, 1);
 				VEHICLE::SKIP_TIME_IN_PLAYBACK_RECORDED_VEHICLE(iLocal_3029, 134000f);
 				VEHICLE::SKIP_TIME_IN_PLAYBACK_RECORDED_VEHICLE(iLocal_3030, 134000f);
 				VEHICLE::SKIP_TIME_IN_PLAYBACK_RECORDED_VEHICLE(iLocal_53, 134000f);
@@ -17075,7 +17075,7 @@ void func_764(int iParam0, bool bParam1)//Position - 0x74FBD
 		
 		case 8:
 			func_770(bParam1, 3.5141f, -2605.764f, 26.7756f, 61.8483f);
-			GlobalFunc_11046(5, "STAGE_TAKE_CAR_TO_CHOP_SHOP", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(5, "STAGE_TAKE_CAR_TO_CHOP_SHOP", 0, 0, 0, 1);
 			STREAMING::REQUEST_MODEL(joaat("ig_jimmydisanto"));
 			STREAMING::REQUEST_PTFX_ASSET();
 			STREAMING::REQUEST_CLIP_SET("clipset@missfam1_jimmy_sit_rear");
@@ -17133,7 +17133,7 @@ void func_764(int iParam0, bool bParam1)//Position - 0x74FBD
 		
 		case 9:
 			func_770(bParam1, -1104.31f, -1975.672f, 12.0488f, 92.2029f);
-			GlobalFunc_11046(6, "STAGE_CHOP_SHOP_CUTSCENE", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(6, "STAGE_CHOP_SHOP_CUTSCENE", 0, 0, 0, 1);
 			STREAMING::REQUEST_MODEL(joaat("ig_jimmydisanto"));
 			while (!STREAMING::HAS_MODEL_LOADED(joaat("ig_jimmydisanto")))
 			{
@@ -17181,7 +17181,7 @@ void func_764(int iParam0, bool bParam1)//Position - 0x74FBD
 		
 		case 10:
 			func_770(bParam1, -1137.979f, -1985.852f, 12.1666f, 294.9323f);
-			GlobalFunc_11046(7, "STAGE_FIX_CAR_AND_TAKE_JIMMY_HOME", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint2(7, "STAGE_FIX_CAR_AND_TAKE_JIMMY_HOME", 0, 0, 0, 1);
 			GlobalFunc_9131(39, 1, 0);
 			GlobalFunc_8522(39);
 			GlobalFunc_8625(39, 1);
@@ -17454,7 +17454,7 @@ void func_779()//Position - 0x76627
 	{
 		bLocal_5928 = false;
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		iLocal_5920 = -1;
 		iLocal_5900 = 1;

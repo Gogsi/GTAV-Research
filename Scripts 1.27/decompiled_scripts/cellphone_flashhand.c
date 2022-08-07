@@ -627,7 +627,7 @@ void __EntryFunction__()//Position - 0x0
 		}
 		if (Global_14554 == 0)
 		{
-			if ((Global_34913 != 15 || Global_2268 == 1) || GlobalFunc_2(0))
+			if ((Global_34913 != 15 || Global_2268 == 1) || GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				if (!Global_14552)
 				{
@@ -644,7 +644,7 @@ void __EntryFunction__()//Position - 0x0
 				Global_14554 = 1;
 			}
 		}
-		else if ((Global_34913 == 15 && GlobalFunc_2(0) == 0) && Global_2268 == 0)
+		else if ((Global_34913 == 15 && GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) == 0) && Global_2268 == 0)
 		{
 			if (!Global_14552)
 			{

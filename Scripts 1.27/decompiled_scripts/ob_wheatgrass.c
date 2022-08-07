@@ -490,7 +490,7 @@ void func_1()//Position - 0x30E
 					AUDIO::START_AUDIO_SCENE("MICHAEL_SAFEHOUSE_ACTIVITIES_SCENE");
 				}
 				func_52();
-				GlobalFunc_1(func_51());
+				GlobalFunc_Display_Help_Text(func_51());
 				iLocal_321 = 1;
 			}
 			break;
@@ -1778,7 +1778,7 @@ void func_62()//Position - 0x2F39
 			{
 				if (GlobalFunc_6525(Local_353, Var0) && iLocal_328 == -1)
 				{
-					GlobalFunc_1("SA_WHEAT");
+					GlobalFunc_Display_Help_Text("SA_WHEAT");
 					iLocal_321 = 1;
 				}
 			}

@@ -1613,7 +1613,7 @@ void __EntryFunction__()//Position - 0x0
 	{
 		SYSTEM::WAIT(0);
 	}
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		func_618();
 	}
@@ -1703,13 +1703,13 @@ void func_3()//Position - 0x209
 	GlobalFunc_553(852);
 	func_22(0);
 	func_9(5, 0);
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		Global_54752 = 1;
 		GlobalFunc_45(1, 1);
 	}
 	GlobalFunc_5103(1, 0);
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		Global_54750 = 0;
 	}
@@ -1724,7 +1724,7 @@ void func_3()//Position - 0x209
 
 int func_9(int iParam0, int iParam1)//Position - 0x413
 {
-	if (MISC::IS_BIT_SET(Global_89962.f_20, 17))
+	if (MISC::IS_BIT_SET(Global_Mission_Fail_State.f_20, 17))
 	{
 		return 0;
 	}
@@ -1791,14 +1791,14 @@ void func_26()//Position - 0x7A2
 			iLocal_365 = 0;
 			iLocal_367 = 0;
 			GlobalFunc_8316(1, 1, 1, 0);
-			GlobalFunc_11061(7, "Stage 7: over the Edge", 1, 0, 0, 1);
+			GlobalFunc_Checkpoint3(7, "Stage 7: over the Edge", 1, 0, 0, 1);
 			GlobalFunc_4935();
 			iLocal_321 = 0;
 			iLocal_1611++;
 			break;
 		
 		case 1:
-			if (GlobalFunc_109())
+			if (GlobalFunc_Has_Cutscene_Loaded())
 			{
 				PED::CLEAR_PED_BLOOD_DAMAGE(func_58());
 				CUTSCENE::REGISTER_ENTITY_FOR_CUTSCENE(func_58(), "Michael", 0, 0, 3);
@@ -1908,7 +1908,7 @@ void func_26()//Position - 0x7A2
 			{
 				if (!GlobalFunc_74("FIN2_DROP"))
 				{
-					GlobalFunc_1("FIN2_DROP");
+					GlobalFunc_Display_Help_Text("FIN2_DROP");
 				}
 				if (PAD::IS_CONTROL_JUST_PRESSED(2, 223) || (iLocal_369 == 1 && !GlobalFunc_111()))
 				{
@@ -2406,7 +2406,7 @@ void func_141()//Position - 0x928C
 				CAM::DO_SCREEN_FADE_IN(800);
 			}
 			iLocal_327 = 0;
-			GlobalFunc_11061(6, "Stage 6: Ladder dodge", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint3(6, "Stage 6: Ladder dodge", 0, 0, 0, 1);
 			WEAPON::GIVE_WEAPON_TO_PED(func_58(), joaat("weapon_pistol"), -1, 1, 1);
 			WEAPON::SET_CURRENT_PED_WEAPON(func_58(), joaat("weapon_pistol"), 1);
 			WEAPON::SET_PED_INFINITE_AMMO(func_58(), 1, joaat("weapon_pistol"));
@@ -2739,7 +2739,7 @@ void func_163()//Position - 0xAE65
 				GlobalFunc_164("FIN2_SPOT", 7500, 1);
 				iLocal_356 = 1;
 			}
-			GlobalFunc_11061(5, "Stage 5: shoot out", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint3(5, "Stage 5: shoot out", 0, 0, 0, 1);
 			if (!AUDIO::IS_AUDIO_SCENE_ACTIVE("FIN_2_CHASE_ON_FOOT"))
 			{
 				AUDIO::START_AUDIO_SCENE("FIN_2_CHASE_ON_FOOT");
@@ -3471,7 +3471,7 @@ void func_449()//Position - 0x55656
 				}
 				WEAPON::GIVE_WEAPON_TO_PED(func_58(), joaat("weapon_pistol"), 50, 1, 1);
 				WEAPON::SET_CURRENT_PED_WEAPON(func_58(), joaat("weapon_pistol"), 1);
-				GlobalFunc_11061(3, "Stage 3: confrontation", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint3(3, "Stage 3: confrontation", 0, 0, 0, 1);
 				if (CAM::IS_SCREEN_FADED_OUT())
 				{
 					CAM::DO_SCREEN_FADE_IN(800);
@@ -3609,7 +3609,7 @@ void func_454()//Position - 0x55D2F
 	switch (iLocal_1611)
 	{
 		case 0:
-			GlobalFunc_11061(4, "Stage 4: heli appears", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint3(4, "Stage 4: heli appears", 0, 0, 0, 1);
 			if (CAM::IS_SCREEN_FADED_OUT())
 			{
 				CAM::DO_SCREEN_FADE_IN(800);
@@ -3731,7 +3731,7 @@ void func_455()//Position - 0x55F4E
 			}
 			iLocal_345 = 1;
 			iLocal_347 = MISC::GET_GAME_TIMER();
-			GlobalFunc_11061(2, "Stage 2: power plant", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint3(2, "Stage 2: power plant", 0, 0, 0, 1);
 			AUDIO::TRIGGER_MUSIC_EVENT("FINB_ARRIVE");
 			AUDIO::STOP_AUDIO_SCENES();
 			if (!AUDIO::IS_AUDIO_SCENE_ACTIVE("FIN_2_MICHAEL_ESCAPE_SCENE"))
@@ -3897,7 +3897,7 @@ void func_455()//Position - 0x55F4E
 					}
 					WEAPON::GIVE_WEAPON_TO_PED(func_58(), joaat("weapon_pistol"), 50, 1, 1);
 					WEAPON::SET_CURRENT_PED_WEAPON(func_58(), joaat("weapon_pistol"), 1);
-					GlobalFunc_11061(3, "Stage 3: confrontation", 0, 0, 0, 1);
+					GlobalFunc_Checkpoint3(3, "Stage 3: confrontation", 0, 0, 0, 1);
 					if (CAM::IS_SCREEN_FADED_OUT())
 					{
 						CAM::DO_SCREEN_FADE_IN(800);
@@ -4015,7 +4015,7 @@ void func_455()//Position - 0x55F4E
 			}
 			WEAPON::GIVE_WEAPON_TO_PED(func_58(), joaat("weapon_pistol"), 50, 1, 1);
 			WEAPON::SET_CURRENT_PED_WEAPON(func_58(), joaat("weapon_pistol"), 1);
-			GlobalFunc_11061(3, "Stage 3: confrontation", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint3(3, "Stage 3: confrontation", 0, 0, 0, 1);
 			if (CAM::IS_SCREEN_FADED_OUT())
 			{
 				CAM::DO_SCREEN_FADE_IN(800);
@@ -4070,12 +4070,12 @@ void func_465()//Position - 0x56F7D
 	switch (iLocal_1611)
 	{
 		case 0:
-			GlobalFunc_11061(1, "Stage 1: chase", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint3(1, "Stage 1: chase", 0, 0, 0, 1);
 			VEHICLE::SET_LIGHTS_CUTOFF_DISTANCE_TWEAK(100f);
 			iLocal_328 = 0;
 			MISC::SET_INSTANCE_PRIORITY_HINT(2);
 			AUDIO::TRIGGER_MUSIC_EVENT("FINB_CHASE");
-			if ((GlobalFunc_199() && Global_89999 == 1) && iLocal_346)
+			if ((GlobalFunc_Is_Mission_Retry() && Global_Current_Checkpoint == 1) && iLocal_346)
 			{
 				if (!VEHICLE::IS_PLAYBACK_GOING_ON_FOR_VEHICLE(Local_51[1 /*2*/]))
 				{
@@ -4132,7 +4132,7 @@ void func_465()//Position - 0x56F7D
 			if ((MISC::GET_GAME_TIMER() - iLocal_347) > 1500 && PED::IS_PED_IN_ANY_VEHICLE(func_51(), 0))
 			{
 				AUDIO::SET_VEHICLE_RADIO_ENABLED(PED::GET_VEHICLE_PED_IS_IN(func_51(), 0), 1);
-				GlobalFunc_11061(1, "Stage 1: chase", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint3(1, "Stage 1: chase", 0, 0, 0, 1);
 				iLocal_322 = 0;
 				iLocal_323 = 0;
 				iLocal_1611++;
@@ -4531,7 +4531,7 @@ void func_496()//Position - 0x58C02
 					}
 				}
 			}
-			if (GlobalFunc_199() && !bLocal_1617)
+			if (GlobalFunc_Is_Mission_Retry() && !bLocal_1617)
 			{
 				CLOCK::SET_CLOCK_TIME(0, 0, 0);
 				MISC::CLEAR_AREA(2381.488f, 2619.819f, 45.6327f, 200f, 1, 0, 0, 0);
@@ -4667,7 +4667,7 @@ void func_496()//Position - 0x58C02
 				}
 				iLocal_362 = 1;
 			}
-			if ((((iLocal_359 && iLocal_360) && iLocal_361) && iLocal_362) || GlobalFunc_199())
+			if ((((iLocal_359 && iLocal_360) && iLocal_361) && iLocal_362) || GlobalFunc_Is_Mission_Retry())
 			{
 				if (!iLocal_366)
 				{
@@ -5091,7 +5091,7 @@ void func_539()//Position - 0x5F16F
 			iLocal_362 = 0;
 			SYSTEM::WAIT(0);
 		}
-		if (GlobalFunc_109())
+		if (GlobalFunc_Has_Cutscene_Loaded())
 		{
 			GlobalFunc_8316(1, 1, 0, 0);
 			if (ENTITY::DOES_ENTITY_EXIST(Local_58[1 /*5*/]))
@@ -5847,9 +5847,9 @@ int func_563(var uParam0, struct<3> Param1, float fParam4, bool bParam5)//Positi
 						GlobalFunc_7695(iVar8);
 					}
 				}
-				if (((Global_89962 != 13 && Global_89962 != 10) && Global_89962 != 11) && Global_89962 != 12)
+				if (((Global_Mission_Fail_State != 13 && Global_Mission_Fail_State != 10) && Global_Mission_Fail_State != 11) && Global_Mission_Fail_State != 12)
 				{
-					if (MISC::GET_HASH_KEY(&(Global_89962.f_3)) == Global_68102)
+					if (MISC::GET_HASH_KEY(&(Global_Mission_Fail_State.Failed_Script_Name)) == Global_68102)
 					{
 						if (uParam0->f_12.f_42 == Global_SAVE_DATA.VEHICLE_GEN_SAVED_DATA_STRUCT.f_69[21 /*54*/].f_42)
 						{
@@ -6273,7 +6273,7 @@ void func_586()//Position - 0x62079
 void func_588()//Position - 0x62379
 {
 	Local_58[0 /*5*/] = PLAYER::PLAYER_PED_ID();
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		CLOCK::SET_CLOCK_TIME(0, 0, 0);
 		while (!func_498(&(Local_51[1 /*2*/]), 0, 2378.12f, 2612.7f, 45.6341f, 181.5441f, 1, 0))
@@ -6524,7 +6524,7 @@ void func_612()//Position - 0x63B76
 	{
 		PLAYER::SET_PLAYER_CONTROL(PLAYER::PLAYER_ID(), true, 0);
 	}
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		if (!ENTITY::DOES_ENTITY_EXIST(Local_51[1 /*2*/]))
 		{
@@ -6561,11 +6561,11 @@ void func_612()//Position - 0x63B76
 	TASK::ASSISTED_MOVEMENT_REQUEST_ROUTE("finalb1st");
 	GlobalFunc_601(2, 1);
 	GlobalFunc_601(0, 1);
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		if (GlobalFunc_199())
+		if (GlobalFunc_Is_Mission_Retry())
 		{
-			iLocal_1616 = GlobalFunc_198();
+			iLocal_1616 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 			if (Global_84544)
 			{
 				iLocal_1616++;
@@ -6580,7 +6580,7 @@ void func_612()//Position - 0x63B76
 			}
 			bLocal_1617 = false;
 		}
-		if (GlobalFunc_199())
+		if (GlobalFunc_Is_Mission_Retry())
 		{
 			func_594(iLocal_1616, &Var0, &uVar3);
 			GlobalFunc_5196(Var0, uVar3, 1, 0);
@@ -6589,12 +6589,12 @@ void func_612()//Position - 0x63B76
 	}
 	else
 	{
-		if (GlobalFunc_2(0))
+		if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			iLocal_1616 = 0;
 		}
 		bLocal_1617 = false;
-		GlobalFunc_11061(0, "Stage 0: meet", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint3(0, "Stage 0: meet", 0, 0, 0, 1);
 		iLocal_1610 = 0;
 		func_156(iLocal_1610);
 		func_158(0);
@@ -6683,7 +6683,7 @@ int func_620(var uParam0, var uParam1, bool bParam2, bool bParam3, bool bParam4,
 	
 	uParam0->f_7 = *uParam1;
 	uParam0->f_8 = uParam1->f_1;
-	if ((GlobalFunc_2(0) && !bParam2) && !bParam4)
+	if ((GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) && !bParam2) && !bParam4)
 	{
 		if (uParam0->f_5)
 		{

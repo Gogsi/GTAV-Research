@@ -1350,7 +1350,7 @@ void func_1(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, var
 			{
 				if (((((!GlobalFunc_74("SHR_EXIT_HELP") && !GlobalFunc_74("SHR_DEST_LOWHIT")) && !GlobalFunc_74("SH_MULT_HG")) && !GlobalFunc_74("SH_MULT_AUTO")) && !GlobalFunc_74("SH_MULT_HEAVY")) && !GlobalFunc_74("SHR_H_LEAVE"))
 				{
-					GlobalFunc_1("SHR_EXIT_HELP");
+					GlobalFunc_Display_Help_Text("SHR_EXIT_HELP");
 				}
 				if (PAD::IS_CONTROL_JUST_PRESSED(2, 51) || PAD::IS_DISABLED_CONTROL_JUST_PRESSED(2, 51))
 				{
@@ -6727,14 +6727,14 @@ void func_481(float fParam0, var uParam1, var uParam2, var uParam3, var uParam4,
 	{
 		case 0:
 			HUD::CLEAR_HELP(1);
-			GlobalFunc_1("SC_TUT_1");
+			GlobalFunc_Display_Help_Text("SC_TUT_1");
 			uParam1->f_1++;
 			break;
 		
 		case 1:
 			if (fParam0 >= 0.1121f)
 			{
-				GlobalFunc_1("SC_TUT_2");
+				GlobalFunc_Display_Help_Text("SC_TUT_2");
 				uParam1->f_1++;
 			}
 			break;
@@ -6775,7 +6775,7 @@ void func_481(float fParam0, var uParam1, var uParam2, var uParam3, var uParam4,
 		case 5:
 			if (fParam0 >= 0.26756f)
 			{
-				GlobalFunc_1("SC_TUT_3");
+				GlobalFunc_Display_Help_Text("SC_TUT_3");
 				uParam1->f_1++;
 			}
 			break;
@@ -6783,7 +6783,7 @@ void func_481(float fParam0, var uParam1, var uParam2, var uParam3, var uParam4,
 		case 6:
 			if (fParam0 >= 0.3976f)
 			{
-				GlobalFunc_1("SC_TUT_4");
+				GlobalFunc_Display_Help_Text("SC_TUT_4");
 				func_397(uParam3[0 /*33*/], uParam5);
 				func_485(uParam3[0 /*33*/], uParam1, uParam2);
 				func_399(uParam3[0 /*33*/], 128);
@@ -6843,7 +6843,7 @@ void func_481(float fParam0, var uParam1, var uParam2, var uParam3, var uParam4,
 				func_487(uParam3[3 /*33*/], 9, -1, 268435456);
 				func_405(uParam3[3 /*33*/], uParam4, uParam7, (*uParam3)[3 /*33*/], 1);
 				func_399(uParam3[3 /*33*/], 128);
-				GlobalFunc_1("SC_TUT_5");
+				GlobalFunc_Display_Help_Text("SC_TUT_5");
 				uParam4->f_34.f_2 = 2;
 				uParam1->f_1++;
 			}
@@ -6901,7 +6901,7 @@ void func_481(float fParam0, var uParam1, var uParam2, var uParam3, var uParam4,
 			func_482(uParam4);
 			if (fParam0 >= 0.83183f)
 			{
-				GlobalFunc_1("SC_TUT_6");
+				GlobalFunc_Display_Help_Text("SC_TUT_6");
 				uParam1->f_1++;
 			}
 			break;

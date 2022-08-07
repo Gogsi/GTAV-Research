@@ -1598,7 +1598,7 @@ void func_53()//Position - 0x2431
 				ENTITY::FREEZE_ENTITY_POSITION(Local_4993[0 /*19*/], 0);
 			}
 			func_195();
-			GlobalFunc_11043(10, "Closing Cutscene", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint1(10, "Closing Cutscene", 0, 0, 0, 1);
 			iLocal_6032 = 0;
 			iLocal_6112 = 0;
 			RECORDING::_0x293220DA1B46CEBC(6f, 0f, 4);
@@ -1648,7 +1648,7 @@ void func_54()//Position - 0x24EA
 			}
 			else if (iLocal_6062 == 1)
 			{
-				if (GlobalFunc_109())
+				if (GlobalFunc_Has_Cutscene_Loaded())
 				{
 					if (!PED::IS_PED_INJURED(iLocal_5846))
 					{
@@ -2007,9 +2007,9 @@ int func_60(var uParam0, bool bParam1, bool bParam2, int iParam3)//Position - 0x
 				iVar4 = 0;
 				while (iVar4 < 7)
 				{
-					if (MISC::IS_BIT_SET(Global_81119[iVar4 /*5*/].f_1, 2))
+					if (MISC::IS_BIT_SET(Global_Running_Missions[iVar4 /*5*/].f_1, 2))
 					{
-						iVar5 = Global_81119[iVar4 /*5*/];
+						iVar5 = Global_Running_Missions[iVar4 /*5*/];
 						StringCopy(&cVar6, "MISS_SWITCH_", 64);
 						StringConCat(&cVar6, &(Global_81155[Global_68514.f_109[iVar5 /*4*/] /*34*/]), 64);
 						STATS::STAT_INCREMENT(MISC::GET_HASH_KEY(&cVar6), 1f);
@@ -2342,7 +2342,7 @@ void func_203()//Position - 0x1426C
 			GlobalFunc_5652(&Local_6574, 1, 0);
 			iLocal_6032 = 0;
 			iLocal_6112 = 0;
-			GlobalFunc_11043(9, "Drop the sub at airstrip", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint1(9, "Drop the sub at airstrip", 0, 0, 0, 1);
 			GlobalFunc_2781(500);
 			iLocal_8375 = -1;
 			iLocal_6092++;
@@ -2377,7 +2377,7 @@ void func_203()//Position - 0x1426C
 							{
 								if (MISC::GET_GAME_TIMER() >= iLocal_8374 + 1000)
 								{
-									GlobalFunc_1("DS2_GRAP_HELP2");
+									GlobalFunc_Display_Help_Text("DS2_GRAP_HELP2");
 									iLocal_8374 = MISC::GET_GAME_TIMER();
 								}
 							}
@@ -2710,7 +2710,7 @@ void func_261()//Position - 0x1746F
 			GlobalFunc_2781(500);
 			iLocal_6099 = 0;
 			GlobalFunc_7621(94, 1, 0, 1, 0);
-			GlobalFunc_11043(8, "Fly Away", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint1(8, "Fly Away", 0, 0, 0, 1);
 			iLocal_6095 = MISC::GET_GAME_TIMER();
 			MISC::CLEAR_AREA(1754.472f, 3283.072f, 40.0925f, 200f, 1, 0, 0, 0);
 			iLocal_6092++;
@@ -4753,7 +4753,7 @@ void func_586()//Position - 0x67F8F
 			iLocal_8300 = 0;
 			iLocal_8350 = 0;
 			GlobalFunc_7621(94, 1, 0, 1, 0);
-			GlobalFunc_11043(7, "Defend Against Merryweather", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint1(7, "Defend Against Merryweather", 0, 0, 0, 1);
 			func_647();
 			iLocal_6095 = MISC::GET_GAME_TIMER();
 			STREAMING::SET_VEHICLE_POPULATION_BUDGET(1);
@@ -5803,7 +5803,7 @@ int func_625()//Position - 0x6A776
 		{
 			if (!iLocal_8365)
 			{
-				GlobalFunc_1("DS2_SWITCHS2");
+				GlobalFunc_Display_Help_Text("DS2_SWITCHS2");
 				iLocal_8365 = 1;
 			}
 		}
@@ -5814,7 +5814,7 @@ int func_625()//Position - 0x6A776
 		{
 			if (!func_794("DS2_SWITCHS"))
 			{
-				GlobalFunc_1("DS2_SWITCHS");
+				GlobalFunc_Display_Help_Text("DS2_SWITCHS");
 				func_791("DS2_SWITCHS", 1);
 			}
 		}
@@ -6101,13 +6101,13 @@ int func_625()//Position - 0x6A776
 			{
 				if (!func_794("DS2_SWITCHS"))
 				{
-					GlobalFunc_1("DS2_SWITCHS");
+					GlobalFunc_Display_Help_Text("DS2_SWITCHS");
 					func_791("DS2_SWITCHS", 1);
 				}
 			}
 			else if (!func_794("DS2_SWITCHS"))
 			{
-				GlobalFunc_1("DS2_SWITCHS2");
+				GlobalFunc_Display_Help_Text("DS2_SWITCHS2");
 				func_791("DS2_SWITCHS", 1);
 			}
 			break;
@@ -9565,7 +9565,7 @@ void func_706()//Position - 0x7469C
 				}
 				VEHICLE::SET_PICKUP_ROPE_LENGTH_FOR_CARGOBOB(Local_4993[0 /*19*/], fLocal_5864, fLocal_5863, 0);
 			}
-			GlobalFunc_11043(6, "Pick Up Sub", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint1(6, "Pick Up Sub", 0, 0, 0, 1);
 			iLocal_6095 = MISC::GET_GAME_TIMER();
 			iLocal_8340 = 0;
 			func_791("DROPPED THE SUB", 0);
@@ -9994,7 +9994,7 @@ void func_712()//Position - 0x75448
 			PLAYER::SET_PLAYER_CONTROL(PLAYER::PLAYER_ID(), 1, 0);
 			ENTITY::FREEZE_ENTITY_POSITION(Local_4993[1 /*19*/], 0);
 			iLocal_6095 = MISC::GET_GAME_TIMER();
-			GlobalFunc_11043(5, "Get to the surface", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint1(5, "Get to the surface", 0, 0, 0, 1);
 			iLocal_6066 = 1;
 			iLocal_8335 = 0;
 			iLocal_6092++;
@@ -10380,7 +10380,7 @@ void func_719()//Position - 0x75D76
 				ENTITY::SET_ENTITY_PROOFS(Local_4993[1 /*19*/], 0, 0, 0, 1, 0, 0, 0, 0);
 				GlobalFunc_1998(1);
 				iLocal_6095 = MISC::GET_GAME_TIMER();
-				GlobalFunc_11043(4, "Find the crate", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint1(4, "Find the crate", 0, 0, 0, 1);
 				GlobalFunc_574(628, 0);
 				VEHICLE::SET_SUBMARINE_CRUSH_DEPTHS(Local_4993[1 /*19*/], 0, -190f, -190f, -190f);
 				iLocal_6092++;
@@ -10834,7 +10834,7 @@ void func_730()//Position - 0x7720B
 			iLocal_6066 = 1;
 			iLocal_6112 = 0;
 			func_791("DS2_GRAP_HELP2", 0);
-			GlobalFunc_11043(3, "Drop the sub", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint1(3, "Drop the sub", 0, 0, 0, 1);
 			iLocal_8298 = 0;
 			iLocal_6092++;
 			break;
@@ -11294,7 +11294,7 @@ void func_732()//Position - 0x77963
 					VEHICLE::FORCE_SUBMARINE_SURFACE_MODE(Local_4993[1 /*19*/], 1);
 				}
 				GlobalFunc_2511(&uLocal_1023, 0, 2, 1);
-				GlobalFunc_11043(2, "FLY_TO_SEA", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint1(2, "FLY_TO_SEA", 0, 0, 0, 1);
 				iLocal_6089 = 0;
 				VEHICLE::REMOVE_VEHICLE_RECORDING(33, "DHF2");
 				iLocal_6092++;
@@ -11849,7 +11849,7 @@ void func_738()//Position - 0x7864B
 			{
 				GlobalFunc_173(&Local_5660, 3, uLocal_1023[1], "FRANKLIN", 0, 1);
 			}
-			GlobalFunc_11043(1, "PICK_UP_THE_SUB_FROM_AIRSTRIP", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint1(1, "PICK_UP_THE_SUB_FROM_AIRSTRIP", 0, 0, 0, 1);
 			GlobalFunc_729(&uLocal_1023, 2, 0);
 			GlobalFunc_5652(&Local_6574, 0, 0);
 			if (AUDIO::IS_AUDIO_SCENE_ACTIVE("DH_2B_DRIVE_TO_AIRSTRIP"))
@@ -12963,7 +12963,7 @@ void func_751()//Position - 0x7AAF1
 		}
 		else if (iLocal_6062 == 1)
 		{
-			if (GlobalFunc_109())
+			if (GlobalFunc_Has_Cutscene_Loaded())
 			{
 				if (CAM::IS_SCREEN_FADED_OUT())
 				{
@@ -13509,11 +13509,11 @@ void func_772()//Position - 0x7DA88
 		SYSTEM::WAIT(0);
 	}
 	PED::SET_PED_CONFIG_FLAG(PLAYER::PLAYER_PED_ID(), 32, 0);
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		if (GlobalFunc_198() >= 0 && GlobalFunc_198() < 13)
+		if (GlobalFunc_Get_Mission_Fail_Checkpoint() >= 0 && GlobalFunc_Get_Mission_Fail_Checkpoint() < 13)
 		{
-			iLocal_6111 = GlobalFunc_198();
+			iLocal_6111 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 			if (Global_84544 == 1)
 			{
 				if (iLocal_6111 < 13)

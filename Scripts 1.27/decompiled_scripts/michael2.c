@@ -3208,7 +3208,7 @@ void __EntryFunction__()//Position - 0x0
 		iLocal_4677 = Global_86864.f_28[1];
 		ENTITY::SET_ENTITY_AS_MISSION_ENTITY(iLocal_4677, 1, 1);
 	}
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		if (GlobalFunc_6674(PLAYER::PLAYER_PED_ID()) != 2)
 		{
@@ -5884,7 +5884,7 @@ void func_223()//Position - 0x22FA7
 	
 	if (func_146())
 	{
-		GlobalFunc_11067(4, "stageTriadsChase", 1, 0, 0, 1);
+		GlobalFunc_Checkpoint4(4, "stageTriadsChase", 1, 0, 0, 1);
 		PED::SET_PED_USING_ACTION_MODE(func_816(0), 1, -1, 0);
 		PED::SET_PED_USING_ACTION_MODE(func_816(1), 1, -1, 0);
 		iLocal_4590 = 1;
@@ -6778,7 +6778,7 @@ void func_302()//Position - 0x2BA42
 	
 	if (func_146())
 	{
-		GlobalFunc_11067(3, "stageMichaelFree", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint4(3, "stageMichaelFree", 0, 0, 0, 1);
 		iLocal_4590 = 1;
 		PLAYER::SET_MAX_WANTED_LEVEL(0);
 		PLAYER::SET_WANTED_LEVEL_MULTIPLIER(0f);
@@ -8278,7 +8278,7 @@ void func_354()//Position - 0x3040F
 	
 	if (func_146())
 	{
-		GlobalFunc_11067(2, "stageMichaelEscape", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint4(2, "stageMichaelEscape", 0, 0, 0, 1);
 		iLocal_4590 = 1;
 		GlobalFunc_601(4, 1);
 		PLAYER::SET_MAX_WANTED_LEVEL(0);
@@ -10562,7 +10562,7 @@ void func_399()//Position - 0x367FE
 	
 	if (func_146())
 	{
-		GlobalFunc_11067(2, "stageMichaelEscape", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint4(2, "stageMichaelEscape", 0, 0, 0, 1);
 		iLocal_4590 = 1;
 		PLAYER::SET_MAX_WANTED_LEVEL(0);
 		PLAYER::SET_WANTED_LEVEL_MULTIPLIER(0f);
@@ -10946,7 +10946,7 @@ void func_404()//Position - 0x3725B
 		WEAPON::REMOVE_ALL_PED_WEAPONS(func_816(0), 1);
 		WEAPON::SET_CURRENT_PED_WEAPON(func_816(0), joaat("weapon_unarmed"), 1);
 		func_6();
-		GlobalFunc_11067(1, "stageAbattoirShootout", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint4(1, "stageAbattoirShootout", 0, 0, 0, 1);
 		if (ENTITY::DOES_ENTITY_EXIST(iLocal_52[0]))
 		{
 			PED::SET_PED_RELATIONSHIP_GROUP_HASH(iLocal_52[0], iLocal_4744);
@@ -13321,7 +13321,7 @@ void func_430(char* sParam0, bool bParam1, bool bParam2, int iParam3)//Position 
 		}
 		else
 		{
-			GlobalFunc_1(sParam0);
+			GlobalFunc_Display_Help_Text(sParam0);
 		}
 		func_758(sParam0, bParam1);
 	}
@@ -17705,15 +17705,15 @@ void func_640()//Position - 0x74DAD
 	if (func_14())
 	{
 		iLocal_48++;
-		if (GlobalFunc_199())
+		if (GlobalFunc_Is_Mission_Retry())
 		{
 			if (Global_84544 == 1)
 			{
-				func_641(GlobalFunc_198() + 1);
+				func_641(GlobalFunc_Get_Mission_Fail_Checkpoint() + 1);
 			}
 			else
 			{
-				func_641(GlobalFunc_198());
+				func_641(GlobalFunc_Get_Mission_Fail_Checkpoint());
 			}
 		}
 	}
@@ -20218,9 +20218,9 @@ int func_760(int iParam0, bool bParam1, bool bParam2, int iParam3)//Position - 0
 				iVar4 = 0;
 				while (iVar4 < 7)
 				{
-					if (MISC::IS_BIT_SET(Global_81119[iVar4 /*5*/].f_1, 2))
+					if (MISC::IS_BIT_SET(Global_Running_Missions[iVar4 /*5*/].f_1, 2))
 					{
-						iVar5 = Global_81119[iVar4 /*5*/];
+						iVar5 = Global_Running_Missions[iVar4 /*5*/];
 						StringCopy(&cVar6, "MISS_SWITCH_", 64);
 						StringConCat(&cVar6, &(Global_81155[Global_68514.f_109[iVar5 /*4*/] /*34*/]), 64);
 						STATS::STAT_INCREMENT(MISC::GET_HASH_KEY(&cVar6), 1f);

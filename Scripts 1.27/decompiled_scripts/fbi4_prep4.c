@@ -415,11 +415,11 @@ void __EntryFunction__()//Position - 0x0
 	}
 	func_287();
 	func_218();
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		GlobalFunc_5116(-1339.786f, -1277.51f, 3.8874f, 261.2839f, 1, 0);
 	}
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		Global_SAVE_DATA.COMPONENTS_ARRAY.PP_INFO_STRUCT.f_1623[0] = -99;
 		Global_SAVE_DATA.COMPONENTS_ARRAY.PP_INFO_STRUCT.f_1623[1] = -99;
@@ -1523,7 +1523,7 @@ void func_101()//Position - 0x3452
 					PLAYER::CLEAR_PLAYER_WANTED_LEVEL(PLAYER::PLAYER_ID());
 				}
 				GlobalFunc_5198(36);
-				if (GlobalFunc_199())
+				if (GlobalFunc_Is_Mission_Retry())
 				{
 					GlobalFunc_10757(&iVar1, -1327.175f, -1290.811f, 3.8472f, 291.8355f, 0, 0, 0, 0, 0, joaat("asterope"), 0, 145);
 					GlobalFunc_5108(0, -1, 1);
@@ -1538,7 +1538,7 @@ void func_101()//Position - 0x3452
 				}
 				else
 				{
-					if (GlobalFunc_2(0))
+					if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 					{
 						func_88(PLAYER::PLAYER_PED_ID(), -1339.786f, -1277.51f, 3.8874f, 261.2839f);
 						CAM::SET_GAMEPLAY_CAM_RELATIVE_HEADING(0f);

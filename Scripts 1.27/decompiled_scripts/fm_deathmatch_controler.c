@@ -30662,7 +30662,7 @@ void func_2774(var uParam0, var uParam1, var uParam2)//Position - 0xBFD90
 				{
 					if (func_2779(uParam0))
 					{
-						GlobalFunc_1("DM_ONE_FAR");
+						GlobalFunc_Display_Help_Text("DM_ONE_FAR");
 					}
 					else
 					{
@@ -31055,7 +31055,7 @@ void func_2790(var uParam0, var uParam1, var uParam2)//Position - 0xC04FD
 							GlobalFunc_5824((iVar0 - 1000), 1500, "TRI_WARP", 6, 0, 10, -1f, -1f, 0, 1, 0, 0, 0, 0, 0);
 							if ((uParam1[NETWORK::PARTICIPANT_ID_TO_INT() /*24*/])->f_9 > 0)
 							{
-								GlobalFunc_1("DM_VEH_RSP");
+								GlobalFunc_Display_Help_Text("DM_VEH_RSP");
 							}
 							if ((iVar0 - 1000) >= 1500)
 							{

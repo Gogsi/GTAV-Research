@@ -2347,7 +2347,7 @@ void func_90()//Position - 0x3FD1
 	PED::ADD_RELATIONSHIP_GROUP("FireMen", &iLocal_949);
 	PED::SET_RELATIONSHIP_BETWEEN_GROUPS(5, 1862763509, iLocal_949);
 	PED::SET_RELATIONSHIP_BETWEEN_GROUPS(5, iLocal_949, 1862763509);
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		STREAMING::REQUEST_MODEL(joaat("s_m_y_fireman_01"));
 		while (!STREAMING::HAS_MODEL_LOADED(joaat("s_m_y_fireman_01")))
@@ -2374,7 +2374,7 @@ void func_90()//Position - 0x3FD1
 		PED::SET_RELATIONSHIP_BETWEEN_GROUPS(255, 1862763509, iLocal_949);
 		PED::SET_RELATIONSHIP_BETWEEN_GROUPS(255, iLocal_949, 1862763509);
 		iLocal_1115 = -1;
-		if (GlobalFunc_199())
+		if (GlobalFunc_Is_Mission_Retry())
 		{
 			GlobalFunc_5116(354.3055f, -1722.206f, 28.259f, 109.6154f, 1, 0);
 			GlobalFunc_5108(0, -1, 1);
@@ -2388,7 +2388,7 @@ void func_90()//Position - 0x3FD1
 	{
 		iLocal_1124 = 1;
 	}
-	if (!GlobalFunc_2(0))
+	if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		AUDIO::TRIGGER_MUSIC_EVENT("AHP1_START");
 	}

@@ -571,7 +571,7 @@ void func_1()//Position - 0x438
 			{
 				func_68();
 				func_67();
-				GlobalFunc_1(func_66());
+				GlobalFunc_Display_Help_Text(func_66());
 				iLocal_324 = 1;
 			}
 			break;
@@ -748,7 +748,7 @@ void func_1()//Position - 0x438
 				PED::SET_SYNCHRONIZED_SCENE_LOOPED(uLocal_386, 1);
 				if (!GlobalFunc_74(func_29()))
 				{
-					GlobalFunc_1(func_29());
+					GlobalFunc_Display_Help_Text(func_29());
 				}
 				iLocal_377 = 0;
 				iLocal_378 = 1;
@@ -3762,7 +3762,7 @@ void func_83()//Position - 0x4BCB
 			{
 				if (((GlobalFunc_6525(Local_440, Var0) && func_356()) && ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), Local_449, Local_452, 2f, 0, 1, 0)) && !GlobalFunc_5459(PLAYER::PLAYER_PED_ID()))
 				{
-					GlobalFunc_1(sLocal_438);
+					GlobalFunc_Display_Help_Text(sLocal_438);
 					iLocal_324 = 1;
 				}
 			}
@@ -3839,7 +3839,7 @@ void func_83()//Position - 0x4BCB
 				ENTITY::PLAY_SYNCHRONIZED_ENTITY_ANIM(iLocal_391, uLocal_386, func_30(), sLocal_434, 4f, -8f, 64, 1148846080);
 				if (!GlobalFunc_74(sLocal_439))
 				{
-					GlobalFunc_1(sLocal_439);
+					GlobalFunc_Display_Help_Text(sLocal_439);
 				}
 				iLocal_377 = 0;
 				iLocal_378 = 1;

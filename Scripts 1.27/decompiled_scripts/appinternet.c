@@ -27690,7 +27690,7 @@ void func_557(var uParam0)//Position - 0x49296
 	iLocal_410[48] = (50 + 200);
 	GlobalFunc_8514(uParam0, 1, 1, 0);
 	iVar0 = GlobalFunc_56();
-	if (iVar0 == 0 || GlobalFunc_2(0))
+	if (iVar0 == 0 || GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		iLocal_257[0] = 0;
 		iLocal_461 = 1;

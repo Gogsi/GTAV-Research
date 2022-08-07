@@ -5357,14 +5357,14 @@ void func_306()//Position - 0x495AE
 
 void func_307()//Position - 0x495DF
 {
-	if (!GlobalFunc_2(0))
+	if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		GlobalFunc_585(16, 1);
 	}
 	Global_86864.f_9[0] = iLocal_139;
 	Global_86864[0] = iLocal_200;
 	HUD::DISPLAY_RADAR(0);
-	if (!GlobalFunc_2(0))
+	if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		GlobalFunc_5103(1, 0);
 	}
@@ -5391,7 +5391,7 @@ void func_310()//Position - 0x4974E
 			func_394();
 			iLocal_434 = 0;
 		}
-		GlobalFunc_11089(4, "STAGE_DRIVE_TO_WAREHOUSE", 1, 0, 0, 1);
+		GlobalFunc_Checkpoint7(4, "STAGE_DRIVE_TO_WAREHOUSE", 1, 0, 0, 1);
 		iLocal_433 = 0;
 		iLocal_437 = 0;
 		iLocal_430 = 0;
@@ -5438,7 +5438,7 @@ void func_310()//Position - 0x4974E
 				GlobalFunc_4935();
 				if (GlobalFunc_10618(&uLocal_241, "JHS1AUD", "JHS1_PH28", 7, 0, 0, 0))
 				{
-					if (GlobalFunc_2(0))
+					if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 					{
 						func_322(PLAYER::PLAYER_PED_ID(), 14, 62);
 					}
@@ -5486,7 +5486,7 @@ void func_310()//Position - 0x4974E
 			{
 				if (GlobalFunc_10618(&uLocal_241, "JHS1AUD", "JHS1_PH28", 7, 0, 0, 0))
 				{
-					if (GlobalFunc_2(0))
+					if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 					{
 						func_322(PLAYER::PLAYER_PED_ID(), 14, 62);
 					}
@@ -6727,7 +6727,7 @@ void func_437()//Position - 0x56C58
 			func_394();
 			iLocal_434 = 0;
 		}
-		GlobalFunc_11089(3, "STAGE_CHECK_ROOF", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint7(3, "STAGE_CHECK_ROOF", 0, 0, 0, 1);
 		if (VEHICLE::IS_VEHICLE_DRIVEABLE(iLocal_200, 0))
 		{
 			ENTITY::FREEZE_ENTITY_POSITION(iLocal_200, 0);
@@ -8715,11 +8715,11 @@ void func_445()//Position - 0x5977F
 			HUD::CLEAR_HELP(1);
 			if (PAD::_IS_USING_KEYBOARD(0))
 			{
-				GlobalFunc_1("HELP1_KM");
+				GlobalFunc_Display_Help_Text("HELP1_KM");
 			}
 			else
 			{
-				GlobalFunc_1("HELP1");
+				GlobalFunc_Display_Help_Text("HELP1");
 			}
 			iLocal_451 = 1;
 		}
@@ -8771,12 +8771,12 @@ void func_445()//Position - 0x5977F
 			{
 				if (!GlobalFunc_74("HELP1_KM"))
 				{
-					GlobalFunc_1("HELP1_KM");
+					GlobalFunc_Display_Help_Text("HELP1_KM");
 				}
 			}
 			else if (!GlobalFunc_74("HELP1"))
 			{
-				GlobalFunc_1("HELP1");
+				GlobalFunc_Display_Help_Text("HELP1");
 			}
 		}
 	}
@@ -8837,7 +8837,7 @@ void func_445()//Position - 0x5977F
 					if (!GlobalFunc_74("HELP2"))
 					{
 						HUD::CLEAR_HELP(1);
-						GlobalFunc_1("HELP2");
+						GlobalFunc_Display_Help_Text("HELP2");
 						iLocal_443 = 1;
 					}
 				}
@@ -8859,7 +8859,7 @@ void func_445()//Position - 0x5977F
 				if (iLocal_498 == 0)
 				{
 					HUD::CLEAR_HELP(1);
-					GlobalFunc_1("HELP2");
+					GlobalFunc_Display_Help_Text("HELP2");
 					iLocal_498 = 1;
 				}
 			}
@@ -9158,7 +9158,7 @@ void func_461()//Position - 0x5A50D
 			func_394();
 			iLocal_434 = 0;
 		}
-		GlobalFunc_11089(2, "STAGE_FIND_ROOF_ENTRANCE", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint7(2, "STAGE_FIND_ROOF_ENTRANCE", 0, 0, 0, 1);
 		iLocal_504 = 0;
 		iLocal_464 = 0;
 		iLocal_455 = 0;
@@ -9789,7 +9789,7 @@ void func_462()//Position - 0x5AB27
 	}
 	if (iLocal_77 == 0)
 	{
-		GlobalFunc_11089(1, "STAGE_SCOUT_OUT_STORE", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint7(1, "STAGE_SCOUT_OUT_STORE", 0, 0, 0, 1);
 		if (iLocal_434 == 1)
 		{
 			func_394();
@@ -12146,7 +12146,7 @@ void func_480()//Position - 0x5ECFC
 		switch (iLocal_76)
 		{
 			case 0:
-				if (GlobalFunc_109())
+				if (GlobalFunc_Has_Cutscene_Loaded())
 				{
 					if (!ENTITY::DOES_ENTITY_EXIST(iLocal_200))
 					{
@@ -12211,7 +12211,7 @@ void func_480()//Position - 0x5ECFC
 						}
 					}
 					GlobalFunc_562(86);
-					if (GlobalFunc_2(0))
+					if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 					{
 						STREAMING::NEW_LOAD_SCENE_STOP();
 					}
@@ -12368,7 +12368,7 @@ void func_480()//Position - 0x5ECFC
 				if (CUTSCENE::HAS_CUTSCENE_FINISHED())
 				{
 					GlobalFunc_8380(0, 1, 1, 0);
-					if (!GlobalFunc_2(0))
+					if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 					{
 						ENTITY::STOP_SYNCHRONIZED_MAP_ENTITY_ANIM(709.9813f, -963.5311f, 30.5453f, 2f, joaat("v_ilev_ss_door02"), -1000f);
 					}
@@ -12460,11 +12460,11 @@ void func_500()//Position - 0x613B2
 	iLocal_430 = 0;
 	iLocal_440 = 0;
 	iLocal_77 = 0;
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		CUTSCENE::REQUEST_CUTSCENE("Jh_1_int", 8);
 	}
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		if (TASK::DOES_SCENARIO_GROUP_EXIST("SEW_MACHINE"))
 		{
@@ -12500,7 +12500,7 @@ void func_500()//Position - 0x613B2
 	{
 		STREAMING::LOAD_ALL_OBJECTS_NOW();
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		CLOCK::SET_CLOCK_TIME(9, 0, 0);
 		if (CUTSCENE::IS_CUTSCENE_ACTIVE())
@@ -12519,27 +12519,27 @@ void func_500()//Position - 0x613B2
 		iLocal_434 = 1;
 		if (Global_84544 == 1)
 		{
-			if (GlobalFunc_198() == 0)
+			if (GlobalFunc_Get_Mission_Fail_Checkpoint() == 0)
 			{
 				GlobalFunc_5116(-659.1774f, -270.6738f, 34.8078f, 30.7532f, 1, 0);
 				iLocal_62 = 3;
 			}
-			if (GlobalFunc_198() == 1)
+			if (GlobalFunc_Get_Mission_Fail_Checkpoint() == 1)
 			{
 				GlobalFunc_5116(-659.1774f, -270.6738f, 34.8078f, 30.7532f, 1, 0);
 				iLocal_62 = 4;
 			}
-			if (GlobalFunc_198() == 2)
+			if (GlobalFunc_Get_Mission_Fail_Checkpoint() == 2)
 			{
 				GlobalFunc_5116(-575.9287f, -277.7308f, 34.1598f, 27.8937f, 1, 0);
 				iLocal_62 = 5;
 			}
-			if (GlobalFunc_198() == 3)
+			if (GlobalFunc_Get_Mission_Fail_Checkpoint() == 3)
 			{
 				GlobalFunc_5116(-575.9287f, -277.7308f, 34.1598f, 27.8937f, 1, 0);
 				iLocal_62 = 6;
 			}
-			if (GlobalFunc_198() == 4)
+			if (GlobalFunc_Get_Mission_Fail_Checkpoint() == 4)
 			{
 				GlobalFunc_5116(718.0418f, -984.2304f, 23.1442f, 271.334f, 1, 0);
 				func_501();
@@ -12547,27 +12547,27 @@ void func_500()//Position - 0x613B2
 		}
 		else
 		{
-			if (GlobalFunc_198() == 0)
+			if (GlobalFunc_Get_Mission_Fail_Checkpoint() == 0)
 			{
 				GlobalFunc_5116(Local_66, 268.499f, 1, 0);
 				iLocal_62 = 2;
 			}
-			if (GlobalFunc_198() == 1)
+			if (GlobalFunc_Get_Mission_Fail_Checkpoint() == 1)
 			{
 				GlobalFunc_5116(-659.1774f, -270.6738f, 34.8078f, 30.7532f, 1, 0);
 				iLocal_62 = 3;
 			}
-			if (GlobalFunc_198() == 2)
+			if (GlobalFunc_Get_Mission_Fail_Checkpoint() == 2)
 			{
 				GlobalFunc_5116(-659.1774f, -270.6738f, 34.8078f, 30.7532f, 1, 0);
 				iLocal_62 = 4;
 			}
-			if (GlobalFunc_198() == 3)
+			if (GlobalFunc_Get_Mission_Fail_Checkpoint() == 3)
 			{
 				GlobalFunc_5116(-575.9287f, -277.7308f, 34.1598f, 27.8937f, 1, 0);
 				iLocal_62 = 5;
 			}
-			if (GlobalFunc_198() == 4)
+			if (GlobalFunc_Get_Mission_Fail_Checkpoint() == 4)
 			{
 				GlobalFunc_5116(-575.9287f, -277.7308f, 34.1598f, 27.8937f, 1, 0);
 				iLocal_62 = 6;

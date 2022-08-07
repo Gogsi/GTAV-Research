@@ -455,10 +455,10 @@ void __EntryFunction__()//Position - 0x0
 		func_628();
 	}
 	func_627();
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		func_619(&Local_102, 1, 1, 0);
-		iVar0 = GlobalFunc_198();
+		iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544 == 1)
 		{
 			iVar0++;
@@ -1645,7 +1645,7 @@ void func_245()//Position - 0x2653E
 	{
 		case 0:
 			func_164();
-			GlobalFunc_11110(7, "Outro - Dom won race", 1, 0, 0, 1);
+			GlobalFunc_Checkpoint8(7, "Outro - Dom won race", 1, 0, 0, 1);
 			iLocal_887 = 0;
 			iLocal_891 = 0;
 			iLocal_329 = 0;
@@ -2081,7 +2081,7 @@ void func_327()//Position - 0x2C78B
 			}
 			else
 			{
-				GlobalFunc_11110(4, "Bike race start", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint8(4, "Bike race start", 0, 0, 0, 1);
 				iLocal_697 = 0;
 				if (iLocal_758 == 1 || GlobalFunc_713(PLAYER::PLAYER_PED_ID(), Local_195.f_4[2 /*3*/], 1) < fLocal_714[2])
 				{
@@ -2112,7 +2112,7 @@ void func_327()//Position - 0x2C78B
 				iLocal_759 = 0;
 			}
 			func_384();
-			Global_89962.f_12[0] = iLocal_691;
+			Global_Mission_Fail_State.f_12[0] = iLocal_691;
 			iLocal_700 = MISC::GET_GAME_TIMER();
 			iLocal_845 = MISC::GET_GAME_TIMER();
 			iLocal_848 = MISC::GET_GAME_TIMER();
@@ -2519,12 +2519,12 @@ void func_368()//Position - 0x2E16F
 {
 	if (iLocal_163[0] == 0 && Local_180.f_9 == 20)
 	{
-		GlobalFunc_11110(5, "Bike race middle", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint8(5, "Bike race middle", 0, 0, 0, 1);
 		iLocal_163[0] = 1;
 	}
 	if (iLocal_163[1] == 0 && Local_180.f_9 == (Local_195.f_126 - 2))
 	{
-		GlobalFunc_11110(6, "Bike race near end", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint8(6, "Bike race near end", 0, 0, 0, 1);
 		iLocal_163[1] = 1;
 	}
 	if (iLocal_166 == 0 && Local_180.f_9 == (Local_195.f_126 - 10))
@@ -3797,7 +3797,7 @@ void func_404()//Position - 0x30BC6
 			PLAYER::SET_EVERYONE_IGNORE_PLAYER(PLAYER::PLAYER_ID(), 0);
 			PLAYER::SET_PLAYER_CONTROL(PLAYER::PLAYER_ID(), true, 0);
 			GlobalFunc_164("EXT1_03", 5000, 1);
-			GlobalFunc_1("EXT1_04");
+			GlobalFunc_Display_Help_Text("EXT1_04");
 			iLocal_551 = 0;
 			iLocal_552 = 0;
 			iLocal_537 = 0;
@@ -3808,17 +3808,17 @@ void func_404()//Position - 0x30BC6
 			iLocal_544 = 0;
 			iLocal_852 = 0;
 			iLocal_853 = 0;
-			if (Global_89962.f_12[2] == 0)
+			if (Global_Mission_Fail_State.f_12[2] == 0)
 			{
 				sLocal_889 = "EXT1_SKYDIVE";
 				sLocal_890 = "EXT1_SKYDIVE_4";
-				Global_89962.f_12[2] = 1;
+				Global_Mission_Fail_State.f_12[2] = 1;
 			}
 			else
 			{
 				sLocal_889 = "EXT1_SKYDIV2";
 				sLocal_890 = "EXT1_SKYDIV2_4";
-				Global_89962.f_12[2] = 0;
+				Global_Mission_Fail_State.f_12[2] = 0;
 			}
 			iLocal_847 = MISC::GET_GAME_TIMER();
 			break;
@@ -3969,12 +3969,12 @@ void func_410()//Position - 0x30FF8
 		{
 			if (!GlobalFunc_74("EXT1_06_KM"))
 			{
-				GlobalFunc_1("EXT1_06_KM");
+				GlobalFunc_Display_Help_Text("EXT1_06_KM");
 			}
 		}
 		else if (!GlobalFunc_74("EXT1_06"))
 		{
-			GlobalFunc_1("EXT1_06");
+			GlobalFunc_Display_Help_Text("EXT1_06");
 		}
 	}
 	if (((iLocal_533 == 1 && iLocal_847 > -1) && (MISC::GET_GAME_TIMER() - iLocal_847) > 8000) && func_261(1, 1))
@@ -4043,7 +4043,7 @@ void func_418()//Position - 0x3168A
 	{
 		case 0:
 			func_164();
-			GlobalFunc_11110(3, "Skydive", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint8(3, "Skydive", 0, 0, 0, 1);
 			func_433();
 			func_390(6, 1);
 			func_432();
@@ -4075,7 +4075,7 @@ void func_418()//Position - 0x3168A
 			iLocal_174 = 0;
 			iLocal_891 = 0;
 			func_427(1);
-			if (!GlobalFunc_199())
+			if (!GlobalFunc_Is_Mission_Retry())
 			{
 				AUDIO::TRIGGER_MUSIC_EVENT("EXTREME1_JUMP");
 			}
@@ -4186,7 +4186,7 @@ void func_419()//Position - 0x3189C
 			}
 			Local_854.x = (Local_854.x + (Var7.x * MISC::GET_FRAME_TIME()));
 			Local_854.f_2 = (Local_854.f_2 + (Var7.f_2 * MISC::GET_FRAME_TIME()));
-			if (Global_89962.f_12[1] == 0)
+			if (Global_Mission_Fail_State.f_12[1] == 0)
 			{
 				if (Local_854.x > (1.2f * 21.6f))
 				{
@@ -4251,7 +4251,7 @@ void func_422()//Position - 0x31BAE
 	{
 		if ((MISC::GET_GAME_TIMER() - iLocal_842) > 2000)
 		{
-			GlobalFunc_1("EXT1_10");
+			GlobalFunc_Display_Help_Text("EXT1_10");
 			iLocal_659 = 1;
 		}
 	}
@@ -4399,7 +4399,7 @@ void func_431(int iParam0)//Position - 0x31FA1
 				uLocal_873 = PED::CREATE_SYNCHRONIZED_SCENE(0f, 0f, 0f, 0f, 0f, 0f, 2);
 				PED::ATTACH_SYNCHRONIZED_SCENE_TO_ENTITY(uLocal_873, iLocal_351, ENTITY::GET_ENTITY_BONE_INDEX_BY_NAME(iLocal_351, "Chassis"));
 				TASK::CLEAR_PED_TASKS_IMMEDIATELY(PLAYER::PLAYER_PED_ID());
-				if (Global_89962.f_12[1] == 0)
+				if (Global_Mission_Fail_State.f_12[1] == 0)
 				{
 					TASK::TASK_SYNCHRONIZED_SCENE(PLAYER::PLAYER_PED_ID(), uLocal_873, "rcm_extreme1@heli", "Heli_door_loop_l", 1000f, -8f, 69, 0, 1148846080, 0);
 				}
@@ -4415,7 +4415,7 @@ void func_431(int iParam0)//Position - 0x31FA1
 		{
 			uLocal_873 = PED::CREATE_SYNCHRONIZED_SCENE(0f, 0f, 0f, 0f, 0f, 0f, 2);
 			PED::ATTACH_SYNCHRONIZED_SCENE_TO_ENTITY(uLocal_873, iLocal_351, ENTITY::GET_ENTITY_BONE_INDEX_BY_NAME(iLocal_351, "Chassis"));
-			if (Global_89962.f_12[1] == 0)
+			if (Global_Mission_Fail_State.f_12[1] == 0)
 			{
 				TASK::TASK_SYNCHRONIZED_SCENE(PLAYER::PLAYER_PED_ID(), uLocal_873, "rcm_extreme1@heli", "Heli_jump_l", 4f, -4f, 7, 0, 1148846080, 0);
 			}
@@ -4436,7 +4436,7 @@ void func_432()//Position - 0x320F6
 	if (GlobalFunc_115(iLocal_351) && !CAM::DOES_CAM_EXIST(uLocal_857))
 	{
 		ENTITY::FREEZE_ENTITY_POSITION(iLocal_351, 1);
-		if (Global_89962.f_12[1] == 0)
+		if (Global_Mission_Fail_State.f_12[1] == 0)
 		{
 			fLocal_875 = 90f;
 			ENTITY::SET_ENTITY_ROTATION(iLocal_351, 0f, 0f, 270f, 2, 1);
@@ -4461,7 +4461,7 @@ void func_432()//Position - 0x320F6
 		CAM::SET_CAM_NEAR_CLIP(uLocal_857, 0.84f);
 		func_420();
 		uLocal_858 = CAM::CREATE_CAM("DEFAULT_SCRIPTED_CAMERA", 0);
-		if (Global_89962.f_12[1] == 0)
+		if (Global_Mission_Fail_State.f_12[1] == 0)
 		{
 			Var0 = { ENTITY::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(iLocal_351, -Local_859.x, Local_859.f_1, Local_859.f_2) };
 		}
@@ -4656,7 +4656,7 @@ void func_441()//Position - 0x3275A
 			if ((iLocal_548 > 0 && GlobalFunc_115(iLocal_351)) && PED::IS_PED_IN_VEHICLE(PLAYER::PLAYER_PED_ID(), iLocal_351, 0))
 			{
 				HUD::CLEAR_HELP(1);
-				GlobalFunc_1("EXT1_17");
+				GlobalFunc_Display_Help_Text("EXT1_17");
 				iLocal_660 = 1;
 			}
 		}
@@ -4702,7 +4702,7 @@ void func_443()//Position - 0x3281C
 	{
 		case 0:
 			func_164();
-			GlobalFunc_11110(2, "Get in helicopter", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint8(2, "Get in helicopter", 0, 0, 0, 1);
 			GlobalFunc_173(&uLocal_356, 1, PLAYER::PLAYER_PED_ID(), "FRANKLIN", 0, 1);
 			func_390(4, 1);
 			func_429(&iLocal_351, iLocal_339[0], Local_628, 278f, iLocal_352);
@@ -4882,7 +4882,7 @@ void func_448()//Position - 0x32CCC
 				{
 					if (iLocal_554 == 2 || !GlobalFunc_6695(iLocal_343, -1794415470))
 					{
-						Global_89962.f_12[1] = 0;
+						Global_Mission_Fail_State.f_12[1] = 0;
 						iLocal_849 = MISC::GET_GAME_TIMER();
 						iLocal_549 = 1;
 					}
@@ -4894,7 +4894,7 @@ void func_448()//Position - 0x32CCC
 				{
 					if (iLocal_554 == 1 || !GlobalFunc_6695(iLocal_343, -1794415470))
 					{
-						Global_89962.f_12[1] = 1;
+						Global_Mission_Fail_State.f_12[1] = 1;
 						iLocal_849 = MISC::GET_GAME_TIMER();
 						iLocal_549 = 1;
 					}
@@ -4920,7 +4920,7 @@ void func_449()//Position - 0x32DDD
 		PLAYER::SET_PLAYER_CONTROL(PLAYER::PLAYER_ID(), false, 256);
 		PED::SET_PED_HELMET(PLAYER::PLAYER_PED_ID(), 0);
 		Var0 = { 0f, 0f, 0f };
-		if (Global_89962.f_12[1] == 1)
+		if (Global_Mission_Fail_State.f_12[1] == 1)
 		{
 			Var0.f_2 = (Var0.f_2 + 180f);
 			TASK::TASK_ENTER_VEHICLE(PLAYER::PLAYER_PED_ID(), iLocal_351, 20000, 2, 1f, 2, 0);
@@ -4944,7 +4944,7 @@ void func_449()//Position - 0x32DDD
 		HUD::DISPLAY_HUD(0);
 		AUDIO::TRIGGER_MUSIC_EVENT("EXTREME1_START");
 		iLocal_550 = 1;
-		if ((((Global_89962.f_12[1] == 1 && iLocal_540 == 1) && iLocal_543 == 0) && func_261(1, 1)) && GlobalFunc_10618(&uLocal_356, "EXT1AU", "EXT1_SIDE", 8, 0, 0, 0))
+		if ((((Global_Mission_Fail_State.f_12[1] == 1 && iLocal_540 == 1) && iLocal_543 == 0) && func_261(1, 1)) && GlobalFunc_10618(&uLocal_356, "EXT1AU", "EXT1_SIDE", 8, 0, 0, 0))
 		{
 			iLocal_543 = 1;
 		}
@@ -5080,7 +5080,7 @@ void func_456()//Position - 0x33224
 	{
 		case 0:
 			func_164();
-			GlobalFunc_11110(1, "Midtro", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint8(1, "Midtro", 0, 0, 0, 1);
 			func_468("ES_1_RCM_CONCAT");
 			func_403("EXTREME_01_JOURNEY", 1);
 			iLocal_329 = 0;
@@ -5219,7 +5219,7 @@ int func_465(int iParam0, int iParam1, int iParam2)//Position - 0x33D4D
 	}
 	if (iParam0 == 1)
 	{
-		if (!GlobalFunc_109())
+		if (!GlobalFunc_Has_Cutscene_Loaded())
 		{
 			return 0;
 		}
@@ -5697,7 +5697,7 @@ void func_493()//Position - 0x34B4A
 			GlobalFunc_10364("es_1_rcm_p1", 0);
 			iLocal_329 = 0;
 			iLocal_330 = 0;
-			if (((CAM::IS_SCREEN_FADED_IN() && !GlobalFunc_199()) && GlobalFunc_115(Local_102.f_28[0])) && GlobalFunc_156(PLAYER::PLAYER_PED_ID(), Local_102.f_28[0], 1) > 4f)
+			if (((CAM::IS_SCREEN_FADED_IN() && !GlobalFunc_Is_Mission_Retry()) && GlobalFunc_115(Local_102.f_28[0])) && GlobalFunc_156(PLAYER::PLAYER_PED_ID(), Local_102.f_28[0], 1) > 4f)
 			{
 				CAM::SET_GAMEPLAY_ENTITY_HINT(Local_102.f_28[0], 0f, 0f, 0f, 1, -1, 3000, 2000, 0);
 				CAM::SET_GAMEPLAY_HINT_FOLLOW_DISTANCE_SCALAR(0.45f);
@@ -6439,11 +6439,11 @@ void func_568(int iParam0)//Position - 0x39188
 			func_390(6, 1);
 			WEAPON::REMOVE_WEAPON_FROM_PED(PLAYER::PLAYER_PED_ID(), joaat("gadget_parachute"));
 			GlobalFunc_173(&uLocal_356, 1, PLAYER::PLAYER_PED_ID(), "FRANKLIN", 0, 1);
-			if (Global_89962.f_12[1] == 0)
+			if (Global_Mission_Fail_State.f_12[1] == 0)
 			{
 				func_429(&iLocal_351, iLocal_339[0], Local_634, 270f, iLocal_352);
 			}
-			else if (Global_89962.f_12[1] == 1)
+			else if (Global_Mission_Fail_State.f_12[1] == 1)
 			{
 				func_429(&iLocal_351, iLocal_339[0], Local_634, (270f - 180f), iLocal_352);
 			}
@@ -6456,7 +6456,7 @@ void func_568(int iParam0)//Position - 0x39188
 			func_488(Local_638, 0f, 0, 1, 1);
 			if (GlobalFunc_115(iLocal_343) && GlobalFunc_115(iLocal_351))
 			{
-				if (Global_89962.f_12[1] == 0)
+				if (Global_Mission_Fail_State.f_12[1] == 0)
 				{
 					PED::SET_PED_INTO_VEHICLE(iLocal_343, iLocal_351, 2);
 				}
@@ -6486,7 +6486,7 @@ void func_568(int iParam0)//Position - 0x39188
 			func_427(1);
 			func_390(9, 1);
 			func_428(1);
-			if (Global_89962.f_12[0] == 0)
+			if (Global_Mission_Fail_State.f_12[0] == 0)
 			{
 				iLocal_691 = 0;
 				iLocal_692 = 1;
@@ -6525,7 +6525,7 @@ void func_568(int iParam0)//Position - 0x39188
 			func_390(10, 1);
 			func_428(0);
 			func_488(-867.3832f, 5254.307f, 85.0097f, 0f, 0, 0, 1);
-			if (Global_89962.f_12[0] == 0)
+			if (Global_Mission_Fail_State.f_12[0] == 0)
 			{
 				iLocal_691 = 0;
 				iLocal_692 = 1;
@@ -6613,7 +6613,7 @@ void func_568(int iParam0)//Position - 0x39188
 	}
 	else if (iParam0 == 4)
 	{
-		if (Global_89962.f_12[1] == 0)
+		if (Global_Mission_Fail_State.f_12[1] == 0)
 		{
 			func_431(0);
 		}
@@ -6963,11 +6963,11 @@ void func_627()//Position - 0x3E75F
 	Local_681[0 /*3*/] = { -867.0817f, 5258.536f, 85.0576f };
 	Local_681[1 /*3*/] = { -867.3555f, 5256.46f, 85.0412f };
 	PLAYER::SET_WANTED_LEVEL_MULTIPLIER(0.1f);
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
-		Global_89962.f_12[0] = -1;
-		Global_89962.f_12[1] = 0;
-		Global_89962.f_12[2] = 0;
+		Global_Mission_Fail_State.f_12[0] = -1;
+		Global_Mission_Fail_State.f_12[1] = 0;
+		Global_Mission_Fail_State.f_12[2] = 0;
 	}
 	uLocal_864 = PED::ADD_SCENARIO_BLOCKING_AREA(Vector(302.9516f, 1297.765f, -189.9982f) - Vector(40f, 40f, 40f), Vector(302.9516f, 1297.765f, -189.9982f) + Vector(40f, 40f, 40f), 0, 1, 1, 1);
 	TASK::SET_SCENARIO_TYPE_ENABLED("WORLD_VEHICLE_SALTON_DIRT_BIKE", 0);

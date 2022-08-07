@@ -461,7 +461,7 @@ void __EntryFunction__()//Position - 0x0
 		GlobalFunc_10544(1);
 		func_398();
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		GlobalFunc_2838("*** Setting up initial scene for replay");
 		GlobalFunc_4972(Local_105, fLocal_108, 1, 0);
@@ -489,7 +489,7 @@ void __EntryFunction__()//Position - 0x0
 	GlobalFunc_2838("*** About to set up positions...");
 	func_382();
 	GlobalFunc_9621(58, 2, 0);
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		GlobalFunc_2838("*** Creating replay vehicle and jumping to post-cutscene");
 		GlobalFunc_10698(&iLocal_85, -1100.04f, 280.6f, 63.53f, 267.48f, 0, 0, 1, 1, 0, joaat("asterope"), 0, 145);
@@ -2283,7 +2283,7 @@ void func_289()//Position - 0x2934A
 	switch (iLocal_87)
 	{
 		case 0:
-			if (!GlobalFunc_2(0) && ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), -1107.353f, 281.626f, 61.46451f, -1099.521f, 282.5073f, 65.99223f, 16f, 0, 1, 0))
+			if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) && ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), -1107.353f, 281.626f, 61.46451f, -1099.521f, 282.5073f, 65.99223f, 16f, 0, 1, 0))
 			{
 				GlobalFunc_2838("Doing setup for leadin");
 				GlobalFunc_173(&uLocal_277, 4, Local_442.f_28[0], "JOSH", 0, 1);
@@ -2302,7 +2302,7 @@ void func_289()//Position - 0x2934A
 			break;
 		
 		case 1:
-			if (!GlobalFunc_2(0) && ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), -1107.353f, 281.626f, 61.46451f, -1099.521f, 282.5073f, 65.99223f, 16f, 0, 1, 0))
+			if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) && ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), -1107.353f, 281.626f, 61.46451f, -1099.521f, 282.5073f, 65.99223f, 16f, 0, 1, 0))
 			{
 				if (GlobalFunc_115(PLAYER::PLAYER_PED_ID()) && GlobalFunc_4950(Local_442.f_28[0]))
 				{
@@ -2650,7 +2650,7 @@ void func_313()//Position - 0x2A368
 	iLocal_513 = 0;
 	iLocal_100 = 0;
 	iLocal_528 = 0;
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		if (!func_317(0, 1))
 		{

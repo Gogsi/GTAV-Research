@@ -319,7 +319,7 @@ void __EntryFunction__()//Position - 0x0
 		GlobalFunc_9624(1);
 		func_309();
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		Global_68490 = 1;
 		iLocal_78 = 0;
@@ -331,7 +331,7 @@ void __EntryFunction__()//Position - 0x0
 		GlobalFunc_4972(1843.172f, 4701.249f, 37.5487f, 320.2838f, 1, 0);
 		func_297(0);
 	}
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		GlobalFunc_10364("EP_3_RCM_ALT1", 1);
 	}
@@ -884,7 +884,7 @@ void func_232()//Position - 0x26B4A
 	{
 		case 0:
 			iLocal_320 = 0;
-			if (GlobalFunc_199())
+			if (GlobalFunc_Is_Mission_Retry())
 			{
 				if (GlobalFunc_188())
 				{
@@ -917,7 +917,7 @@ void func_232()//Position - 0x26B4A
 				CUTSCENE::START_CUTSCENE(0);
 				SYSTEM::WAIT(0);
 				CAM::STOP_GAMEPLAY_HINT(0);
-				if (GlobalFunc_199())
+				if (GlobalFunc_Is_Mission_Retry())
 				{
 					GlobalFunc_79(500, 0);
 				}
@@ -1228,7 +1228,7 @@ int func_260(int iParam0, float fParam1, int iParam2)//Position - 0x27F5E
 	}
 	if (iParam0 == 1)
 	{
-		if (!GlobalFunc_109())
+		if (!GlobalFunc_Has_Cutscene_Loaded())
 		{
 			return 0;
 		}

@@ -2415,11 +2415,11 @@ int func_66(int iParam0)//Position - 0x4827
 	iVar0 = 0;
 	while (iVar0 < 7)
 	{
-		iVar1 = Global_81119[iVar0 /*5*/];
+		iVar1 = Global_Running_Missions[iVar0 /*5*/];
 		if (iVar1 != -1)
 		{
 			iVar2 = -1;
-			iVar2 = Global_68514.f_109[Global_81119[iVar0 /*5*/] /*4*/];
+			iVar2 = Global_68514.f_109[Global_Running_Missions[iVar0 /*5*/] /*4*/];
 			if (iVar2 != -1)
 			{
 				if (GlobalFunc_5584(Global_81155[iVar2 /*34*/].f_12, iParam0))

@@ -904,7 +904,7 @@ void func_102(var uParam0)//Position - 0x3F98
 								if (*uParam0 != 1)
 								{
 									GlobalFunc_2196(4, *uParam0, 1);
-									if (!GlobalFunc_2(0))
+									if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 									{
 										GlobalFunc_6467(*uParam0);
 									}
@@ -1104,7 +1104,7 @@ void func_102(var uParam0)//Position - 0x3F98
 			iVar1 = GlobalFunc_4417(*uParam0, iVar11);
 			iVar0 = GlobalFunc_656(*uParam0);
 			GlobalFunc_3026(iVar0, iVar1);
-			if (!GlobalFunc_2(0))
+			if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				GlobalFunc_4425(*uParam0);
 			}
@@ -1423,7 +1423,7 @@ void func_146()//Position - 0x7082
 				GlobalFunc_7632(1);
 				CUTSCENE::START_CUTSCENE(0);
 				iLocal_52 = 0;
-				if (GlobalFunc_2(0))
+				if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					CUTSCENE::SET_CUTSCENE_FADE_VALUES(0, 0, 0, 0);
 				}
@@ -1453,7 +1453,7 @@ void func_146()//Position - 0x7082
 				}
 				if (CUTSCENE::CAN_SET_EXIT_STATE_FOR_CAMERA(0))
 				{
-					if (!GlobalFunc_2(0))
+					if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 					{
 						GlobalFunc_11318(PLAYER::PLAYER_PED_ID());
 						STREAMING::REQUEST_ANIM_DICT("SWITCH@TREVOR@WATCHING_TV");
@@ -1584,7 +1584,7 @@ void func_146()//Position - 0x7082
 			}
 			else if (MISC::IS_BIT_SET(uLocal_40, 12))
 			{
-				if (GlobalFunc_2(0))
+				if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					CAM::DO_SCREEN_FADE_OUT(0);
 				}
@@ -1894,7 +1894,7 @@ int func_181(var uParam0, var uParam1, bool bParam2, bool bParam3, bool bParam4,
 	
 	uParam0->f_7 = *uParam1;
 	uParam0->f_8 = uParam1->f_1;
-	if ((GlobalFunc_2(0) && !bParam2) && !bParam4)
+	if ((GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) && !bParam2) && !bParam4)
 	{
 		if (uParam0->f_5)
 		{
@@ -2508,7 +2508,7 @@ void func_475()//Position - 0x568AE
 {
 	if (GlobalFunc_485(20))
 	{
-		if (!GlobalFunc_2(0))
+		if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			if (!MISC::IS_BIT_SET(uLocal_40, 4))
 			{

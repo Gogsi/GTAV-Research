@@ -3885,7 +3885,7 @@ int func_364(int iParam0, bool bParam1, int iParam2)//Position - 0x50674
 	{
 		return 13;
 	}
-	if (GlobalFunc_2(bParam1))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(bParam1))
 	{
 		return 3;
 	}

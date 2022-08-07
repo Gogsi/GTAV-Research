@@ -724,7 +724,7 @@ void func_25()//Position - 0xF30
 		case 2:
 			if ((((!PED::IS_PED_INJURED(iLocal_54) && !PED::IS_PED_INJURED(iLocal_56)) && !PED::IS_PED_INJURED(iLocal_55)) && !PED::IS_PED_INJURED(iLocal_57)) && !ENTITY::IS_ENTITY_DEAD(iLocal_131))
 			{
-				if (GlobalFunc_109())
+				if (GlobalFunc_Has_Cutscene_Loaded())
 				{
 					CUTSCENE::REGISTER_ENTITY_FOR_CUTSCENE(iLocal_131, "SDRM_Car", 0, 0, 0);
 					CUTSCENE::REGISTER_ENTITY_FOR_CUTSCENE(iLocal_54, "Groom", 0, 0, 0);
@@ -2823,7 +2823,7 @@ int func_146(struct<3> Param0, int iParam3, int iParam4, bool bParam5, bool bPar
 		{
 			return 0;
 		}
-		if (GlobalFunc_2(0))
+		if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			return 0;
 		}

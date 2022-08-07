@@ -6938,7 +6938,7 @@ void func_630(char* sParam0, bool bParam1, bool bParam2)//Position - 0x3D38D
 			}
 			else
 			{
-				GlobalFunc_1(sParam0);
+				GlobalFunc_Display_Help_Text(sParam0);
 			}
 		}
 		else if (bParam2)

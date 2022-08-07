@@ -665,9 +665,9 @@ void __EntryFunction__()//Position - 0x0
 		GlobalFunc_10102(1);
 		func_506();
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		iVar0 = GlobalFunc_198();
+		iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544 == 1)
 		{
 			iVar0++;
@@ -1504,7 +1504,7 @@ void func_219(int iParam0, int iParam1, int iParam2, bool bParam3)//Position - 0
 			}
 		}
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		PED::SET_PED_STEALTH_MOVEMENT(PLAYER::PLAYER_PED_ID(), 0, 0);
 	}
@@ -4650,8 +4650,8 @@ void func_363()//Position - 0x2CA30
 				GlobalFunc_2838("Player won cycling");
 				iLocal_304 = 1;
 			}
-			GlobalFunc_11077(2, "Jog section", 0, 0, 0, 1);
-			Global_89962.f_12[0] = iLocal_363;
+			GlobalFunc_Checkpoint6(2, "Jog section", 0, 0, 0, 1);
+			Global_Mission_Fail_State.f_12[0] = iLocal_363;
 			iLocal_156 = 4;
 			iLocal_158 = 0;
 			break;
@@ -5029,8 +5029,8 @@ void func_430()//Position - 0x325DD
 				GlobalFunc_2838("Player won swimming");
 				iLocal_304 = 1;
 			}
-			GlobalFunc_11077(1, "Bike section", 0, 0, 0, 1);
-			Global_89962.f_12[0] = iLocal_363;
+			GlobalFunc_Checkpoint6(1, "Bike section", 0, 0, 0, 1);
+			Global_Mission_Fail_State.f_12[0] = iLocal_363;
 			iLocal_338 = 0;
 			iLocal_158 = 0;
 			iLocal_156 = 2;
@@ -5090,11 +5090,11 @@ void func_436()//Position - 0x328FC
 	int iVar0;
 	
 	iLocal_159 = joaat("scorcher");
-	if (GlobalFunc_199() && !iLocal_340)
+	if (GlobalFunc_Is_Mission_Retry() && !iLocal_340)
 	{
 		GlobalFunc_2838("Replay in progress - skipping cutscene and jumping to checkpointed stage...");
 		func_466();
-		iVar0 = GlobalFunc_198();
+		iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		GlobalFunc_2837("ReplayStage: ", iVar0);
 		if (Global_84544 == 1)
 		{
@@ -5224,7 +5224,7 @@ void func_436()//Position - 0x328FC
 						iLocal_335 = 1;
 					}
 				}
-				GlobalFunc_11077(0, "Swim section", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint6(0, "Swim section", 0, 0, 0, 1);
 				iLocal_362 = MISC::GET_GAME_TIMER();
 				if (!AUDIO::IS_AUDIO_SCENE_ACTIVE("FANATIC_MIX_SCENE"))
 				{
@@ -5547,7 +5547,7 @@ void func_453()//Position - 0x334B7
 		ENTITY::SET_ENTITY_COORDS(iLocal_162, 52.37f, 6767.48f, 20.66f, 1, 0, 0, 1);
 		ENTITY::SET_ENTITY_HEADING(iLocal_162, 312.42f);
 	}
-	GlobalFunc_11077(2, "Jog section", 1, 0, 0, 1);
+	GlobalFunc_Checkpoint6(2, "Jog section", 1, 0, 0, 1);
 	iLocal_308 = 0;
 	iLocal_309 = -1;
 	func_358();
@@ -5672,7 +5672,7 @@ void func_463()//Position - 0x339F4
 	iLocal_310 = 0;
 	iLocal_308 = 0;
 	iLocal_309 = -1;
-	GlobalFunc_11077(1, "Bike section", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint6(1, "Bike section", 0, 0, 0, 1);
 	GlobalFunc_587();
 	func_454();
 	while (!func_428())
@@ -5845,9 +5845,9 @@ void func_466()//Position - 0x33CE3
 	func_467(-888.0333f, 6142.658f, 2.3874f, -679.05f, 6139.86f, 0.7f, &Local_181, 7);
 	iLocal_159 = joaat("scorcher");
 	sLocal_307 = "Fan3_pedBike";
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		iLocal_364 = Global_89962.f_12[0];
+		iLocal_364 = Global_Mission_Fail_State.f_12[0];
 	}
 	VEHICLE::SET_ALL_VEHICLE_GENERATORS_ACTIVE_IN_AREA(-191.0984f, 6550.964f, 10.0973f, -199.4099f, 6542.312f, 11.09729f, 0, 1);
 	VEHICLE::SET_ALL_VEHICLE_GENERATORS_ACTIVE_IN_AREA(-226.3857f, 6498.877f, 9.2147f, -173.1313f, 6595.771f, 20.7218f, 0, 1);
@@ -6097,7 +6097,7 @@ void func_471()//Position - 0x34859
 	{
 		case 0:
 			GlobalFunc_2838("Doing leadin init");
-			if (GlobalFunc_199() && !iLocal_340)
+			if (GlobalFunc_Is_Mission_Retry() && !iLocal_340)
 			{
 				GlobalFunc_2838("Replay in progress - skipping leadin & cutscene and jumping to checkpointed stage...");
 				func_466();
@@ -6105,7 +6105,7 @@ void func_471()//Position - 0x34859
 				{
 					ENTITY::FREEZE_ENTITY_POSITION(iLocal_306, 0);
 				}
-				iVar0 = GlobalFunc_198();
+				iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 				GlobalFunc_2837("ReplayStage: ", iVar0);
 				if (Global_84544 == 1)
 				{
@@ -6115,7 +6115,7 @@ void func_471()//Position - 0x34859
 				switch (iVar0)
 				{
 					case 0:
-						if (GlobalFunc_199())
+						if (GlobalFunc_Is_Mission_Retry())
 						{
 							GlobalFunc_4972(Local_271, fLocal_283, 1, 0);
 						}
@@ -6123,7 +6123,7 @@ void func_471()//Position - 0x34859
 						break;
 					
 					case 1:
-						if (GlobalFunc_199())
+						if (GlobalFunc_Is_Mission_Retry())
 						{
 							GlobalFunc_4972(Local_274, fLocal_284, 1, 0);
 						}
@@ -6131,7 +6131,7 @@ void func_471()//Position - 0x34859
 						break;
 					
 					case 2:
-						if (GlobalFunc_199())
+						if (GlobalFunc_Is_Mission_Retry())
 						{
 							GlobalFunc_4972(Local_277, fLocal_285, 1, 0);
 						}
@@ -6139,7 +6139,7 @@ void func_471()//Position - 0x34859
 						break;
 					
 					case 3:
-						if (GlobalFunc_199())
+						if (GlobalFunc_Is_Mission_Retry())
 						{
 							GlobalFunc_4972(Local_280, fLocal_286, 1, 0);
 						}
@@ -6150,7 +6150,7 @@ void func_471()//Position - 0x34859
 						break;
 				}
 			}
-			else if (GlobalFunc_2(0))
+			else if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				GlobalFunc_2838("Skipping leadin because repeat play is active");
 				iLocal_158 = 2;
@@ -6221,7 +6221,7 @@ void func_471()//Position - 0x34859
 			break;
 		
 		case 1:
-			if (GlobalFunc_4924(iLocal_306))
+			if (GlobalFunc_IsPedNotInjuredOrDead(iLocal_306))
 			{
 				if (ENTITY::IS_ENTITY_PLAYING_ANIM(iLocal_306, "rcmfanatic3", "ef_3_rcm_action_maryann", 3))
 				{

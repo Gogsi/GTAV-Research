@@ -443,9 +443,9 @@ void __EntryFunction__()//Position - 0x0
 	}
 	GlobalFunc_69(&(Local_95.f_28[1]));
 	func_523();
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		iVar0 = GlobalFunc_198();
+		iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544)
 		{
 			iVar0++;
@@ -2894,7 +2894,7 @@ void func_270()//Position - 0x276D6
 				iLocal_616 = 0;
 				iLocal_618 = 0;
 				iLocal_621 = 0;
-				GlobalFunc_11076(1, "Train section", 1, 0, 0, 1);
+				GlobalFunc_Checkpoint5(1, "Train section", 1, 0, 0, 1);
 			}
 			if (iLocal_616)
 			{
@@ -4338,7 +4338,7 @@ void func_388()//Position - 0x2EFED
 			if (func_442(1, 1093140480, 0))
 			{
 				GlobalFunc_2874(1);
-				if (GlobalFunc_2(0))
+				if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					func_440(1, 1, 1);
 				}
@@ -4784,7 +4784,7 @@ int func_442(int iParam0, float fParam1, int iParam2)//Position - 0x329EF
 	}
 	if (iParam0 == 1)
 	{
-		if (!GlobalFunc_109())
+		if (!GlobalFunc_Has_Cutscene_Loaded())
 		{
 			return 0;
 		}

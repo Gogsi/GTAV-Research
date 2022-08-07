@@ -2982,7 +2982,7 @@ void func_177()//Position - 0xD3AD
 			if (bLocal_1352)
 			{
 				GlobalFunc_2518(&uLocal_312, 2, 1);
-				GlobalFunc_1("CBH_SWITCH");
+				GlobalFunc_Display_Help_Text("CBH_SWITCH");
 				if (GlobalFunc_10061(&uLocal_312, 0, 1))
 				{
 					func_266(&Local_95, 0, 0);
@@ -8335,7 +8335,7 @@ void func_356()//Position - 0x1CD16
 		{
 			CUTSCENE::REQUEST_CUTSCENE("rbhs_mcs_1", 8);
 		}
-		if (GlobalFunc_109())
+		if (GlobalFunc_Has_Cutscene_Loaded())
 		{
 			if (GlobalFunc_550("rbhs_mcs_1"))
 			{
@@ -8867,7 +8867,7 @@ void func_372()//Position - 0x1D8D0
 				case 3:
 					if (!GlobalFunc_111())
 					{
-						if (GlobalFunc_199())
+						if (GlobalFunc_Is_Mission_Retry())
 						{
 							if (GlobalFunc_10638(&Local_359, 12, cLocal_275, "RBS1_PHONE", 9, 1, 0, 0, 0))
 							{
@@ -8913,7 +8913,7 @@ void func_372()//Position - 0x1D8D0
 					break;
 				
 				case 6:
-					if (GlobalFunc_199())
+					if (GlobalFunc_Is_Mission_Retry())
 					{
 						func_237("RBS1_DRV2", (VEHICLE::IS_VEHICLE_DRIVEABLE(iLocal_66, 0) && PED::IS_PED_IN_VEHICLE(PLAYER::PLAYER_PED_ID(), iLocal_66, 0)));
 					}
@@ -8929,7 +8929,7 @@ void func_372()//Position - 0x1D8D0
 					break;
 				
 				case 7:
-					if (GlobalFunc_199())
+					if (GlobalFunc_Is_Mission_Retry())
 					{
 						func_237("RBS1_DRV2b", (VEHICLE::IS_VEHICLE_DRIVEABLE(iLocal_66, 0) && PED::IS_PED_IN_VEHICLE(PLAYER::PLAYER_PED_ID(), iLocal_66, 0)));
 					}
@@ -9253,7 +9253,7 @@ void func_403()//Position - 0x1F5F1
 			break;
 		
 		case 2:
-			if (GlobalFunc_109())
+			if (GlobalFunc_Has_Cutscene_Loaded())
 			{
 				if (GlobalFunc_550("rbhs_int"))
 				{
@@ -10264,15 +10264,15 @@ void func_691(int iParam0)//Position - 0x6C4F8
 	}
 	if (iParam0 == 3)
 	{
-		GlobalFunc_11046(1, "stage_drive_to_bank", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint2(1, "stage_drive_to_bank", 0, 0, 0, 1);
 	}
 	else if (iParam0 == 5 || iParam0 == 6)
 	{
-		GlobalFunc_11046(2, "stage_shoot_box", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint2(2, "stage_shoot_box", 0, 0, 0, 1);
 	}
 	else if (iParam0 == 7)
 	{
-		GlobalFunc_11046(3, "stage_race_home", 1, 0, 0, 1);
+		GlobalFunc_Checkpoint2(3, "stage_race_home", 1, 0, 0, 1);
 	}
 	if (ENTITY::DOES_ENTITY_EXIST(iLocal_63))
 	{
@@ -11048,10 +11048,10 @@ void func_745()//Position - 0x71D18
 	AUDIO::REQUEST_AMBIENT_AUDIO_BANK("SCRIPT\Alarms", 0);
 	func_752();
 	func_708(Local_157, Local_160, 0);
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		func_707(500);
-		iVar0 = GlobalFunc_198();
+		iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544 == 1)
 		{
 			iVar0++;

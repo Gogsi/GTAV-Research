@@ -421,7 +421,7 @@ int func_2(int iParam0)//Position - 0x3D1
 	struct<4> Var0;
 	char* sVar32;
 	
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		while (!GlobalFunc_9038(*iParam0))
 		{
@@ -450,7 +450,7 @@ int func_2(int iParam0)//Position - 0x3D1
 	MemCopy(&sVar32, {GlobalFunc_44(*iParam0)}, 4);
 	GlobalFunc_5225(&sVar32, Var0.f_3, 0);
 	GlobalFunc_865(*iParam0);
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		if (iParam0->f_16 == 2)
 		{
@@ -765,7 +765,7 @@ void func_192(int iParam0)//Position - 0xBDD6
 		iVar0 = 0;
 		while (iVar0 <= (iParam0->f_28 - 1))
 		{
-			if (GlobalFunc_4924(iParam0->f_28[iVar0]))
+			if (GlobalFunc_IsPedNotInjuredOrDead(iParam0->f_28[iVar0]))
 			{
 				PED::SET_PED_COMBAT_ATTRIBUTES(iParam0->f_28[iVar0], 1, 0);
 				PED::SET_BLOCKING_OF_NON_TEMPORARY_EVENTS(iParam0->f_28[iVar0], 0);
@@ -929,7 +929,7 @@ int func_203(var uParam0, bool bParam1, int iParam2)//Position - 0xC9D3
 	{
 		iParam2 = 1;
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		iVar0 = 0;
 		while (iVar0 <= iVar1)

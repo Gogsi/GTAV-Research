@@ -923,7 +923,7 @@ int func_6(var uParam0, struct<3> Param1, float fParam4, int iParam5)//Position 
 
 void func_9(var uParam0, bool bParam1)//Position - 0x7D4
 {
-	if (!GlobalFunc_4924(*uParam0))
+	if (!GlobalFunc_IsPedNotInjuredOrDead(*uParam0))
 	{
 		return;
 	}
@@ -1515,7 +1515,7 @@ void func_39(var uParam0, int iParam1, float fParam2)//Position - 0x1929
 	uParam0->f_14 = { 0f, 0f, 0f };
 	uParam0->f_17 = fParam2;
 	uParam0->f_18 = MISC::GET_RANDOM_FLOAT_IN_RANGE(15f, 25f);
-	if (GlobalFunc_4924(iVar2))
+	if (GlobalFunc_IsPedNotInjuredOrDead(iVar2))
 	{
 		PED::SET_PED_COMBAT_ATTRIBUTES(iVar2, 2, true);
 		ENTITY::SET_ENTITY_IS_TARGET_PRIORITY(iVar2, 1, 0);
@@ -1534,7 +1534,7 @@ void func_39(var uParam0, int iParam1, float fParam2)//Position - 0x1929
 	while (iVar0 < iVar3)
 	{
 		iVar1 = VEHICLE::GET_PED_IN_VEHICLE_SEAT(*uParam0, iVar0);
-		if (GlobalFunc_4924(iVar1) && iVar1 != iVar2)
+		if (GlobalFunc_IsPedNotInjuredOrDead(iVar1) && iVar1 != iVar2)
 		{
 			PED::SET_PED_COMBAT_ATTRIBUTES(iVar1, 3, false);
 			PED::SET_PED_COMBAT_ATTRIBUTES(iVar1, 2, true);
@@ -1581,13 +1581,13 @@ void func_40(var uParam0, float fParam1)//Position - 0x1A7A
 	while (iVar0 < iVar3)
 	{
 		iVar1 = VEHICLE::GET_PED_IN_VEHICLE_SEAT(*uParam0, iVar0);
-		if (GlobalFunc_4924(iVar1) && iVar1 != iVar2)
+		if (GlobalFunc_IsPedNotInjuredOrDead(iVar1) && iVar1 != iVar2)
 		{
 			PED::SET_PED_COMBAT_ATTRIBUTES(iVar1, 3, false);
 			PED::SET_PED_COMBAT_ATTRIBUTES(iVar1, 2, true);
 			TASK::TASK_COMBAT_PED(iVar1, PLAYER::PLAYER_PED_ID(), 0, 16);
 		}
-		else if (GlobalFunc_4924(iVar1))
+		else if (GlobalFunc_IsPedNotInjuredOrDead(iVar1))
 		{
 			PED::SET_PED_COMBAT_ATTRIBUTES(iVar1, 2, true);
 		}
@@ -1621,7 +1621,7 @@ void func_41(var uParam0, float fParam1)//Position - 0x1B57
 	while (iVar0 < iVar3)
 	{
 		iVar1 = VEHICLE::GET_PED_IN_VEHICLE_SEAT(*uParam0, iVar0);
-		if (GlobalFunc_4924(iVar1) && iVar1 != iVar2)
+		if (GlobalFunc_IsPedNotInjuredOrDead(iVar1) && iVar1 != iVar2)
 		{
 			PED::SET_PED_COMBAT_ATTRIBUTES(iVar1, 3, false);
 			PED::SET_PED_COMBAT_ATTRIBUTES(iVar1, 2, true);
@@ -2916,7 +2916,7 @@ void func_100(var uParam0, int iParam1)//Position - 0x4F88
 				{
 					if (uParam0->f_2[iVar0] != -1)
 					{
-						if (GlobalFunc_4924(Local_1227[uParam0->f_2[iVar0] /*13*/]))
+						if (GlobalFunc_IsPedNotInjuredOrDead(Local_1227[uParam0->f_2[iVar0] /*13*/]))
 						{
 							func_47(Local_1227[uParam0->f_2[iVar0] /*13*/], *uParam0);
 						}
@@ -2937,7 +2937,7 @@ void func_100(var uParam0, int iParam1)//Position - 0x4F88
 					{
 						if (Local_1227[uParam0->f_2[iVar0] /*13*/] != iVar1)
 						{
-							if (GlobalFunc_4924(Local_1227[uParam0->f_2[iVar0] /*13*/]))
+							if (GlobalFunc_IsPedNotInjuredOrDead(Local_1227[uParam0->f_2[iVar0] /*13*/]))
 							{
 								func_47(Local_1227[uParam0->f_2[iVar0] /*13*/], *uParam0);
 							}
@@ -2953,7 +2953,7 @@ void func_100(var uParam0, int iParam1)//Position - 0x4F88
 		case 2:
 			if (VEHICLE::GET_VEHICLE_NUMBER_OF_PASSENGERS(*uParam0) == 0 && iParam1)
 			{
-				if (GlobalFunc_4924(iVar1))
+				if (GlobalFunc_IsPedNotInjuredOrDead(iVar1))
 				{
 					TASK::TASK_VEHICLE_MISSION_PED_TARGET(iVar1, *uParam0, PLAYER::PLAYER_PED_ID(), 8, 80f, 786436, 500f, -1f, 1);
 					uParam0->f_12 = 3;
@@ -4131,7 +4131,7 @@ int func_176()//Position - 0x944D
 	{
 		iLocal_1025 = 0;
 	}
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		if (iLocal_1025 > Global_SAVE_DATA.RAMPAGE_SAVED_ARRAY[Local_358.f_1 /*2*/] || iVar1 > Global_SAVE_DATA.RAMPAGE_SAVED_ARRAY[Local_358.f_1 /*2*/].f_1)
 		{
@@ -4239,7 +4239,7 @@ void func_185(var uParam0)//Position - 0x989D
 	{
 		return;
 	}
-	if (GlobalFunc_4924(*uParam0))
+	if (GlobalFunc_IsPedNotInjuredOrDead(*uParam0))
 	{
 		TASK::SET_PED_PATH_CAN_USE_CLIMBOVERS(*uParam0, 1);
 		TASK::SET_PED_PATH_CAN_USE_LADDERS(*uParam0, 1);
@@ -4540,7 +4540,7 @@ void func_206(var uParam0, struct<3> Param1, float fParam4, int iParam5)//Positi
 	uParam0->f_14 = { Param1 };
 	uParam0->f_17 = fParam4;
 	uParam0->f_18 = iParam5;
-	if (GlobalFunc_4924(iVar2))
+	if (GlobalFunc_IsPedNotInjuredOrDead(iVar2))
 	{
 		PED::SET_PED_COMBAT_ATTRIBUTES(iVar2, 2, true);
 		PED::SET_BLOCKING_OF_NON_TEMPORARY_EVENTS(iVar2, iLocal_2211);
@@ -4551,7 +4551,7 @@ void func_206(var uParam0, struct<3> Param1, float fParam4, int iParam5)//Positi
 	while (iVar0 < iVar3)
 	{
 		iVar1 = VEHICLE::GET_PED_IN_VEHICLE_SEAT(*uParam0, iVar0);
-		if (GlobalFunc_4924(iVar1) && iVar1 != iVar2)
+		if (GlobalFunc_IsPedNotInjuredOrDead(iVar1) && iVar1 != iVar2)
 		{
 			PED::SET_PED_COMBAT_ATTRIBUTES(iVar1, 3, false);
 			PED::SET_PED_COMBAT_ATTRIBUTES(iVar1, 2, true);
@@ -5693,7 +5693,7 @@ void func_249(int iParam0, int iParam1, int iParam2, bool bParam3)//Position - 0
 			}
 		}
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		PED::SET_PED_STEALTH_MOVEMENT(PLAYER::PLAYER_PED_ID(), 0, 0);
 	}
@@ -5973,7 +5973,7 @@ void func_366()//Position - 0x2AA2E
 			fVar4 = 318.5112f;
 			break;
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		GlobalFunc_10627(&iVar0, Var1, fVar4, 0, 0, 1, 1, 0, joaat("asterope"), 0, 145);
 	}

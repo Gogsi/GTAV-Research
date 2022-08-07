@@ -525,7 +525,7 @@ void func_1()//Position - 0x395
 		case 0:
 			if ((GlobalFunc_6525(Local_349, Var0) && PED::IS_PED_HEADING_TOWARDS_POSITION(PLAYER::PLAYER_PED_ID(), ENTITY::GET_ENTITY_COORDS(iLocal_40, 1), 90f)) && !GlobalFunc_74("FAM_WEAPDIS"))
 			{
-				GlobalFunc_2542(func_58());
+				GlobalFunc_Display_Help_Text2(func_58());
 				iLocal_321 = 1;
 			}
 			break;

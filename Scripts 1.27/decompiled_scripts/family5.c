@@ -680,9 +680,9 @@ void __EntryFunction__()//Position - 0x0
 		}
 		SCRIPT::TERMINATE_THIS_THREAD();
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		func_765(&iLocal_592, GlobalFunc_198());
+		func_765(&iLocal_592, GlobalFunc_Get_Mission_Fail_Checkpoint());
 		iLocal_905 = 1;
 		if (Global_84544 == 1)
 		{
@@ -691,11 +691,11 @@ void __EntryFunction__()//Position - 0x0
 	}
 	else
 	{
-		GlobalFunc_11046(0, "YOGA - WARRIOR", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint2(0, "YOGA - WARRIOR", 0, 0, 0, 1);
 	}
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
-		if (!GlobalFunc_199())
+		if (!GlobalFunc_Is_Mission_Retry())
 		{
 			iLocal_592 = 2;
 			iLocal_905 = 1;
@@ -941,7 +941,7 @@ void __EntryFunction__()//Position - 0x0
 					if (func_311(&iLocal_903))
 					{
 						func_668();
-						if (!GlobalFunc_2(0))
+						if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 						{
 							iLocal_592 = 18;
 						}
@@ -1660,7 +1660,7 @@ int func_311(int iParam0)//Position - 0x4AFDA
 			break;
 		
 		case 5:
-			if (!GlobalFunc_2(0))
+			if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				return 1;
 			}
@@ -7101,14 +7101,14 @@ void func_565(var uParam0, int iParam1, var uParam2)//Position - 0x5C1D7
 		}
 		if (GlobalFunc_74("STICKS"))
 		{
-			GlobalFunc_1("STICKS_KM");
+			GlobalFunc_Display_Help_Text("STICKS_KM");
 		}
 	}
 	else if (MISC::IS_PC_VERSION())
 	{
 		if (GlobalFunc_74("STICKS_KM"))
 		{
-			GlobalFunc_1("STICKS");
+			GlobalFunc_Display_Help_Text("STICKS");
 		}
 	}
 	GRAPHICS::BEGIN_SCALEFORM_MOVIE_METHOD(*uParam2, "SET_STICK_POINTER_ANGLE");
@@ -7196,11 +7196,11 @@ int func_567(var uParam0, int iParam1, int iParam2, int iParam3, float fParam4, 
 							{
 								if (PAD::_IS_USING_KEYBOARD(2))
 								{
-									GlobalFunc_1("STICKS_KM");
+									GlobalFunc_Display_Help_Text("STICKS_KM");
 								}
 								else
 								{
-									GlobalFunc_1("STICKS");
+									GlobalFunc_Display_Help_Text("STICKS");
 								}
 								iLocal_453 = 1;
 								iLocal_454 = 0;
@@ -7268,7 +7268,7 @@ int func_567(var uParam0, int iParam1, int iParam2, int iParam3, float fParam4, 
 									{
 										if (!iLocal_454)
 										{
-											GlobalFunc_1("INHALE_NEW");
+											GlobalFunc_Display_Help_Text("INHALE_NEW");
 											iLocal_453 = 0;
 											iLocal_454 = 1;
 											iLocal_455 = 0;
@@ -7295,7 +7295,7 @@ int func_567(var uParam0, int iParam1, int iParam2, int iParam3, float fParam4, 
 									{
 										if (!iLocal_454)
 										{
-											GlobalFunc_1("INHALE_NEW");
+											GlobalFunc_Display_Help_Text("INHALE_NEW");
 											iLocal_453 = 0;
 											iLocal_454 = 1;
 											iLocal_455 = 0;
@@ -7321,7 +7321,7 @@ int func_567(var uParam0, int iParam1, int iParam2, int iParam3, float fParam4, 
 									{
 										if (!iLocal_454)
 										{
-											GlobalFunc_1("INHALE_NEW");
+											GlobalFunc_Display_Help_Text("INHALE_NEW");
 											iLocal_453 = 0;
 											iLocal_454 = 1;
 											iLocal_455 = 0;
@@ -7402,7 +7402,7 @@ int func_567(var uParam0, int iParam1, int iParam2, int iParam3, float fParam4, 
 									{
 										if (!iLocal_455)
 										{
-											GlobalFunc_1("EXHALE_NEW");
+											GlobalFunc_Display_Help_Text("EXHALE_NEW");
 											iLocal_453 = 0;
 											iLocal_454 = 0;
 											iLocal_455 = 1;
@@ -10974,7 +10974,7 @@ int func_670(int iParam0, int iParam1, int iParam2, var uParam3, int iParam4)//P
 			case 0:
 			case 1:
 			case 2:
-				if (GlobalFunc_2(0))
+				if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					if (!GlobalFunc_10915(PLAYER::PLAYER_PED_ID(), 12, 7))
 					{
@@ -12025,37 +12025,37 @@ int func_670(int iParam0, int iParam1, int iParam2, var uParam3, int iParam4)//P
 				iLocal_1168 = CLOCK::GET_CLOCK_HOURS();
 				iLocal_1169 = CLOCK::GET_CLOCK_MINUTES();
 				iLocal_1170 = CLOCK::GET_CLOCK_SECONDS();
-				GlobalFunc_11046(0, "YOGA - WARRIOR", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint2(0, "YOGA - WARRIOR", 0, 0, 0, 1);
 				break;
 			
 			case 5:
 				iLocal_1168 = CLOCK::GET_CLOCK_HOURS();
 				iLocal_1169 = CLOCK::GET_CLOCK_MINUTES();
 				iLocal_1170 = CLOCK::GET_CLOCK_SECONDS();
-				GlobalFunc_11046(1, "YOGA - TRIANGLE", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint2(1, "YOGA - TRIANGLE", 0, 0, 0, 1);
 				break;
 			
 			case 7:
 				iLocal_1168 = CLOCK::GET_CLOCK_HOURS();
 				iLocal_1169 = CLOCK::GET_CLOCK_MINUTES();
 				iLocal_1170 = CLOCK::GET_CLOCK_SECONDS();
-				GlobalFunc_11046(2, "YOGA - SUNSALUTATION", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint2(2, "YOGA - SUNSALUTATION", 0, 0, 0, 1);
 				break;
 			
 			case 9:
-				GlobalFunc_11046(3, "GO TO JIMMY'S ROOM", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint2(3, "GO TO JIMMY'S ROOM", 0, 0, 0, 1);
 				break;
 			
 			case 11:
-				GlobalFunc_11046(4, "GO TO BURGER SHOT", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint2(4, "GO TO BURGER SHOT", 0, 0, 0, 1);
 				break;
 			
 			case 13:
-				GlobalFunc_11046(5, "DRIVE HOME", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint2(5, "DRIVE HOME", 0, 0, 0, 1);
 				break;
 			
 			case 16:
-				GlobalFunc_11046(6, "GO HOME WASTED", 1, 0, 0, 1);
+				GlobalFunc_Checkpoint2(6, "GO HOME WASTED", 1, 0, 0, 1);
 				break;
 		}
 		*iParam1++;

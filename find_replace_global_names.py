@@ -74,6 +74,12 @@ for (k,v) in structArrayMap.items():
 # [Global_97353].TOWING_SAVED_STRUCT.TOWING_iJobsCompleted -> Global_fSaveVersion.TOWING_SAVED_STRUCT.TOWING_iJobsCompleted
 sorted_map = dict(sorted(fieldMap.items(), key=lambda x: x[0].count('.'), reverse=True))
 print(sorted_map)
+
+outputFile = open("globals.txt", "w")
+for (k,v) in sorted_map.items():
+    outputFile.write(k + ";" + v)
+outputFile.close()
+
 print("===============================")
 print(structArrayMap)
 

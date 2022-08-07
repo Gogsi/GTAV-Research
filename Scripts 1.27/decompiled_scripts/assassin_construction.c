@@ -1504,7 +1504,7 @@ void __EntryFunction__()//Position - 0x0
 		func_426();
 	}
 	MISC::SET_MISSION_FLAG(1);
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		if (GlobalFunc_7698())
 		{
@@ -1532,10 +1532,10 @@ void __EntryFunction__()//Position - 0x0
 	Local_121.f_3 = 750;
 	PLAYER::SET_WANTED_LEVEL_MULTIPLIER(0.2f);
 	iLocal_1029 = 1;
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		bLocal_137 = true;
-		iLocal_1774 = GlobalFunc_198();
+		iLocal_1774 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544)
 		{
 			if (iLocal_1774 <= 3)
@@ -1663,7 +1663,7 @@ void func_1()//Position - 0x5F8
 			Local_1918[2 /*3*/] = { -84.50335f, -1029.008f, 24.75447f };
 			Local_1928[2 /*3*/] = { -80.10741f, -1016.94f, 35.95333f };
 			fLocal_1938[2] = 15f;
-			if (GlobalFunc_199())
+			if (GlobalFunc_Is_Mission_Retry())
 			{
 				iLocal_1029 = 4;
 				break;
@@ -1672,7 +1672,7 @@ void func_1()//Position - 0x5F8
 			break;
 		
 		case 4:
-			if (GlobalFunc_199())
+			if (GlobalFunc_Is_Mission_Retry())
 			{
 				bLocal_1726 = true;
 			}
@@ -4489,7 +4489,7 @@ void func_206()//Position - 0x965D
 			}
 			else
 			{
-				GlobalFunc_11067(3, "assassin_construction_rooftop_battle", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint4(3, "assassin_construction_rooftop_battle", 0, 0, 0, 1);
 			}
 			AUDIO::TRIGGER_MUSIC_EVENT("ASS5_ROOF");
 			AUDIO::START_AUDIO_SCENE("ASSASSINATION_CONSTRUCT_HELICOPTER_SCENE");
@@ -4827,7 +4827,7 @@ void func_213()//Position - 0x9DEF
 			{
 				if (ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), -160.1407f, -981.4936f, 273.4415f, -144.7745f, -941.6792f, 266.6331f, 42f, 0, 1, 0))
 				{
-					GlobalFunc_11067(3, "assassin_construction_rooftop_battle", 0, 0, 0, 1);
+					GlobalFunc_Checkpoint4(3, "assassin_construction_rooftop_battle", 0, 0, 0, 1);
 					iLocal_1748 = 1;
 				}
 			}
@@ -5648,7 +5648,7 @@ void func_296()//Position - 0x11D99
 	switch (iLocal_1759)
 	{
 		case 0:
-			GlobalFunc_11067(2, "assassin_construction_get_to_second_elevator", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint4(2, "assassin_construction_get_to_second_elevator", 0, 0, 0, 1);
 			if (!bLocal_1713)
 			{
 				bLocal_1713 = true;
@@ -6090,7 +6090,7 @@ void func_304()//Position - 0x1283E
 	switch (iLocal_1759)
 	{
 		case 0:
-			GlobalFunc_11067(1, "assassin_construction_enter_site", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint4(1, "assassin_construction_enter_site", 0, 0, 0, 1);
 			AUDIO::START_AUDIO_SCENE("ASSASSINATION_CONSTRUCT_SHOOTOUT_START");
 			AUDIO::TRIGGER_MUSIC_EVENT("ASS5_START");
 			if (!ENTITY::DOES_ENTITY_EXIST(uLocal_1786[0]))
@@ -7137,7 +7137,7 @@ void func_332()//Position - 0x142C8
 			Global_SAVE_DATA.ASSASSIN_SAVED_STRUCT.ASSASSIN_ConstructionMissionTime = 0f;
 		}
 		func_333(1);
-		GlobalFunc_11067(0, "assassin_construction_get_to_site", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint4(0, "assassin_construction_get_to_site", 0, 0, 0, 1);
 		GlobalFunc_9138(iLocal_1973);
 		iLocal_1029 = 7;
 	}
@@ -7811,7 +7811,7 @@ void func_363()//Position - 0x15AD1
 								{
 									GlobalFunc_7731(&uLocal_1053);
 									iLocal_1060 = 1;
-									if (GlobalFunc_2(0))
+									if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 									{
 										GlobalFunc_575(500);
 									}
@@ -8227,9 +8227,9 @@ int func_380(var uParam0, struct<3> Param1, float fParam4, bool bParam5)//Positi
 						GlobalFunc_7695(iVar8);
 					}
 				}
-				if (((Global_89962 != 13 && Global_89962 != 10) && Global_89962 != 11) && Global_89962 != 12)
+				if (((Global_Mission_Fail_State != 13 && Global_Mission_Fail_State != 10) && Global_Mission_Fail_State != 11) && Global_Mission_Fail_State != 12)
 				{
-					if (MISC::GET_HASH_KEY(&(Global_89962.f_3)) == Global_68102)
+					if (MISC::GET_HASH_KEY(&(Global_Mission_Fail_State.Failed_Script_Name)) == Global_68102)
 					{
 						if (uParam0->f_12.f_42 == Global_SAVE_DATA.VEHICLE_GEN_SAVED_DATA_STRUCT.f_69[21 /*54*/].f_42)
 						{

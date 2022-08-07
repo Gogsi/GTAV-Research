@@ -907,9 +907,9 @@ int func_13(var uParam0, struct<3> Param1, float fParam4, bool bParam5)//Positio
 						GlobalFunc_7695(iVar8);
 					}
 				}
-				if (((Global_89962 != 13 && Global_89962 != 10) && Global_89962 != 11) && Global_89962 != 12)
+				if (((Global_Mission_Fail_State != 13 && Global_Mission_Fail_State != 10) && Global_Mission_Fail_State != 11) && Global_Mission_Fail_State != 12)
 				{
-					if (MISC::GET_HASH_KEY(&(Global_89962.f_3)) == Global_68102)
+					if (MISC::GET_HASH_KEY(&(Global_Mission_Fail_State.Failed_Script_Name)) == Global_68102)
 					{
 						if (uParam0->f_12.f_42 == Global_SAVE_DATA.VEHICLE_GEN_SAVED_DATA_STRUCT.f_69[21 /*54*/].f_42)
 						{
@@ -2073,9 +2073,9 @@ int func_145(var uParam0, bool bParam1, bool bParam2, int iParam3)//Position - 0
 				iVar4 = 0;
 				while (iVar4 < 7)
 				{
-					if (MISC::IS_BIT_SET(Global_81119[iVar4 /*5*/].f_1, 2))
+					if (MISC::IS_BIT_SET(Global_Running_Missions[iVar4 /*5*/].f_1, 2))
 					{
-						iVar5 = Global_81119[iVar4 /*5*/];
+						iVar5 = Global_Running_Missions[iVar4 /*5*/];
 						StringCopy(&cVar6, "MISS_SWITCH_", 64);
 						StringConCat(&cVar6, &(Global_81155[Global_68514.f_109[iVar5 /*4*/] /*34*/]), 64);
 						STATS::STAT_INCREMENT(MISC::GET_HASH_KEY(&cVar6), 1f);
@@ -8996,11 +8996,11 @@ int func_589(int iParam0, var uParam1, var uParam2)//Position - 0x75D77
 					break;
 			}
 			iVar3 = 0;
-			while (iVar3 < Global_81119)
+			while (iVar3 < Global_Running_Missions)
 			{
-				if (Global_81119[iVar3 /*5*/] != -1)
+				if (Global_Running_Missions[iVar3 /*5*/] != -1)
 				{
-					uVar1 = Global_68514.f_109[Global_81119[iVar3 /*5*/] /*4*/];
+					uVar1 = Global_68514.f_109[Global_Running_Missions[iVar3 /*5*/] /*4*/];
 					iVar2 = uVar1;
 					if (GlobalFunc_747(Global_81155[iVar2 /*34*/].f_12, iVar0))
 					{

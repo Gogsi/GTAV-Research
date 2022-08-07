@@ -3976,7 +3976,7 @@ int func_120()//Position - 0x515F
 			{
 				return 103;
 			}
-			if (GlobalFunc_2(0))
+			if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				return 17;
 			}
@@ -4441,7 +4441,7 @@ int func_120()//Position - 0x515F
 			break;
 		
 		case 14:
-			if (GlobalFunc_2(0))
+			if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 			{
 				return 17;
 			}
@@ -18777,7 +18777,7 @@ void func_644()//Position - 0x34EB5
 				{
 					iLocal_1130[0] = 0;
 				}
-				else if (Global_262145.f_6969 || GlobalFunc_2(0))
+				else if (Global_262145.f_6969 || GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					iLocal_1130[0] = 2;
 				}
@@ -19311,7 +19311,7 @@ void func_656()//Position - 0x35AC5
 					}
 					else if (iVar0 == 8)
 					{
-						if (((((((((GlobalFunc_6874() || GlobalFunc_3() == 2) || ((!func_166(1, 0) && !func_166(1, 1)) && !func_166(1, 2))) || !NETWORK::NETWORK_HAVE_ROS_SOCIAL_CLUB_PRIV()) || (((!MISC::IS_DURANGO_VERSION() && !MISC::IS_ORBIS_VERSION()) && !func_162()) && !NETWORK::NETWORK_CHECK_USER_CONTENT_PRIVILEGES(1, -2, 1))) || (MISC::IS_DURANGO_VERSION() && !NETWORK::NETWORK_HAS_ROS_PRIVILEGE(18))) || (!GlobalFunc_961() && MISC::IS_ORBIS_VERSION())) || NETWORK::NETWORK_PLAYER_IS_CHEATER()) || GlobalFunc_2(0)) || !func_161())
+						if (((((((((GlobalFunc_6874() || GlobalFunc_3() == 2) || ((!func_166(1, 0) && !func_166(1, 1)) && !func_166(1, 2))) || !NETWORK::NETWORK_HAVE_ROS_SOCIAL_CLUB_PRIV()) || (((!MISC::IS_DURANGO_VERSION() && !MISC::IS_ORBIS_VERSION()) && !func_162()) && !NETWORK::NETWORK_CHECK_USER_CONTENT_PRIVILEGES(1, -2, 1))) || (MISC::IS_DURANGO_VERSION() && !NETWORK::NETWORK_HAS_ROS_PRIVILEGE(18))) || (!GlobalFunc_961() && MISC::IS_ORBIS_VERSION())) || NETWORK::NETWORK_PLAYER_IS_CHEATER()) || GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0)) || !func_161())
 						{
 							bVar5 = false;
 						}
@@ -21298,7 +21298,7 @@ int func_674(int iParam0)//Position - 0x38B4B
 				break;
 			
 			case 1:
-				if (Global_262145.f_6969 || GlobalFunc_2(0))
+				if (Global_262145.f_6969 || GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 				{
 					return 0;
 				}

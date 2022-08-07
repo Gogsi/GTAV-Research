@@ -671,7 +671,7 @@ void func_2()//Position - 0x30E
 				PED::SET_SYNCHRONIZED_SCENE_LOOPED(uLocal_327, 1);
 				if (!GlobalFunc_74("SA_BED_OUT"))
 				{
-					GlobalFunc_1("SA_BED_OUT");
+					GlobalFunc_Display_Help_Text("SA_BED_OUT");
 				}
 				iLocal_322 = 6;
 			}
@@ -689,7 +689,7 @@ void func_2()//Position - 0x30E
 			{
 				if (!GlobalFunc_74("SA_BED_OUT"))
 				{
-					GlobalFunc_1("SA_BED_OUT");
+					GlobalFunc_Display_Help_Text("SA_BED_OUT");
 				}
 			}
 			else if (GlobalFunc_74("SA_BED_OUT"))

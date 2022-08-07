@@ -259,7 +259,7 @@ void func_9()//Position - 0x536
 		if ((iLocal_211 == 0 && iLocal_212 == 0) && iLocal_213 == 0)
 		{
 			iLocal_209 = 0;
-			GlobalFunc_1("CELL_MSHELP_2");
+			GlobalFunc_Display_Help_Text("CELL_MSHELP_2");
 		}
 		MOBILE::SET_MOBILE_PHONE_ROTATION(Local_206, 0);
 	}

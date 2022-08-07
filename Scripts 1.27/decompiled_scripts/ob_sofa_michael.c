@@ -495,7 +495,7 @@ void func_1()//Position - 0x2A3
 					{
 						AUDIO::START_AUDIO_SCENE("MICHAEL_SAFEHOUSE_ACTIVITIES_SCENE");
 					}
-					GlobalFunc_1("TV_HLP0");
+					GlobalFunc_Display_Help_Text("TV_HLP0");
 					iLocal_307 = 1;
 				}
 			}
@@ -620,7 +620,7 @@ void func_1()//Position - 0x2A3
 			{
 				if (!Global_24504[4 /*11*/].f_2)
 				{
-					GlobalFunc_1("TV_HLP3");
+					GlobalFunc_Display_Help_Text("TV_HLP3");
 					iLocal_307 = 5;
 				}
 				else if (PED::GET_SYNCHRONIZED_SCENE_PHASE(uLocal_330) > 0.8f)
@@ -637,7 +637,7 @@ void func_1()//Position - 0x2A3
 						HUD::CLEAR_HELP(1);
 					}
 					GRAPHICS::ENABLE_MOVIE_SUBTITLES(1);
-					GlobalFunc_1("TV_HLP4");
+					GlobalFunc_Display_Help_Text("TV_HLP4");
 					iLocal_307 = 6;
 				}
 			}
@@ -657,7 +657,7 @@ void func_1()//Position - 0x2A3
 				func_20();
 				if (!GlobalFunc_74("TV_HLP3"))
 				{
-					GlobalFunc_1("TV_HLP3");
+					GlobalFunc_Display_Help_Text("TV_HLP3");
 				}
 				if (PAD::IS_CONTROL_JUST_PRESSED(2, 51))
 				{
@@ -708,7 +708,7 @@ void func_1()//Position - 0x2A3
 						AUDIO::START_AUDIO_SCENE("TV_MICHAELS_HOUSE");
 					}
 					GRAPHICS::ENABLE_MOVIE_SUBTITLES(1);
-					GlobalFunc_1("TV_HLP4");
+					GlobalFunc_Display_Help_Text("TV_HLP4");
 				}
 			}
 			break;
@@ -723,7 +723,7 @@ void func_1()//Position - 0x2A3
 			{
 				if (!GlobalFunc_74("TV_HLP4"))
 				{
-					GlobalFunc_1("TV_HLP4");
+					GlobalFunc_Display_Help_Text("TV_HLP4");
 				}
 				func_20();
 				func_16(0, 1);
@@ -1010,7 +1010,7 @@ void func_1()//Position - 0x2A3
 							TASK::TASK_SYNCHRONIZED_SCENE(PLAYER::PLAYER_PED_ID(), uLocal_330, sLocal_337, "tv_base_michael", 8f, -8f, 64, 0, 1148846080, 0);
 							ENTITY::PLAY_SYNCHRONIZED_ENTITY_ANIM(func_24(), uLocal_330, "tv_base_remote", sLocal_337, 8f, -8f, 64, 1148846080);
 							PED::SET_SYNCHRONIZED_SCENE_LOOPED(uLocal_330, 1);
-							GlobalFunc_1("TV_HLP4");
+							GlobalFunc_Display_Help_Text("TV_HLP4");
 							iLocal_307 = 7;
 						}
 						else
@@ -1018,7 +1018,7 @@ void func_1()//Position - 0x2A3
 							TASK::TASK_SYNCHRONIZED_SCENE(PLAYER::PLAYER_PED_ID(), uLocal_330, sLocal_337, "base_michael", 4f, -8f, 64, 0, 1148846080, 0);
 							ENTITY::PLAY_SYNCHRONIZED_ENTITY_ANIM(func_24(), uLocal_330, "base_remote", sLocal_337, 8f, -8f, 64, 1148846080);
 							PED::SET_SYNCHRONIZED_SCENE_LOOPED(uLocal_330, 1);
-							GlobalFunc_1("TV_HLP3");
+							GlobalFunc_Display_Help_Text("TV_HLP3");
 							iLocal_307 = 5;
 						}
 					}

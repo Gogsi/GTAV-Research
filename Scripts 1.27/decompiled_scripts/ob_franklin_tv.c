@@ -437,7 +437,7 @@ void func_1()//Position - 0x1D1
 			{
 				if (PED::IS_PED_HEADING_TOWARDS_POSITION(PLAYER::PLAYER_PED_ID(), Local_311, 90f) || iLocal_316)
 				{
-					GlobalFunc_1("TV_HLP0");
+					GlobalFunc_Display_Help_Text("TV_HLP0");
 					if (!AUDIO::IS_AUDIO_SCENE_ACTIVE("FRANKLIN_SAFEHOUSE_ACTIVITIES_SCENE"))
 					{
 						AUDIO::START_AUDIO_SCENE("FRANKLIN_SAFEHOUSE_ACTIVITIES_SCENE");
@@ -549,7 +549,7 @@ void func_1()//Position - 0x1D1
 				TASK::TASK_SYNCHRONIZED_SCENE(PLAYER::PLAYER_PED_ID(), uLocal_318, sLocal_321, "base", 8f, -8f, 64, 0, 1148846080, 0);
 				ENTITY::PLAY_SYNCHRONIZED_ENTITY_ANIM(func_18(), uLocal_318, "base_remote", sLocal_321, 8f, -8f, 64, 1148846080);
 				PED::SET_SYNCHRONIZED_SCENE_LOOPED(uLocal_318, 1);
-				GlobalFunc_1("TV_HLP7");
+				GlobalFunc_Display_Help_Text("TV_HLP7");
 				if (!AUDIO::IS_AUDIO_SCENE_ACTIVE("TV_FRANKLINS_HOUSE_VINEWOOD"))
 				{
 					AUDIO::START_AUDIO_SCENE("TV_FRANKLINS_HOUSE_VINEWOOD");
@@ -566,7 +566,7 @@ void func_1()//Position - 0x1D1
 			{
 				if (!GlobalFunc_74("TV_HLP3"))
 				{
-					GlobalFunc_1("TV_HLP7");
+					GlobalFunc_Display_Help_Text("TV_HLP7");
 				}
 				func_7(0, 1);
 				if (PAD::IS_CONTROL_JUST_PRESSED(2, 51))

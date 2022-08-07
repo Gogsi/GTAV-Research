@@ -4932,7 +4932,7 @@ void func_189(int iParam0)//Position - 0x7626
 							{
 								iLocal_129[iParam0] = 1;
 							}
-							else if (((!GlobalFunc_230(0) && GlobalFunc_4608(1, 0) == 0) && (Global_SAVE_DATA.isGameflowActive || GlobalFunc_2(0))) && (MISC::IS_BIT_SET(Global_SAVE_DATA.FLOW_STRUCT.MF_STRANDS_ARRAY[27 /*3*/], 1) || GlobalFunc_2(0)))
+							else if (((!GlobalFunc_230(0) && GlobalFunc_4608(1, 0) == 0) && (Global_SAVE_DATA.isGameflowActive || GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))) && (MISC::IS_BIT_SET(Global_SAVE_DATA.FLOW_STRUCT.MF_STRANDS_ARRAY[27 /*3*/], 1) || GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0)))
 							{
 								iLocal_129[iParam0] = 1;
 								iLocal_133[iParam0] = 1;

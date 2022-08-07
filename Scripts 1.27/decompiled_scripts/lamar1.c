@@ -446,9 +446,9 @@ void __EntryFunction__()//Position - 0x0
 		SCRIPT::TERMINATE_THIS_THREAD();
 	}
 	func_648();
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		iVar0 = GlobalFunc_198();
+		iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544)
 		{
 			if (iVar0 == 1)
@@ -728,7 +728,7 @@ void func_1()//Position - 0x641
 					CUTSCENE::REGISTER_ENTITY_FOR_CUTSCENE(Local_806, "Stretch", 0, 0, 0);
 					func_28();
 					GlobalFunc_4956();
-					if (!GlobalFunc_2(0))
+					if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 					{
 						Global_85393 = 1;
 					}
@@ -21410,7 +21410,7 @@ void func_149()//Position - 0x1984A
 				}
 				if ((SYSTEM::TIMERA() > 7000 && func_211(PLAYER::PLAYER_PED_ID(), Local_793)) && func_211(PLAYER::PLAYER_PED_ID(), Local_806))
 				{
-					if (GlobalFunc_199())
+					if (GlobalFunc_Is_Mission_Retry())
 					{
 						if (PAD::_IS_USING_KEYBOARD(0))
 						{
@@ -24164,7 +24164,7 @@ void func_262()//Position - 0x24F31
 							WEAPON::GET_CURRENT_PED_WEAPON(PLAYER::PLAYER_PED_ID(), &iVar21, 1);
 							if ((iVar21 != joaat("weapon_unarmed") && WEAPON::HAS_PED_GOT_WEAPON_COMPONENT(PLAYER::PLAYER_PED_ID(), iVar21, joaat("component_at_ar_flsh"))) && !WEAPON::IS_PED_WEAPON_COMPONENT_ACTIVE(PLAYER::PLAYER_PED_ID(), iVar21, joaat("component_at_ar_flsh")))
 							{
-								GlobalFunc_1("LEM1_FLAHELP");
+								GlobalFunc_Display_Help_Text("LEM1_FLAHELP");
 								iLocal_130[77] = 1;
 							}
 							else
@@ -32249,7 +32249,7 @@ void func_314()//Position - 0x3729E
 			}
 			CUTSCENE::REQUEST_CUTSCENE("LAM_1_MCS_1_CONCAT", 8);
 			func_34("LAM_1_MCS_1_CONCAT");
-			if ((func_313(0) && !GlobalFunc_5172(&Local_819, 0)) && GlobalFunc_109())
+			if ((func_313(0) && !GlobalFunc_5172(&Local_819, 0)) && GlobalFunc_Has_Cutscene_Loaded())
 			{
 				PLAYER::SET_PLAYER_CONTROL(PLAYER::PLAYER_ID(), false, 0);
 				func_29(Local_793);
@@ -37017,7 +37017,7 @@ void func_503()//Position - 0x4681A
 			CUTSCENE::REQUEST_CUTSCENE("lam_1_mcs_3", 8);
 			STREAMING::REQUEST_ANIM_DICT(sLocal_348);
 			func_34("lam_1_mcs_3");
-			if (((GlobalFunc_5798(28) && func_516()) && STREAMING::HAS_ANIM_DICT_LOADED(sLocal_348)) && GlobalFunc_109())
+			if (((GlobalFunc_5798(28) && func_516()) && STREAMING::HAS_ANIM_DICT_LOADED(sLocal_348)) && GlobalFunc_Has_Cutscene_Loaded())
 			{
 				PLAYER::SET_PLAYER_CONTROL(PLAYER::PLAYER_ID(), false, 0);
 				func_29(Local_793);
@@ -37957,7 +37957,7 @@ void func_542()//Position - 0x4C42F
 						GlobalFunc_8316(1, 1, 1, 0);
 						PED::SET_PED_DENSITY_MULTIPLIER_THIS_FRAME(0f);
 						VEHICLE::SET_VEHICLE_DENSITY_MULTIPLIER_THIS_FRAME(0f);
-						if (!GlobalFunc_199())
+						if (!GlobalFunc_Is_Mission_Retry())
 						{
 							if (ENTITY::DOES_ENTITY_EXIST(GlobalFunc_2251()) && !ENTITY::IS_ENTITY_DEAD(GlobalFunc_2251()))
 							{
@@ -38382,7 +38382,7 @@ int func_550(var uParam0, var uParam1, bool bParam2, bool bParam3, bool bParam4,
 	
 	uParam0->f_7 = *uParam1;
 	uParam0->f_8 = uParam1->f_1;
-	if ((GlobalFunc_2(0) && !bParam2) && !bParam4)
+	if ((GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) && !bParam2) && !bParam4)
 	{
 		if (uParam0->f_5)
 		{
@@ -38920,19 +38920,19 @@ void func_600(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 	iVar0 = 0;
 	if (iParam3 == 1)
 	{
-		if (iParam0 != Global_89999)
+		if (iParam0 != Global_Current_Checkpoint)
 		{
 			iVar0 = 1;
 		}
 	}
-	else if (iParam0 > Global_89999)
+	else if (iParam0 > Global_Current_Checkpoint)
 	{
 		iVar0 = 1;
 	}
 	if (iVar0 == 1)
 	{
 		GlobalFunc_174(1);
-		if (iParam0 <= Global_89999)
+		if (iParam0 <= Global_Current_Checkpoint)
 		{
 		}
 		iVar1 = GlobalFunc_5111(SCRIPT::GET_THIS_SCRIPT_NAME(), 1);
@@ -38954,7 +38954,7 @@ void func_600(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 						break;
 					}
 			}
-			STATS::PLAYSTATS_MISSION_CHECKPOINT(&cVar3, uVar2, Global_89999, iParam0);
+			STATS::PLAYSTATS_MISSION_CHECKPOINT(&cVar3, uVar2, Global_Current_Checkpoint, iParam0);
 		}
 		else
 		{
@@ -38963,11 +38963,11 @@ void func_600(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 			{
 				Global_SAVE_DATA.SAVED_RANDOM_CHARACTERS[iVar5 /*6*/].f_4 = 0;
 				MemCopy(&uVar6, {GlobalFunc_44(iVar5)}, 4);
-				STATS::PLAYSTATS_MISSION_CHECKPOINT(&uVar6, 0, Global_89999, iParam0);
+				STATS::PLAYSTATS_MISSION_CHECKPOINT(&uVar6, 0, Global_Current_Checkpoint, iParam0);
 			}
 			else
 			{
-				iVar10 = GlobalFunc_547(&(Global_89962.f_3));
+				iVar10 = GlobalFunc_547(&(Global_Mission_Fail_State.Failed_Script_Name));
 				if (iVar10 > -1)
 				{
 					Global_SAVE_DATA.BAIL_BOND_SAVED_STRUCT.f_4[iVar10] = 0;
@@ -38975,13 +38975,13 @@ void func_600(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4,
 			}
 		}
 		Global_84545 = iParam2;
-		Global_89999 = iParam0;
+		Global_Current_Checkpoint = iParam0;
 		func_601(iParam0, sParam1, iParam4, iParam5);
 		if (MISC::ARE_STRINGS_EQUAL(sParam1, ""))
 		{
 		}
 	}
-	else if (iParam0 < Global_89999)
+	else if (iParam0 < Global_Current_Checkpoint)
 	{
 	}
 }

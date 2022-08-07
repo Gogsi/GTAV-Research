@@ -3186,7 +3186,7 @@ void func_25()//Position - 0x4C20
 		SYSTEM::WAIT(0);
 	}
 	AUDIO::START_AUDIO_SCENE("AH_3A_GET_TO_LESTERS");
-	GlobalFunc_11043(10, "After getting back into the firetruck - returning to hideout", 1, 0, 0, 1);
+	GlobalFunc_Checkpoint1(10, "After getting back into the firetruck - returning to hideout", 1, 0, 0, 1);
 	iLocal_56 = 23;
 }
 
@@ -33796,9 +33796,9 @@ int func_426(int iParam0, bool bParam1, bool bParam2, int iParam3)//Position - 0
 				iVar4 = 0;
 				while (iVar4 < 7)
 				{
-					if (MISC::IS_BIT_SET(Global_81119[iVar4 /*5*/].f_1, 2))
+					if (MISC::IS_BIT_SET(Global_Running_Missions[iVar4 /*5*/].f_1, 2))
 					{
-						iVar5 = Global_81119[iVar4 /*5*/];
+						iVar5 = Global_Running_Missions[iVar4 /*5*/];
 						StringCopy(&cVar6, "MISS_SWITCH_", 64);
 						StringConCat(&cVar6, &(Global_81155[Global_68514.f_109[iVar5 /*4*/] /*34*/]), 64);
 						STATS::STAT_INCREMENT(MISC::GET_HASH_KEY(&cVar6), 1f);
@@ -34145,7 +34145,7 @@ void func_478()//Position - 0x5F30D
 	iLocal_5051 = INTERIOR::GET_INTERIOR_AT_COORDS_WITH_TYPE(137.1831f, -732.0952f, 42.1525f, "V_office_lobby");
 	INTERIOR::PIN_INTERIOR_IN_MEMORY(iLocal_5051);
 	iLocal_56 = 20;
-	GlobalFunc_11043(9, "start of abseiling", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint1(9, "start of abseiling", 0, 0, 0, 1);
 	GlobalFunc_159("setup4_help_7", -1);
 }
 
@@ -35836,7 +35836,7 @@ void func_528()//Position - 0x62509
 	iLocal_4862 = 22;
 	iLocal_4904 = 1;
 	iLocal_56 = 18;
-	GlobalFunc_11043(8, "Climb rubble", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint1(8, "Climb rubble", 0, 0, 0, 1);
 }
 
 void func_529()//Position - 0x62D5B
@@ -36155,7 +36155,7 @@ void func_531()//Position - 0x630B2
 	iLocal_4904 = 1;
 	func_101(1, 0, 0, 0, 1, 1);
 	iLocal_56 = 18;
-	GlobalFunc_11043(7, "Before back draft explosion", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint1(7, "Before back draft explosion", 0, 0, 0, 1);
 }
 
 void func_532()//Position - 0x63C28
@@ -36306,7 +36306,7 @@ void func_532()//Position - 0x63C28
 	AUDIO::START_AUDIO_SCENE("AH_3A_GET_TO_TOP_FLOOR");
 	AUDIO::TRIGGER_MUSIC_EVENT("AH3A_FIB_DOCS_RT");
 	iLocal_56 = 17;
-	GlobalFunc_11043(6, "Get down staris after getting server data", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint1(6, "Get down staris after getting server data", 0, 0, 0, 1);
 }
 
 void func_533()//Position - 0x64533
@@ -36464,7 +36464,7 @@ void func_533()//Position - 0x64533
 	func_484();
 	func_483();
 	iLocal_56 = 16;
-	GlobalFunc_11043(5, "start of FIB fire floor", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint1(5, "start of FIB fire floor", 0, 0, 0, 1);
 }
 
 void func_534()//Position - 0x64E9A
@@ -36546,7 +36546,7 @@ void func_534()//Position - 0x64E9A
 	SYSTEM::WAIT(0);
 	func_535();
 	iLocal_56 = 12;
-	GlobalFunc_11043(4, "After switching to Franklin in the Firetruck", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint1(4, "After switching to Franklin in the Firetruck", 0, 0, 0, 1);
 }
 
 void func_535()//Position - 0x65321
@@ -36852,7 +36852,7 @@ void func_561()//Position - 0x65FFF
 	}
 	func_101(0, 0, 0f, 0f, 1, 1);
 	iLocal_56 = 10;
-	GlobalFunc_11043(3, "Outside building calling Franklin", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint1(3, "Outside building calling Franklin", 0, 0, 0, 1);
 }
 
 void func_562()//Position - 0x661E8
@@ -37037,7 +37037,7 @@ void func_565()//Position - 0x66495
 	func_101(1, 0, 0, 0, 1, 1);
 	GlobalFunc_164("setup4_god_13", 7500, 1);
 	iLocal_56 = 8;
-	GlobalFunc_11043(2, "finished mopping enter lift", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint1(2, "finished mopping enter lift", 0, 0, 0, 1);
 }
 
 
@@ -37141,7 +37141,7 @@ void func_568()//Position - 0x669CE
 	AUDIO::START_AUDIO_SCENE("AH_3A_MOPPING_STAGE");
 	AUDIO::TRIGGER_MUSIC_EVENT("AH3A_MOP_RT");
 	iLocal_56 = 3;
-	GlobalFunc_11043(1, "Get mop and bucket", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint1(1, "Get mop and bucket", 0, 0, 0, 1);
 }
 
 
@@ -37272,7 +37272,7 @@ void func_570()//Position - 0x66F9A
 	TASK::CLEAR_SEQUENCE_TASK(&uLocal_5037);
 	PED::FORCE_PED_AI_AND_ANIMATION_UPDATE(PLAYER::PLAYER_PED_ID(), 0, 0);
 	Local_2146.f_21 = MISC::GET_GAME_TIMER();
-	GlobalFunc_11043(0, "Start of mission", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint1(0, "Start of mission", 0, 0, 0, 1);
 	func_101(0, 0, 0, 0, 1, 1);
 	iLocal_56 = 1;
 }
@@ -37384,9 +37384,9 @@ int func_596(var uParam0, struct<3> Param1, float fParam4, bool bParam5)//Positi
 						GlobalFunc_7695(iVar8);
 					}
 				}
-				if (((Global_89962 != 13 && Global_89962 != 10) && Global_89962 != 11) && Global_89962 != 12)
+				if (((Global_Mission_Fail_State != 13 && Global_Mission_Fail_State != 10) && Global_Mission_Fail_State != 11) && Global_Mission_Fail_State != 12)
 				{
-					if (MISC::GET_HASH_KEY(&(Global_89962.f_3)) == Global_68102)
+					if (MISC::GET_HASH_KEY(&(Global_Mission_Fail_State.Failed_Script_Name)) == Global_68102)
 					{
 						if (uParam0->f_12.f_42 == Global_SAVE_DATA.VEHICLE_GEN_SAVED_DATA_STRUCT.f_69[21 /*54*/].f_42)
 						{
@@ -42770,7 +42770,7 @@ int func_741()//Position - 0x7975F
 				func_670(&Local_5302, 1, 0);
 				func_755();
 				GlobalFunc_6812(3, 1);
-				GlobalFunc_11043(10, "After getting back into the firetruck - returning to hideout", 1, 0, 0, 1);
+				GlobalFunc_Checkpoint1(10, "After getting back into the firetruck - returning to hideout", 1, 0, 0, 1);
 				return 1;
 			}
 			else if (MISC::GET_DISTANCE_BETWEEN_COORDS(ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), 1), ENTITY::GET_ENTITY_COORDS(Local_81, 1), 1) < 13f)
@@ -44337,7 +44337,7 @@ void func_793()//Position - 0x7D76F
 	GRAPHICS::CLEAR_TIMECYCLE_MODIFIER();
 	iLocal_56 = 20;
 	PAD::_SWITCH_TO_INPUT_MAPPING_SCHEME_2("Rappelling");
-	GlobalFunc_11043(9, "start of abseiling", 1, 0, 0, 1);
+	GlobalFunc_Checkpoint1(9, "start of abseiling", 1, 0, 0, 1);
 }
 
 void func_794(char* sParam0, float fParam1)//Position - 0x7DC0C
@@ -47187,7 +47187,7 @@ int func_823()//Position - 0x833D6
 					PED::SET_ENABLE_PED_ENVEFF_SCALE(Local_2178[iVar0 /*32*/], 1);
 					iVar0++;
 				}
-				GlobalFunc_11043(7, "Before back draft explosion", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint1(7, "Before back draft explosion", 0, 0, 0, 1);
 				iLocal_4757++;
 			}
 			break;
@@ -47201,7 +47201,7 @@ int func_823()//Position - 0x833D6
 				{
 					if (PED::GET_SYNCHRONIZED_SCENE_PHASE(Local_1018[1 /*32*/].f_19) > 0.65f)
 					{
-						GlobalFunc_11043(8, "Climb rubble", 0, 0, 0, 1);
+						GlobalFunc_Checkpoint1(8, "Climb rubble", 0, 0, 0, 1);
 						iLocal_5036 = GlobalFunc_5104(PED::GET_ANIM_INITIAL_OFFSET_POSITION("missheist_agency3aig_16", "ig16_b_p3_climbingrubble_franklin", 160.871f, -749.332f, 249.148f, 0f, 0f, -86.25f, 0f, 2), 0);
 						GlobalFunc_164("setup4_god_41", 7500, 1);
 						iLocal_4757++;
@@ -47212,7 +47212,7 @@ int func_823()//Position - 0x833D6
 			{
 				if (PED::GET_SYNCHRONIZED_SCENE_PHASE(iLocal_4814) > 0.35f)
 				{
-					GlobalFunc_11043(8, "Climb rubble", 0, 0, 0, 1);
+					GlobalFunc_Checkpoint1(8, "Climb rubble", 0, 0, 0, 1);
 					iLocal_5036 = GlobalFunc_5104(PED::GET_ANIM_INITIAL_OFFSET_POSITION("missheist_agency3aig_16", "ig16_b_p3_climbingrubble_franklin", 160.871f, -749.332f, 249.148f, 0f, 0f, -86.25f, 0f, 2), 0);
 					GlobalFunc_164("setup4_god_41", 7500, 1);
 					iLocal_4757++;
@@ -48619,7 +48619,7 @@ void func_840()//Position - 0x863E3
 					AUDIO::RELEASE_NAMED_SCRIPT_AUDIO_BANK("SCRIPT\LIFTS");
 					AUDIO::TRIGGER_MUSIC_EVENT("AH3A_START_ESCAPE");
 					func_755();
-					GlobalFunc_11043(6, "Get down staris after getting server data", 0, 0, 0, 1);
+					GlobalFunc_Checkpoint1(6, "Get down staris after getting server data", 0, 0, 0, 1);
 					iLocal_56 = 17;
 				}
 			}
@@ -49676,7 +49676,7 @@ void func_855()//Position - 0x885CE
 					iLocal_4684 = 0;
 				}
 				iLocal_56 = 16;
-				GlobalFunc_11043(5, "start of FIB fire floor", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint1(5, "start of FIB fire floor", 0, 0, 0, 1);
 			}
 			break;
 		
@@ -49763,7 +49763,7 @@ void func_855()//Position - 0x885CE
 					iLocal_4684 = 0;
 				}
 				iLocal_56 = 16;
-				GlobalFunc_11043(5, "start of FIB fire floor", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint1(5, "start of FIB fire floor", 0, 0, 0, 1);
 			}
 			break;
 	}
@@ -51326,7 +51326,7 @@ void func_877()//Position - 0x8C7B8
 				}
 			}
 			func_535();
-			GlobalFunc_11043(4, "After switching to Franklin in the Firetruck", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint1(4, "After switching to Franklin in the Firetruck", 0, 0, 0, 1);
 			iLocal_4718++;
 			iLocal_56 = 12;
 			break;
@@ -52384,7 +52384,7 @@ void func_920()//Position - 0x903F0
 			if (GlobalFunc_10638(&uLocal_5137, 1, "fbiS4AU", "ah3a_call0", 9, 1, 0, 0, 0))
 			{
 				func_922();
-				GlobalFunc_11043(3, "Outside building calling Franklin", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint1(3, "Outside building calling Franklin", 0, 0, 0, 1);
 				iLocal_4717++;
 			}
 			break;
@@ -53571,7 +53571,7 @@ void func_940()//Position - 0x929AE
 				func_757(1, 1, 0, 0, 0, 3000, 1, 1);
 				AUDIO::TRIGGER_MUSIC_EVENT("AH3A_MOP_RETURNED");
 				GlobalFunc_164("setup4_god_13", 7500, 1);
-				GlobalFunc_11043(2, "finished mopping enter lift", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint1(2, "finished mopping enter lift", 0, 0, 0, 1);
 				iLocal_56 = 8;
 			}
 			break;
@@ -56471,7 +56471,7 @@ void func_981()//Position - 0x98214
 					RECORDING::_0x293220DA1B46CEBC(5f, 8f, 4);
 				}
 				iLocal_56 = 3;
-				GlobalFunc_11043(1, "Get mop and bucket", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint1(1, "Get mop and bucket", 0, 0, 0, 1);
 			}
 			break;
 	}
@@ -57322,7 +57322,7 @@ void func_999()//Position - 0x99D8D
 	{
 		func_757(0, 1, 0, 0, 0, 3000, 1, 1);
 	}
-	GlobalFunc_11043(0, "Start of mission", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint1(0, "Start of mission", 0, 0, 0, 1);
 	iLocal_56 = 2;
 }
 
@@ -58432,12 +58432,12 @@ void func_1039()//Position - 0x9CE4E
 	INTERIOR::REFRESH_INTERIOR(INTERIOR::GET_INTERIOR_AT_COORDS_WITH_TYPE(155.4538f, -760.777f, 245.1522f, "V_FIB02"));
 	INTERIOR::REFRESH_INTERIOR(INTERIOR::GET_INTERIOR_AT_COORDS_WITH_TYPE(153.5201f, -765.0731f, 257.1523f, "V_FIB03"));
 	INTERIOR::REFRESH_INTERIOR(INTERIOR::GET_INTERIOR_AT_COORDS_WITH_TYPE(128.0967f, -737.0934f, 235.1497f, "V_FIB04"));
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		iLocal_4963 = 1;
 		if (!Global_84544)
 		{
-			switch (GlobalFunc_198())
+			switch (GlobalFunc_Get_Mission_Fail_Checkpoint())
 			{
 				case 0:
 					func_570();
@@ -58486,7 +58486,7 @@ void func_1039()//Position - 0x9CE4E
 		}
 		else
 		{
-			iVar0 = GlobalFunc_198() + 1;
+			iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint() + 1;
 			switch (iVar0)
 			{
 				case 1:
@@ -58539,7 +58539,7 @@ void func_1039()//Position - 0x9CE4E
 	else
 	{
 		Global_86825 = 1;
-		if (!GlobalFunc_2(0))
+		if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			if (!CAM::IS_SCREEN_FADED_IN())
 			{
@@ -58555,7 +58555,7 @@ void func_1039()//Position - 0x9CE4E
 		}
 		GlobalFunc_7621(34, 0, 0, 1, 0);
 		GlobalFunc_7621(26, 0, 0, 1, 0);
-		GlobalFunc_11043(0, "Start of mission", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint1(0, "Start of mission", 0, 0, 0, 1);
 	}
 	GlobalFunc_504(PLAYER::PLAYER_PED_ID(), 551);
 }

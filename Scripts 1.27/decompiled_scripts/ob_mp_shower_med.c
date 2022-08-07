@@ -664,7 +664,7 @@ void func_1()//Position - 0x839
 						}
 						if (!GlobalFunc_74(sLocal_374))
 						{
-							GlobalFunc_1(sLocal_374);
+							GlobalFunc_Display_Help_Text(sLocal_374);
 						}
 						iLocal_383 = MISC::GET_GAME_TIMER();
 						func_344();
@@ -686,7 +686,7 @@ void func_1()//Position - 0x839
 					{
 						if (!GlobalFunc_74("MPSH_BILL"))
 						{
-							GlobalFunc_1("MPSH_BILL");
+							GlobalFunc_Display_Help_Text("MPSH_BILL");
 						}
 					}
 					else if (GlobalFunc_74("MPSH_BILL"))
@@ -700,7 +700,7 @@ void func_1()//Position - 0x839
 					{
 						if (!GlobalFunc_74("SA_SHWR_IN2"))
 						{
-							GlobalFunc_1("SA_SHWR_IN2");
+							GlobalFunc_Display_Help_Text("SA_SHWR_IN2");
 						}
 					}
 					else if (GlobalFunc_74("SA_SHWR_IN2"))
@@ -712,7 +712,7 @@ void func_1()//Position - 0x839
 				{
 					if (!GlobalFunc_74("SA_SHWR_IN") && !GlobalFunc_1593())
 					{
-						GlobalFunc_1("SA_SHWR_IN");
+						GlobalFunc_Display_Help_Text("SA_SHWR_IN");
 					}
 					iLocal_355 = 1;
 				}
@@ -871,7 +871,7 @@ void func_1()//Position - 0x839
 			}
 			if (!GlobalFunc_74(sLocal_374))
 			{
-				GlobalFunc_1(sLocal_374);
+				GlobalFunc_Display_Help_Text(sLocal_374);
 			}
 			iLocal_355 = 6;
 			break;
@@ -954,7 +954,7 @@ void func_1()//Position - 0x839
 				iLocal_385 = 0;
 				if (!GlobalFunc_74(sLocal_374))
 				{
-					GlobalFunc_1(sLocal_374);
+					GlobalFunc_Display_Help_Text(sLocal_374);
 				}
 			}
 			break;
@@ -1020,7 +1020,7 @@ void func_1()//Position - 0x839
 			}
 			if (!GlobalFunc_74(sLocal_374))
 			{
-				GlobalFunc_1(sLocal_374);
+				GlobalFunc_Display_Help_Text(sLocal_374);
 			}
 			if (!GlobalFunc_5454(PLAYER::PLAYER_ID()))
 			{

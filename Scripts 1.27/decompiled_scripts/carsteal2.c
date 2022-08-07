@@ -1673,9 +1673,9 @@ void __EntryFunction__()//Position - 0x0
 	MISC::SET_WEATHER_TYPE_OVERTIME_PERSIST("EXTRASUNNY", 50f);
 	GlobalFunc_10013(PLAYER::GET_PLAYERS_LAST_VEHICLE(), 0f, 0f, 0f, 0f, 24, 0);
 	func_884();
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		iVar0 = GlobalFunc_198();
+		iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544 == 1)
 		{
 			if (!bLocal_2746)
@@ -1768,7 +1768,7 @@ void __EntryFunction__()//Position - 0x0
 				break;
 		}
 	}
-	else if (GlobalFunc_2(0))
+	else if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		if (bLocal_2746)
 		{
@@ -2449,7 +2449,7 @@ void func_56()//Position - 0x2A2F
 			}
 			else if ((iLocal_1419 == 1 && ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), 476.3787f, -987.3391f, 42.32075f, 430.2201f, -986.7795f, 47.25765f, 31.125f, 0, 1, 0)) || iLocal_1419 > 1)
 			{
-				GlobalFunc_11061(1, "Trevor on roof", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint3(1, "Trevor on roof", 0, 0, 0, 1);
 				iLocal_2765++;
 			}
 			break;
@@ -2459,7 +2459,7 @@ void func_56()//Position - 0x2A2F
 			{
 				if (func_59(&Local_2193, Local_1471[3 /*14*/]) || iLocal_1419 > 5)
 				{
-					GlobalFunc_11061(2, "Follow Chad on foot", 0, 0, 0, 1);
+					GlobalFunc_Checkpoint3(2, "Follow Chad on foot", 0, 0, 0, 1);
 					iLocal_2765++;
 				}
 			}
@@ -2468,7 +2468,7 @@ void func_56()//Position - 0x2A2F
 		case 2:
 			if (iLocal_1419 >= 6)
 			{
-				GlobalFunc_11061(3, "Follow Chad in car", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint3(3, "Follow Chad in car", 0, 0, 0, 1);
 				iLocal_2765++;
 			}
 			break;
@@ -2476,7 +2476,7 @@ void func_56()//Position - 0x2A2F
 		case 3:
 			if (iLocal_1419 == 9)
 			{
-				GlobalFunc_11061(4, "Franklin gets Z-Type", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint3(4, "Franklin gets Z-Type", 0, 0, 0, 1);
 				if (!PED::IS_PED_INJURED(Local_1471[3 /*14*/]))
 				{
 					Global_86804 = 1;
@@ -2496,7 +2496,7 @@ void func_56()//Position - 0x2A2F
 		case 4:
 			if (iLocal_1419 >= 9 && func_57(125))
 			{
-				GlobalFunc_11061(5, "Drive Z-type back to garage", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint3(5, "Drive Z-type back to garage", 0, 0, 0, 1);
 				if (!PED::IS_PED_INJURED(Local_1471[3 /*14*/]))
 				{
 					Global_86804 = 1;
@@ -2516,7 +2516,7 @@ void func_56()//Position - 0x2A2F
 		case 5:
 			if (iLocal_1419 >= 13)
 			{
-				GlobalFunc_11061(6, "Leave the airport", 1, 0, 0, 1);
+				GlobalFunc_Checkpoint3(6, "Leave the airport", 1, 0, 0, 1);
 				iLocal_2765++;
 			}
 			break;
@@ -3240,7 +3240,7 @@ void func_133()//Position - 0xA54E
 			}
 			if (MISC::GET_GAME_TIMER() > Local_1928[0 /*12*/].f_2)
 			{
-				GlobalFunc_1(Local_1928[0 /*12*/]);
+				GlobalFunc_Display_Help_Text(Local_1928[0 /*12*/]);
 				if (Local_1928[0 /*12*/].f_4 != 1)
 				{
 					if (Local_1928[0 /*12*/].f_1 == 0)
@@ -4354,7 +4354,7 @@ void func_160(int iParam0, int iParam1, int iParam2, int iParam3, int iParam4, i
 					switch (Local_4018[iParam0 /*4*/].f_2)
 					{
 						case 0:
-							GlobalFunc_1("CH_INS3");
+							GlobalFunc_Display_Help_Text("CH_INS3");
 							Local_4018[iParam0 /*4*/].f_3 = MISC::GET_GAME_TIMER() + 8000;
 							Local_4018[iParam0 /*4*/].f_2++;
 							break;
@@ -4400,7 +4400,7 @@ void func_160(int iParam0, int iParam1, int iParam2, int iParam3, int iParam4, i
 							break;
 						
 						case 2:
-							GlobalFunc_1("CH_INS4");
+							GlobalFunc_Display_Help_Text("CH_INS4");
 							Local_4018[iParam0 /*4*/].f_2++;
 							break;
 						
@@ -4598,7 +4598,7 @@ void func_160(int iParam0, int iParam1, int iParam2, int iParam3, int iParam4, i
 					switch (Local_4018[iParam0 /*4*/].f_2)
 					{
 						case 0:
-							GlobalFunc_1("CH_INS31");
+							GlobalFunc_Display_Help_Text("CH_INS31");
 							func_863(16, 14, 0);
 							Local_4018[iParam0 /*4*/].f_2++;
 							break;
@@ -12661,7 +12661,7 @@ int func_494()//Position - 0x40875
 					CUTSCENE::SET_CUTSCENE_PED_COMPONENT_VARIATION_FROM_PED("Car_2_Security^1", Local_1471[7 /*14*/], 0);
 				}
 			}
-			if (GlobalFunc_109())
+			if (GlobalFunc_Has_Cutscene_Loaded())
 			{
 				if (VEHICLE::IS_VEHICLE_DRIVEABLE(Local_1724[2 /*2*/], 0))
 				{
@@ -12949,7 +12949,7 @@ int func_506()//Position - 0x41153
 			{
 				if (PED::GET_SYNCHRONIZED_SCENE_PHASE(iLocal_2767) > 0.685f)
 				{
-					if (GlobalFunc_109())
+					if (GlobalFunc_Has_Cutscene_Loaded())
 					{
 						AUDIO::TRIGGER_MUSIC_EVENT("CAR2_STOP");
 						return 1;
@@ -12958,7 +12958,7 @@ int func_506()//Position - 0x41153
 			}
 			if (func_57(129))
 			{
-				if (GlobalFunc_109())
+				if (GlobalFunc_Has_Cutscene_Loaded())
 				{
 					AUDIO::TRIGGER_MUSIC_EVENT("CAR2_STOP");
 					return 1;
@@ -12968,7 +12968,7 @@ int func_506()//Position - 0x41153
 			{
 				if (func_57(135))
 				{
-					if (GlobalFunc_109())
+					if (GlobalFunc_Has_Cutscene_Loaded())
 					{
 						AUDIO::TRIGGER_MUSIC_EVENT("CAR2_STOP");
 						return 1;
@@ -16108,9 +16108,9 @@ int func_542(var uParam0, bool bParam1, bool bParam2, int iParam3)//Position - 0
 				iVar4 = 0;
 				while (iVar4 < 7)
 				{
-					if (MISC::IS_BIT_SET(Global_81119[iVar4 /*5*/].f_1, 2))
+					if (MISC::IS_BIT_SET(Global_Running_Missions[iVar4 /*5*/].f_1, 2))
 					{
-						iVar5 = Global_81119[iVar4 /*5*/];
+						iVar5 = Global_Running_Missions[iVar4 /*5*/];
 						StringCopy(&cVar6, "MISS_SWITCH_", 64);
 						StringConCat(&cVar6, &(Global_81155[Global_68514.f_109[iVar5 /*4*/] /*34*/]), 64);
 						STATS::STAT_INCREMENT(MISC::GET_HASH_KEY(&cVar6), 1f);

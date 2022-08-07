@@ -269,7 +269,7 @@ void __EntryFunction__()//Position - 0x0
 		func_378();
 	}
 	func_377();
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		Global_68490 = 1;
 		iLocal_78 = 0;
@@ -685,9 +685,9 @@ int func_221()//Position - 0x252A1
 
 int func_222(int iParam0, int iParam1, bool bParam2)//Position - 0x25386
 {
-	if (GlobalFunc_4924(iParam0) && PED::IS_PED_IN_ANY_VEHICLE(iParam0, 0))
+	if (GlobalFunc_IsPedNotInjuredOrDead(iParam0) && PED::IS_PED_IN_ANY_VEHICLE(iParam0, 0))
 	{
-		if (GlobalFunc_4924(uParam1))
+		if (GlobalFunc_IsPedNotInjuredOrDead(uParam1))
 		{
 			if (ENTITY::IS_ENTITY_TOUCHING_ENTITY(uParam1, iParam0))
 			{
@@ -1359,7 +1359,7 @@ void func_285()//Position - 0x274FB
 				PED::SET_PED_CAN_RAGDOLL_FROM_PLAYER_IMPACT(Local_80.f_28[0], 0);
 				PED::SET_PED_CONFIG_FLAG(Local_80.f_28[0], 185, 1);
 			}
-			if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()) && GlobalFunc_4924(Local_80.f_28[0]))
+			if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()) && GlobalFunc_IsPedNotInjuredOrDead(Local_80.f_28[0]))
 			{
 				uLocal_328 = PED::GET_PED_RELATIONSHIP_GROUP_HASH(PLAYER::PLAYER_PED_ID());
 				PED::SET_PED_RELATIONSHIP_GROUP_HASH(Local_80.f_28[0], uLocal_328);
@@ -1599,7 +1599,7 @@ void func_303(int iParam0, int iParam1, int iParam2, bool bParam3)//Position - 0
 			}
 		}
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		PED::SET_PED_STEALTH_MOVEMENT(PLAYER::PLAYER_PED_ID(), 0, 0);
 	}

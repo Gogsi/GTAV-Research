@@ -299,7 +299,7 @@ void func_2()//Position - 0xD4
 					if (NETWORK::NETWORK_IS_GAME_IN_PROGRESS())
 					{
 					}
-					else if ((!Global_SAVE_DATA.isGameflowActive && !GlobalFunc_2(0)) || !MISC::IS_BIT_SET(Global_SAVE_DATA.FLOW_STRUCT.MF_STRANDS_ARRAY[27 /*3*/], 2))
+					else if ((!Global_SAVE_DATA.isGameflowActive && !GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0)) || !MISC::IS_BIT_SET(Global_SAVE_DATA.FLOW_STRUCT.MF_STRANDS_ARRAY[27 /*3*/], 2))
 					{
 						bVar12 = false;
 					}

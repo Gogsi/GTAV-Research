@@ -612,7 +612,7 @@ void func_1()//Position - 0x19A
 		case 0:
 			if (iLocal_1034 >= 4)
 			{
-				GlobalFunc_11061(1, "Destroy trailers", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint3(1, "Destroy trailers", 0, 0, 0, 1);
 				iLocal_2013++;
 			}
 			break;
@@ -620,7 +620,7 @@ void func_1()//Position - 0x19A
 		case 1:
 			if (iLocal_1034 > 5)
 			{
-				GlobalFunc_11061(2, "TRailers Destroyed", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint3(2, "TRailers Destroyed", 0, 0, 0, 1);
 				Global_86804 = 0;
 				iVar0 = 0;
 				while (iVar0 < Local_1070)
@@ -641,7 +641,7 @@ void func_1()//Position - 0x19A
 		case 2:
 			if (iLocal_1034 > 7)
 			{
-				GlobalFunc_11061(3, "Drive to Los Santos", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint3(3, "Drive to Los Santos", 0, 0, 0, 1);
 				iLocal_2013++;
 			}
 			if (iLocal_2013 == 2)
@@ -652,7 +652,7 @@ void func_1()//Position - 0x19A
 					{
 						if (GlobalFunc_156(PLAYER::PLAYER_PED_ID(), Local_1070[10 /*10*/], 1) < 5f)
 						{
-							GlobalFunc_11061(3, "Drive to Los Santos", 0, 0, 0, 1);
+							GlobalFunc_Checkpoint3(3, "Drive to Los Santos", 0, 0, 0, 1);
 							iLocal_2013++;
 						}
 					}
@@ -663,7 +663,7 @@ void func_1()//Position - 0x19A
 		case 3:
 			if (iLocal_1034 >= 9)
 			{
-				GlobalFunc_11061(4, "Drive to Wade's cousin", 1, 0, 0, 1);
+				GlobalFunc_Checkpoint3(4, "Drive to Wade's cousin", 1, 0, 0, 1);
 				iLocal_2013++;
 			}
 			break;
@@ -2591,7 +2591,7 @@ int func_132(int iParam0, int iParam1, int iParam2, int iParam3, int iParam4, in
 					{
 						case 0:
 							HUD::HIDE_HUD_AND_RADAR_THIS_FRAME();
-							if (GlobalFunc_109())
+							if (GlobalFunc_Has_Cutscene_Loaded())
 							{
 								GlobalFunc_562(64);
 								if (ENTITY::DOES_ENTITY_EXIST(Global_86864.f_9[0]))
@@ -5600,7 +5600,7 @@ void func_133(int iParam0)//Position - 0xF98D
 					{
 						AUDIO::STOP_AUDIO_SCENE("TREVOR_3_DRIVE_TO_LS_DIALOGUE");
 					}
-					if (GlobalFunc_109())
+					if (GlobalFunc_Has_Cutscene_Loaded())
 					{
 						CUTSCENE::REGISTER_ENTITY_FOR_CUTSCENE(iLocal_1068, "Paper_Car", 2, joaat("maverick"), 0);
 						func_267(8);
@@ -6365,7 +6365,7 @@ void func_133(int iParam0)//Position - 0xF98D
 			switch (Local_402[iParam0 /*10*/].f_6)
 			{
 				case 0:
-					if (GlobalFunc_109())
+					if (GlobalFunc_Has_Cutscene_Loaded())
 					{
 						func_267(10);
 						GlobalFunc_4935();
@@ -13390,9 +13390,9 @@ int func_471()//Position - 0x45D7C
 	func_548(&Local_1490, "TRV3_ATTACK2", 4, "TREV3BIKER2");
 	func_547(3);
 	func_132(0, 53, 0, 0, 0, 1, 0, 1, 0);
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		iVar4 = GlobalFunc_198();
+		iVar4 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544 == 1)
 		{
 			iVar4++;
@@ -13476,7 +13476,7 @@ int func_471()//Position - 0x45D7C
 		CAM::SET_GAMEPLAY_CAM_RELATIVE_HEADING(0f);
 		CAM::DO_SCREEN_FADE_IN(1000);
 	}
-	else if (GlobalFunc_2(0))
+	else if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		func_472(1, 0, 0);
 		return 0;

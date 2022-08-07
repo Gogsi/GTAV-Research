@@ -2255,7 +2255,7 @@ void __EntryFunction__()//Position - 0x0
 		func_483();
 		func_476(&uLocal_1970);
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		if (GlobalFunc_7698())
 		{
@@ -2278,10 +2278,10 @@ void __EntryFunction__()//Position - 0x0
 	Local_1230 = { GlobalFunc_5689(iLocal_1442) };
 	GlobalFunc_5211(&uLocal_121, 8);
 	PLAYER::SET_WANTED_LEVEL_MULTIPLIER(0.2f);
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		bLocal_137 = true;
-		iLocal_1748 = GlobalFunc_198();
+		iLocal_1748 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544)
 		{
 			if (iLocal_1748 < 1 || iLocal_1748 >= 2)
@@ -3034,7 +3034,7 @@ int func_149(var uParam0, var uParam1)//Position - 0x8090
 	switch (iLocal_1040)
 	{
 		case 1:
-			if (GlobalFunc_199())
+			if (GlobalFunc_Is_Mission_Retry())
 			{
 				bLocal_1701 = true;
 				iLocal_1040 = 4;
@@ -3108,7 +3108,7 @@ int func_149(var uParam0, var uParam1)//Position - 0x8090
 					GlobalFunc_164("ASS_BS_COPS", 7500, 1);
 				}
 				GlobalFunc_2269(&(uParam1->f_2), 388.7943f, -681.7061f, 28.149f, 272.5919f);
-				GlobalFunc_11067(0, "assassin_bus_enter_bus", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint4(0, "assassin_bus_enter_bus", 0, 0, 0, 1);
 				GlobalFunc_9138(iLocal_1802);
 				iLocal_1040 = 7;
 			}
@@ -3540,7 +3540,7 @@ void func_185(var uParam0, var uParam1)//Position - 0x9714
 					}
 					if (GlobalFunc_5683(Local_1774, 1) <= 75f)
 					{
-						GlobalFunc_11067(1, "assassin_bus_stage_drive_to_stops", 0, 0, 0, 1);
+						GlobalFunc_Checkpoint4(1, "assassin_bus_stage_drive_to_stops", 0, 0, 0, 1);
 					}
 					bLocal_1690 = true;
 					func_306();
@@ -4781,7 +4781,7 @@ void func_251()//Position - 0xC45B
 {
 	if (!iLocal_1713)
 	{
-		GlobalFunc_11067(2, "assassin_bus_stage_kill_target", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint4(2, "assassin_bus_stage_kill_target", 0, 0, 0, 1);
 		iLocal_1713 = 1;
 	}
 }
@@ -5130,7 +5130,7 @@ int func_270(int iParam0, float fParam1)//Position - 0xCD7A
 	}
 	if (iParam0 == 1)
 	{
-		if (!GlobalFunc_109())
+		if (!GlobalFunc_Has_Cutscene_Loaded())
 		{
 			iVar0 = 0;
 		}
@@ -5482,7 +5482,7 @@ void func_277(var uParam0, var uParam1, int iParam2)//Position - 0xD74A
 				}
 				if (iLocal_1745 == 0)
 				{
-					GlobalFunc_11067(1, "assassin_bus_stage_drive_to_stops", 0, 0, 0, 1);
+					GlobalFunc_Checkpoint4(1, "assassin_bus_stage_drive_to_stops", 0, 0, 0, 1);
 					func_99();
 					if (bLocal_1696)
 					{
@@ -8035,7 +8035,7 @@ void func_426(var uParam0)//Position - 0x190FB
 								{
 									GlobalFunc_7731(&uLocal_1670);
 									iLocal_1677 = 1;
-									if (GlobalFunc_2(0))
+									if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 									{
 										GlobalFunc_575(500);
 									}
@@ -8304,9 +8304,9 @@ int func_448(var uParam0, struct<3> Param1, float fParam4, bool bParam5)//Positi
 						GlobalFunc_7695(iVar8);
 					}
 				}
-				if (((Global_89962 != 13 && Global_89962 != 10) && Global_89962 != 11) && Global_89962 != 12)
+				if (((Global_Mission_Fail_State != 13 && Global_Mission_Fail_State != 10) && Global_Mission_Fail_State != 11) && Global_Mission_Fail_State != 12)
 				{
-					if (MISC::GET_HASH_KEY(&(Global_89962.f_3)) == Global_68102)
+					if (MISC::GET_HASH_KEY(&(Global_Mission_Fail_State.Failed_Script_Name)) == Global_68102)
 					{
 						if (uParam0->f_12.f_42 == Global_SAVE_DATA.VEHICLE_GEN_SAVED_DATA_STRUCT.f_69[21 /*54*/].f_42)
 						{

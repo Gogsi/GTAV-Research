@@ -191,7 +191,7 @@ int func_2(var uParam0)//Position - 0x249
 	struct<4> Var0;
 	char* sVar32;
 	
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		while (!GlobalFunc_9038(*uParam0))
 		{
@@ -220,7 +220,7 @@ int func_2(var uParam0)//Position - 0x249
 	MemCopy(&sVar32, {GlobalFunc_44(*uParam0)}, 4);
 	GlobalFunc_5225(&sVar32, Var0.f_3, 0);
 	GlobalFunc_865(*uParam0);
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		if (uParam0->f_16 == 2)
 		{
@@ -662,7 +662,7 @@ int func_189(var uParam0, bool bParam1, int iParam2)//Position - 0xBBBF
 	{
 		iParam2 = 1;
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		iVar0 = 0;
 		while (iVar0 <= iVar1)
@@ -985,7 +985,7 @@ int func_218(var uParam0)//Position - 0xC9DA
 		case 2:
 			bVar5 = true;
 			uParam0->f_28[0] = PED::CREATE_PED(25, iLocal_91, -1299.02f, 4639.86f, 106.66f, 345.7769f, 1, 1);
-			if (GlobalFunc_4924(uParam0->f_28[0]))
+			if (GlobalFunc_IsPedNotInjuredOrDead(uParam0->f_28[0]))
 			{
 				WEAPON::GIVE_WEAPON_TO_PED(uParam0->f_28[0], joaat("weapon_sniperrifle"), 100, 1, 1);
 				TASK::TASK_PLAY_ANIM(uParam0->f_28[0], "rcmlastone1", "idle_action_01", 8f, -8f, -1, 1, 0, 0, 0, 0);

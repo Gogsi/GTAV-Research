@@ -952,7 +952,7 @@ void func_88()//Position - 0x7FCF
 	AUDIO::TRIGGER_MUSIC_EVENT("FBI1_OUTSIDE_CORONERS_RT");
 	AUDIO::START_AUDIO_SCENE("FBI_1_LOSE_COPS");
 	GlobalFunc_164("LOSE_WANTED", 7500, 1);
-	GlobalFunc_11043(4, "outside coroners escape police", 1, 0, 0, 1);
+	GlobalFunc_Checkpoint1(4, "outside coroners escape police", 1, 0, 0, 1);
 	iLocal_47 = 8;
 	PLAYER::SET_ALL_RANDOM_PEDS_FLEE(PLAYER::PLAYER_ID(), 1);
 }
@@ -2652,7 +2652,7 @@ void func_278()//Position - 0x2F6D7
 	AUDIO::TRIGGER_MUSIC_EVENT("FBI1_SHOOTOUT_HALFWAY_RT");
 	AUDIO::START_AUDIO_SCENE("FBI_1_ESCAPE_BASE_SCENE");
 	func_149(0, 0f, 0f, 0);
-	GlobalFunc_11043(3, "half way through shootout", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint1(3, "half way through shootout", 0, 0, 0, 1);
 	iLocal_47 = 5;
 }
 
@@ -2939,7 +2939,7 @@ void func_287()//Position - 0x306FB
 	AUDIO::TRIGGER_MUSIC_EVENT("FBI1_SHOOTOUT_RT");
 	AUDIO::START_AUDIO_SCENE("FBI_1_ESCAPE_BASE_SCENE");
 	func_149(0, 0f, 0f, 0);
-	GlobalFunc_11043(2, "Start of shootout", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint1(2, "Start of shootout", 0, 0, 0, 1);
 	iLocal_47 = 5;
 }
 
@@ -3117,7 +3117,7 @@ void func_288()//Position - 0x31029
 	AUDIO::START_AUDIO_SCENE("FBI_1_STEALTH_KILL_AGENT");
 	func_149(0, 0f, 0f, 0);
 	iLocal_47 = 3;
-	GlobalFunc_11043(1, "stealth the cia guard", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint1(1, "stealth the cia guard", 0, 0, 0, 1);
 }
 
 void func_289()//Position - 0x319D2
@@ -3375,7 +3375,7 @@ void func_312()//Position - 0x327FF
 	func_286();
 	AUDIO::PLAY_STREAM_FRONTEND();
 	func_313(1, 1, 0, 0, 0, 3000, 1);
-	GlobalFunc_11043(0, "Start of mission", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint1(0, "Start of mission", 0, 0, 0, 1);
 	iLocal_47 = 1;
 }
 
@@ -4041,7 +4041,7 @@ void func_328()//Position - 0x34804
 							iLocal_1482++;
 						}
 					}
-					else if (GlobalFunc_109())
+					else if (GlobalFunc_Has_Cutscene_Loaded())
 					{
 						if (func_337(0, 1, 1, 0))
 						{
@@ -4077,7 +4077,7 @@ void func_328()//Position - 0x34804
 		
 		case 3:
 			func_391();
-			if (GlobalFunc_109())
+			if (GlobalFunc_Has_Cutscene_Loaded())
 			{
 				if (!GlobalFunc_5172(&Local_1725, 0))
 				{
@@ -8188,7 +8188,7 @@ void func_557()//Position - 0x655BB
 						AUDIO::STOP_AUDIO_SCENE("FBI_1_JUMP");
 					}
 					AUDIO::START_AUDIO_SCENE("FBI_1_LOSE_COPS");
-					GlobalFunc_11043(4, "outside coroners escape police", 1, 0, 0, 1);
+					GlobalFunc_Checkpoint1(4, "outside coroners escape police", 1, 0, 0, 1);
 					GlobalFunc_6796(PLAYER::PLAYER_PED_ID(), &Global_2544928);
 					RECORDING::_0x81CBAE94390F9F89();
 					iLocal_47 = 8;
@@ -9962,7 +9962,7 @@ int func_594()//Position - 0x69BD3
 				}
 				GlobalFunc_173(&uLocal_1560, GlobalFunc_2020("6"), Local_86[15 /*28*/], "CIA1", 0, 1);
 				AUDIO::START_AUDIO_SCENE("FBI_1_SHOOTOUT_GROUND_FLOOR");
-				GlobalFunc_11043(2, "Start of shootout", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint1(2, "Start of shootout", 0, 0, 0, 1);
 				RECORDING::_0x293220DA1B46CEBC(2f, 12f, 3);
 				GlobalFunc_6796(PLAYER::PLAYER_PED_ID(), &Global_2544928);
 				iLocal_1475++;
@@ -10025,7 +10025,7 @@ int func_594()//Position - 0x69BD3
 					AUDIO::STOP_AUDIO_SCENE("FBI_1_SHOOTOUT_GROUND_FLOOR");
 				}
 				AUDIO::START_AUDIO_SCENE("FBI_1_GET_UPSTAIRS");
-				GlobalFunc_11043(3, "half way through shootout", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint1(3, "half way through shootout", 0, 0, 0, 1);
 				GlobalFunc_6796(PLAYER::PLAYER_PED_ID(), &Global_2544928);
 				iLocal_1475++;
 			}
@@ -11000,7 +11000,7 @@ void func_622()//Position - 0x6C578
 					if (GlobalFunc_10618(&uLocal_1560, "FBI1AUD", "fbi1_doc2", 7, 0, 0, 0))
 					{
 						func_560("fbi1_doc2", 1);
-						GlobalFunc_1("FBI1_help1");
+						GlobalFunc_Display_Help_Text("FBI1_help1");
 						iLocal_1508 = MISC::GET_GAME_TIMER();
 						iLocal_1472 = MISC::GET_GAME_TIMER();
 						iLocal_1474++;
@@ -11009,7 +11009,7 @@ void func_622()//Position - 0x6C578
 			}
 			if (!GlobalFunc_111())
 			{
-				GlobalFunc_1("FBI1_help1");
+				GlobalFunc_Display_Help_Text("FBI1_help1");
 				iLocal_1508 = MISC::GET_GAME_TIMER();
 				iLocal_1472 = MISC::GET_GAME_TIMER();
 				iLocal_1474++;
@@ -11329,7 +11329,7 @@ void func_622()//Position - 0x6C578
 				GlobalFunc_7632(0);
 				GRAPHICS::SET_SCRIPT_GFX_DRAW_ORDER(4);
 				GRAPHICS::SET_SCRIPT_GFX_DRAW_BEHIND_PAUSEMENU(0);
-				GlobalFunc_11043(1, "stealth_the_cia_officer", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint1(1, "stealth_the_cia_officer", 0, 0, 0, 1);
 				AUDIO::TRIGGER_MUSIC_EVENT("FBI1_GET_GUN");
 				AUDIO::START_AUDIO_SCENE("FBI_1_STEALTH_KILL_AGENT");
 				func_313(0, 0, 0, 0, 0, 3000, 1);
@@ -11421,7 +11421,7 @@ void func_622()//Position - 0x6C578
 					GlobalFunc_200(&uLocal_1560, 4);
 				}
 				GlobalFunc_7632(0);
-				GlobalFunc_11043(1, "stealth_the_cia_officer", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint1(1, "stealth_the_cia_officer", 0, 0, 0, 1);
 				AUDIO::TRIGGER_MUSIC_EVENT("FBI1_GET_GUN");
 				AUDIO::START_AUDIO_SCENE("FBI_1_STEALTH_KILL_AGENT");
 				while (!PED::HAVE_ALL_STREAMING_REQUESTS_COMPLETED(PLAYER::PLAYER_PED_ID()))
@@ -11824,12 +11824,12 @@ void func_647()//Position - 0x6F4FA
 	Local_1357.f_23 = 0;
 	func_320();
 	func_319();
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		iLocal_1797 = 1;
 		if (!Global_84544)
 		{
-			switch (GlobalFunc_198())
+			switch (GlobalFunc_Get_Mission_Fail_Checkpoint())
 			{
 				case 0:
 					func_696();
@@ -11854,7 +11854,7 @@ void func_647()//Position - 0x6F4FA
 		}
 		else
 		{
-			iVar0 = GlobalFunc_198() + 1;
+			iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint() + 1;
 			switch (iVar0)
 			{
 				case 1:
@@ -11883,7 +11883,7 @@ void func_647()//Position - 0x6F4FA
 	else
 	{
 		GlobalFunc_7963(PLAYER::PLAYER_PED_ID());
-		if (!GlobalFunc_2(0))
+		if (!GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			if (!CAM::IS_SCREEN_FADED_IN())
 			{
@@ -11927,7 +11927,7 @@ void func_648()//Position - 0x6F822
 	MISC::CLEAR_AREA(ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), 1), 1000f, 1, 0, 0, 0);
 	iLocal_1473 = 1;
 	CAM::DO_SCREEN_FADE_IN(800);
-	GlobalFunc_11043(0, "Start of mission", 0, 0, 0, 1);
+	GlobalFunc_Checkpoint1(0, "Start of mission", 0, 0, 0, 1);
 }
 
 int func_649(int iParam0, bool bParam1)//Position - 0x6F94D

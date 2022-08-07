@@ -3843,7 +3843,7 @@ int func_139(var uParam0, int iParam1, int iParam2, int iParam3, int iParam4, in
 {
 	struct<14> Var0;
 	
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		return 0;
 	}
@@ -4988,7 +4988,7 @@ int can_receive_comms(int iParam0, int iParam1, int iParam2, int iParam3, int iP
 		}
 	}
 	iVar0 = 1;
-	if (((Global_89962 == 13 || Global_89962 == 10) || Global_89962 == 11) || Global_89962 == 12)
+	if (((Global_Mission_Fail_State == 13 || Global_Mission_Fail_State == 10) || Global_Mission_Fail_State == 11) || Global_Mission_Fail_State == 12)
 	{
 		iVar0 = 0;
 	}
@@ -5958,11 +5958,11 @@ int func_233(int iParam0)//Position - 0xDEE2
 	iVar0 = 0;
 	while (iVar0 < 7)
 	{
-		iVar1 = Global_81119[iVar0 /*5*/];
+		iVar1 = Global_Running_Missions[iVar0 /*5*/];
 		if (iVar1 != -1)
 		{
 			iVar2 = -1;
-			iVar2 = Global_68514.f_109[Global_81119[iVar0 /*5*/] /*4*/];
+			iVar2 = Global_68514.f_109[Global_Running_Missions[iVar0 /*5*/] /*4*/];
 			if (iVar2 != -1)
 			{
 				if (GlobalFunc_5584(Global_81155[iVar2 /*34*/].f_12, iParam0))

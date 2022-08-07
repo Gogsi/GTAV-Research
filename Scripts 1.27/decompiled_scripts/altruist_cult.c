@@ -1661,7 +1661,7 @@ void func_107()//Position - 0x31DC
 			STREAMING::REQUEST_MODEL(joaat("prop_box_wood04a"));
 			STREAMING::REQUEST_MODEL(joaat("prop_box_wood05a"));
 			STREAMING::REQUEST_MODEL(joaat("prop_security_case_01"));
-			while ((((((!GlobalFunc_109() || !STREAMING::HAS_MODEL_LOADED(joaat("a_m_o_acult_02"))) || !STREAMING::HAS_MODEL_LOADED(joaat("a_m_y_acult_02"))) || !STREAMING::HAS_MODEL_LOADED(joaat("prop_box_wood03a"))) || !STREAMING::HAS_MODEL_LOADED(joaat("prop_box_wood04a"))) || !STREAMING::HAS_MODEL_LOADED(joaat("prop_box_wood05a"))) || !STREAMING::HAS_MODEL_LOADED(joaat("prop_security_case_01")))
+			while ((((((!GlobalFunc_Has_Cutscene_Loaded() || !STREAMING::HAS_MODEL_LOADED(joaat("a_m_o_acult_02"))) || !STREAMING::HAS_MODEL_LOADED(joaat("a_m_y_acult_02"))) || !STREAMING::HAS_MODEL_LOADED(joaat("prop_box_wood03a"))) || !STREAMING::HAS_MODEL_LOADED(joaat("prop_box_wood04a"))) || !STREAMING::HAS_MODEL_LOADED(joaat("prop_box_wood05a"))) || !STREAMING::HAS_MODEL_LOADED(joaat("prop_security_case_01")))
 			{
 				SYSTEM::WAIT(0);
 			}
@@ -1671,7 +1671,7 @@ void func_107()//Position - 0x31DC
 				CUTSCENE::REGISTER_ENTITY_FOR_CUTSCENE(iLocal_575, "Trevors_weapon", 0, 0, 0);
 			}
 			CUTSCENE::REGISTER_ENTITY_FOR_CUTSCENE(0, "Rifle_Mag1^1", 3, WEAPON::GET_WEAPON_COMPONENT_TYPE_MODEL(joaat("component_assaultrifle_clip_01")), 0);
-			if (GlobalFunc_109() && !PED::IS_PED_INJURED(PLAYER::PLAYER_PED_ID()))
+			if (GlobalFunc_Has_Cutscene_Loaded() && !PED::IS_PED_INJURED(PLAYER::PLAYER_PED_ID()))
 			{
 				CUTSCENE::REGISTER_ENTITY_FOR_CUTSCENE(PLAYER::PLAYER_PED_ID(), "TREVOR", 0, 0, 0);
 				CUTSCENE::REGISTER_ENTITY_FOR_CUTSCENE(iLocal_195[11], "Cult_Master", 2, joaat("a_m_o_acult_02"), 0);

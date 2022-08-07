@@ -2008,7 +2008,7 @@ void __EntryFunction__()//Position - 0x0
 	{
 		SYSTEM::WAIT(0);
 	}
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		func_642();
 		SYSTEM::WAIT(500);
@@ -2088,13 +2088,13 @@ void func_3()//Position - 0x2E7
 		func_9(5, 0);
 		iLocal_3342 = 1;
 	}
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		Global_54752 = 1;
 		GlobalFunc_45(1, 1);
 	}
 	GlobalFunc_5103(1, 0);
-	if (GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
 		Global_54750 = 0;
 	}
@@ -2109,7 +2109,7 @@ void func_3()//Position - 0x2E7
 
 int func_9(int iParam0, int iParam1)//Position - 0x509
 {
-	if (MISC::IS_BIT_SET(Global_89962.f_20, 17))
+	if (MISC::IS_BIT_SET(Global_Mission_Fail_State.f_20, 17))
 	{
 		return 0;
 	}
@@ -2166,13 +2166,13 @@ void func_26()//Position - 0x898
 			}
 			HUD::CLEAR_HELP(1);
 			GlobalFunc_8380(1, 1, 1, 0);
-			GlobalFunc_11061(4, "Stage 4: Goodbyes", 1, 0, 0, 1);
+			GlobalFunc_Checkpoint3(4, "Stage 4: Goodbyes", 1, 0, 0, 1);
 			func_69(0);
 			iLocal_4761++;
 			break;
 		
 		case 1:
-			if (GlobalFunc_109())
+			if (GlobalFunc_Has_Cutscene_Loaded())
 			{
 				if (ENTITY::DOES_ENTITY_EXIST(func_149()))
 				{
@@ -2842,7 +2842,7 @@ void func_150()//Position - 0xC30A
 				uLocal_3345 = PED::CREATE_SYNCHRONIZED_SCENE(1736.295f, -1619.891f, 111.29f, 0f, 0f, 0f, 2);
 				TASK::TASK_SYNCHRONIZED_SCENE(func_268(), uLocal_3345, cLocal_3305, sLocal_3323, 1000f, -4f, 4, 4, 1148846080, 0);
 			}
-			GlobalFunc_11061(3, "Stage 3: Ignite Trevor", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint3(3, "Stage 3: Ignite Trevor", 0, 0, 0, 1);
 			PED::SET_BLOCKING_OF_NON_TEMPORARY_EVENTS(Local_3076[0 /*2*/], 1);
 			ENTITY::SET_ENTITY_INVINCIBLE(func_268(), 1);
 			if (!HUD::DOES_BLIP_EXIST(uLocal_3303))
@@ -3385,7 +3385,7 @@ void func_152(int iParam0)//Position - 0xD896
 	switch (iParam0)
 	{
 		case 0:
-			if (CAM::IS_SCREEN_FADED_OUT() && !GlobalFunc_199())
+			if (CAM::IS_SCREEN_FADED_OUT() && !GlobalFunc_Is_Mission_Retry())
 			{
 				STREAMING::REQUEST_IPL("DES_tankercrash");
 				STREAMING::REQUEST_IPL("tankerexp_grp0");
@@ -3397,7 +3397,7 @@ void func_152(int iParam0)//Position - 0xD896
 			break;
 		
 		case 1:
-			if (CAM::IS_SCREEN_FADED_OUT() && !GlobalFunc_199())
+			if (CAM::IS_SCREEN_FADED_OUT() && !GlobalFunc_Is_Mission_Retry())
 			{
 				STREAMING::REQUEST_IPL("DES_tankercrash");
 				STREAMING::REQUEST_IPL("tankerexp_grp0");
@@ -3416,7 +3416,7 @@ void func_152(int iParam0)//Position - 0xD896
 			break;
 		
 		case 2:
-			if (CAM::IS_SCREEN_FADED_OUT() && !GlobalFunc_199())
+			if (CAM::IS_SCREEN_FADED_OUT() && !GlobalFunc_Is_Mission_Retry())
 			{
 				STREAMING::REQUEST_IPL("DES_tankercrash");
 				STREAMING::REQUEST_IPL("tankerexp_grp0");
@@ -3430,7 +3430,7 @@ void func_152(int iParam0)//Position - 0xD896
 			break;
 		
 		case 3:
-			if (CAM::IS_SCREEN_FADED_OUT() && !GlobalFunc_199())
+			if (CAM::IS_SCREEN_FADED_OUT() && !GlobalFunc_Is_Mission_Retry())
 			{
 				STREAMING::REQUEST_IPL("DES_tankerexp");
 				while (!STREAMING::IS_IPL_ACTIVE("DES_tankerexp"))
@@ -3444,7 +3444,7 @@ void func_152(int iParam0)//Position - 0xD896
 			break;
 		
 		case 4:
-			if (CAM::IS_SCREEN_FADED_OUT() && !GlobalFunc_199())
+			if (CAM::IS_SCREEN_FADED_OUT() && !GlobalFunc_Is_Mission_Retry())
 			{
 				STREAMING::REQUEST_IPL("tankerexp_grp2");
 				while (!STREAMING::IS_IPL_ACTIVE("tankerexp_grp2"))
@@ -3845,7 +3845,7 @@ void func_269()//Position - 0x278B9
 		case 0:
 			if (CUTSCENE::HAS_CUTSCENE_LOADED())
 			{
-				GlobalFunc_11061(2, "Stage 2: Fuel Crash CutScene", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint3(2, "Stage 2: Fuel Crash CutScene", 0, 0, 0, 1);
 				STREAMING::REMOVE_IPL("DES_tankerexp");
 				STREAMING::REMOVE_IPL("tankerexp_grp1");
 				STREAMING::REMOVE_IPL("tankerexp_grp2");
@@ -4316,7 +4316,7 @@ void func_281()//Position - 0x29122
 	switch (iLocal_4761)
 	{
 		case 0:
-			GlobalFunc_11061(1, "Stage 1: Chase Trevor", 0, 0, 0, 1);
+			GlobalFunc_Checkpoint3(1, "Stage 1: Chase Trevor", 0, 0, 0, 1);
 			MISC::SET_INSTANCE_PRIORITY_HINT(2);
 			AUDIO::TRIGGER_MUSIC_EVENT("FINA_CHASE");
 			iLocal_3038 = 0;
@@ -4324,7 +4324,7 @@ void func_281()//Position - 0x29122
 			iLocal_3046 = 0;
 			iLocal_3047 = 0;
 			iLocal_3034 = 0;
-			if (GlobalFunc_199() && iLocal_4767)
+			if (GlobalFunc_Is_Mission_Retry() && iLocal_4767)
 			{
 				if (VEHICLE::IS_PLAYBACK_GOING_ON_FOR_VEHICLE(Local_3063[1 /*2*/]))
 				{
@@ -4408,7 +4408,7 @@ void func_281()//Position - 0x29122
 				iLocal_3352 = 0;
 				iLocal_3353 = 0;
 				iLocal_4768 = 1;
-				GlobalFunc_11061(1, "Stage 1: Chase Trevor", 0, 0, 0, 1);
+				GlobalFunc_Checkpoint3(1, "Stage 1: Chase Trevor", 0, 0, 0, 1);
 				iLocal_4761++;
 			}
 			break;
@@ -8166,7 +8166,7 @@ void func_371()//Position - 0x318A5
 			iLocal_3036 = 0;
 			VEHICLE::REQUEST_VEHICLE_RECORDING(0, "BB_FINALE");
 			STREAMING::REQUEST_PTFX_ASSET();
-			if (GlobalFunc_199() && !bLocal_4766)
+			if (GlobalFunc_Is_Mission_Retry() && !bLocal_4766)
 			{
 				MISC::CLEAR_AREA(1334.851f, -2555.594f, 45.58296f, 200f, 1, 0, 0, 0);
 				iLocal_4761 = 3;
@@ -8332,7 +8332,7 @@ void func_371()//Position - 0x318A5
 				CAM::SET_GAMEPLAY_CAM_RELATIVE_HEADING(0f);
 				iLocal_3364 = 1;
 			}
-			if (((((bLocal_3358 && iLocal_3359) && iLocal_3360) && iLocal_3363) && iLocal_3364) || GlobalFunc_199())
+			if (((((bLocal_3358 && iLocal_3359) && iLocal_3360) && iLocal_3363) && iLocal_3364) || GlobalFunc_Is_Mission_Retry())
 			{
 				if (!iLocal_3356)
 				{
@@ -8400,7 +8400,7 @@ void func_394()//Position - 0x33E86
 		{
 			func_172(func_147());
 		}
-		if (GlobalFunc_109())
+		if (GlobalFunc_Has_Cutscene_Loaded())
 		{
 			GlobalFunc_8380(1, 1, 1, 0);
 			while (!func_27(&(Local_3063[1 /*2*/]), 2, 1317.8f, -2560.5f, 45.1f, 0f, 1, 1))
@@ -10604,7 +10604,7 @@ void func_614()//Position - 0x66771
 void func_615()//Position - 0x66891
 {
 	Local_3076[2 /*2*/] = PLAYER::PLAYER_PED_ID();
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		CLOCK::SET_CLOCK_TIME(19, 45, 0);
 		while (!func_27(&(Local_3063[1 /*2*/]), 2, 1374.224f, -2531.855f, 48.2458f, 317.3613f, 1, 0))
@@ -10744,7 +10744,7 @@ void func_624()//Position - 0x6776B
 	HUD::CLEAR_HELP(1);
 	GlobalFunc_5652(&uLocal_3111, 1, 0);
 	GlobalFunc_7139(&uLocal_3111, 0);
-	if (!GlobalFunc_199())
+	if (!GlobalFunc_Is_Mission_Retry())
 	{
 		STREAMING::REMOVE_IPL("DES_tankercrash");
 		STREAMING::REMOVE_IPL("tankercrash_grp1");
@@ -10833,11 +10833,11 @@ void func_637()//Position - 0x67E7A
 	PATHFIND::SET_ROADS_IN_ANGLED_AREA(1506.587f, -2531.957f, 35f, 1463.065f, -1962.424f, 130f, 320f, 1, 0, 1);
 	PATHFIND::SET_ROADS_IN_ANGLED_AREA(1467.822f, -1875.567f, 35f, 1883.591f, -1232.342f, 130f, 450f, 1, 0, 1);
 	MISC::SET_WEATHER_TYPE_PERSIST("EXTRASUNNY");
-	if (GlobalFunc_199() || GlobalFunc_2(0))
+	if (GlobalFunc_Is_Mission_Retry() || GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 	{
-		if (GlobalFunc_199())
+		if (GlobalFunc_Is_Mission_Retry())
 		{
-			iLocal_4764 = GlobalFunc_198();
+			iLocal_4764 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 			if (iLocal_4764 == 0)
 			{
 				iLocal_4764 = 1;
@@ -10869,7 +10869,7 @@ void func_637()//Position - 0x67E7A
 			}
 			bLocal_4766 = false;
 		}
-		else if (GlobalFunc_2(0))
+		else if (GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0))
 		{
 			STREAMING::REMOVE_IPL("DES_tankerexp");
 			STREAMING::REMOVE_IPL("tankerexp_grp1");
@@ -10879,7 +10879,7 @@ void func_637()//Position - 0x67E7A
 			STREAMING::REQUEST_IPL("tankerexp_grp0");
 			iLocal_4764 = 0;
 		}
-		if (GlobalFunc_199())
+		if (GlobalFunc_Is_Mission_Retry())
 		{
 			func_618(iLocal_4764, &Var0, &uVar3);
 			GlobalFunc_5196(Var0, uVar3, 1, 0);
@@ -10889,7 +10889,7 @@ void func_637()//Position - 0x67E7A
 	else
 	{
 		bLocal_4766 = false;
-		GlobalFunc_11061(0, "Stage 0: meet", 0, 0, 0, 1);
+		GlobalFunc_Checkpoint3(0, "Stage 0: meet", 0, 0, 0, 1);
 		iLocal_4760 = 0;
 		func_151(iLocal_4760);
 		func_152(0);
@@ -11027,7 +11027,7 @@ int func_644(var uParam0, var uParam1, bool bParam2, bool bParam3, bool bParam4,
 	
 	uParam0->f_7 = *uParam1;
 	uParam0->f_8 = uParam1->f_1;
-	if ((GlobalFunc_2(0) && !bParam2) && !bParam4)
+	if ((GlobalFunc_Is_Mission_Repeat_Or_Benchmark(0) && !bParam2) && !bParam4)
 	{
 		if (uParam0->f_5)
 		{

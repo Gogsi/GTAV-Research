@@ -283,7 +283,7 @@ void __EntryFunction__()//Position - 0x0
 		func_321(1);
 		func_304();
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		Global_68490 = 1;
 		iLocal_78 = 0;
@@ -313,7 +313,7 @@ void func_1()//Position - 0x11D
 	switch (iLocal_81)
 	{
 		case 0:
-			if (GlobalFunc_199())
+			if (GlobalFunc_Is_Mission_Retry())
 			{
 				GlobalFunc_5116(243.367f, -387.3153f, 44.4046f, 175.2f, 1, 0);
 				GlobalFunc_5108(0, -1, 1);
@@ -1054,11 +1054,11 @@ void func_321(bool bParam0)//Position - 0x2D53E
 		{
 			return;
 		}
-		if (Global_84542 == Global_89999)
+		if (Global_84542 == Global_Current_Checkpoint)
 		{
 			Global_SAVE_DATA.SAVED_RANDOM_CHARACTERS[iVar0 /*6*/].f_4++;
 		}
-		Global_84542 = Global_89999;
+		Global_84542 = Global_Current_Checkpoint;
 		if (bParam0)
 		{
 			GlobalFunc_7620(iVar0, 1, 0);

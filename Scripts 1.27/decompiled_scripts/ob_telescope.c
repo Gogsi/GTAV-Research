@@ -632,7 +632,7 @@ void func_4()//Position - 0x2DE
 				func_253();
 				if (!GlobalFunc_74("TELEUSE"))
 				{
-					GlobalFunc_1("TELEUSE");
+					GlobalFunc_Display_Help_Text("TELEUSE");
 				}
 				if ((PAD::IS_CONTROL_JUST_PRESSED(2, 51) || PAD::IS_DISABLED_CONTROL_JUST_RELEASED(2, 200)) || bLocal_102)
 				{

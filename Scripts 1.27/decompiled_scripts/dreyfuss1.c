@@ -369,7 +369,7 @@ void __EntryFunction__()//Position - 0x0
 		GlobalFunc_9624(1);
 		func_424();
 	}
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
 		Global_68490 = 1;
 		iLocal_78 = 0;
@@ -387,9 +387,9 @@ void __EntryFunction__()//Position - 0x0
 		ENTITY::SET_ENTITY_AS_MISSION_ENTITY(iLocal_155, 1, 1);
 	}
 	func_412();
-	if (GlobalFunc_199())
+	if (GlobalFunc_Is_Mission_Retry())
 	{
-		iVar0 = GlobalFunc_198();
+		iVar0 = GlobalFunc_Get_Mission_Fail_Checkpoint();
 		if (Global_84544 == 1)
 		{
 			iVar0++;
@@ -847,7 +847,7 @@ void func_239(int iParam0, int iParam1, int iParam2, var uParam3, char* sParam4,
 		{
 			if (!*iParam0)
 			{
-				if ((GlobalFunc_4924(iLocal_155) && !PED::IS_PED_RAGDOLL(iLocal_155)) && !TASK::IS_PED_IN_WRITHE(iLocal_155))
+				if ((GlobalFunc_IsPedNotInjuredOrDead(iLocal_155) && !PED::IS_PED_RAGDOLL(iLocal_155)) && !TASK::IS_PED_IN_WRITHE(iLocal_155))
 				{
 					if (GlobalFunc_155(PLAYER::PLAYER_PED_ID(), iLocal_155, fLocal_333))
 					{
@@ -1207,7 +1207,7 @@ int func_287()//Position - 0x2743E
 
 int func_288()//Position - 0x274C5
 {
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		if (ENTITY::DOES_ENTITY_EXIST(Local_85.f_35[0]))
 		{
@@ -1411,7 +1411,7 @@ int func_292()//Position - 0x27893
 
 void func_294()//Position - 0x279D5
 {
-	if (GlobalFunc_4924(iLocal_155) && GlobalFunc_4940(Local_85.f_35[0]))
+	if (GlobalFunc_IsPedNotInjuredOrDead(iLocal_155) && GlobalFunc_4940(Local_85.f_35[0]))
 	{
 		if (PED::IS_PED_SITTING_IN_VEHICLE(iLocal_155, Local_85.f_35[0]))
 		{
@@ -1479,7 +1479,7 @@ void func_300()//Position - 0x27D04
 	{
 		case 0:
 			GlobalFunc_9623("paper_1_RCM_alt1", 1);
-			if (((CAM::IS_SCREEN_FADED_IN() && !GlobalFunc_199()) && GlobalFunc_115(iLocal_155)) && GlobalFunc_114(PLAYER::PLAYER_PED_ID(), Local_85.f_28[0], 1) > 4f)
+			if (((CAM::IS_SCREEN_FADED_IN() && !GlobalFunc_Is_Mission_Retry()) && GlobalFunc_115(iLocal_155)) && GlobalFunc_114(PLAYER::PLAYER_PED_ID(), Local_85.f_28[0], 1) > 4f)
 			{
 				CAM::SET_GAMEPLAY_ENTITY_HINT(iLocal_155, 0f, 0f, -0.5f, 1, -1, 3000, 2000, 0);
 				CAM::SET_GAMEPLAY_HINT_FOLLOW_DISTANCE_SCALAR(0.3f);
@@ -1630,7 +1630,7 @@ void func_301(int iParam0, int iParam1, int iParam2, bool bParam3)//Position - 0
 			}
 		}
 	}
-	if (GlobalFunc_4924(PLAYER::PLAYER_PED_ID()))
+	if (GlobalFunc_IsPedNotInjuredOrDead(PLAYER::PLAYER_PED_ID()))
 	{
 		PED::SET_PED_STEALTH_MOVEMENT(PLAYER::PLAYER_PED_ID(), 0, 0);
 	}
@@ -1826,7 +1826,7 @@ int func_366(int iParam0, float fParam1, int iParam2)//Position - 0x2C159
 	}
 	if (iParam0 == 1)
 	{
-		if (!GlobalFunc_109())
+		if (!GlobalFunc_Has_Cutscene_Loaded())
 		{
 			return 0;
 		}
@@ -2539,7 +2539,7 @@ void func_435()//Position - 0x2E26A
 	GlobalFunc_200(&uLocal_164, 1);
 	GlobalFunc_200(&uLocal_164, 3);
 	GlobalFunc_146(&iLocal_156);
-	if (GlobalFunc_4924(iLocal_155))
+	if (GlobalFunc_IsPedNotInjuredOrDead(iLocal_155))
 	{
 		PED::SET_PED_KEEP_TASK(iLocal_155, 1);
 		ENTITY::SET_ENTITY_LOAD_COLLISION_FLAG(iLocal_155, 0);

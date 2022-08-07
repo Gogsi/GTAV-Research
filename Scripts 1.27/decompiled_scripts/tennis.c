@@ -7251,7 +7251,7 @@ int func_476(var uParam0, var uParam1, var uParam2, var uParam3, int iParam4, in
 					CAM::SET_CAM_PARAMS(uParam0->f_3, Var6, Var9, 34f, 5000, 1, 1, 2);
 					CAM::RENDER_SCRIPT_CAMS(1, 0, 3000, 1, 0, 0);
 					func_474(uParam3, uParam1);
-					GlobalFunc_1("SWINGING_TUT");
+					GlobalFunc_Display_Help_Text("SWINGING_TUT");
 					func_574(uParam0, 1);
 				}
 			}
@@ -7262,7 +7262,7 @@ int func_476(var uParam0, var uParam1, var uParam2, var uParam3, int iParam4, in
 			}
 			else if (!func_573(uParam3, 16) && !GlobalFunc_74("TUT_EXPL"))
 			{
-				GlobalFunc_1("LETSSWING_TUT");
+				GlobalFunc_Display_Help_Text("LETSSWING_TUT");
 				func_571(uParam3, 16);
 			}
 			if (!func_460(uParam2, 256) && fVar25 > 0.24f)
@@ -7346,7 +7346,7 @@ int func_476(var uParam0, var uParam1, var uParam2, var uParam3, int iParam4, in
 				Var18 = { GlobalFunc_415(1.98294f, 6.55033f, 0.6092f, fVar43) };
 				func_563(uParam1[iParam5 /*94*/], uParam1, &(uParam1->f_282[8 /*2*/]), 0, Var15 + Var18, 0);
 				GlobalFunc_925(&((uParam1[iParam5 /*94*/])->f_4), 0);
-				GlobalFunc_1("BASESHOT_TUT");
+				GlobalFunc_Display_Help_Text("BASESHOT_TUT");
 				func_574(uParam0, 1);
 			}
 			break;
@@ -7371,7 +7371,7 @@ int func_476(var uParam0, var uParam1, var uParam2, var uParam3, int iParam4, in
 				CAM::SET_CAM_PARAMS(uParam0->f_3, Var0, Var3, 34f, 0, 1, 1, 2);
 				CAM::SET_CAM_PARAMS(uParam0->f_3, Var6, Var9, 34f, 7792, 0, 0, 2);
 				CAM::RENDER_SCRIPT_CAMS(1, 0, 3000, 1, 0, 0);
-				GlobalFunc_1("TOPSPIN_TUT");
+				GlobalFunc_Display_Help_Text("TOPSPIN_TUT");
 				func_388(uParam1, 1);
 				func_574(uParam0, 1);
 			}
@@ -7413,7 +7413,7 @@ int func_476(var uParam0, var uParam1, var uParam2, var uParam3, int iParam4, in
 				CAM::SET_CAM_PARAMS(uParam0->f_3, Var0, Var3, 34f, 0, 1, 1, 2);
 				CAM::SET_CAM_PARAMS(uParam0->f_3, Var6, Var9, 34f, 7231, 0, 0, 2);
 				CAM::RENDER_SCRIPT_CAMS(1, 0, 3000, 1, 0, 0);
-				GlobalFunc_1("BACKSPIN_TUT");
+				GlobalFunc_Display_Help_Text("BACKSPIN_TUT");
 				func_388(uParam1, 1);
 				func_574(uParam0, 1);
 			}
@@ -7456,7 +7456,7 @@ int func_476(var uParam0, var uParam1, var uParam2, var uParam3, int iParam4, in
 				CAM::SET_CAM_PARAMS(uParam0->f_3, Var0, Var3, 34f, 0, 1, 1, 2);
 				CAM::SET_CAM_PARAMS(uParam0->f_3, Var6, Var9, 34f, 2096, 0, 0, 2);
 				CAM::RENDER_SCRIPT_CAMS(1, 0, 3000, 1, 0, 0);
-				GlobalFunc_1("STRATS_TUT");
+				GlobalFunc_Display_Help_Text("STRATS_TUT");
 				func_574(uParam0, 1);
 				func_342(uParam1[iParam4 /*94*/], &(uParam1->f_247));
 			}
@@ -7552,7 +7552,7 @@ int func_476(var uParam0, var uParam1, var uParam2, var uParam3, int iParam4, in
 			}
 			else if (GlobalFunc_5182(&(uParam0->f_4)) > 2.4f)
 			{
-				GlobalFunc_1("GLHF_TUT");
+				GlobalFunc_Display_Help_Text("GLHF_TUT");
 			}
 			break;
 		

@@ -1521,7 +1521,7 @@ int func_192(int iParam0, int iParam1, int iParam2)//Position - 0x208B2
 	}
 	if (iParam0 == 1)
 	{
-		if (!GlobalFunc_109())
+		if (!GlobalFunc_Has_Cutscene_Loaded())
 		{
 			return 0;
 		}
